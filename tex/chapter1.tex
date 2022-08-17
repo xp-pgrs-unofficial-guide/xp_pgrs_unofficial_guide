@@ -1,0 +1,79 @@
+%# -*- coding: utf-8-unix -*-
+%%==================================================
+\chapter{这是什么？}
+
+这是$\mathbb{ Q}$-book \LaTeX 书籍模板，当前版本为 \version 。
+
+这份模板主要基于上海交大的学位论文模板
+\footnote{\url{https://github.com/sjtug/SJTUThesis}}修改得到
+，结合少量个人审美喜好，重新定制了定义、定理等环境。由于这个模板本是用于一项书籍翻译计划，因此其中的一些环境，例如“观察”、“规则”、“关键点”等，读者可能用不到，可以根据自己的需求适当修改。
+
+你也可以通过邮箱\texttt{jey74165@163.com}给我发邮件反映遇到的问题。不过作者水平有限，或许有些问题也无法解答，还请见谅。
+
+\section{文档说明}
+
+\subsection{准备工作}
+
+要想灵活使用、魔改这个模板来撰写自己的书籍，需要对\emph{TeX系统}有一定的了解，也需要掌握基本的\emph{TeX技能}。
+
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+	\item {\TeX}系统：所使用的{\TeX}系统要支持 \XeTeX 引擎，且带有ctex 2.x宏包。一般来说，只要安装了的\emph{完整}TeXLive或MacTeX发行版就不会出现问题。
+	\item TeX技能：尽管提供了对模板的必要说明，但这并不是一份“ \LaTeX 入门文档”。用户应当有一定的\LaTeX 使用经验。
+\end{itemize}
+
+\subsection{字体与选项}
+
+$\mathbb{ Q }$-book暂不提供可选项，直接用命令\verb|\documentclass{qbook}|载入即可。如有需要，用户可以根据自己的需求进行相关的添加或修改。
+
+本模板所使用的字体仅为宋体，{\kaishu{楷体}}和{\heiti{黑体}}等自带字体，用户不会在字体问题上折腾太多精力。
+
+\subsection{编译方式}
+
+最简单的办法是直接双击模板文件夹中的compile.bat文件，在命令行模式下编译；当然使用你配置好的Tex编辑器也是可以的。编译失败时，可以尝试手动逐次编译，定位故障。
+\begin{lstlisting}[basicstyle=\small\ttfamily, caption={手动逐次编译}, numbers=none]
+xelatex -no-pdf qbook
+biber --debug qbook
+xelatex qbook
+xelatex qbook
+\end{lstlisting}
+
+\section{模板文件介绍}
+
+本节介绍$\mathbb{ Q }$-book模板中主要文件和目录的功能。
+
+\subsection{格式控制文件}
+
+格式控制文件控制着书籍的表现形式，包括以下两个文件
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+	\item qbook.cfg
+	\item qbook.cls
+\end{itemize}
+其中，“cfg”和“cls”为文件格式。
+
+\subsection{主文件}
+
+主文件qbook.tex的作用就是将你分散在多个文件中的章节重新“拼合”成一本完整的书。
+当我们用\LaTeX 写书时，肯定不希望一直在同一页面码字，那样会显得非常臃肿，而且不便于以后的修改和查找。所以在使用本模板的时候，你的章节内容和素材会被“拆散”为各个部分，例如前言、概览、各章节及参考文献等。
+在qbook.tex中通过\verb|\include{xxx}|命令将各个部分包含进来，从而形成一本结构完整的书籍。
+
+\subsection{各部分源文件}
+
+被“拆散”的各个部分的源文件存放于tex文件夹中，是论文的主体，以“章”为单位划分，其中包括：
+
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+	\item cover.tex——用于绘制封面。
+	\item preface.tex——前言。
+	\item overview.tex——概览。
+	\item chapter(xxx).tex——各章主体内容。
+	\item 参考文献列表由bibtex插入，不作为一个单独的文件。
+\end{itemize}
+
+\subsection{图片存放}
+
+figure文件夹放置了需要插入文档中的图片文件(支持PNG/JPG/PDF/EPS格式的图片)。
+在qbook.cls中已经使用\verb|\graphicspath|命令定义了图片存储的顶层目录，所以在插入图片时，图片路径的顶层目录名“figure”可省略。
+
+\subsection{参考文献数据库}
+
+目前参考文件数据库目录只存放一个参考文件数据库qbook.bib。
+关于参考文献引用，可参考第\ref{chap2}章中的例子。

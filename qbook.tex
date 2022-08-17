@@ -1,0 +1,55 @@
+%# -*- coding: utf-8-unix -*-
+%======================================================================
+% qbook.tex for Qbook Template
+%======================================================================
+% 双面打印
+\documentclass{qbook}
+\addbibresource{bib/qbook.bib}  % 导入参考文献数据库
+\begin{document}
+\pagestyle{empty}
+\include{tex/cover}  % 载入封面
+\begin{center}
+	\Large{\sffamily\bfseries\heiti Version 2.00} \\ \vspace{2em}
+	\Large{\sffamily\bfseries\heiti 编译日期: \today} \\ \vspace{1em}
+	\Large{\sffamily\bfseries\heiti 任何建议及错误信息请发送至邮箱} \\
+	\texttt{jey74165@163.com}
+\end{center} 
+\vfill
+\vspace{30em}
+\begin{tabular*}{\textwidth}{ccc}
+	\includegraphics{figure/by-nc.eps}
+	& \begin{minipage}[b]{0.6\textwidth}
+		\small\sffamily
+		本作品采用知识共享 署名-非商业性使用 4.0 国际 许可协议进行许可. 访问\url{http://creativecommons.org/licenses/by-nc/4.0/  }查看该许可协议.
+	\end{minipage}
+\end{tabular*}  
+\thispagestyle{empty}
+\frontmatter  % 对前言和概览用罗马数字作为页码
+\pagestyle{empty}
+\include{tex/preface}
+\pagestyle{empty}
+\tableofcontents
+\cleardoublepage
+\include{tex/overview} 
+\mainmatter	  % 对正文用阿拉伯数字作为页码
+%======================================================================
+% 正文内容
+\pagestyle{fancy}
+\setcounter{page}{0}
+\include{tex/chapter1}
+\include{tex/chapter2}
+\include{tex/chapter3}
+\include{tex/chapter4}
+\include{tex/chapter5}
+\include{tex/chapter6}
+\include{tex/chapter7}
+\include{tex/chapter8}
+\include{tex/chapter9}
+\include{tex/chapter10}
+\backmatter	
+%======================================================================
+% 打印参考文献
+\printbibliography[heading=bibintoc]
+\makeatletter
+\makeatother
+\end{document}
