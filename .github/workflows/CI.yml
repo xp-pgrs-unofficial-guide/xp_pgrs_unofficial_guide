@@ -1,0 +1,20 @@
+name: release_on_tag
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: compile
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: "xp_pgrs_unofficial_guide.tex"
+          latexmk_use_xelatex: true
