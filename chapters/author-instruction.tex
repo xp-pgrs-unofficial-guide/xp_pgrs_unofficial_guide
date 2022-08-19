@@ -1,18 +1,26 @@
 \chapter{写作指南}
+\label{chapter.author-ins}
 
-欢迎！
+% v0.1 by Kai.Wu
 
-多种方式
+你用十几分钟写下的经验，可能会节约下后来人几小时甚至几天的时间。欢迎为本攻略做出贡献。正确的投稿姿势有：
+
 \begin{itemize}
-    \item 推荐：直接在本手册的GitHub页面交Pull Request. 链接。方法
-    \item 在本手册的GitHub页面的Discussion里直接提交稿件
-    \item 在Overleaf上写
-    \item 也可以直接发邮件给 Kai.Wu19 at student.xjtlu.edu.cn
-\end{itemize}
+    \item 最简单粗暴的，可以直接把稿件发给 Kai.Wu19 at student.xjtlu.edu.cn，虽然管理员可能没有那么开心，因为要费些时间建文件整理上传，但也是可以的。如果你心疼可怜的管理员，可以看看下面的方法。
+    \item 如果你有使用Git和交Pull Request的经验，可以直接在\href{https://github.com/kaiwu-astro/xp_pgrs_unofficial_guide}{本手册的GitHub页面}提交PR。\href{https://www.zhihu.com/question/21682976/answer/79489643}{如何交PR可参照这个链接}
+    \item 如果不需要特殊排版（就是基本是纯文字），可以直接在\href{https://github.com/kaiwu-astro/xp_pgrs_unofficial_guide/discussions}{本手册的GitHub页面的Discussion里}粘贴或上传你的稿件。
+    \item 另外也可以在Overleaf上写。请发邮件到 Kai.Wu19 at student.xjtlu.edu.cn 申请编辑权限。写完过后，请发邮件给管理员把稿件推送到GitHub。其实由于在Overleaf上多人一起编辑搞不好会搞乱项目，所以不是很推荐，但也是可以的。
+\end{itemize} 
 
-注意：为避免多人协作弄乱顺序，请每位作者在chapter文件夹下建立自己的子目录，在里面新建tex文件写作。写完了过后，在正确的章节里，用\lstinline{\include{你的tex文件路径}}插入到对应区域。
+\vspace{5mm}
+注意：对于上面任何一种投稿方法，为避免多人协作弄乱顺序，请每位作者在\texttt{author-folder}文件夹下建立自己的子目录，在里面新建\texttt{tex}文件写作，第一行直接从\texttt{section}命令开始，其后写正文。写完了过后，在正确的章节里，用以下代码把你的稿件插入到\texttt{chapter}文件夹下的章节里
+\begin{lstlisting}
+    \include{你的tex文件路径}
+\end{lstlisting} 
 
+\vspace{5mm}
+好了，就这么点要说的，开始帮助学弟学妹吧。如果要一些高级的编辑方式，可参照项目GitHub或Overleaf的\texttt{author-guide}目录下的模板手册和例子。
 
-本手册使用了ElegantBook模板。
+属不署名都可以。可以匿名，也可以把姓名邮箱院系入学年份都写上。你如果愿意的话把生辰八字、出生年月、房产车产详情附上也是完全可以的，这样甚至可以问问PGR Society能不能安排相亲（雾）。
 
-您不得发布任何违反中华人民共和国法律、西交利物浦大学博士生守则、利物浦大学博士生守则和其他任何适用规定的内容。您需要对你发布的内容负责。由您发布的内容导致的任何纠纷，PGR Society社团和其他作者不承担任何连带责任。
+最后必须要提醒：您不得发布任何违反中华人民共和国法律、西交利物浦大学博士生守则、利物浦大学博士生守则和其他任何适用规定的内容。您需要对你发布的内容负责。由您发布的内容导致的任何纠纷，PGR Society社团和其他作者不承担任何连带责任。
