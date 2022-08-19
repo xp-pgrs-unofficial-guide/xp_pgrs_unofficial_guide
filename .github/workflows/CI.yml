@@ -1,4 +1,4 @@
-name: release_on_tag
+name: test-compile
 
 on:
   push:
