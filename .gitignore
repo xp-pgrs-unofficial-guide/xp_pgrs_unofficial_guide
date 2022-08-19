@@ -1,6 +1,7 @@
 ## Custom gitignore here
 .DS_Store
 ._.DS_Store
+xp_pgrs_unofficial_guide.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
