@@ -1,0 +1,57 @@
+\documentclass[lang=cn,12pt,newtx]{elegantbook}
+
+\title{西浦博士生非官方攻略}
+% \subtitle{111}
+
+\author{PRG Society 社团}
+% \institute{}
+\date{\today}
+\version{0.1}
+% \bioinfo{自定义}{信息}
+
+\extrainfo{前人栽树，后人乘凉}
+
+\setcounter{tocdepth}{3}
+
+\logo{logo-blue.png} 
+\cover{cover.jpg}
+
+% 本文档命令
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+% 修改标题页的橙色带
+\definecolor{customcolor}{RGB}{32,178,170}
+\colorlet{coverlinecolor}{customcolor}
+\usepackage{cprotect}
+
+% \addbibresource[location=local]{reference.bib} % 参考文献，不要删除 % 我就删除
+
+\begin{document}
+
+\maketitle
+\frontmatter
+
+\include{chapters/preface}
+\include{chapters/acknowledgement}
+\tableofcontents
+\mainmatter
+%======================================================================
+% 正文内容
+% \pagestyle{fancy}
+% \setcounter{page}{0}
+\include{chapters/must-do}
+\include{chapters/fuli}
+\include{chapters/better-know}
+\include{chapters/others}
+\include{chapters/bikeng}
+\include{chapters/non-xjtluer}
+\include{chapters/pgrsociety}
+\include{chapters/author-instruction}
+%======================================================================
+\backmatter	
+% 打印参考文献
+% \printbibliography[heading=bibintoc]
+\makeatletter
+\makeatother
+\end{document}
