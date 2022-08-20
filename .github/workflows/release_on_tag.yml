@@ -21,3 +21,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: xp_pgrs_unofficial_guide.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
