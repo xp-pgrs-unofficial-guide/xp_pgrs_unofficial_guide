@@ -17,9 +17,17 @@ jobs:
         with:
           root_file: "xp_pgrs_unofficial_guide.tex"
           latexmk_use_xelatex: true
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
+        with:
+          # Optionally strip `v` prefix
+          strip_v: true
+      - name: Rename output file
+        run: mv "xp_pgrs_unofficial_guide.pdf" "xp_pgrs_unofficial_guide_${{steps.tag.outputs.tag}}.pdf"
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: xp_pgrs_unofficial_guide.pdf
+          files: xp_pgrs_unofficial_guide_${{steps.tag.outputs.tag}}.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
