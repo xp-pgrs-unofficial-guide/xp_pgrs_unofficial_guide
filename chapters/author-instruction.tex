@@ -15,8 +15,9 @@
 \vspace{5mm}
 注意：对于上面任何一种投稿方法，为避免多人协作弄乱顺序，请每位作者在\texttt{author-folder}文件夹下建立自己的子目录，在里面新建\texttt{tex}文件写作，第一行直接从\texttt{section}命令开始，其后写正文。写完了过后，在正确的章节里，用以下代码把你的稿件插入到\texttt{chapter}文件夹下的章节里
 \begin{lstlisting}
-    \include{你的tex文件路径}
+    \input{你的tex文件路径}
 \end{lstlisting} 
+例如，王多鱼同学想要分享自己的常用软件。首先在\texttt{author-folder}下建立一个\texttt{duoyu.wang}文件夹，在里面新建\texttt{health-insurance-use.tex}，第一行写\lstinline[breaklines=true]!\chapter{学生医保使用}!写标题，后面写正文。写好过后，在\texttt{chapters}文件夹里的\texttt{others.tex}中，添加一行\lstinline[breaklines=true]!\input{author-folder/duoyu.wang/health-insurance-use.tex}!，就完成了。
 
 \vspace{5mm}
 好了，就这么点要说的，开始帮助学弟学妹吧。如果要一些高级的编辑方式，可参照项目GitHub或Overleaf的\texttt{author-guide}目录下的模板手册和例子。
