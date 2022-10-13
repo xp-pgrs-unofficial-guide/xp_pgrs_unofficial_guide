@@ -1,0 +1,30 @@
+{
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "latex-workshop.latex.recipes": [
+            {
+                "name": "xe",
+                "tools": [
+                    "xelatex",
+                ]
+            },
+            {
+                "name": "xe->biber->xe->xe",
+                "tools": [
+                    "xelatex",
+                    "biber",
+                    "xelatex",
+                    "xelatex"
+                ]
+            },
+            {
+                "name": "xe->bib->xe->xe",
+                "tools": [
+                    "xelatex",
+                    "bibtex",
+                    "xelatex",
+                    "xelatex"
+                ]
+            },
+
+    ]
+}
