@@ -24,10 +24,10 @@ jobs:
           # Optionally strip `v` prefix
           strip_v: true
       - name: Rename output file
-        run: mv "xp_pgrs_unofficial_guide.pdf" "xp_pgrs_unofficial_guide_${{steps.tag.outputs.tag}}.pdf"
+        run: mv "xp_pgrs_unofficial_guide.pdf" "西浦博士生非官方攻略_${{steps.tag.outputs.tag}}.pdf"
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: xp_pgrs_unofficial_guide_${{steps.tag.outputs.tag}}.pdf
+          files: 西浦博士生非官方攻略_${{steps.tag.outputs.tag}}.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
