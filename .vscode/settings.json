@@ -25,6 +25,6 @@
                     "xelatex"
                 ]
             },
-
-    ]
+    ],
+    "latex-workshop.latex.search.rootFiles.include": ["xp_pgrs_unofficial_guide.tex"],
 }
