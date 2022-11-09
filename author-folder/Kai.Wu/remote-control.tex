@@ -1,0 +1,75 @@
+\section{远程控制·如何校外访问校内电脑}
+
+人在校外的时候，经常会很想念校内的电脑。不管是学校给大家每人配的小台式，还是用导师经费买的的其他电脑，都可以远程控制。
+
+\subsection{学校配的电脑·准备工作}
+（如果不是想访问学校配的电脑请直接跳到下一节）
+
+学校给的电脑比较特殊，默认我们不能安装软件。有两种办法
+\begin{enumerate}
+    \item 发邮件或者打电话给IT，直接问他们要管理员权限。就说你是博士生，要在学校给的电脑上装软件。之后就可以装控制软件了
+    \item 上面这种办法过后，电脑还是归学校管理，仍然有一些限制，但对普通使用基本够了。\sout{（有强迫症）}想完全控制学校电脑的同学\sout{（比如我）}，可以直接格盘重装系统，或者分区（保留原系统）另装系统做双系统。windows重装系统、分区做双系统的教程，b站和知乎特别多。
+\end{enumerate}
+
+\subsection{桌面控制软件推荐}
+以下软件不分系统，win/linux/mac均可用。
+\begin{itemize}
+    \item VNC: 被控端（学校电脑）安装 VNC Server \url{https://www.realvnc.com/en/connect/download/vnc/}，控制端（你手上的电脑）安装 VNC Viewer \url{https://www.realvnc.com/en/connect/download/viewer/}，注册账号登录使用，无需记录连接码。推荐理由：VNC是饱经检验的远程桌面，只要网络不挂，一般不会有问题。
+    \item ToDesk：\url{https://www.todesk.com/}两边电脑软件一样。推荐理由：新兴软件，流畅度一般比vnc好一些。
+    \item 其他：anydesk，Teamviewer，向日葵，均可尝试。其中，不太推荐Teamviewer，虽然老牌，但因为很可能检测到西浦的网络环境过后强制购买商业版，其他软件无此问题。
+\end{itemize}
+
+\subsection{远程SSH}
+（不用linux的同学可直接跳到下一节看踩坑）
+
+如果被控端是linux，你又主要使用命令行操作，那在桌面控制外，直接设法连接SSH，速度会快特别多。
+
+电脑在学校是10开头的内网ip，如何在外面SSH？这种奇技淫巧叫做【内网穿透】
+
+首先推荐这个视频：
+
+\href{https://www.bilibili.com/video/BV1Qq4y1w7F5}{【硬核】公网访问？内网穿透！零经验上手！}\url{https://www.bilibili.com/video/BV1Qq4y1w7F5}
+
+视频里校内机器可用的方案有两个，分别是
+
+\begin{itemize}
+    \item 视频的04:52，用IPV6连接。但要注意，我实测学校IPV6不稳定，过几天就会出现有v6地址但不能上v6网站的情况，更别提访问。即使你能做ddns，我个人也不推荐。
+    \item 更靠谱的是视频08:09介绍的大内网穿透。免费易用的方案有：Zerotier（在境外，略慢），花生壳（国内老牌，但注册需要身份证），NOFRP（新兴，可靠性可能不高），或者直接在b站搜【免费内网穿透】，会有很多新方案。这几个方案如果不太会，b站、知乎有大量教程。
+    \item （进阶大流量版，但学习成本较高）免费的方案对流量和带宽的限制都比较大，只是SSH执行命令完全足够了。但如果你想要奢侈的用scp拷文件，或者用SSH转发VNC，请考虑用导师的钱租一台云服务器，手动搭建frp服务（比较麻烦，但操作完过后用起来很爽，转发VNC比前面几种远程桌面都快），甚至，在宿舍宽带下弄个垃圾机器做跳板机，搞到公网ip，配合ddns，无限流量访问。这些方案学习成本较高，有兴趣的可以参考网上教程慢慢折腾。
+\end{itemize}
+
+\subsection{踩过的坑}
+下面是我踩过大量坑过后从坑里带出来的经验：
+\begin{enumerate}
+    \item 冗余提高可靠性：不要只用一个远程控制方案，万一挂了一个，还能用另一个。请至少安装两个，如果是长时间不在校，可以安装更多个。我自己用的是：家宽里用一台二手瘦主机搭frp加ddns + 花生壳作backup-plan + vnc作another-backup-plan + ToDesk四重备份方案，稳定访问校内的linux电脑。
+    \item 安装完成后，重启一次，看下控制软件是否能自己启动。
+    \item 如果被控端是windows电脑，请务必屏蔽系统更新。虽然重启没问题，但windows大版本更新过后，会卡在一个让你同意新的用户协议的界面，除非你到场点一下，所有软件都不会启动，也就直接失去控制。请百度【禁止windows更新】。个人建议用组策略+改host组合拳。
+    \item 跑程序的同学，请务必注意，不要超内存，不要炸系统内存。内存一吃满，系统立即死机，控制软件全杀完，而且还不会自己重启，必须要到场强制重启。请一定想办法在程序里监测、控制内存用量。
+    \item 有条件的可以购买【向日葵控控】这样的远程KVM硬件，即使死机也可以自己远程强制重启。
+    \item 再好的方案，也敌不过学校网络维护断网和学校施工断电。而这些，也是可以防御的。应对断网，请注意在网络登录时勾选macauth，网络维护完了就又能用了。来电自动启动功能，需要主板支持，在主板说明书搜索boot on power或boot with power，或直接搜power，看看有没有。或者，购买向日葵控控。不过断电断网始终是极少数时候，除非你一走几个月，基本不需要考虑\sout{（但万一被隔离了呢）}。
+    \item 请和至少一个在校同学搞好关系，新手总会遇到各种意外的情况失去控制，需要办公室同学帮你跑腿看机器情况。100种远程控制的方案背后，也需要好同学做物理控制。万一的万一，哪天网线被人不小心踢掉了呢，还是只有\sout{通过py交易}让同学帮你弄。
+\end{enumerate}
+
+\begin{flushright}
+(2022年11月09日 by Kai Wu)
+\end{flushright}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.5\columnwidth]{author-folder/Kai.Wu/}
+% \end{figure}
+
+
+% \usepackage[export]{adjustbox}
+
+% \item 
+% \begin{minipage}{0.3\textwidth}
+%     文字
+% \end{minipage}
+% \begin{minipage}{0.63\textwidth}
+%     \begin{figure}[H]
+%         \includegraphics[width=0.95\columnwidth, right]{author-folder/Kai.Wu/}
+%     \end{figure}
+% \end{minipage}
+
+% \input{author-folder/Kai.Wu/.tex}
