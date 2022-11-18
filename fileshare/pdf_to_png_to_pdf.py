@@ -25,6 +25,10 @@ def usage():
 (2) python3 pdf_to_png_to_pdf.py -f "path_of_pdf" 将优化单个PDF
 (3) 以上两种用法，加上 --clean 或 -c 参数，会把优化前的原pdf自动清理（移动）到原目录下的compressed文件夹里
 
+
+注意事项：
+  极个别PDF会在转换后丢失矢量笔迹。如果转换后发现是空白的作业（只有题目而没有做），需要double check原文件
+
     """
     print(USAGE)
     sys.exit(0)

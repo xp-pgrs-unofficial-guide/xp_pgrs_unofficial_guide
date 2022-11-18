@@ -54,7 +54,7 @@
             \centering
             \includegraphics[width=0.5\columnwidth]{author-folder/Kai.Wu/LMO_upload.png}
         \end{figure}
-    \item 要注意，如果你中间用Excel把它存成了xlsx，上传前需要另存为csv格式再上传。勾选下面allow那一句，允许表格内容覆盖已经在网页改过的内容。点击下面upload过后，你会看到很长一串网页，每个学生的成绩（和你输入的feedback comments）就传上去了。
+    \item 要注意，如果你中间用Excel把它存成了xlsx，上传前需要另存为UTF-8的csv格式再上传。勾选下面allow那一句，允许表格内容覆盖已经在网页改过的内容。点击下面upload过后，你会看到很长一串网页，每个学生的成绩（和你输入的feedback comments）就传上去了。
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.8\columnwidth]{author-folder/Kai.Wu/LMO_upload_sheet.png}
@@ -63,7 +63,7 @@
     \item 最后要发邮件给老师，说明(1)发现的共性问题，比如某道题错得很多，某道题不会的很多，某道题有的学生错理解成了什么，之类的，(2)个别问题，例如某学生交错了文件，某学生疑似抄袭标准答案（这种一般是高年级学生给他的），某学生和某学生作业雷同，(3)以及其他任何想和老师沟通的问题。大学数学系有下面这种专门的反馈表，填到表里。如果没有反馈表的，给老师发邮件说下也可以。（一般都不用太详细，不要学我，很费时间，除非你热爱这项事业）
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.5\columnwidth]{author-folder/Kai.Wu/LMO_feedback_to_teacher.png}
+            \includegraphics[width=0.5\columnwidth]{author-folder/Kai.Wu/LMO_feedback_to_teacher.jpg}
         \end{figure}
 \end{enumerate}
 
@@ -82,7 +82,7 @@
             \centering
             \includegraphics[width=0.7\columnwidth]{author-folder/Kai.Wu/tongchengji.png}
         \end{figure}
-    \item 学生提交的文件可能有很多大病。比如，提交的不是pdf而是word甚至ppt、提交的pdf里面图片顺序是乱的、图片方向是错的、有标准的习题册不用而是自己拿个本写导致不好对答案。TA有权要求学生交作业的格式，可以对这些学生在feedback comments里面警告，并且提醒科任老师一定要在课上提醒学生，否则真的非常影响批阅效率。学生警告了仍然乱交格式时，可以按你的标准扣格式分。比如我的标准是：初犯警告，再犯扣20\%，三次或以上扣50\%。
+    \item 学生提交的文件可能有很多大病。比如，提交的不是pdf而是word甚至ppt、提交的pdf里面图片顺序是乱的、图片方向是错的、有标准的习题册不用而是自己拿个本写导致不好对答案。TA有权要求学生交作业的格式，可以对这些学生在feedback comments里面警告，并且提醒科任老师一定要在课上提醒学生，否则真的非常影响批阅效率。学生警告了仍然乱交格式时，可以按你的标准扣格式分。比如我的标准是：初犯警告，再犯扣20\%，三次扣50\%，四次扣完。
     \item 有时候文件巨大或者文件中有太多手写字迹，会导致pdf打开加载非常慢（一分钟甚至几分钟），而且容易崩溃。前者可以要求学生自行压缩PDF，后者实在是没办法。我写了一个Python程序\href{https://github.com/kaiwu-astro/xp_pgrs_unofficial_guide/tree/main/fileshare/pdf_to_png_to_pdf.py}{[GitHub链接]}应对这种情况，会在下载完所有作业过后把所有PDF转成图片再转回PDF，这样打开就不成问题了，文件大小也都能压缩到5M以内。需要的自取，但使用有点麻烦，不过我实在找不到其他更科学的方法了。
     \item （悄悄说）拿不准给多少分合适的时候，就给多一点。给少了，学生会找你argue，很浪费时间。给多一点，相当于节约自己的时间。
     \item 往表格登成绩的时候，难免犯错，登错或者登串成绩。初次或者前几次登成绩尤其容易出问题，可以考虑全部double check一遍。另外，如果你把成绩写在了PDF左上角，能一定程度解决这个问题，也就是如果成绩登错了，学生发现LMO成绩和PDF上的不一样，能马上联系你。
