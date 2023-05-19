@@ -26,8 +26,9 @@ jobs:
       - name: Rename output file
         run: mv "xp_pgrs_unofficial_guide.pdf" "xp_pgrs_unofficial_guide_${{steps.tag.outputs.tag}}.pdf"
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          automatic_release_tag: "latest"
           files: xp_pgrs_unofficial_guide_${{steps.tag.outputs.tag}}.pdf
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
