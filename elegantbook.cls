@@ -424,7 +424,7 @@
   \renewcommand{\indexname}{索\hspace{2em}引}
   \newcommand\figref[1]{\textbf{图}~\ref{#1}}
   \newcommand\tabref[1]{\textbf{表}~\ref{#1}}
-  \newcommand{\authorname}{\citshape 作者：}
+  \newcommand{\authorname}{\citshape 编辑（按时间先后）：}
   \newcommand{\institutename}{\citshape 组织：}
   \newcommand{\datename}{\citshape 时间：}
   \newcommand{\versionname}{\citshape 版本：}
