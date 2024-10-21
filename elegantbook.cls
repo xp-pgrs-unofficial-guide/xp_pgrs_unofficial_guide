@@ -425,6 +425,11 @@
   \newcommand\figref[1]{\textbf{图}~\ref{#1}}
   \newcommand\tabref[1]{\textbf{表}~\ref{#1}}
   \newcommand{\authorname}{\citshape 编辑（按时间先后）：}
+  
+  % Author abbr.
+  \newcommand{\SZ}{\href{mailto:shiyao.zhang14@student.xjtlu.edu.cn}{张世尧}}
+  \newcommand{\Shiyao}{\href{mailto:shiyao.zhang14@student.xjtlu.edu.cn}{Shiyao}}
+  
   \newcommand{\institutename}{\citshape 组织：}
   \newcommand{\datename}{\citshape 时间：}
   \newcommand{\versionname}{\citshape 版本：}
