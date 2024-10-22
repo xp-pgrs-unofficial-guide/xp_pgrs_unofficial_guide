@@ -430,6 +430,9 @@
   \newcommand{\SZ}{\href{mailto:shiyao.zhang14@student.xjtlu.edu.cn}{张世尧}}
   \newcommand{\Shiyao}{\href{mailto:shiyao.zhang14@student.xjtlu.edu.cn}{Shiyao}}
   
+  \newcommand{\KW}{\href{mailto:kaiwu.astro@gmail.com}{吴开}}
+  \newcommand{\Wu}{\href{mailto:kaiwu.astro@gmail.com}{Kai Wu}}
+  
   \newcommand{\institutename}{\citshape 组织：}
   \newcommand{\datename}{\citshape 时间：}
   \newcommand{\versionname}{\citshape 版本：}
