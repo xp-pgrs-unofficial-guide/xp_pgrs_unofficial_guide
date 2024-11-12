@@ -433,6 +433,8 @@
   \newcommand{\KW}{\href{mailto:kaiwu.astro@gmail.com}{吴开}}
   \newcommand{\Wu}{\href{mailto:kaiwu.astro@gmail.com}{Kai Wu}}
   
+  \newcommand{\Yue}{\href{mailto:jasminezhou828@gmail.com}{Yue Zhou}}
+
   \newcommand{\institutename}{\citshape 组织：}
   \newcommand{\datename}{\citshape 时间：}
   \newcommand{\versionname}{\citshape 版本：}
