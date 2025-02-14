@@ -1,10 +1,15 @@
 
 # 西浦博士生非官方攻略
+
+🌐[English version](README.en.md)
+
 本攻略建立的目的是弥补官方 induction 的诸多不足，并基于“前人栽树，后人乘凉”的思想，为后来的博士生提供经验。
 
 项目最初由西浦 PRG Society 社团发起，现在由编辑志愿管理，欢迎围观，欢迎下载（[下载链接](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest)）。
 
 如果本项目帮到了你，可以在右上角帮本项目点个赞（点 star）。
+
+本项目为中文文档，我们同时开设了[英文版项目](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide_EN)
 
 ## 贡献方法
 如果你在读博期间有所经验，比如解决了遇到的坑、发现了可能帮到其他同学的资源等，欢迎写攻略帮助学弟学妹。方法有：
