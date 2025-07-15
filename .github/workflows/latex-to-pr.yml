@@ -1,0 +1,38 @@
+name: Create Content Preview PR
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  convert-and-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Install Pandoc and LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-full
+
+      - name: Convert .tex to .md
+        run: |
+          # 假设你的文件都在 src 目录
+          pandoc xp_pgrs_unofficial_guide.tex -o content/main.md
+          # ... 其他转换命令 ...
+          cp -r author-folder content/author-folder
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Automated Content Update from Pandoc"
+          title: "Content Sync: Update from LaTeX source"
+          body: "This PR was auto-generated from the latest changes in the `main` branch. Please review and merge."
+          branch: "content-preview"     # 新内容提交到的分支
+          base: "content-live"         # PR 的目标分支
+          delete-branch: true          # 合并后自动删除 content-preview 分支
