@@ -1,0 +1,56 @@
+name: Deploy Live Content to WeChat Cloud Base
+
+# 触发条件：只在 'content-live' 分支发生 push 事件时运行
+# 这通常发生在你合并一个 Pull Request 之后
+on:
+  push:
+    branches:
+      - content-live
+
+jobs:
+  deploy-to-cloud:
+    runs-on: ubuntu-latest # 使用最新的 Ubuntu 运行环境
+
+    steps:
+      # 第 1 步：检出代码
+      # 拉取触发此工作流的 'content-live' 分支的最新代码
+      - name: Checkout live content branch
+        uses: actions/checkout@v4
+
+      # 第 2 步：设置 Node.js 环境
+      # 腾讯云的 CLI 工具是基于 Node.js 的，所以需要先设置环境
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # 使用一个稳定的 Node.js长期支持版本
+
+      # 第 3 步：安装腾讯云开发 CLI
+      # 全局安装 @cloudbase/cli 工具
+      - name: Install Tencent CloudBase CLI
+        run: npm install -g @cloudbase/cli
+
+      # 第 4 步：执行部署
+      # 将 'content' 目录下的所有文件上传到云开发存储的根目录
+      # 注意：这里的操作是“覆盖式”上传，会删除云端同名文件夹再上传，确保内容完全同步
+      - name: Deploy files to Tencent Cloud Storage
+        env:
+          # 从 GitHub Secrets 中读取敏感信息
+          TENCENT_SECRET_ID: ${{ secrets.TENCENT_SECRET_ID }}
+          TENCENT_SECRET_KEY: ${{ secrets.TENCENT_SECRET_KEY }}
+          CLOUD_ENV_ID: ${{ secrets.WECHAT_CLOUD_ENV }}
+        run: |
+          echo "Starting deployment to Cloud ENV: $CLOUD_ENV_ID"
+          
+          # 授权登录腾讯云 CLI
+          # CLI 会自动从环境变量中读取密钥进行授权
+          cloudbase login --apiKeyId $TENCENT_SECRET_ID --apiKey $TENCENT_SECRET_KEY
+          
+          # 为了确保云端和代码仓库完全同步，推荐采用“先删除后上传”的策略
+          # 'cloudbase storage:delete' 如果目录不存在会报错，但我们可以忽略这个错误
+          echo "Deleting remote directory to ensure a clean deploy..."
+          cloudbase storage:delete -e $CLOUD_ENV_ID -r content || echo "Remote directory 'content' did not exist. Continuing."
+
+          echo "Uploading local './content' directory to remote '/content'..."
+          cloudbase storage:upload -e $CLOUD_ENV_ID ./content /content
+          
+          echo "Deployment successful!"
