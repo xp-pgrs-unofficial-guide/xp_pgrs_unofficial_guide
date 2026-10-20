@@ -83,6 +83,8 @@ HTML 使用 Quarto 的 `light: cosmo`／`dark: darkly` 双主题，`respect-user
 
 还应覆盖先切换主题再滚动到评论区，以及保存选择后刷新页面，确认延迟加载的评论也使用当前网页的配色。
 
+评论配置由构建写入页面，`guide.js` 按网页当前主题加载 Giscus，并在评论就绪后补发主题；后续切换通过消息同步，保留输入内容。脚本链接带有内容哈希，更新后会自动避开旧资源缓存，无需手工修改版本号。
+
 作者中英文显示名集中在 `book/_authors.yml` 的 `guide-authors` 与 `guide-authors-en`，稳定 ID 相同。作者清单与主页在 `book/authors/` 和 `book/en/authors/`；`author-pages.lua` 从 `.contribution` 的原作者与补充者字段自动汇总参与文章。“归属待确认”是归属标记，不代表个人。网页只对连续且作者、补充者、确认状态相同的内容合并显示署名，源块和 PDF／Markdown 仍保留各块作者。
 
 更改控件、署名或构建逻辑时，除完整构建外运行：

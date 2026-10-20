@@ -5,10 +5,12 @@ QUARTO_BIN=/path/to/quarto is also supported; the default is quarto pandoc.
 """
 
 from html.parser import HTMLParser
+import hashlib
 import json
 import os
 from pathlib import Path
 import subprocess
+import tempfile
 import unittest
 from urllib.parse import parse_qs, unquote, urlsplit
 
@@ -25,6 +27,7 @@ class Anchors(HTMLParser):
         super().__init__()
         self.anchors = []
         self.scripts = []
+        self.giscus_configs = []
         self.current = None
         self.text = []
 
@@ -32,6 +35,8 @@ class Anchors(HTMLParser):
         fields = dict(attributes)
         if tag == "script" and fields.get("src"):
             self.scripts.append(fields["src"])
+        if tag == "script" and "guide-giscus-config" in fields.get("class", "").split():
+            self.giscus_configs.append(fields)
         if tag == "a":
             self.current = {**fields, "label": ""}
 
@@ -48,7 +53,8 @@ class Anchors(HTMLParser):
 
 def convert(input_file="content/apr.qmd", title="APR", branch="main",
             discussion="xp-guide-apr", output_format="html5", body="Article text.",
-            lang="zh-CN", source_prefix="", site=SITE, site_root=SITE, translation_status=None):
+            lang="zh-CN", source_prefix="", site=SITE, site_root=SITE, translation_status=None,
+            cwd=ROOT, giscus=None):
     metadata = [
         "---", f"title: {json.dumps(title, ensure_ascii=False)}",
         f"discussion-id: {discussion}", f"guide-repo: {REPO}", f"guide-site: {site}",
@@ -66,15 +72,20 @@ def convert(input_file="content/apr.qmd", title="APR", branch="main",
     environment["GUIDE_TEST_PUBLISHING_FILTER"] = str(FILTER)
     for variable in ("GISCUS_REPO_ID", "GISCUS_CATEGORY_ID", "GISCUS_CATEGORY"):
         environment.pop(variable, None)
+    environment.update(giscus or {})
     pandoc = environment.get("PANDOC_BIN")
     command = [pandoc] if pandoc else [environment.get("QUARTO_BIN", "quarto"), "pandoc"]
     return subprocess.run(
         command + ["--from=markdown", f"--to={output_format}", f"--lua-filter={WRAPPER}"],
-        input="\n".join(metadata), text=True, capture_output=True, cwd=ROOT, env=environment,
+        input="\n".join(metadata), text=True, capture_output=True, cwd=cwd, env=environment,
     )
 
 
 class ContributionLinkTests(unittest.TestCase):
+    def versioned_script(self, path):
+        digest = hashlib.sha1((ROOT / "book/assets/guide.js").read_bytes()).hexdigest()
+        return path + "?v=" + digest
+
     def parse(self, **options):
         result = convert(**options)
         self.assertEqual(result.returncode, 0, result.stderr)
@@ -168,7 +179,30 @@ class ContributionLinkTests(unittest.TestCase):
                 parser, _, _ = self.parse(input_file=source)
                 links = [link for link in parser.anchors if link["label"] == "纯 Markdown"]
                 self.assertEqual([link["href"] for link in links], [markdown])
-                self.assertEqual(parser.scripts, [script])
+                self.assertEqual(parser.scripts, [self.versioned_script(script)])
+
+    def test_script_hash_resolves_from_the_filter_location_in_an_unrelated_cwd(self):
+        with tempfile.TemporaryDirectory() as directory:
+            parser, _, _ = self.parse(input_file="content/milestones/apr.qmd", cwd=directory)
+        self.assertEqual(parser.scripts, [self.versioned_script("../../assets/guide.js")])
+
+    def test_giscus_configuration_waits_for_the_page_theme_script_in_both_languages(self):
+        for lang in ("zh-CN", "en"):
+            with self.subTest(lang=lang):
+                parser, _, _ = self.parse(lang=lang, giscus={
+                    "GISCUS_REPO_ID": "repository-id", "GISCUS_CATEGORY_ID": "category-id",
+                })
+                self.assertEqual(len(parser.giscus_configs), 1)
+                self.assertEqual(parser.giscus_configs[0], {
+                    "type": "application/json", "class": "guide-giscus-config",
+                    "data-src": "https://giscus.app/client.js", "data-repo": "example/guide",
+                    "data-repo-id": "repository-id", "data-category": "文章评论",
+                    "data-category-id": "category-id", "data-mapping": "specific",
+                    "data-term": "xp-guide-apr", "data-strict": "1", "data-reactions-enabled": "1",
+                    "data-emit-metadata": "0", "data-input-position": "top",
+                    "data-theme": "preferred_color_scheme", "data-lang": lang, "data-loading": "lazy",
+                })
+                self.assertTrue(all("giscus.app" not in src for src in parser.scripts))
 
     def test_pdf_attachments_and_llms_resolve_from_deep_articles(self):
         body = "\n\n".join([
@@ -236,7 +270,7 @@ class ContributionLinkTests(unittest.TestCase):
                 parser, _, _ = self.parse(input_file=source, lang="en", site=SITE + "en/", source_prefix="en/")
                 links = [link for link in parser.anchors if link["label"] == "Plain Markdown"]
                 self.assertEqual([link["href"] for link in links], [markdown])
-                self.assertEqual(parser.scripts, [script])
+                self.assertEqual(parser.scripts, [self.versioned_script(script)])
 
     def test_english_pdf_uses_shared_attachments_and_its_own_markdown_index(self):
         body = "\n\n".join([

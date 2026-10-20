@@ -49,6 +49,7 @@
   const sentThemes = new WeakMap();
   const watchedFrames = new WeakSet();
   const readyFrames = new WeakSet();
+  const pendingClients = new Set();
   const preferredScheme = window.matchMedia?.("(prefers-color-scheme: dark)");
   const currentTheme = () => {
     if (document.body.classList.contains("quarto-dark")) return "dark";
@@ -69,6 +70,7 @@
     sentThemes.set(frame, theme);
   };
   const synchronize = () => {
+    pendingClients.forEach((client) => client.setAttribute("data-theme", currentTheme()));
     document.querySelectorAll("iframe.giscus-frame").forEach((frame) => {
       if (!watchedFrames.has(frame)) {
         watchedFrames.add(frame);
@@ -103,6 +105,25 @@
     });
   });
   synchronize();
+  // Resolve the initial theme before Giscus requests its first stylesheet. A
+  // late preferred_color_scheme stylesheet could otherwise overwrite a manual
+  // choice even after a successful setConfig message.
+  document.querySelectorAll("script.guide-giscus-config").forEach((config) => {
+    if (config.getAttribute("data-src") !== `${origin}/client.js`) return;
+    const client = document.createElement("script");
+    for (const { name, value } of config.attributes) {
+      if (name.startsWith("data-") && name !== "data-src") client.setAttribute(name, value);
+    }
+    client.className = "guide-giscus-client";
+    client.src = `${origin}/client.js`;
+    client.async = true;
+    client.crossOrigin = "anonymous";
+    client.setAttribute("data-theme", currentTheme());
+    pendingClients.add(client);
+    client.addEventListener("load", () => pendingClients.delete(client));
+    client.addEventListener("error", () => pendingClients.delete(client));
+    config.replaceWith(client);
+  });
 })();
 
 /* Both translations retain explicit section IDs. Keep deep links when changing

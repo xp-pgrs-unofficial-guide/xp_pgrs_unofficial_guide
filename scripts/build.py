@@ -215,6 +215,10 @@ def giscus_settings(config):
         "data-category-id": values["GISCUS_CATEGORY_ID"],
         "data-mapping": "specific",
         "data-strict": "1",
+        "data-reactions-enabled": "1",
+        "data-emit-metadata": "0",
+        "data-input-position": "top",
+        "data-loading": "lazy",
         "data-lang": "en" if str(config.get("lang", "")).startswith("en") else "zh-CN",
         "data-theme": "preferred_color_scheme",
     }
@@ -505,7 +509,9 @@ class Links(HTMLParser):
             for key in ("href", "src"):
                 if fields.get(key):
                     self.urls.append(fields[key])
-        if tag == "script" and fields.get("src") == "https://giscus.app/client.js":
+        if tag == "script" and (fields.get("src") == "https://giscus.app/client.js"
+                                or fields.get("data-src") == "https://giscus.app/client.js"
+                                or "guide-giscus-config" in fields.get("class", "").split()):
             self.giscus_scripts.append(fields)
 
 
@@ -565,10 +571,14 @@ def validate_output(html_only):
             elif path not in discussions:
                 errors.add(f"{label} 的 Giscus 讨论区没有对应的源文章")
             else:
-                expected = {**giscus, "data-term": discussions[path],
+                script = parser.giscus_scripts[0]
+                if "src" in script or "guide-giscus-config" not in script.get("class", "").split():
+                    errors.add(f"{label} 的 Giscus 必须使用无 src、class 含 guide-giscus-config 的配置，由网页主题脚本加载")
+                expected = {**giscus, "type": "application/json", "data-src": "https://giscus.app/client.js",
+                            "data-term": discussions[path],
                             "data-lang": "en" if path in english_articles else "zh-CN"}
                 for field, value in expected.items():
-                    if parser.giscus_scripts[0].get(field) != value:
+                    if script.get(field) != value:
                         errors.add(f"{label} 的 Giscus {field} 与配置或文章 discussion-id 不一致")
     if errors:
         raise ValueError("产物链接检查失败：\n" + "\n".join(sorted(errors)))

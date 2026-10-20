@@ -114,7 +114,8 @@ class TemporaryBook(unittest.TestCase):
             target.parent.mkdir(parents=True, exist_ok=True)
             text = f'<h1 id="{identifier}">Article</h1>'
             if settings:
-                fields = {"src": "https://giscus.app/client.js", **settings, "data-term": identifier}
+                fields = {"type": "application/json", "class": "guide-giscus-config",
+                          "data-src": "https://giscus.app/client.js", **settings, "data-term": identifier}
                 attributes = " ".join(f'{key}="{escape(value, quote=True)}"' for key, value in fields.items())
                 text += f"<script {attributes}></script>"
             target.write_text(text, encoding="utf-8")
@@ -268,6 +269,20 @@ process.stdout.write(new URL(replacement, page).href);
             (self.output / "content/milestones/apr.html").write_text("<h1>Article without comments</h1>")
             with self.assertRaisesRegex(ValueError, "Giscus"):
                 self.quietly(build.validate_output, html_only=True)
+
+    def test_redirects_reject_inert_and_executable_giscus_embeds(self):
+        self.write_redirects({"content/old-apr.qmd": "content/milestones/apr.qmd"})
+        self.write_html()
+        self.quietly(build.export_redirects)
+        redirect = self.output / "content/old-apr.html"
+        original = redirect.read_text()
+        for embed in ('<script type="application/json" class="guide-giscus-config" '
+                      'data-src="https://giscus.app/client.js">{}</script>',
+                      '<script src="https://giscus.app/client.js"></script>'):
+            with self.subTest(embed=embed):
+                redirect.write_text(original + embed)
+                with self.assertRaisesRegex(ValueError, "兼容跳转不应包含 Giscus"):
+                    self.quietly(build.validate_output, html_only=True)
 
     def test_redirect_targets_are_still_checked(self):
         self.write_html()

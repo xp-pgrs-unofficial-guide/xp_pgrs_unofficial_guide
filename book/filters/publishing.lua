@@ -1,5 +1,14 @@
 -- Localized reader controls, contribution links and a stable shared discussion.
 local meta
+-- Resolve from this filter rather than Quarto's changing project/input cwd.
+local filter_file = debug.getinfo(1, "S").source:gsub("^@", "")
+local guide_script_file = pandoc.path.normalize(pandoc.path.join({pandoc.path.directory(filter_file), "../assets/guide.js"}))
+local function guide_script_version()
+  local file = assert(io.open(guide_script_file, "rb"), "[publishing] cannot read " .. guide_script_file)
+  local content = file:read("*a")
+  file:close()
+  return pandoc.utils.sha1(content)
+end
 local function value(v) return v and pandoc.utils.stringify(v) or "" end
 local function html(s)
   return s:gsub("&", "&amp;"):gsub('"', "&quot;"):gsub("<", "&lt;"):gsub(">", "&gt;")
@@ -89,15 +98,17 @@ return {
       parts[#parts + 1] = '<p>' .. text("使用 GitHub 账号登录后即可留言；评论保存在本仓库的 Discussions。", "Sign in with GitHub to comment. Comments are stored in this repository’s Discussions.") .. '</p>'
       local category = os.getenv("GISCUS_CATEGORY") or ""
       if category == "" then category = "文章评论" end
-      parts[#parts + 1] = '<script src="https://giscus.app/client.js" data-repo="' .. html(repo:gsub("^https://github.com/", ""))
+      -- guide.js starts Giscus with the resolved page theme, avoiding an initial
+      -- system-theme stylesheet racing with the reader's saved theme.
+      parts[#parts + 1] = '<script type="application/json" class="guide-giscus-config" data-src="https://giscus.app/client.js" data-repo="' .. html(repo:gsub("^https://github.com/", ""))
         .. '" data-repo-id="' .. html(repoid) .. '" data-category="' .. html(category) .. '" data-category-id="' .. html(categoryid)
         .. '" data-mapping="specific" data-term="' .. html(discussion) .. '" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top"'
-        .. ' data-theme="preferred_color_scheme" data-lang="' .. (english and 'en' or 'zh-CN') .. '" data-loading="lazy" crossorigin="anonymous" async></script>'
+        .. ' data-theme="preferred_color_scheme" data-lang="' .. (english and 'en' or 'zh-CN') .. '" data-loading="lazy">{}</script>'
     else
       parts[#parts + 1] = '<p>' .. text("欢迎到 GitHub Discussions 讨论本页，并附上文章链接。", "Discuss this page on GitHub Discussions and include the article URL.") .. '</p>'
     end
     parts[#parts + 1] = '<p><a href="' .. html(repo .. "/discussions") .. '">' .. text("在 GitHub 打开讨论", "Open GitHub Discussions") .. '</a></p></section>'
-    parts[#parts + 1] = '<script src="' .. html(relative .. (english and "../" or "") .. 'assets/guide.js') .. '"></script>'
+    parts[#parts + 1] = '<script src="' .. html(relative .. (english and "../" or "") .. 'assets/guide.js?v=' .. guide_script_version()) .. '"></script>'
     doc.blocks:insert(pandoc.RawBlock("html", table.concat(parts, "\n")))
     return doc
   end}

@@ -19,7 +19,7 @@ class Events {
   }
 }
 
-function harness({ dark = false, className = "quarto-light", frames = [] } = {}) {
+function harness({ dark = false, className = "quarto-light", frames = [], configs = [] } = {}) {
   const body = { className, classList: { contains(value) { return body.className.split(/\s+/).includes(value); } } };
   const media = Object.assign(new Events(), { matches: dark });
   const window = Object.assign(new Events(), {
@@ -35,10 +35,19 @@ function harness({ dark = false, className = "quarto-light", frames = [] } = {})
   });
   const document = Object.assign(new Events(), {
     body,
+    createElement(tag) {
+      assert.equal(tag, "script");
+      const attributes = new Map();
+      return Object.assign(new Events(), {
+        setAttribute(name, value) { attributes.set(name, value); },
+        getAttribute(name) { return attributes.get(name) ?? null; },
+      });
+    },
     querySelectorAll(selector) {
       if (selector === "details.paragraph-attribution") return [details];
       if (selector === "iframe.giscus-frame") return frames;
       if (selector === "a.guide-language-switch") return [link];
+      if (selector === "script.guide-giscus-config") return configs;
       throw new Error(`Unexpected selector: ${selector}`);
     },
   });
@@ -50,6 +59,63 @@ function harness({ dark = false, className = "quarto-light", frames = [] } = {})
   vm.runInNewContext(script, { document, window, URL, MutationObserver });
   return { body, window, document, media, link, details, summary, frames, observation };
 }
+
+function giscusConfig(overrides = {}) {
+  const fields = {
+    "data-src": "https://giscus.app/client.js", "data-repo": "example/guide",
+    "data-repo-id": "repo-id", "data-category-id": "category-id",
+    "data-mapping": "specific", "data-term": "xp-guide-apr", "data-strict": "1",
+    "data-lang": "zh-CN", "data-theme": "preferred_color_scheme", "data-loading": "lazy",
+    ...overrides,
+  };
+  return {
+    fields, attributes: Object.entries(fields).map(([name, value]) => ({ name, value })),
+    getAttribute: (name) => fields[name] ?? null,
+    replaceWith(client) { assert.equal(this.client, undefined); this.client = client; },
+  };
+}
+
+test("Giscus starts with the saved page theme instead of requesting the system stylesheet", () => {
+  for (const [dark, className, expected] of [[true, "quarto-light", "light"], [false, "quarto-dark", "dark"]]) {
+    for (const language of ["zh-CN", "en"]) {
+      const config = giscusConfig({ "data-lang": language });
+      harness({ dark, className, configs: [config] });
+      const client = config.client;
+      assert.equal(client.src, "https://giscus.app/client.js");
+      assert.equal(client.getAttribute("data-theme"), expected);
+      for (const [name, value] of Object.entries(config.fields)) {
+        if (!["data-src", "data-theme"].includes(name)) assert.equal(client.getAttribute(name), value);
+      }
+      assert.equal(client.getAttribute("data-src"), null);
+      assert.equal(client.async, true);
+      assert.equal(client.crossOrigin, "anonymous");
+    }
+  }
+});
+
+test("a theme changed while the client downloads is used when Giscus first executes", () => {
+  const config = giscusConfig();
+  const h = harness({ configs: [config] });
+  h.body.className = "quarto-dark";
+  h.observation.notify([{ type: "attributes", target: h.body }]);
+  assert.equal(config.client.getAttribute("data-theme"), "dark");
+  config.client.dispatch("load");
+  const frame = widget();
+  h.frames.push(frame);
+  h.observation.notify([{ type: "childList", target: h.body }]);
+  ready(h, frame);
+  h.body.className = "quarto-light";
+  h.observation.notify([{ type: "attributes", target: h.body }]);
+  assert.equal(theme(frame), "light");
+  assert.equal(frame.src, "https://giscus.app/en/widget");
+  assert.equal(config.client.getAttribute("data-theme"), "dark");
+});
+
+test("Giscus configuration cannot load a client from another origin", () => {
+  const config = giscusConfig({ "data-src": "https://giscus.app.attacker.test/client.js" });
+  harness({ configs: [config] });
+  assert.equal(config.client, undefined);
+});
 
 function widget(src = "https://giscus.app/en/widget") {
   const messages = [];

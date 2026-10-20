@@ -23,6 +23,10 @@ GISCUS_ATTRIBUTES = {
     "data-category-id": "category-id",
     "data-mapping": "specific",
     "data-strict": "1",
+    "data-reactions-enabled": "1",
+    "data-emit-metadata": "0",
+    "data-input-position": "top",
+    "data-loading": "lazy",
     "data-lang": "zh-CN",
     "data-theme": "preferred_color_scheme",
 }
@@ -59,10 +63,11 @@ class GiscusOutputTests(unittest.TestCase):
         self.write_article("content/apr.html", "xp-guide-apr")
 
     def write_article(self, relative, term, **overrides):
-        fields = {"src": "https://giscus.app/client.js", **GISCUS_ATTRIBUTES, "data-term": term}
+        fields = {"type": "application/json", "class": "guide-giscus-config",
+                  "data-src": "https://giscus.app/client.js", **GISCUS_ATTRIBUTES, "data-term": term}
         fields.update(overrides)
         attributes = " ".join(f'{key}="{escape(value, quote=True)}"' for key, value in fields.items())
-        (self.output / relative).write_text(f"<script {attributes}></script>", encoding="utf-8")
+        (self.output / relative).write_text(f"<script {attributes}>{{}}</script>", encoding="utf-8")
 
     def validate(self):
         with redirect_stdout(io.StringIO()):
@@ -90,11 +95,16 @@ class GiscusOutputTests(unittest.TestCase):
             self.validate()
 
     def test_wrong_service_or_matching_attributes_fail(self):
-        for field in GISCUS_ATTRIBUTES:
+        for field in [*GISCUS_ATTRIBUTES, "type", "data-src", "class"]:
             with self.subTest(field=field):
                 self.write_article("content/apr.html", "xp-guide-apr", **{field: "incorrect"})
                 with self.assertRaisesRegex(ValueError, field):
                     self.validate()
+
+    def test_executable_embed_is_rejected_even_when_configuration_is_correct(self):
+        self.write_article("content/apr.html", "xp-guide-apr", src="https://giscus.app/client.js")
+        with self.assertRaisesRegex(ValueError, "无 src"):
+            self.validate()
 
     def test_missing_or_duplicate_comment_embed_fails(self):
         article = self.output / "content/apr.html"
