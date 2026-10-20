@@ -20,7 +20,7 @@ Use an article's contribution link to open an Issue draft with the page informat
 
 Legacy LaTeX sources, author materials, and attachments are stored together in `archive/latex/`. Old workflows and the one-time migration tool are also under `archive/`. These materials support source checks; ongoing edits belong in the Quarto source. See the [archive guide](archive/README.md) (in Chinese).
 
-See [project data flow](docs/data-flow.md) (in Chinese) for Mermaid diagrams of the build, publication, comments, and editorial contribution process.
+See [project data flow](docs/data-flow.md) (in Chinese) for Mermaid diagrams of the build, publication, comments, and editorial contribution process. The [maintenance workflow](docs/maintenance-workflow.md) marks the manual and automated steps from contributions through bilingual PDF releases (also in Chinese).
 
 ## Repository layout
 

@@ -20,7 +20,7 @@
 
 旧 LaTeX 原稿、作者资料和附件统一保存在 `archive/latex/`；旧工作流和一次性迁移工具也收在 `archive/`。这些历史资料供核对来源，日常修改写入 Quarto 正文。详见[历史归档说明](archive/README.md)。
 
-正文、构建产物、网站和评论之间的关系见[项目数据流](docs/data-flow.md)，其中包含构建发布与读者互动的 Mermaid 图。
+正文、构建产物、网站和评论之间的关系见[项目数据流](docs/data-flow.md)，其中包含构建发布与读者互动的 Mermaid 图。日常更新、人工审核、自动检查与双语发布的步骤见[更新与维护流程](docs/maintenance-workflow.md)。
 
 ## 项目目录
 

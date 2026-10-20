@@ -2,6 +2,8 @@
 
 项目以 Quarto Markdown（`.qmd`）维护中文正文和逐篇对应的英文译文，每种语言生成网页、整本 PDF 和供读者、LLM agent 阅读的纯 Markdown。历史 LaTeX 只参与一次性迁移；日常发布从当前 `.qmd` 源文件开始。评论在读者访问网页时单独加载。
 
+日常改稿、审核和发布的人工／自动步骤，以及维护者需要关注的入口，见[更新与维护流程](maintenance-workflow.md)。
+
 ## 从原始材料到发布产物
 
 ```mermaid
