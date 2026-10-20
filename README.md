@@ -36,4 +36,4 @@ python3 scripts/build.py
 
 构建会先验证内容，输出到 `book/_book/`。整本 PDF 为 `xp-pgrs-unofficial-guide.pdf`；纯 Markdown 位于 `markdown/content/`，索引为 `llms.txt`。只检查源文件可运行 `python3 scripts/build.py --check-only`。LLM 可直接阅读源文件或网站的 Markdown 导出，无需本项目专用 skill。
 
-GitHub Actions 会验证分支和 PR；仅 `main` 的推送或从 `main` 手动运行会部署 Pages。`v*` 标签继续生成 GitHub Release PDF。首次配置 Pages、评论及发布的方法见[维护者设置](docs/maintainer-setup.md)。
+GitHub Actions 会验证分支和 PR；`main` 的推送或手动运行会部署 Pages，`codex/quarto-guide` 也可手动部署以预览，普通分支推送不部署。`v*` 标签继续生成 GitHub Release PDF。首次配置 Pages、评论及分支预览的方法见[维护者设置](docs/maintainer-setup.md)。

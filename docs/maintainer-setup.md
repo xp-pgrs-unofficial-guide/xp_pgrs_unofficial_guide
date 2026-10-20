@@ -4,13 +4,25 @@
 
 ## 第一次启用 GitHub Pages
 
-在仓库 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。当前仓库为公开仓库，可使用 GitHub Free 的 Pages。部署环境 `github-pages` 如配置分支限制，应仅允许 `main`。
+在仓库 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。当前仓库为公开仓库，可使用 GitHub Free 的 Pages。部署环境 `github-pages` 如配置分支限制，应允许 `main` 和用于手动预览的 `codex/quarto-guide`；保留既有审核要求。
 
-合并到 `main` 后，`Build guide and deploy Pages` 会先检查并构建全部格式，再部署网站。也可在 Actions 中选择该工作流、选择 `main` 并手动运行。其他分支的推送、PR 和从其他分支手动运行只验证和保存构建产物，不更新正式网站。首次网站地址为：
+合并到 `main` 后，`Build guide and deploy Pages` 会先检查并构建全部格式，再部署网站。也可选择 `main` 手动运行。`codex/quarto-guide` 只在手动触发时部署；该分支的普通推送、PR 和其他分支的运行只验证和保存构建产物。网站地址为：
 
 <https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/>
 
 不要在 `book/_book/` 手工修正文；下次构建会覆盖它。部署前需要审核的是源文件 PR。
+
+## 不合并 main，手动预览当前分支
+
+先推送 `codex/quarto-guide`，再在 Actions 中打开 `.github/workflows/CI.yml` 对应工作流，选择 **Run workflow → codex/quarto-guide → Run workflow**。工作流列表的显示名可能仍是默认分支里的旧名称 `test-compile`，以文件路径为准。也可使用 GitHub CLI：
+
+```sh
+gh workflow run CI.yml --ref codex/quarto-guide
+```
+
+部署会发布当前分支构建出来的网页、PDF 和 Markdown，不会合并或修改 `main`。它使用上面的同一个 Pages 地址，不是独立的分支预览网址；以后从 `main` 部署会更新这个网站。普通推送当前分支不会更新网站，需要再次手动运行。
+
+当前分支尚未合并时，网站中的编辑链接和 Issue 表单仍按正式版本的 `main` 路径配置；正文浏览、搜索、署名和下载可用于预览，贡献入口在正式合并后生效。
 
 ## 配置文章评论
 

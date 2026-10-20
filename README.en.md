@@ -36,4 +36,4 @@ python3 scripts/build.py
 
 The build validates the source and writes to `book/_book/`: the PDF is `xp-pgrs-unofficial-guide.pdf`, plain Markdown is under `markdown/content/`, and `llms.txt` provides an index. Use `python3 scripts/build.py --check-only` to validate without rendering. LLMs can read the source or exported Markdown without a project-specific skill.
 
-GitHub Actions validates branch pushes and pull requests. Pages deployment runs only for a push to `main` or a manual run from `main`. The existing `v*` tag workflow continues to publish PDF releases. See [maintainer setup](docs/maintainer-setup.md) for the initial Pages and comments configuration.
+GitHub Actions validates branch pushes and pull requests. Pages deploys for a push or manual run from `main`, or a manual preview run from `codex/quarto-guide`. Ordinary feature-branch pushes do not deploy. The existing `v*` tag workflow continues to publish PDF releases. See [maintainer setup](docs/maintainer-setup.md) for Pages, comments, and branch preview configuration.
