@@ -1,0 +1,132 @@
+"""Exercise actual article contribution links through the production Lua filter.
+
+Run with PANDOC_BIN=/path/to/pandoc python3 -m unittest discover -s tests/publishing.
+QUARTO_BIN=/path/to/quarto is also supported; the default is quarto pandoc.
+"""
+
+from html.parser import HTMLParser
+import json
+import os
+from pathlib import Path
+import subprocess
+import unittest
+from urllib.parse import parse_qs, unquote, urlsplit
+
+
+ROOT = Path(__file__).resolve().parents[2]
+FILTER = ROOT / "book/filters/publishing.lua"
+WRAPPER = ROOT / "tests/publishing/quarto_stub.lua"
+REPO = "https://github.com/example/guide"
+SITE = "https://example.github.io/guide/"
+
+
+class Anchors(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.anchors = []
+        self.current = None
+        self.text = []
+
+    def handle_starttag(self, tag, attributes):
+        if tag == "a":
+            self.current = {**dict(attributes), "label": ""}
+
+    def handle_data(self, data):
+        self.text.append(data)
+        if self.current is not None:
+            self.current["label"] += data
+
+    def handle_endtag(self, tag):
+        if tag == "a" and self.current is not None:
+            self.anchors.append(self.current)
+            self.current = None
+
+
+def convert(input_file="content/apr.qmd", title="APR", branch="codex/quarto-guide",
+            discussion="xp-guide-apr"):
+    metadata = [
+        "---", f"title: {json.dumps(title, ensure_ascii=False)}",
+        f"discussion-id: {discussion}", f"guide-repo: {REPO}", f"guide-site: {SITE}",
+    ]
+    if branch is not None:
+        metadata.extend(["book:", f"  repo-branch: {json.dumps(branch)}"])
+    metadata.extend(["---", "", "Article text."])
+    environment = os.environ.copy()
+    environment["GUIDE_TEST_INPUT"] = input_file
+    environment["GUIDE_TEST_PUBLISHING_FILTER"] = str(FILTER)
+    for variable in ("GISCUS_REPO_ID", "GISCUS_CATEGORY_ID", "GISCUS_CATEGORY"):
+        environment.pop(variable, None)
+    pandoc = environment.get("PANDOC_BIN")
+    command = [pandoc] if pandoc else [environment.get("QUARTO_BIN", "quarto"), "pandoc"]
+    return subprocess.run(
+        command + ["--from=markdown", "--to=html5", f"--lua-filter={WRAPPER}"],
+        input="\n".join(metadata), text=True, capture_output=True, cwd=ROOT, env=environment,
+    )
+
+
+class ContributionLinkTests(unittest.TestCase):
+    def parse(self, **options):
+        result = convert(**options)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        parser = Anchors()
+        parser.feed(result.stdout)
+        issue = [link for link in parser.anchors if urlsplit(link.get("href", "")).path.endswith("/issues/new")]
+        edits = [link for link in parser.anchors if "/edit/" in link.get("href", "")]
+        self.assertEqual(len(issue), 1)
+        self.assertEqual(len(edits), 1)
+        return parser, issue[0], edits[0]
+
+    def test_home_and_nested_articles_prefill_their_own_context(self):
+        contexts = [
+            ("index.qmd", "index.qmd", "欢迎阅读", "xp-guide-home"),
+            ("content/apr.qmd", "content/apr.qmd", "APR", "xp-guide-apr"),
+            (str(ROOT / "book/content/apr.qmd"), "content/apr.qmd", "APR", "xp-guide-apr"),
+        ]
+        for input_file, source, title, discussion in contexts:
+            with self.subTest(input_file=input_file):
+                _, issue, edit = self.parse(input_file=input_file, title=title, discussion=discussion)
+                issue_url = urlsplit(issue["href"])
+                self.assertEqual(issue_url._replace(query="", fragment="").geturl(), REPO + "/issues/new")
+                query = parse_qs(issue_url.query)
+                self.assertEqual(set(query), {"title", "body"})
+                self.assertIn(title, query["title"][0])
+                body = unquote(query["body"][0])
+                for context in (title, SITE + source.replace(".qmd", ".html"),
+                                "book/" + source, "codex/quarto-guide", discussion,
+                                "内容", "署名", "来源"):
+                    self.assertIn(context, body)
+                self.assertNotIn(str(ROOT), body)
+                self.assertEqual(edit["href"], REPO + "/edit/codex/quarto-guide/book/" + source)
+
+    def test_unicode_and_reserved_characters_cannot_split_query_or_path(self):
+        source = 'content/复核 & "说明"?.qmd'
+        title = '复核 & APR? "说明"'
+        parser, issue, edit = self.parse(input_file=source, title=title)
+        query = parse_qs(urlsplit(issue["href"]).query)
+        self.assertEqual(set(query), {"title", "body"})
+        self.assertEqual(len(query["title"]), 1)
+        self.assertEqual(len(query["body"]), 1)
+        self.assertIn("复核 & APR?", query["title"][0])
+        self.assertIn(source, query["body"][0])
+        self.assertIn(SITE + source.replace(".qmd", ".html"), unquote(query["body"][0]))
+        self.assertEqual(unquote(urlsplit(edit["href"]).path), "/example/guide/edit/codex/quarto-guide/book/" + source)
+        self.assertEqual(urlsplit(edit["href"]).query, "")
+        self.assertEqual(urlsplit(edit["href"]).fragment, "")
+        self.assertEqual(edit["label"], "提出修改（PR）")
+        self.assertIn("fork", "".join(parser.text).lower())
+
+    def test_source_branch_is_configurable_for_publication(self):
+        _, issue, edit = self.parse(branch="main")
+        self.assertEqual(edit["href"], REPO + "/edit/main/book/content/apr.qmd")
+        body = parse_qs(urlsplit(issue["href"]).query)["body"][0]
+        self.assertIn("main", body)
+        self.assertNotIn("codex/quarto-guide", body)
+
+    def test_missing_source_branch_fails_instead_of_linking_to_another_branch(self):
+        result = convert(branch=None)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("repo-branch", result.stderr)
+
+
+if __name__ == "__main__":
+    unittest.main()

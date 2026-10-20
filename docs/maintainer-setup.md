@@ -2,6 +2,8 @@
 
 正文的唯一维护入口是 `book/content/`。网站、整本 PDF、纯 Markdown 均由 `python3 scripts/build.py` 生成到 `book/_book/`。Quarto 固定为 1.10.19；升级前先在分支完整构建并核对所有格式。
 
+先阅读[项目数据流](data-flow.md)，可了解原始材料、临时中间数据、发布产物，以及评论与供稿进入正文的过程。
+
 ## 第一次启用 GitHub Pages
 
 在仓库 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。当前仓库为公开仓库，可使用 GitHub Free 的 Pages。部署环境 `github-pages` 如配置分支限制，应允许 `main` 和用于手动预览的 `codex/quarto-guide`；保留既有审核要求。
@@ -22,7 +24,9 @@ gh workflow run CI.yml --ref codex/quarto-guide
 
 部署会发布当前分支构建出来的网页、PDF 和 Markdown，不会合并或修改 `main`。它使用上面的同一个 Pages 地址，不是独立的分支预览网址；以后从 `main` 部署会更新这个网站。普通推送当前分支不会更新网站，需要再次手动运行。
 
-当前分支尚未合并时，网站中的编辑链接和 Issue 表单仍按正式版本的 `main` 路径配置；正文浏览、搜索、署名和下载可用于预览，贡献入口在正式合并后生效。
+当前预览的 `book.repo-branch` 配置为 `codex/quarto-guide`，网站“提出修改（PR）”和查看源代码的链接都指向该分支。读者提交 PR 时应确认目标分支也是 `codex/quarto-guide`。以后正式从 `main` 发布前，将 `book/_quarto.yml` 的 `book.repo-branch` 改为 `main`；文章编辑链接、供稿提示和 Issue 草稿中的源分支会使用同一配置。同时核对 `CONTRIBUTING.md`、`book/contributing.qmd` 中的 PR 目标分支和文档链接。
+
+“补充内容／纠错”使用 GitHub 支持的 `title`、`body` URL 参数，预填文章标题、链接、源文件、分支、`discussion-id` 和填写提示。它不依赖默认分支中的 Issue Form，当前预览无需合并 `main` 就可投稿。不要向该入口添加需要额外权限的标签、分派者等参数。Issue Form 模板仍保留在分支中，未来需要正式启用时应发布到默认分支。
 
 ## 配置文章评论
 

@@ -6,7 +6,7 @@
 
 - [在线版](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/)：可搜索、按文章阅读、讨论和提出修改；首次上线需维护者启用 GitHub Pages。
 - [PDF 下载](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest)：保留离线阅读和版本归档。
-- [投稿 / 纠错](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/issues/new/choose)：使用 GitHub 账号填写表单，无需安装 Git 或 LaTeX。
+- [投稿 / 纠错](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/issues/new)：使用 GitHub 账号提交文字，无需安装 Git 或 LaTeX；从文章下方进入可自动带上文章信息。
 
 本仓库维护中文内容；另有独立的[英文版项目](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide_EN)。
 
@@ -14,9 +14,11 @@
 
 `book/content/` 中的 `.qmd`（Quarto Markdown）是持续更新的唯一正文来源。同一份内容生成网站、整本 PDF 和供 LLM 阅读的纯 Markdown。段落块显式记录作者和补充者，代为整理、修正排版不会自动改变原作者。
 
-可以通过投稿表单提交普通文字，由编辑审核后纳入；也可以点击网站的编辑链接，在 GitHub 网页中修改 Markdown 并提交 Pull Request。评论和投稿均需 GitHub 登录，正文修改经过人工审核。详细步骤和段落署名示例见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+可以通过文章下方的“补充内容／纠错”提交普通文字，Issue 草稿会预填文章信息；也可以点击“提出修改（PR）”，在 GitHub 网页中修改 Markdown。普通读者没有仓库写权限也可按提示 fork 后提交 Pull Request。评论和投稿均需 GitHub 登录，正文修改经过人工审核。详细步骤和段落署名示例见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 根目录的 LaTeX 入口、`chapters/` 和 `author-folder/` 保留为历史快照，便于核对原文，不再接收新正文。旧 LaTeX 转稿与云部署工作流已归档到 `docs/legacy-workflows/`，不会再自动生成第二份正文。
+
+正文、构建产物、网站和评论之间的关系见[项目数据流](docs/data-flow.md)，其中包含构建发布与读者互动的 Mermaid 图。
 
 ## 本地预览与构建
 

@@ -12,15 +12,17 @@ discussion-id: xp-guide-contributing
 
 ## 最简单的方法：提交文字
 
-点击任一文章下方的“补充内容／纠错”，登录 GitHub 后填写表单。请写清想补充的内容、对应文章、希望公开的姓名或昵称，以及资料来源；图片和文件可以直接拖入表单正文。
+点击任一文章下方的“补充内容／纠错”，登录 GitHub 后会打开预填的 Issue 草稿，已带上文章标题、链接、源文件、分支和文章标识。补充你的建议、希望公开的姓名或昵称，以及资料来源；图片和文件可以直接拖入正文。检查后再点击提交，打开草稿不会自动发布。
 
 编辑会核对内容、与你确认需要澄清的地方，再通过 PR 纳入正文。你不需要安装软件，也不需要学习 LaTeX。
 
 ## 直接修改文章
 
-点击“编辑本页”，在 GitHub 网页中修改 Markdown 并提出 PR。新增文章放在 `book/content/`，同时在 `book/_quarto.yml` 的相应目录分组里加入它。
+点击“提出修改（PR）”，在 GitHub 网页中修改 Markdown。普通读者也可以参与：没有本仓库写权限时，按 GitHub 提示创建自己的 fork，再提出 Pull Request。当前预览版本的 PR 目标分支请选择 `codex/quarto-guide`。拥有写权限的维护者也应创建修改分支并通过 PR 审核后更新正文。
 
-每篇文章需要标题和不随改名变化的 `discussion-id`；正文放在带署名的内容块中。连续同作者的段落可共用一个内容块，作者变化时另起一块。完整范例见仓库的 [贡献说明](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md)。
+新增文章放在 `book/content/`，同时在 `book/_quarto.yml` 的相应目录分组里加入它。
+
+每篇文章需要标题和不随改名变化的 `discussion-id`；正文放在带署名的内容块中。连续同作者的段落可共用一个内容块，作者变化时另起一块。完整范例见当前预览分支的 [贡献说明](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/codex/quarto-guide/CONTRIBUTING.md)。
 
 ## 怎样署名
 

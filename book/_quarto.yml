@@ -12,9 +12,9 @@ book:
   output-file: xp-pgrs-unofficial-guide
   site-url: https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/
   repo-url: https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide
-  repo-branch: main
+  repo-branch: codex/quarto-guide
   repo-subdir: book
-  repo-actions: [edit, issue, source]
+  repo-actions: [source]
   downloads: [pdf]
   search: true
   page-navigation: true

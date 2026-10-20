@@ -43,6 +43,7 @@ figcaption { color: var(--guide-muted); line-height: 1.6; }
   padding: .25rem .85rem; font-size: .83rem; text-decoration: none;
 }
 .guide-actions a:hover { background: #edf6f4; border-color: #9cbfbd; }
+.guide-contribution-help { color: var(--guide-muted); font-size: .85rem; line-height: 1.7; }
 
 /* A contribution can own several paragraphs; each readable unit has its own
    native disclosure so attribution remains reachable on touch and keyboard. */

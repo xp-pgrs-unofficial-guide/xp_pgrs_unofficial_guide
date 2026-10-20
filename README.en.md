@@ -6,7 +6,7 @@ This guide shares practical experience about PhD research and life at XJTLU, sup
 
 - [Read online](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/): searchable articles with discussions and editing links. A maintainer must enable GitHub Pages for the first deployment.
 - [Download the PDF](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest): offline reading and versioned releases.
-- [Contribute or report a correction](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/issues/new/choose): complete a form with a GitHub account; no local Git or LaTeX installation is needed.
+- [Contribute or report a correction](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/issues/new): submit text with a GitHub account; article-specific links prefill the page information. No local Git or LaTeX installation is needed.
 
 This repository contains the Chinese guide. There is also a separate [English guide project](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide_EN).
 
@@ -14,9 +14,11 @@ This repository contains the Chinese guide. There is also a separate [English gu
 
 The `.qmd` files (Quarto Markdown) under `book/content/` are the single source for ongoing content updates. They produce the website, a complete PDF, and plain Markdown for LLMs. Contribution blocks explicitly identify authors and later contributors; editorial commits do not replace the original author attribution.
 
-Submit plain text through the contribution form for an editor to review, or use an article's edit link to propose a Markdown change directly on GitHub. Comments and submissions require a GitHub account. Content changes are reviewed by a person before publication. See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions and attribution examples.
+Use an article's contribution link to open an Issue draft with the page information prefilled, or choose its PR link to propose a Markdown change on GitHub. Readers without repository write access can follow GitHub's fork and pull request flow. Comments and submissions require a GitHub account. Content changes are reviewed by a person before publication. See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions and attribution examples.
 
 The root LaTeX entry point, `chapters/`, and `author-folder/` remain as historical snapshots for checking the original text. Add new content to the Quarto source. The old LaTeX conversion and cloud deployment workflows are archived under `docs/legacy-workflows/` and no longer produce a separate content copy.
+
+See [project data flow](docs/data-flow.md) (in Chinese) for Mermaid diagrams of the build, publication, comments, and editorial contribution process.
 
 ## Preview and build locally
 
