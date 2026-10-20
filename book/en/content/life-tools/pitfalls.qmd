@@ -1,0 +1,21 @@
+---
+title: Pitfalls to avoid (to be expanded)
+discussion-id: xp-guide-pitfalls
+legacy-source:
+- chapters/bikeng.tex
+lang: en
+translation-source: content/life-tools/pitfalls.qmd
+translation-status: draft
+translation-source-sha256: 7024c5c0724b9dca229cdb05cbaf4a18edec13247a5f9a81cd9043517b4d5835
+---
+
+::: {#xp-guide-pitfalls}
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+## A pitfall {#一个坑}
+
+If you have run into a pitfall, take two minutes to tell me about it so we can note it here and spare everyone else the same experience, ~~rather than all falling into it together for everyone's amusement~~.
+
+:::

@@ -1,0 +1,27 @@
+---
+title: Free printing
+discussion-id: xp-guide-printing
+legacy-source:
+- author-folder/Kai.Wu/print.tex
+lang: en
+translation-source: content/resources/printing.qmd
+translation-status: draft
+translation-source-sha256: 4d2e0d6fd5438e1ff3e53c2a33b6123e1fc20535d847026e86575e3e92bd20fb
+---
+
+::: {#xp-guide-printing}
+:::
+
+::: {.contribution authors="kai-wu"}
+
+Every September, the University resets PhD students' printing balances to RMB 2,000. Check yours at <https://myprint.xjtlu.edu.cn>. This effectively gives each PhD student almost unlimited printing. I personally like printing papers to read them. For instructions, I suggest going straight to the official documents. The files are in this project's GitHub repository ([link](https://github.com/kaiwu-astro/xp_pgrs_unofficial_guide/tree/main/fileshare)), or use the links below.
+
+- Undergraduate IT guide (Chinese and English): <https://gitee.com/kaiwu-astro/xp_pgrs_unofficial_guide/tree/main/fileshare>
+
+- Printing guide (English): <https://guide.xjtlu.edu.cn/ss-print/staff>
+
+Please do not print entire books: it violates printing policy and may be investigated. Printing individual chapters is generally allowed. If you really need a whole book printed, use a Taobao printing service.
+
+(12 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+
+:::

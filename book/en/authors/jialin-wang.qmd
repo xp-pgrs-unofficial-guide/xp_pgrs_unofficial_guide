@@ -1,0 +1,21 @@
+---
+title: Jialin Wang
+discussion-id: xp-guide-author-jialin-wang
+guide-author-id: jialin-wang
+lang: en
+translation-source: authors/jialin-wang.qmd
+translation-status: draft
+translation-source-sha256: e1b2488500cea53f1c73cb7a90b5b2b1599e1c85232b81c5b41ec8fcfdfd8227
+---
+
+::: {#xp-guide-author-jialin-wang}
+:::
+
+:::: {.contribution authors="editorial"}
+
+This page lists the contributions recorded under this author ID. For an attribution correction or a public profile introduction, use the contribution link below.
+
+::: {.guide-author-profile data-guide-author-id="jialin-wang"}
+:::
+
+::::

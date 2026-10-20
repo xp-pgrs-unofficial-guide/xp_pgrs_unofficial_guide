@@ -1,0 +1,17 @@
+---
+title: 作者与贡献者
+discussion-id: xp-guide-authors
+guide-author-index: true
+---
+
+::: {#xp-guide-authors}
+:::
+
+:::: {.contribution authors="editorial"}
+
+本清单根据当前文章的原作者与实质补充者字段生成，Git 提交记录不等同于内容作者。主页展示已登记的参与文章，不推断个人简介。
+
+::: {.guide-author-index}
+:::
+
+::::

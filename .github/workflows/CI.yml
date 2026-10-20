@@ -1,20 +1,83 @@
-name: test-compile
+name: Build guide and deploy Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["**"]
   pull_request:
-    branches: [ "main" ]
+    branches: [main]
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    env:
+      GISCUS_REPO_ID: ${{ vars.GISCUS_REPO_ID }}
+      GISCUS_CATEGORY_ID: ${{ vars.GISCUS_CATEGORY_ID }}
+      GISCUS_CATEGORY: ${{ vars.GISCUS_CATEGORY }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: compile
-        uses: xu-cheng/latex-action@v2
+      - name: Check out source
+        uses: actions/checkout@v4
         with:
-          root_file: "xp_pgrs_unofficial_guide.tex"
-          latexmk_use_xelatex: true
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-build.txt
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: "1.10.19"
+      - name: Install build dependencies
+        run: |
+          python -m pip install -r requirements-build.txt
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-xetex texlive-pictures texlive-lang-chinese texlive-latex-extra texlive-fonts-recommended texlive-plain-generic lmodern
+      - name: Test paragraph attribution
+        run: python3 -m unittest discover -s tests/attribution
+      - name: Test article discussion mapping
+        run: python3 -m unittest discover -s tests/publishing
+      - name: Test content paths and redirects
+        run: python3 -m unittest discover -s tests/build
+      - name: Test reader controls
+        run: node --test tests/ui/guide.test.js
+      - name: Validate and build HTML, PDF, and Markdown
+        run: python3 scripts/build.py
+      - name: Save build for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: guide-build
+          path: book/_book/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Prepare Pages artifact
+        if: >-
+          github.ref == 'refs/heads/main' &&
+          (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: book/_book/
+
+  deploy:
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

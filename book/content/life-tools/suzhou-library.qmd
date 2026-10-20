@@ -1,0 +1,15 @@
+---
+title: "苏州图书馆借书和免费送书"
+discussion-id: xp-guide-suzhou-library
+legacy-source:
+  - chapters/others.tex
+---
+
+::: {#xp-guide-suzhou-library}
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+想看独墅湖图书馆的书，想借苏州图书馆的书，但是太远了不想去怎么办？直接小程序借书！苏州图书馆的书可以**【免费】**送到独墅湖图书馆取书，而独墅湖图书馆的书可以直接送到学校图书馆门口。 微信搜索【苏图借书】小程序。因为医保卡就是市民卡可以直接拿去借书，如果你已经拿到了医保卡，可以直接绑定医保卡，免开卡费。然后在小程序内按提示操作即可。
+
+:::

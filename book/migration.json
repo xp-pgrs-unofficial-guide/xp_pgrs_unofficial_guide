@@ -1,0 +1,824 @@
+{
+  "schema_version": 1,
+  "legacy_root": "archive/latex",
+  "purpose": "One-time import manifest; .qmd is now the maintained content source.",
+  "legacy_entrypoint": "xp_pgrs_unofficial_guide.tex",
+  "legacy_active_sources": [
+    "xp_pgrs_unofficial_guide.tex",
+    "chapters/preface.tex",
+    "chapters/necessary_resources.tex",
+    "chapters/must-do.tex",
+    "author-folder/Kai.Wu/compulsory_lesson.tex",
+    "author-folder/Kai.Wu/meeting-record.tex",
+    "author-folder/Kai.Wu/APR.tex",
+    "author-folder/Kai.Wu/symposium.tex",
+    "chapters/fuli.tex",
+    "author-folder/Kai.Wu/fund.tex",
+    "author-folder/Kai.Wu/stationary.tex",
+    "author-folder/Kai.Wu/print.tex",
+    "author-folder/Kai.Wu/gym.tex",
+    "author-folder/Kai.Wu/liverpool-account-fuli.tex",
+    "chapters/better-know.tex",
+    "author-folder/Shiyao.Zhang14/how_research_works.tex",
+    "author-folder/Kai.Wu/TA.tex",
+    "author-folder/Kai.Wu/invigilation.tex",
+    "author-folder/Kai.Wu/thesis_viva_graduation.tex",
+    "author-folder/Ziwen.Xie/viva.tex",
+    "author-folder/Kai.Wu/career.tex",
+    "chapters/others.tex",
+    "author-folder/Kai.Wu/backup.tex",
+    "author-folder/Kai.Wu/remote-control.tex",
+    "author-folder/Yue.Zhou/waist.tex",
+    "author-folder/Shiyao.Zhang14/UoL_visit.tex",
+    "chapters/bikeng.tex",
+    "chapters/author-instruction.tex",
+    "chapters/appendix.tex",
+    "chapters/acknowledgement.tex",
+    "chapters/update_log.tex"
+  ],
+  "pages": [
+    {
+      "path": "content/getting-started/preface.qmd",
+      "title": "前言",
+      "group": "开始阅读",
+      "discussion_id": "xp-guide-preface",
+      "sources": [
+        "chapters/preface.tex"
+      ],
+      "source_sha256": {
+        "chapters/preface.tex": "474bc44e076d29254178e02d3afe471b99d8ad108dd1a308179dd61847ccafa7"
+      },
+      "import_path": "content/preface.qmd"
+    },
+    {
+      "path": "content/getting-started/start-here.qmd",
+      "title": "Start here: 入口级网站和应用",
+      "group": "开始阅读",
+      "discussion_id": "xp-guide-start-here",
+      "sources": [
+        "chapters/necessary_resources.tex"
+      ],
+      "source_sha256": {
+        "chapters/necessary_resources.tex": "98a5b1530b9b22f5fdff5bd874982c61c1ac15252832d40f6ab2ec57307ebe7c"
+      },
+      "import_path": "content/start-here.qmd"
+    },
+    {
+      "path": "content/milestones/compulsory-courses.qmd",
+      "title": "必修课程",
+      "group": "这些必须得做，不然毕不了业",
+      "discussion_id": "xp-guide-compulsory-courses",
+      "sources": [
+        "author-folder/Kai.Wu/compulsory_lesson.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Kai.Wu/compulsory_lesson.tex": "edfe5c046ba7939bc0cad59a66614429dd6397a22babca040a02eb95b08a79d6"
+      },
+      "import_path": "content/compulsory-courses.qmd"
+    },
+    {
+      "path": "content/milestones/meeting-records.qmd",
+      "title": "Liverpool Life 会议记录",
+      "group": "这些必须得做，不然毕不了业",
+      "discussion_id": "xp-guide-meeting-records",
+      "sources": [
+        "author-folder/Kai.Wu/meeting-record.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Kai.Wu/meeting-record.tex": "62eb8c0435868e255435f9c0719a1024396db35747a368448f8d7f8c29e15a96"
+      },
+      "import_path": "content/meeting-records.qmd"
+    },
+    {
+      "path": "content/milestones/apr.qmd",
+      "title": "APR",
+      "group": "这些必须得做，不然毕不了业",
+      "discussion_id": "xp-guide-apr",
+      "sources": [
+        "author-folder/Kai.Wu/APR.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Kai.Wu/APR.tex": "3e51429749967c3b1485a44d7285708ad2a269e4a65577e4f19d80142143c4e0"
+      },
+      "import_path": "content/apr.qmd"
+    },
+    {
+      "path": "content/milestones/research-symposium.qmd",
+      "title": "Research Symposium",
+      "group": "这些必须得做，不然毕不了业",
+      "discussion_id": "xp-guide-research-symposium",
+      "sources": [
+        "author-folder/Kai.Wu/symposium.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Kai.Wu/symposium.tex": "d91d7917960e3d8afe4fd973b6eb948705c4f17014847c1b24312818ba5af14a"
+      },
+      "import_path": "content/research-symposium.qmd"
+    },
+    {
+      "path": "content/resources/conference-funding.qmd",
+      "title": "会议经费",
+      "group": "这些必须得看，不看吃大亏",
+      "discussion_id": "xp-guide-conference-funding",
+      "sources": [
+        "author-folder/Kai.Wu/fund.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Kai.Wu/fund.tex": "8726e8720c405a7f86dbc0b7bb0fd524ebaf70f8250e1043f79c8cc181a43c5c"
+      },
+      "import_path": "content/conference-funding.qmd"
+    },
+    {
+      "path": "content/resources/stationery.qmd",
+      "title": "免费办公用品",
+      "group": "这些必须得看，不看吃大亏",
+      "discussion_id": "xp-guide-stationery",
+      "sources": [
+        "author-folder/Kai.Wu/stationary.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Kai.Wu/stationary.tex": "fb5c05475c8447d27d64cd24bf280b2d3d2e955f1163cd8b4f09bff1e8ad29b2"
+      },
+      "import_path": "content/stationery.qmd"
+    },
+    {
+      "path": "content/resources/printing.qmd",
+      "title": "免费打印",
+      "group": "这些必须得看，不看吃大亏",
+      "discussion_id": "xp-guide-printing",
+      "sources": [
+        "author-folder/Kai.Wu/print.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Kai.Wu/print.tex": "2323429320587cb27a31c90b1a17b625cc3cb43c39c75fd1703da55c950b0cc9"
+      },
+      "import_path": "content/printing.qmd"
+    },
+    {
+      "path": "content/resources/sports-vouchers.qmd",
+      "title": "体育馆代金券",
+      "group": "这些必须得看，不看吃大亏",
+      "discussion_id": "xp-guide-sports-vouchers",
+      "sources": [
+        "author-folder/Kai.Wu/gym.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Kai.Wu/gym.tex": "833e3d74f215be59dd1ca813e143a8bb23a5e92c1629bfde151eb8fd0b207674"
+      },
+      "import_path": "content/sports-vouchers.qmd"
+    },
+    {
+      "path": "content/resources/liverpool-account.qmd",
+      "title": "利物浦账号自带福利",
+      "group": "这些必须得看，不看吃大亏",
+      "discussion_id": "xp-guide-liverpool-account",
+      "sources": [
+        "author-folder/Kai.Wu/liverpool-account-fuli.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Kai.Wu/liverpool-account-fuli.tex": "bb2f9a2b1c609bc0a0d4386e418a3048b579b713612b94e94b1e75293bdc2aab"
+      },
+      "import_path": "content/liverpool-account.qmd"
+    },
+    {
+      "path": "content/resources/other-benefits.qmd",
+      "title": "其他福利",
+      "group": "这些必须得看，不看吃大亏",
+      "discussion_id": "xp-guide-other-benefits",
+      "sources": [
+        "chapters/fuli.tex"
+      ],
+      "source_sha256": {
+        "chapters/fuli.tex": "30dd0b9de7fd121c2d038ac6c056378bcbe74e4e290db74acae69cd948bf0bf2"
+      },
+      "import_path": "content/other-benefits.qmd"
+    },
+    {
+      "path": "content/research-work/how-research-works.qmd",
+      "title": "学术研究是怎么发生的",
+      "group": "最好要知道这些",
+      "discussion_id": "xp-guide-how-research-works",
+      "sources": [
+        "author-folder/Shiyao.Zhang14/how_research_works.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Shiyao.Zhang14/how_research_works.tex": "b121c6988bb7ab720c890082f6864068be52e1085c86302ec173eabb5e368060"
+      },
+      "import_path": "content/how-research-works.qmd"
+    },
+    {
+      "path": "content/research-work/teaching-assistant.qmd",
+      "title": "助教（Teaching Assistant）怎么做",
+      "group": "最好要知道这些",
+      "discussion_id": "xp-guide-teaching-assistant",
+      "sources": [
+        "author-folder/Kai.Wu/TA.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Kai.Wu/TA.tex": "5a14a450b992692ebaeedd97cac495f1cc63dc38a6a23e4d984627c133a095b6"
+      },
+      "import_path": "content/teaching-assistant.qmd"
+    },
+    {
+      "path": "content/research-work/invigilation.qmd",
+      "title": "监考怎么做",
+      "group": "最好要知道这些",
+      "discussion_id": "xp-guide-invigilation",
+      "sources": [
+        "author-folder/Kai.Wu/invigilation.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Kai.Wu/invigilation.tex": "57c815eda4e807be64c5895407818999b1e32e812e1f5e49be257cf5da91d746"
+      },
+      "import_path": "content/invigilation.qmd"
+    },
+    {
+      "path": "content/research-work/thesis-and-graduation.qmd",
+      "title": "学位论文，论文答辩，和毕业",
+      "group": "最好要知道这些",
+      "discussion_id": "xp-guide-thesis-and-graduation",
+      "sources": [
+        "author-folder/Kai.Wu/thesis_viva_graduation.tex",
+        "author-folder/Ziwen.Xie/viva.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Kai.Wu/thesis_viva_graduation.tex": "dd9ae70852dda7d85f8abd2dc697cb40af96ffe25aabf63391f93f3a02a06bae",
+        "author-folder/Ziwen.Xie/viva.tex": "68fd4897ac7dfc33f9b3b323bedc27e315279c76e762913b8d58504daac5f2fc"
+      },
+      "import_path": "content/thesis-and-graduation.qmd"
+    },
+    {
+      "path": "content/research-work/career.qmd",
+      "title": "和就业有关的重要信息",
+      "group": "最好要知道这些",
+      "discussion_id": "xp-guide-career",
+      "sources": [
+        "author-folder/Kai.Wu/career.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Kai.Wu/career.tex": "611121e35ea5d4e26210999dc935564d27652bf9cb6c4b989886e5e56ed9735c"
+      },
+      "import_path": "content/career.qmd"
+    },
+    {
+      "path": "content/life-tools/backup.qmd",
+      "title": "大坑：假如明天你突然丢失电脑所有数据怎么办？——如何备份资料",
+      "group": "其他攻略",
+      "discussion_id": "xp-guide-backup",
+      "sources": [
+        "chapters/others.tex",
+        "author-folder/Kai.Wu/backup.tex"
+      ],
+      "source_sha256": {
+        "chapters/others.tex": "a4e6ac73f75d1a7c1292e09375a2a0d3a4a85e434de58ddf54be5a89a8879087",
+        "author-folder/Kai.Wu/backup.tex": "8ce05e6fb5397a7b92348896bb3d2607a55aa3857701af38daed5356af9abfc2"
+      },
+      "import_path": "content/backup.qmd"
+    },
+    {
+      "path": "content/life-tools/remote-access.qmd",
+      "title": "远程控制·如何校外访问校内电脑",
+      "group": "其他攻略",
+      "discussion_id": "xp-guide-remote-access",
+      "sources": [
+        "author-folder/Kai.Wu/remote-control.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Kai.Wu/remote-control.tex": "f8aaac12cccbb84a5141457c0c4aefe89a28b5503f30946afe6edbcbf168571d"
+      },
+      "import_path": "content/remote-access.qmd"
+    },
+    {
+      "path": "content/life-tools/ergonomics.qmd",
+      "title": "我的老腰受不了了——如何保持颈椎、腰椎健康",
+      "group": "其他攻略",
+      "discussion_id": "xp-guide-ergonomics",
+      "sources": [
+        "author-folder/Yue.Zhou/waist.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Yue.Zhou/waist.tex": "758d7d92b48306fd7fb232dd7434a90cee37a82dc3641e41b7c77bc5d66a06ce"
+      },
+      "import_path": "content/ergonomics.qmd"
+    },
+    {
+      "path": "content/life-tools/liverpool-visit.qmd",
+      "title": "利物浦访学",
+      "group": "其他攻略",
+      "discussion_id": "xp-guide-liverpool-visit",
+      "sources": [
+        "author-folder/Shiyao.Zhang14/UoL_visit.tex"
+      ],
+      "source_sha256": {
+        "author-folder/Shiyao.Zhang14/UoL_visit.tex": "c031a5221d281d8c34a577f51a96c0aad94592f709e982ad41cad96fde9c2b8c"
+      },
+      "import_path": "content/liverpool-visit.qmd"
+    },
+    {
+      "path": "content/life-tools/campus-vm.qmd",
+      "title": "西浦虚拟机",
+      "group": "其他攻略",
+      "discussion_id": "xp-guide-campus-vm",
+      "sources": [
+        "chapters/others.tex"
+      ],
+      "source_sha256": {
+        "chapters/others.tex": "a4e6ac73f75d1a7c1292e09375a2a0d3a4a85e434de58ddf54be5a89a8879087"
+      },
+      "import_path": "content/campus-vm.qmd"
+    },
+    {
+      "path": "content/life-tools/library-databases.qmd",
+      "title": "图书馆的文献数据库",
+      "group": "其他攻略",
+      "discussion_id": "xp-guide-library-databases",
+      "sources": [
+        "chapters/others.tex"
+      ],
+      "source_sha256": {
+        "chapters/others.tex": "a4e6ac73f75d1a7c1292e09375a2a0d3a4a85e434de58ddf54be5a89a8879087"
+      },
+      "import_path": "content/library-databases.qmd"
+    },
+    {
+      "path": "content/life-tools/suzhou-library.qmd",
+      "title": "苏州图书馆借书和免费送书",
+      "group": "其他攻略",
+      "discussion_id": "xp-guide-suzhou-library",
+      "sources": [
+        "chapters/others.tex"
+      ],
+      "source_sha256": {
+        "chapters/others.tex": "a4e6ac73f75d1a7c1292e09375a2a0d3a4a85e434de58ddf54be5a89a8879087"
+      },
+      "import_path": "content/suzhou-library.qmd"
+    },
+    {
+      "path": "content/life-tools/mental-health.qmd",
+      "title": "重视自己的负面情绪和抑郁倾向",
+      "group": "其他攻略",
+      "discussion_id": "xp-guide-mental-health",
+      "sources": [
+        "chapters/others.tex"
+      ],
+      "source_sha256": {
+        "chapters/others.tex": "a4e6ac73f75d1a7c1292e09375a2a0d3a4a85e434de58ddf54be5a89a8879087"
+      },
+      "import_path": "content/mental-health.qmd"
+    },
+    {
+      "path": "content/life-tools/recommended-software.qmd",
+      "title": "大家电脑上都装了什么软件？（期待你的补充）",
+      "group": "其他攻略",
+      "discussion_id": "xp-guide-recommended-software",
+      "sources": [
+        "chapters/others.tex"
+      ],
+      "source_sha256": {
+        "chapters/others.tex": "a4e6ac73f75d1a7c1292e09375a2a0d3a4a85e434de58ddf54be5a89a8879087"
+      },
+      "import_path": "content/recommended-software.qmd"
+    },
+    {
+      "path": "content/life-tools/pitfalls.qmd",
+      "title": "避坑指南（待补）",
+      "group": "避坑指南",
+      "discussion_id": "xp-guide-pitfalls",
+      "sources": [
+        "chapters/bikeng.tex"
+      ],
+      "source_sha256": {
+        "chapters/bikeng.tex": "d529c8316ce63a1642908ada6f462052080393dec8c466e60d83229031e927a1"
+      },
+      "import_path": "content/pitfalls.qmd"
+    },
+    {
+      "path": "content/appendix/campus-map.qmd",
+      "title": "校园地图",
+      "group": "附录",
+      "discussion_id": "xp-guide-campus-map",
+      "sources": [
+        "chapters/appendix.tex"
+      ],
+      "source_sha256": {
+        "chapters/appendix.tex": "27e7f48439a324d877d2a78f4ec6d4fd1104539812fc062111e4126c90674ded"
+      },
+      "import_path": "content/campus-map.qmd"
+    },
+    {
+      "path": "content/appendix/contacts.qmd",
+      "title": "学校电话",
+      "group": "附录",
+      "discussion_id": "xp-guide-contacts",
+      "sources": [
+        "chapters/appendix.tex"
+      ],
+      "source_sha256": {
+        "chapters/appendix.tex": "27e7f48439a324d877d2a78f4ec6d4fd1104539812fc062111e4126c90674ded"
+      },
+      "import_path": "content/contacts.qmd"
+    },
+    {
+      "path": "content/appendix/join-us.qmd",
+      "title": "加入我们：评论机制及委员会化运作动议",
+      "group": "附录",
+      "discussion_id": "xp-guide-join-us",
+      "sources": [
+        "chapters/appendix.tex"
+      ],
+      "source_sha256": {
+        "chapters/appendix.tex": "27e7f48439a324d877d2a78f4ec6d4fd1104539812fc062111e4126c90674ded"
+      },
+      "import_path": "content/join-us.qmd"
+    },
+    {
+      "path": "content/appendix/acknowledgements.qmd",
+      "title": "致谢",
+      "group": "附录",
+      "discussion_id": "xp-guide-acknowledgements",
+      "sources": [
+        "chapters/acknowledgement.tex"
+      ],
+      "source_sha256": {
+        "chapters/acknowledgement.tex": "79551cc5e3064dc27a987962a19ae07d1ef8991de09d7fe1ef85e809462c6a16"
+      },
+      "import_path": "content/acknowledgements.qmd"
+    },
+    {
+      "path": "content/appendix/changelog.qmd",
+      "title": "更新日志",
+      "group": "附录",
+      "discussion_id": "xp-guide-changelog",
+      "sources": [
+        "chapters/update_log.tex"
+      ],
+      "source_sha256": {
+        "chapters/update_log.tex": "d960d2eb53f4fc07bc77a562c2771027304cfca40d1e2a9aef25ba102af55ada"
+      },
+      "import_path": "content/changelog.qmd"
+    }
+  ],
+  "assets": [
+    {
+      "source": "author-folder/Kai.Wu/qrcode_XJTLU-China_1.jpg",
+      "path": "assets/imported/Kai.Wu/qrcode_XJTLU-China_1.jpg",
+      "sha256": "e10ee628892a9e953cd9b085544f9d8576a2d661e49610c22bef449661b4e6e8",
+      "preview": "assets/imported/Kai.Wu/qrcode_XJTLU-China_1.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/qrcode_XJTLU_library_1.jpg",
+      "path": "assets/imported/Kai.Wu/qrcode_XJTLU_library_1.jpg",
+      "sha256": "e29e2c92b30fc5a6fe4afda097341929303194fff9a6aa5e7aa27ebbe721426c",
+      "preview": "assets/imported/Kai.Wu/qrcode_XJTLU_library_1.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/qrcode_student_service.jpg",
+      "path": "assets/imported/Kai.Wu/qrcode_student_service.jpg",
+      "sha256": "73cfd2125cb46841164a83db54dddbcadcf51095501ac2ddcc2a33e1907f57e2",
+      "preview": "assets/imported/Kai.Wu/qrcode_student_service.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/qrcode_IT.jpg",
+      "path": "assets/imported/Kai.Wu/qrcode_IT.jpg",
+      "sha256": "d51b9eefeac924e1b07813e943193bcdddb7b94fdedfd40b68ddd99284bee8bb",
+      "preview": "assets/imported/Kai.Wu/qrcode_IT.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/meeting_record_figures/arange_new_meeting.jpg",
+      "path": "assets/imported/meeting_record_figures/arange_new_meeting.jpg",
+      "sha256": "02a899f841f0895005df8ab9a788946e7b0c7988d65d4500903b00c46cc1662f",
+      "preview": "assets/imported/meeting_record_figures/arange_new_meeting.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/meeting_record_figures/add_items_to_meetings.jpg",
+      "path": "assets/imported/meeting_record_figures/add_items_to_meetings.jpg",
+      "sha256": "eda5d4ab5190c655ee643178152a2e24b00ff315c7b53be9797f5ce86519ab5c",
+      "preview": "assets/imported/meeting_record_figures/add_items_to_meetings.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/meeting_record_figures/email_to.jpg",
+      "path": "assets/imported/meeting_record_figures/email_to.jpg",
+      "sha256": "c25f1a2db325b96a83128fced48964fb227041f99dc40e1454c055826dcbbf9c",
+      "preview": "assets/imported/meeting_record_figures/email_to.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/meeting_record_figures/view_edit.jpg",
+      "path": "assets/imported/meeting_record_figures/view_edit.jpg",
+      "sha256": "3f63147d65488891f0a6df1db083fba449ba42eb5eb3fd50ade729dcb6961bcc",
+      "preview": "assets/imported/meeting_record_figures/view_edit.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/meeting_record_figures/post_meeting.jpg",
+      "path": "assets/imported/meeting_record_figures/post_meeting.jpg",
+      "sha256": "c6932be9b4cfdaebf2ee0596fc6194273bd0aecf83762c8d1a01df014e4a337b",
+      "preview": "assets/imported/meeting_record_figures/post_meeting.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/APR_email.jpg",
+      "path": "assets/imported/Kai.Wu/APR_email.jpg",
+      "sha256": "901e10e2b5be89be65204d4fdc4291a44d9353c586f1b5c718a8e053c2602385",
+      "preview": "assets/imported/Kai.Wu/APR_email.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/APR_liverpool_email.jpg",
+      "path": "assets/imported/Kai.Wu/APR_liverpool_email.jpg",
+      "sha256": "2bbb16d273129be090b9e62ab104c0116f4cc45de468909c816d6e0174dc76bc",
+      "preview": "assets/imported/Kai.Wu/APR_liverpool_email.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/TULIP.jpg",
+      "path": "assets/imported/Kai.Wu/TULIP.jpg",
+      "sha256": "d4969b53b8fcd1dfce05f305d4bcc6a6988a96c2d1492e12aaa04465929f3edb",
+      "preview": "assets/imported/Kai.Wu/TULIP.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/synposium_poster.jpg",
+      "path": "assets/imported/Kai.Wu/synposium_poster.jpg",
+      "sha256": "fb2a4a6872e773f586281892eaddd2bb18472bdf85bf32341f333a58d023d06c",
+      "preview": "assets/imported/Kai.Wu/synposium_poster.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/poster_award.jpg",
+      "path": "assets/imported/Kai.Wu/poster_award.jpg",
+      "sha256": "5098ba3e042f8d5111c4b4db44b1e7172fcccb5229ae388b5c7c2e21965327f8",
+      "preview": "assets/imported/Kai.Wu/poster_award.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/2022_XPGRS_oral_judging_criteria.pdf",
+      "path": "assets/imported/Kai.Wu/2022_XPGRS_oral_judging_criteria.pdf",
+      "sha256": "f6913df6ad4f3c0d3fa4940202f3b86dbf079abf6677ebb6fa93789e109a805b",
+      "preview": "assets/imported/Kai.Wu/2022_XPGRS_oral_judging_criteria.png"
+    },
+    {
+      "source": "author-folder/Kai.Wu/2022_XPGRS_oral_judging_form.pdf",
+      "path": "assets/imported/Kai.Wu/2022_XPGRS_oral_judging_form.pdf",
+      "sha256": "4c6a632b719489a81ec9274deffc9db3083d6cfc0f1d9a09c6602830f11b7e1b",
+      "preview": "assets/imported/Kai.Wu/2022_XPGRS_oral_judging_form.png"
+    },
+    {
+      "source": "author-folder/Kai.Wu/fund-flowchart.jpg",
+      "path": "assets/imported/Kai.Wu/fund-flowchart.jpg",
+      "sha256": "d509359db44511564670b673eb30d2e7d5f4607ab71163c2ff26749ab70a05b3",
+      "preview": "assets/imported/Kai.Wu/fund-flowchart.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/stationery_room.jpg",
+      "path": "assets/imported/Kai.Wu/stationery_room.jpg",
+      "sha256": "bc215d9fc675115359be81fb53d08264528de6256baa4e39a6087c77a2fd7466",
+      "preview": "assets/imported/Kai.Wu/stationery_room.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/stationery_no_sign.jpg",
+      "path": "assets/imported/Kai.Wu/stationery_no_sign.jpg",
+      "sha256": "1cfcd3e19ae77f22baa13e30688c437b0d8b353388252abd2d5ba237d8389654",
+      "preview": "assets/imported/Kai.Wu/stationery_no_sign.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/sportcenter_miniprogram.jpg",
+      "path": "assets/imported/Kai.Wu/sportcenter_miniprogram.jpg",
+      "sha256": "db72a4ef04f8ee1a5e4afcc2dadd4a5b40c59a9d25384d1aca17a35db2c97258",
+      "preview": "assets/imported/Kai.Wu/sportcenter_miniprogram.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/LMO_course.jpg",
+      "path": "assets/imported/Kai.Wu/LMO_course.jpg",
+      "sha256": "6be0310e8e205dfcefd60f0a2a5126189e961c3c4bf874ac49efc9eb9bf47512",
+      "preview": "assets/imported/Kai.Wu/LMO_course.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/LMO_submission_links.jpg",
+      "path": "assets/imported/Kai.Wu/LMO_submission_links.jpg",
+      "sha256": "250fcfc9d2d6342e8ba51c3ad35b48f3c6331a78e42b5dcd2f100abbc207ccc1",
+      "preview": "assets/imported/Kai.Wu/LMO_submission_links.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/LMO_inside_submission.jpg",
+      "path": "assets/imported/Kai.Wu/LMO_inside_submission.jpg",
+      "sha256": "9f06efc3d3e9b23fa24407bb6459e4cce33db6812d8abaf04a50eb9d84e84ef2",
+      "preview": "assets/imported/Kai.Wu/LMO_inside_submission.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/LMO_download.jpg",
+      "path": "assets/imported/Kai.Wu/LMO_download.jpg",
+      "sha256": "f0a4e41858b669c0f021470a580225b9da5c0bcf63ffd934c6e45cc67e00c239",
+      "preview": "assets/imported/Kai.Wu/LMO_download.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/LMO_Downloaded.jpg",
+      "path": "assets/imported/Kai.Wu/LMO_Downloaded.jpg",
+      "sha256": "cc2449c5d98a5a44098db331d76d831514e75f0a12abb965520038fe720d84fd",
+      "preview": "assets/imported/Kai.Wu/LMO_Downloaded.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/LMO_upload.jpg",
+      "path": "assets/imported/Kai.Wu/LMO_upload.jpg",
+      "sha256": "d8a92a49b18a46d9e96d66bc8313d420ae6736bb1de6672b6e4cafa84e7339c0",
+      "preview": "assets/imported/Kai.Wu/LMO_upload.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/LMO_upload_sheet.jpg",
+      "path": "assets/imported/Kai.Wu/LMO_upload_sheet.jpg",
+      "sha256": "4d39cfefa865a8ecfc33635c3a0d390f8801dfea6503ff9fb84fd57ca28486bf",
+      "preview": "assets/imported/Kai.Wu/LMO_upload_sheet.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/LMO_feedback_to_teacher.jpg",
+      "path": "assets/imported/Kai.Wu/LMO_feedback_to_teacher.jpg",
+      "sha256": "daa192153de50a5317a58a70a516a766ea8200c6779f43848ca3a0643a35ec0f",
+      "preview": "assets/imported/Kai.Wu/LMO_feedback_to_teacher.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/marking_tools.jpg",
+      "path": "assets/imported/Kai.Wu/marking_tools.jpg",
+      "sha256": "aebeee2da6a70f881f757f2bf572e3afaba7601c4e1d7a203b04e70372e63ace",
+      "preview": "assets/imported/Kai.Wu/marking_tools.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/tongchengji.jpg",
+      "path": "assets/imported/Kai.Wu/tongchengji.jpg",
+      "sha256": "81095d2befca7988e2f2f03df4cd771ebb04da3a35f6165b6ec405b04d75c9b7",
+      "preview": "assets/imported/Kai.Wu/tongchengji.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/lab.jpg",
+      "path": "assets/imported/Kai.Wu/lab.jpg",
+      "sha256": "7c1cd804518f29212bc83959f51b68e614404251728eebdc6962709a35979158",
+      "preview": "assets/imported/Kai.Wu/lab.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/invigi-table.jpg",
+      "path": "assets/imported/Kai.Wu/invigi-table.jpg",
+      "sha256": "f4d64c89f0bd4960de5cf5fed37bea1ceb9724be556af1c37881f2bd414d0b6d",
+      "preview": "assets/imported/Kai.Wu/invigi-table.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/invigilation.jpg",
+      "path": "assets/imported/Kai.Wu/invigilation.jpg",
+      "sha256": "a0f90acda43b97f62488b28b112a35b9c1639be156b328817dc7bb10488d34c9",
+      "preview": "assets/imported/Kai.Wu/invigilation.jpg"
+    },
+    {
+      "source": "fileshare/XJTLU VIVA Examination Arrangement Flowchart_2023.pdf",
+      "path": "assets/imported/shared/XJTLU VIVA Examination Arrangement Flowchart_2023.pdf",
+      "sha256": "375bc44fa1ee57b1ffc0a9d8a2e270d135164c18678227b0c74969607f1b206f",
+      "preview": "assets/imported/shared/XJTLU VIVA Examination Arrangement Flowchart_2023.png"
+    },
+    {
+      "source": "author-folder/Kai.Wu/Completion_of_Studies_Certificate_EXAMPLE.jpg",
+      "path": "assets/imported/Kai.Wu/Completion_of_Studies_Certificate_EXAMPLE.jpg",
+      "sha256": "2466e3a8e0242653d5a8bd2d69ab8fa08ec0cef0490e844b819c873682dfa7f8",
+      "preview": "assets/imported/Kai.Wu/Completion_of_Studies_Certificate_EXAMPLE.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/backup1.jpg",
+      "path": "assets/imported/Kai.Wu/backup1.jpg",
+      "sha256": "8410c3b7e0377979ece8645ffe65b03785f9e05cb4b26cec02aadfbc369e2a9b",
+      "preview": "assets/imported/Kai.Wu/backup1.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/backup2.jpg",
+      "path": "assets/imported/Kai.Wu/backup2.jpg",
+      "sha256": "1857a36b0c5b50de267cc65f71a83ef4e95c8038ae02c5ac34b6300940747915",
+      "preview": "assets/imported/Kai.Wu/backup2.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/backup_zhihu.jpg",
+      "path": "assets/imported/Kai.Wu/backup_zhihu.jpg",
+      "sha256": "12a5699d497d6ac24abbd73aa3fafcfe7dffc4d036b610ea14dbf11037cab1b1",
+      "preview": "assets/imported/Kai.Wu/backup_zhihu.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/thesis_versions.jpg",
+      "path": "assets/imported/Kai.Wu/thesis_versions.jpg",
+      "sha256": "0dce20faee9849df5e7f598d0999cd35ed94dcf6f69ef8a6da2abb60edff0ae7",
+      "preview": "assets/imported/Kai.Wu/thesis_versions.jpg"
+    },
+    {
+      "source": "author-folder/Yue.Zhou/gongzuotai.jpg",
+      "path": "assets/imported/Yue.Zhou/gongzuotai.jpg",
+      "sha256": "6602c2d6b406494d80af2889c16a1db8dc28d0021a1fa193b729e5bbcf100f7c",
+      "preview": "assets/imported/Yue.Zhou/gongzuotai.jpg"
+    },
+    {
+      "source": "author-folder/Jialin.Wang/shengjiangzhuo.jpeg",
+      "path": "assets/imported/Jialin.Wang/shengjiangzhuo.jpeg",
+      "sha256": "d5644f0e8b3faa4fd7df6b6d73a573e743dba0b3cc9f7eeef5d50790090b37a4",
+      "preview": "assets/imported/Jialin.Wang/shengjiangzhuo.jpeg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/library-ejournal.jpg",
+      "path": "assets/imported/Kai.Wu/library-ejournal.jpg",
+      "sha256": "bc1dcf7640cdd98604f3580d29e9f088ca94572ea061ae03b8edbd819f17e3e7",
+      "preview": "assets/imported/Kai.Wu/library-ejournal.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/mental_1.pdf",
+      "path": "assets/imported/Kai.Wu/mental_1.pdf",
+      "sha256": "7f2923825b54ab141e7042347736c8ad64a7d8de998d55606941de4c2f15ae44",
+      "preview": "assets/imported/Kai.Wu/mental_1.png"
+    },
+    {
+      "source": "author-folder/Kai.Wu/mental_2.pdf",
+      "path": "assets/imported/Kai.Wu/mental_2.pdf",
+      "sha256": "41cc5aa5ba0006b1a333126d7a82ee8996b2e7aed730744bfc02a8ec2c1a31d1",
+      "preview": "assets/imported/Kai.Wu/mental_2.png"
+    },
+    {
+      "source": "author-folder/Kai.Wu/mental_3.pdf",
+      "path": "assets/imported/Kai.Wu/mental_3.pdf",
+      "sha256": "d117fbb3e1bca4ec63c17fea0fe8a2ba1530b191d02e615056974cdc7f8d41c2",
+      "preview": "assets/imported/Kai.Wu/mental_3.png"
+    },
+    {
+      "source": "author-folder/Kai.Wu/chat1of3.jpg",
+      "path": "assets/imported/Kai.Wu/chat1of3.jpg",
+      "sha256": "6c700ea77d0a6952c7e4f31e4e780858b087bf76930c95cde778fa3036c35c6d",
+      "preview": "assets/imported/Kai.Wu/chat1of3.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/chat2of3.jpg",
+      "path": "assets/imported/Kai.Wu/chat2of3.jpg",
+      "sha256": "83fbf011dca7e2cfe853eb83fd6a3010b80149fa7c24004ae63cdea1d4c164cb",
+      "preview": "assets/imported/Kai.Wu/chat2of3.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/chat3of3.jpg",
+      "path": "assets/imported/Kai.Wu/chat3of3.jpg",
+      "sha256": "a55f8d8476d139e00167407b1a385155ba42abc3972f0195bdbd952536d76403",
+      "preview": "assets/imported/Kai.Wu/chat3of3.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/kai_mac_dock.jpg",
+      "path": "assets/imported/Kai.Wu/kai_mac_dock.jpg",
+      "sha256": "3e9598e42134d97fe60f7305d5f838814f4dc4acca4d49e73c10d3e753099b64",
+      "preview": "assets/imported/Kai.Wu/kai_mac_dock.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/notion.jpg",
+      "path": "assets/imported/Kai.Wu/notion.jpg",
+      "sha256": "dda237f728bca345bb5c4cb58779e5bb4172a65021f8c4cc8c75b6a98fe15b54",
+      "preview": "assets/imported/Kai.Wu/notion.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/dida.jpg",
+      "path": "assets/imported/Kai.Wu/dida.jpg",
+      "sha256": "b7ebe13aaa6a00a197a53a744ccb209f3d7202e7826016793d428d10a39fcf49",
+      "preview": "assets/imported/Kai.Wu/dida.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/trello.jpg",
+      "path": "assets/imported/Kai.Wu/trello.jpg",
+      "sha256": "3d2df78a7a16fdc179ee28de85cd26db283cd65c2fcc4e21cb600de0b03cda9c",
+      "preview": "assets/imported/Kai.Wu/trello.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/vscode.jpg",
+      "path": "assets/imported/Kai.Wu/vscode.jpg",
+      "sha256": "2c73faf719c731e5278b8ef34f37c3b6940b3debe3134d9dad942040fb52522c",
+      "preview": "assets/imported/Kai.Wu/vscode.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/spark.jpg",
+      "path": "assets/imported/Kai.Wu/spark.jpg",
+      "sha256": "2f80f8554de4103752289cdb1fb366e72a63c44cc829dabd8014f79a1a9d02b2",
+      "preview": "assets/imported/Kai.Wu/spark.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/Bob.jpg",
+      "path": "assets/imported/Kai.Wu/Bob.jpg",
+      "sha256": "10a5519743457febe296cf358a2857b45bddaffc28712ceffd27795809591982",
+      "preview": "assets/imported/Kai.Wu/Bob.jpg"
+    },
+    {
+      "source": "author-folder/Kai.Wu/XJTLU-campus-map.pdf",
+      "path": "assets/imported/Kai.Wu/XJTLU-campus-map.pdf",
+      "sha256": "3bffbf1f116bedef5cc63f3c1dbd1a6a871b1ce44025364fee635c4b2fe963f9",
+      "preview": "assets/imported/Kai.Wu/XJTLU-campus-map.png"
+    }
+  ],
+  "replaced": [
+    {
+      "source": "chapters/author-instruction.tex",
+      "replacement": "content/appendix/contributing.qmd",
+      "reason": "New web and Markdown contribution guide replaces the legacy TeX instructions.",
+      "import_replacement": "contributing.qmd"
+    }
+  ],
+  "excluded_inactive": [
+    "chapters/non-xjtluer.tex",
+    "chapters/pgrsociety.tex",
+    "chapters/copyright.tex",
+    "author-folder/Kai.Wu/train_ticket.tex",
+    "author-folder/Kai.Wu/empty.tex",
+    "author-guide/elegantbook-cn-example.tex",
+    "author-guide/elegantbook-en-example.tex"
+  ],
+  "notes": [
+    "Chapter grouping headings are preserved in the book navigation.",
+    "The other-advice chapter epigraph is retained in backup.qmd.",
+    "Existing facts, dates and recommendations are migrated without factual revision.",
+    "Mixed-author legacy text is marked unverified rather than assigned by file directory.",
+    "Current page paths follow the topic folders; import_path and import_replacement preserve the initial import locations.",
+    "Legacy source paths (including QMD legacy-source metadata) are relative to legacy_root; current output paths remain relative to book/. Original legacy paths and source hashes are preserved after archival."
+  ]
+}

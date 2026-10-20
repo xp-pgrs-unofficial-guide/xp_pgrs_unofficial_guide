@@ -1,0 +1,35 @@
+schema_version: 1
+redirects:
+  content/acknowledgements.qmd: content/appendix/acknowledgements.qmd
+  content/apr.qmd: content/milestones/apr.qmd
+  content/backup.qmd: content/life-tools/backup.qmd
+  content/campus-map.qmd: content/appendix/campus-map.qmd
+  content/campus-vm.qmd: content/life-tools/campus-vm.qmd
+  content/career.qmd: content/research-work/career.qmd
+  content/changelog.qmd: content/appendix/changelog.qmd
+  content/compulsory-courses.qmd: content/milestones/compulsory-courses.qmd
+  content/conference-funding.qmd: content/resources/conference-funding.qmd
+  content/contacts.qmd: content/appendix/contacts.qmd
+  content/ergonomics.qmd: content/life-tools/ergonomics.qmd
+  content/how-research-works.qmd: content/research-work/how-research-works.qmd
+  content/invigilation.qmd: content/research-work/invigilation.qmd
+  content/join-us.qmd: content/appendix/join-us.qmd
+  content/library-databases.qmd: content/life-tools/library-databases.qmd
+  content/liverpool-account.qmd: content/resources/liverpool-account.qmd
+  content/liverpool-visit.qmd: content/life-tools/liverpool-visit.qmd
+  content/meeting-records.qmd: content/milestones/meeting-records.qmd
+  content/mental-health.qmd: content/life-tools/mental-health.qmd
+  content/other-benefits.qmd: content/resources/other-benefits.qmd
+  content/pitfalls.qmd: content/life-tools/pitfalls.qmd
+  content/preface.qmd: content/getting-started/preface.qmd
+  content/printing.qmd: content/resources/printing.qmd
+  content/recommended-software.qmd: content/life-tools/recommended-software.qmd
+  content/remote-access.qmd: content/life-tools/remote-access.qmd
+  content/research-symposium.qmd: content/milestones/research-symposium.qmd
+  content/sports-vouchers.qmd: content/resources/sports-vouchers.qmd
+  content/start-here.qmd: content/getting-started/start-here.qmd
+  content/stationery.qmd: content/resources/stationery.qmd
+  content/suzhou-library.qmd: content/life-tools/suzhou-library.qmd
+  content/teaching-assistant.qmd: content/research-work/teaching-assistant.qmd
+  content/thesis-and-graduation.qmd: content/research-work/thesis-and-graduation.qmd
+  contributing.qmd: content/appendix/contributing.qmd

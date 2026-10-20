@@ -1,0 +1,44 @@
+% The active Quarto PDF uses its own small style, inspired by the archived
+% ElegantBook edition. Keep publication independent of archive/ and system fonts.
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{xeCJKfntef}
+\definecolor{guideBlue}{RGB}{60,113,183}
+\definecolor{guideCover}{RGB}{3,31,115}
+\definecolor{guideWine}{RGB}{128,0,0}
+\definecolor{guideGray}{RGB}{90,98,108}
+\providecommand{\st}[1]{#1}
+\renewcommand{\st}[1]{\sout{#1}}
+\providecommand{\ul}[1]{#1}
+\renewcommand{\ul}[1]{\uline{#1}}
+
+\ctexset{
+  part = {format = \Huge\bfseries\color{guideBlue}\centering},
+  chapter = {
+    format = \LARGE\bfseries\color{guideBlue}\centering,
+    beforeskip = -20pt,
+    afterskip = 1.3\baselineskip
+  },
+  section = {format = \Large\bfseries\color{guideBlue}},
+  subsection = {format = \large\bfseries\color{guideBlue}},
+  subsubsection = {format = \normalsize\bfseries\color{guideBlue}}
+}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt plus 1pt}
+\renewcommand{\arraystretch}{1.15}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\color{guideBlue}\nouppercase{\rightmark}}
+\fancyfoot[C]{\small\color{guideBlue}\thepage}
+\setlength{\headheight}{28pt}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{guideBlue}\leaders\hrule height \headrulewidth\hfill}}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\small\color{guideBlue}\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\AtBeginDocument{\hypersetup{linkcolor=guideWine,urlcolor=guideWine,citecolor=guideWine}}

@@ -1,0 +1,41 @@
+---
+title: Contributions and corrections
+discussion-id: xp-guide-contributing
+lang: en
+translation-source: content/appendix/contributing.qmd
+translation-status: draft
+translation-source-sha256: ff31db7f28e1e09877f64900f63c58aad773fa94c26696f030dc12b0f78c3f26
+---
+
+::: {#xp-guide-contributing}
+:::
+
+::: {.contribution authors="editorial"}
+
+The experience you write down in a few minutes could save future students hours or even days. Whether you want to add a new guide or point out outdated information, your contribution is welcome.
+
+## The easiest method: submit text {#最简单的方法提交文字}
+
+Click "Add or correct content" below any article. After you log in to GitHub, an Issue draft opens with the article title, URL, source file, branch, and article identifier already filled in. Add your suggestion, the name or nickname you would like displayed publicly, and your sources. You can drag images and files directly into the text area. Review the draft before submitting it: opening a draft does not publish it automatically.
+
+Editors will check the content, clarify anything necessary with you, and incorporate it into the guide through a pull request. You do not need to install software or learn LaTeX.
+
+## Edit an article directly {#直接修改文章}
+
+Click "Propose an edit (PR)" to edit Markdown on GitHub. Ordinary readers can also contribute: if you do not have write access to this repository, follow GitHub's prompts to create your own fork, then open a pull request targeting `main`. Maintainers with write access should also create a working branch and have changes reviewed through a pull request before updating the guide.
+
+Put new articles under `book/content/` and add them to the appropriate contents group in `book/_quarto.yml`.
+
+Each article needs a title and a `discussion-id` that remains stable when the article is renamed. Put the body in attributed contribution blocks. Consecutive paragraphs by the same author can share a block; start a new block when the author changes. See the [contribution guide](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md) for a complete example.
+
+## Attribution {#怎样署名}
+
+Attribution records the people who actually provided the content. When an editor transcribes a contribution, fixes formatting, or corrects a typo, the original author remains credited. Credit later contributors for substantive additions. You may use a name, nickname, or clearly agreed anonymous credit; there is no need to publish an email address.
+
+"Attribution unconfirmed" in historical content does not describe a new author. If you know the original source, include the original draft, existing credit, or other verifiable evidence with your submission.
+
+When a suggestion from the comments is incorporated into the guide, editors will retain the actual contributor's credit. Comments do not become part of the guide automatically: all changes are reviewed.
+
+Thank you for leaving some experience for those who come after you.
+
+:::

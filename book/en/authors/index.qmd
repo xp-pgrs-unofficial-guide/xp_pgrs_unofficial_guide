@@ -1,0 +1,21 @@
+---
+title: Authors and contributors
+discussion-id: xp-guide-authors
+guide-author-index: true
+lang: en
+translation-source: authors/index.qmd
+translation-status: draft
+translation-source-sha256: 8f9f1e89f8299fe7e793d7335751425d5c9f3f6193cc8200b0a8971b096c0446
+---
+
+::: {#xp-guide-authors}
+:::
+
+:::: {.contribution authors="editorial"}
+
+This directory is generated from the original-author and substantive-contributor fields in the current articles. A Git commit does not establish authorship. Profile pages list recorded contributions; they do not infer biographies.
+
+::: {.guide-author-index}
+:::
+
+::::

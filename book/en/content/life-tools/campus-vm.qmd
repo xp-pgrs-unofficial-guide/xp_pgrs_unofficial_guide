@@ -1,0 +1,19 @@
+---
+title: XJTLU virtual desktop
+discussion-id: xp-guide-campus-vm
+legacy-source:
+- chapters/others.tex
+lang: en
+translation-source: content/life-tools/campus-vm.qmd
+translation-status: draft
+translation-source-sha256: 7090bbebb18237349b9c40e4be14e7e6c42aa8edc52c808e6ad50ddfd93fb49a
+---
+
+::: {#xp-guide-campus-vm}
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+<https://vdi.xjtlu.edu.cn/portal/webclient/index.html> If you are off campus and need quick, temporary access to university resources or software, you can use the university's online virtual desktop. It is effectively a computer located on campus.
+
+:::

@@ -1,0 +1,21 @@
+---
+title: Ziwen Xie
+discussion-id: xp-guide-author-ziwen-xie
+guide-author-id: ziwen-xie
+lang: en
+translation-source: authors/ziwen-xie.qmd
+translation-status: draft
+translation-source-sha256: 0653f5a467e9cfc68079f73851c7f302ce24b12db97058acf573e05f0bcb7c1c
+---
+
+::: {#xp-guide-author-ziwen-xie}
+:::
+
+:::: {.contribution authors="editorial"}
+
+This page lists the contributions recorded under this author ID. For an attribution correction or a public profile introduction, use the contribution link below.
+
+::: {.guide-author-profile data-guide-author-id="ziwen-xie"}
+:::
+
+::::

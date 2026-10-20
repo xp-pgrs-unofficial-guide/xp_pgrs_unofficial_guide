@@ -1,0 +1,55 @@
+---
+title: What software does everyone use? Your additions are welcome
+discussion-id: xp-guide-recommended-software
+legacy-source:
+- chapters/others.tex
+lang: en
+translation-source: content/life-tools/recommended-software.qmd
+translation-status: draft
+translation-source-sha256: 1eac09a75a05457a62987c823ea1a039904cb8d3c45dc3235b345212d26117e4
+---
+
+::: {#xp-guide-recommended-software}
+:::
+
+::: {.contribution authors="kai-wu"}
+
+[Kai Wu](mailto:kaiwu.astro@gmail.com): To get the conversation started, here is some software I would definitely recommend that junior colleagues try:
+
+![Kai's Mac Dock](../../../assets/imported/Kai.Wu/kai_mac_dock.jpg)
+
+- Research and productivity tools
+
+  1. Notion (all platforms). An exceptionally powerful new-generation note-taking application. I was a heavy OneNote user for seven years before someone happened to introduce me to Notion. After a very short trial, I decided to leave the familiar OneNote behind and switch entirely. Reasons to recommend it: Windows, Mac, Linux, web, iOS, and Android support; powerful databases for building your own GTD system and greatly improving efficiency; fast global search; modern collaboration features that can even support team and project management; strong sharing features that easily publish notes as public web pages; and plenty of tutorials on Bilibili.
+
+     ![Notion](../../../assets/imported/Kai.Wu/notion.jpg)
+
+  2. Dida/TickTick (all platforms). I spent a long time using Wunderlist, later acquired by Microsoft and turned into Microsoft To Do, iOS Reminders, and several other task-list apps. Only Dida felt the most natural and intuitive. Used alongside Notion, it makes it easy to manage all the large and small tasks in study and life. It supports all platforms.
+
+     ![Dida task list](../../../assets/imported/Kai.Wu/dida.jpg)
+
+  3. Trello (all platforms). Manage tasks and to-do items with cards. My supervisor relies heavily on Trello to keep an enormous number of responsibilities in order. Although I consider Notion a subset of Trello, if you dislike Notion for some reason, you can at least try Trello. It can be downloaded on all platforms.
+
+     ![Trello](../../../assets/imported/Kai.Wu/trello.jpg)
+
+  4. VSCode (Visual Studio Code; all desktop platforms). An open-source text editor that rose to prominence around 2019, with an exceptionally strong community and extension support. I currently write my journal papers, thesis, and even the guide you are reading in VSCode with the LaTeX Workshop extension. All my numerical simulation programs and data-analysis scripts are written there too. Its drawbacks are a small learning curve and some configuration work, plus memory usage comparable to Chrome.
+
+     ![Visual Studio Code](../../../assets/imported/Kai.Wu/vscode.jpg)
+
+  5. Spark. An email app by Readdle, the developer behind Apple's best-app winners over the years. It manages all your mailboxes in one place and syncs account configuration to the cloud, saving you from adding a large number of accounts again every time you buy a new device. It seems to be exclusive to Mac and iOS; I am not sure whether it exists on other platforms.
+
+     ![Spark](../../../assets/imported/Kai.Wu/spark.jpg)
+
+  6. I will not recommend reference managers: everyone has their own preferences. If you do not yet have one, ask senior students or look for recommendations on Bilibili right away.
+
+- Efficiency tools
+
+  1. Bob (macOS) or Pot (Windows/Mac/Linux): tools for selected-text translation, screenshot translation, and OCR. They support services including ChatGPT, DeepL, Google Translate, and Youdao, and can even show results from multiple services in one call for comparison. Download Bob from the Mac App Store; Pot is available at pot-app.com.
+
+     ![Bob](../../../assets/imported/Kai.Wu/Bob.jpg)
+
+Have you discovered any particularly useful software? Please share it generously with junior students.
+
+Your recommendations:
+
+:::

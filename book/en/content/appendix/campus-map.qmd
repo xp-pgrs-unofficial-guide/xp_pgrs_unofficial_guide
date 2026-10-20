@@ -1,0 +1,21 @@
+---
+title: Campus map
+discussion-id: xp-guide-campus-map
+legacy-source:
+- chapters/appendix.tex
+lang: en
+translation-source: content/appendix/campus-map.qmd
+translation-status: draft
+translation-source-sha256: d21d6b4df7cede20d813032982e3736f9a83f22a0e1851dacd8153c5525a377e
+---
+
+::: {#xp-guide-campus-map}
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+![XJTLU campus map](../../../assets/imported/Kai.Wu/XJTLU-campus-map.png)
+
+[Download the original PDF](../../../assets/imported/Kai.Wu/XJTLU-campus-map.pdf)
+
+:::

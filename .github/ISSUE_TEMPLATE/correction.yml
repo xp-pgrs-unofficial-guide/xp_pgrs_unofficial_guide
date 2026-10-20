@@ -1,0 +1,32 @@
+name: 纠错 / 更新信息
+description: 报告过期信息、错误、缺失内容或阅读问题。
+title: "[纠错] "
+body:
+  - type: input
+    id: article
+    attributes:
+      label: 目标文章链接
+      description: 请粘贴文章链接，能附上小节名或引用原文更好。
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: 问题与建议修改内容
+      description: 描述原文哪里有误，以及建议改成什么。
+    validations:
+      required: true
+  - type: input
+    id: attribution
+    attributes:
+      label: 公开署名 / 昵称
+      description: 希望如何署名此次补充；需要匿名请填“匿名”。
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: 来源与核实时间
+      description: 请提供支持修改的链接或个人经验及日期；界面故障可填写复现步骤。
+    validations:
+      required: true

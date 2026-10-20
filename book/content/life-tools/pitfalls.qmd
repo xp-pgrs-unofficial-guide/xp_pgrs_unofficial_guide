@@ -1,0 +1,17 @@
+---
+title: "避坑指南（待补）"
+discussion-id: xp-guide-pitfalls
+legacy-source:
+  - chapters/bikeng.tex
+---
+
+::: {#xp-guide-pitfalls}
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+## 一个坑 {#一个坑}
+
+如果你踩过什么坑，可以花两分钟告诉我，标记在这里，免得大家一起踩坑，~~形成喜闻乐见的场面~~
+
+:::

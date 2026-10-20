@@ -1,0 +1,34 @@
+---
+title: Benefits of your Liverpool account
+discussion-id: xp-guide-liverpool-account
+legacy-source:
+- author-folder/Kai.Wu/liverpool-account-fuli.tex
+lang: en
+translation-source: content/resources/liverpool-account.qmd
+translation-status: draft
+translation-source-sha256: 84dbd35ea0c494a2a1dd042614b7a99cf72c77a9e61516bb9d40607bc73eff94
+---
+
+::: {#xp-guide-liverpool-account}
+:::
+
+::: {#sec.fuli_liverpool}
+:::
+
+::: {.contribution authors="kai-wu"}
+
+- Free premium Liverpool Zoom account: <https://liverpool.service-now.com/sp?id=kb_article&sysparm_article=KB0011854>
+
+- Free Liverpool Office 365: <https://liverpool.service-now.com/sp?id=kb_article&sysparm_article=KB0010032>
+
+- Free Liverpool 1 TB OneDrive storage, web access: <https://liverpool.service-now.com/sp?id=kb_article&sysparm_article=KB0011362>
+
+- Free Liverpool 1 TB OneDrive storage, local backup and synchronisation: <https://support.microsoft.com/zh-cn/office/%E4%BD%BF%E7%94%A8-onedrive-%E8%BF%9B%E8%A1%8C%E5%90%8C%E6%AD%A5-bb89981b-e382-4969-b8fd-d413a90b6db3>
+
+- Other free Liverpool software: <https://www.liverpool.ac.uk/it/software/software-downloads/>
+
+- Liverpool software licence codes: <https://www.liverpool.ac.uk/it/software/licencecodes/>
+
+(2 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+
+:::

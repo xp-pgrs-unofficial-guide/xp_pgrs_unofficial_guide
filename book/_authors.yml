@@ -1,0 +1,18 @@
+# Display names are intentionally separate from Git commit authors and logins.
+guide-authors:
+  kai-wu: "吴开（Kai Wu）"
+  shiyao-zhang: "张世尧（Shiyao Zhang）"
+  yue-zhou: "Yue Zhou"
+  ziwen-xie: "Ziwen Xie"
+  jialin-wang: "Jialin Wang"
+  editorial: "编辑组"
+  unknown: "归属待确认"
+
+guide-authors-en:
+  kai-wu: Kai Wu
+  shiyao-zhang: Shiyao Zhang
+  yue-zhou: Yue Zhou
+  ziwen-xie: Ziwen Xie
+  jialin-wang: Jialin Wang
+  editorial: Editorial team
+  unknown: Attribution awaiting confirmation
