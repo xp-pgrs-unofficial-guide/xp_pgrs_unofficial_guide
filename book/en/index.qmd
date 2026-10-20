@@ -4,7 +4,7 @@ discussion-id: xp-guide-home
 lang: en
 translation-source: index.qmd
 translation-status: draft
-translation-source-sha256: 206ba739003b86aae44138e8963967ed6424ce97a7e3d76df5898b75a0aa7f78
+translation-source-sha256: a0222588443168462f0e5f8d445609c4d305acc61d9aa480258e116c44788f57
 ---
 
 ::: {#xp-guide-home}
@@ -23,7 +23,7 @@ Students write and maintain this guide together. Advice applies to particular ti
 - **Understanding research and work**: [How academic research happens](content/research-work/how-research-works.qmd#xp-guide-how-research-works) and [Working as a teaching assistant](content/research-work/teaching-assistant.qmd#xp-guide-teaching-assistant).
 - **Planning a visit to Liverpool**: [Visiting Liverpool](content/life-tools/liverpool-visit.qmd#xp-guide-liverpool-visit).
 
-The left-hand contents preserve the guide's topic structure. You can also search for information. For offline reading, download the complete PDF from above the contents.
+The left-hand contents preserve the guide's topic structure. You can also search for information. For offline reading, download the complete [Chinese PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/xp-pgrs-unofficial-guide.pdf) or [English PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/en/xp-pgrs-unofficial-guide.pdf). For versioned PDFs, see [versioned releases](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest).
 
 ## Help improve the guide {#一起完善它}
 

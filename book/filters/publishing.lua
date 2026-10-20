@@ -68,6 +68,12 @@ return {
     end
     doc.blocks:insert(1, pandoc.RawBlock("html", controls))
     local parts = {
+      '<section class="guide-downloads" aria-label="' .. text("PDF 下载", "PDF downloads") .. '">',
+      '<h2 class="unnumbered">' .. text("下载整本攻略", "Download the full guide") .. '</h2>',
+      '<nav class="guide-actions" aria-label="' .. text("下载入口", "Download options") .. '">',
+      '<a class="guide-pdf-download no-external" hreflang="zh-CN" href="' .. html(root_site .. 'xp-pgrs-unofficial-guide.pdf') .. '">' .. text("中文版 PDF", "Chinese PDF") .. '</a>',
+      '<a class="guide-pdf-download no-external" hreflang="en" href="' .. html(root_site .. 'en/xp-pgrs-unofficial-guide.pdf') .. '">English PDF</a>',
+      '<a href="' .. html(repo .. '/releases/latest') .. '">' .. text("版本归档（Release）", "Versioned releases") .. '</a></nav></section>',
       '<section class="guide-participate" aria-label="' .. text("参与完善本页", "Improve this page") .. '">',
       '<h2 class="unnumbered">' .. text("一起完善这一页", "Help improve this page") .. '</h2>',
       '<p>' .. text("分享变化、补充经验，或帮我们修正一处错误。正文由编辑审核后发布。", "Share an update, add your experience, or correct an error. Editors review changes before publication.") .. '</p>',

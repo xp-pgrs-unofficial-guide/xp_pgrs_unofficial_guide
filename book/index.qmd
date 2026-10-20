@@ -19,7 +19,7 @@ discussion-id: xp-guide-home
 - **了解研究与工作**：[学术研究是怎么发生的](content/research-work/how-research-works.qmd#xp-guide-how-research-works)、[助教怎么做](content/research-work/teaching-assistant.qmd#xp-guide-teaching-assistant)。
 - **准备赴利物浦**：[访学经验](content/life-tools/liverpool-visit.qmd#xp-guide-liverpool-visit)。
 
-左侧目录保留整本指南的主题结构，也可以使用搜索查找内容。需要离线阅读时，可从目录上方下载整本 PDF。
+左侧目录保留整本指南的主题结构，也可以使用搜索查找内容。需要离线阅读时，可下载整本 [中文版 PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/xp-pgrs-unofficial-guide.pdf) 或 [English PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/en/xp-pgrs-unofficial-guide.pdf)。按版本归档的 PDF 见 [Release 版本归档](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest)。
 
 ## 一起完善它 {#一起完善它}
 

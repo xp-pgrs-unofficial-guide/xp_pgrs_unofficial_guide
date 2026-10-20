@@ -54,7 +54,8 @@ jobs:
           git show-ref --verify "refs/tags/$release_tag"
           git checkout --detach "refs/tags/$release_tag"
           printf 'tag=%s\n' "$release_tag" >> "$GITHUB_OUTPUT"
-          printf 'asset=xp_pgrs_unofficial_guide_%s.pdf\n' "${release_tag#v}" >> "$GITHUB_OUTPUT"
+          printf 'asset_zh=xp_pgrs_unofficial_guide_%s.pdf\n' "${release_tag#v}" >> "$GITHUB_OUTPUT"
+          printf 'asset_en=xp_pgrs_unofficial_guide_%s_en.pdf\n' "${release_tag#v}" >> "$GITHUB_OUTPUT"
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -80,19 +81,27 @@ jobs:
         run: node --test tests/ui/guide.test.js
       - name: Validate and build guide
         run: python3 scripts/build.py
-      - name: Prepare versioned PDF
+      - name: Prepare versioned PDFs
         env:
-          ASSET_PATH: ${{ steps.release.outputs.asset }}
-        run: cp book/_book/xp-pgrs-unofficial-guide.pdf "$ASSET_PATH"
+          ASSET_ZH: ${{ steps.release.outputs.asset_zh }}
+          ASSET_EN: ${{ steps.release.outputs.asset_en }}
+        run: |
+          set -euo pipefail
+          test -s book/_book/xp-pgrs-unofficial-guide.pdf
+          test -s book/_book/en/xp-pgrs-unofficial-guide.pdf
+          cp book/_book/xp-pgrs-unofficial-guide.pdf "$ASSET_ZH"
+          cp book/_book/en/xp-pgrs-unofficial-guide.pdf "$ASSET_EN"
       - name: Publish PDF release
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           RELEASE_TAG: ${{ steps.release.outputs.tag }}
-          ASSET_PATH: ${{ steps.release.outputs.asset }}
+          ASSET_ZH: ${{ steps.release.outputs.asset_zh }}
+          ASSET_EN: ${{ steps.release.outputs.asset_en }}
         run: |
+          set -euo pipefail
           if gh release view "$RELEASE_TAG" > /dev/null 2>&1; then
-            gh release upload "$RELEASE_TAG" "$ASSET_PATH" --clobber
+            gh release upload "$RELEASE_TAG" "$ASSET_ZH" "$ASSET_EN" --clobber
           else
-            gh release create "$RELEASE_TAG" "$ASSET_PATH" --verify-tag --title "$RELEASE_TAG" --generate-notes
+            gh release create "$RELEASE_TAG" "$ASSET_ZH" "$ASSET_EN" --verify-tag --title "$RELEASE_TAG" --generate-notes
           fi

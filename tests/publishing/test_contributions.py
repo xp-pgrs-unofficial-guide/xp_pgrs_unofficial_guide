@@ -139,6 +139,24 @@ class ContributionLinkTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("repo-branch", result.stderr)
 
+    def test_both_pdf_downloads_use_the_shared_site_root_in_either_language(self):
+        for lang, prefix in [("zh-CN", ""), ("en", "en/")]:
+            for source in ("index.qmd", "content/milestones/apr.qmd", "authors/kai-wu.qmd"):
+                with self.subTest(lang=lang, source=source):
+                    parser, _, _ = self.parse(input_file=source, lang=lang,
+                                              site=SITE + prefix, source_prefix=prefix)
+                    downloads = [link for link in parser.anchors
+                                 if "guide-pdf-download" in link.get("class", "").split()]
+                    self.assertEqual([(link["hreflang"], link["href"]) for link in downloads], [
+                        ("zh-CN", SITE + "xp-pgrs-unofficial-guide.pdf"),
+                        ("en", SITE + "en/xp-pgrs-unofficial-guide.pdf"),
+                    ])
+                    self.assertTrue(all("no-external" in link["class"].split() for link in downloads))
+                    self.assertEqual(downloads[0]["label"], "Chinese PDF" if lang == "en" else "中文版 PDF")
+                    self.assertEqual(downloads[1]["label"], "English PDF")
+                    self.assertEqual(len([link for link in parser.anchors
+                                          if link["href"] == REPO + "/releases/latest"]), 1)
+
     def test_footer_links_resolve_from_each_article_depth(self):
         contexts = [
             ("index.qmd", "markdown/index.md", "assets/guide.js"),

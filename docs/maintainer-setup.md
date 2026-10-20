@@ -102,7 +102,16 @@ node --test tests/ui/guide.test.js
 
 ## PDF Release
 
-继续使用 `v*` 版本标签发布。先确认对应提交的完整构建成功，再推送版本标签。`Release PDF` 工作流检出该标签，重新构建，从 `book/_book/xp-pgrs-unofficial-guide.pdf` 生成旧习惯的附件名 `xp_pgrs_unofficial_guide_<去掉v的版本>.pdf`，上传到相应 GitHub Release。已有同名附件会更新。
+继续使用 `v*` 版本标签发布。先确认对应提交的完整构建成功，再推送版本标签。`Release PDF` 工作流检出该标签，重新测试并构建两种语言，将两份 PDF 同时上传到相应 GitHub Release；已有同名附件会更新。
+
+| 语言 | 构建产物 | Release 附件名 |
+| --- | --- | --- |
+| 中文 | `book/_book/xp-pgrs-unofficial-guide.pdf` | `xp_pgrs_unofficial_guide_<去掉v的版本>.pdf` |
+| 英文 | `book/_book/en/xp-pgrs-unofficial-guide.pdf` | `xp_pgrs_unofficial_guide_<去掉v的版本>_en.pdf` |
+
+例如 `v1.1.0` 对应 `xp_pgrs_unofficial_guide_1.1.0.pdf` 和 `xp_pgrs_unofficial_guide_1.1.0_en.pdf`。中文版保留既有附件命名习惯，英文版通过 `_en` 区分。
+
+网站首页和每篇文章页脚也提供两种语言的 PDF 入口：[中文版 PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/xp-pgrs-unofficial-guide.pdf)、[英文版 PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/en/xp-pgrs-unofficial-guide.pdf)。Pages 上的文件跟随 `main` 部署更新，Release 附件对应所选版本标签。
 
 需要补发时，在 Actions 手动运行 `Release PDF`，输入已存在的 `v*` 标签；从标签运行时可省略输入。从分支手动运行且没有标签会明确失败，不会猜测版本或创建标签。历史 LaTeX 版本标签缺少新构建入口，保留其既有 Release，不用新工作流重发。
 

@@ -5,7 +5,7 @@
 This guide shares practical experience about PhD research and life at XJTLU, supplementing the official induction. It was initiated by the XJTLU PGR Society and is maintained by volunteer editors.
 
 - [Read online](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/): searchable articles with discussions, editing links, light/dark themes, and switching to the same article in either language.
-- [Download the PDF](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest): offline reading and versioned releases.
+- Download PDFs: [versioned Chinese and English releases](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest), or the current website build in [Chinese](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/xp-pgrs-unofficial-guide.pdf) and [English](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/en/xp-pgrs-unofficial-guide.pdf).
 - [Contribute or report a correction](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/issues/new): submit text with a GitHub account; article-specific links prefill the page information. No local Git or LaTeX installation is needed.
 
 This repository contains Chinese content and [English translations on the same site](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/en/). Matching articles share a discussion. English drafts are marked as awaiting human review. The separate [historical English project](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide_EN) is not the destination of this site’s language switch.
@@ -54,4 +54,4 @@ One build command checks that translations match the Chinese sources and are cur
 
 After a build, use `quarto preview book/en` to preview English. Do not edit the generated `book/en/_quarto.yml` manually.
 
-GitHub Actions validates branch pushes and pull requests targeting `main`. A push or manual run from `main` deploys Pages; other branches only build and save artifacts. Content changes are published after their pull request is merged into `main`. The existing `v*` tag workflow continues to publish PDF releases. See [maintainer setup](docs/maintainer-setup.md) for Pages, comments, and manual deployment.
+GitHub Actions validates branch pushes and pull requests targeting `main`. A push or manual run from `main` deploys Pages; other branches only build and save artifacts. Content changes are published after their pull request is merged into `main`. Pushing a `v*` tag builds and uploads both Chinese and English PDFs to GitHub Release. See [maintainer setup](docs/maintainer-setup.md) for Pages, comments, and manual deployment.

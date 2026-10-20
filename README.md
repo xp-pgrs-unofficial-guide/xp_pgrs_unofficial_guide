@@ -5,7 +5,7 @@
 本攻略分享西浦博士生的学习、研究和生活经验，补充官方 induction 的实用信息。项目最初由西浦 PGR Society 发起，现由志愿编辑维护。
 
 - [在线版](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/)：可搜索、按文章阅读、讨论和提出修改；支持明暗主题及同篇中英切换。
-- [PDF 下载](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest)：保留离线阅读和版本归档。
+- PDF 下载：[中英文版本归档（Release）](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest)；网站当前版本可直接下载[中文版 PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/xp-pgrs-unofficial-guide.pdf) 和[英文版 PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/en/xp-pgrs-unofficial-guide.pdf)。
 - [投稿 / 纠错](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/issues/new)：使用 GitHub 账号提交文字，无需安装 Git 或 LaTeX；从文章下方进入可自动带上文章信息。
 
 本仓库提供中文及[站内英文译文](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/en/)，两种语言的同篇文章共享评论。英文初稿已标记为待人工复核。另有独立的[历史英文项目](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide_EN)，它不是本站中英切换的目标。
@@ -54,4 +54,4 @@ python3 scripts/build.py
 
 运行一次构建后，可用 `quarto preview book/en` 预览英文；不要手工修改生成的 `book/en/_quarto.yml`。
 
-GitHub Actions 会验证分支推送和目标为 `main` 的 PR；`main` 的推送或手动运行会部署 Pages，其他分支仅构建并保存附件。正文修改通过 PR 合并到 `main` 后发布。`v*` 标签继续生成 GitHub Release PDF。Pages、评论及手动发布的方法见[维护者设置](docs/maintainer-setup.md)。
+GitHub Actions 会验证分支推送和目标为 `main` 的 PR；`main` 的推送或手动运行会部署 Pages，其他分支仅构建并保存附件。正文修改通过 PR 合并到 `main` 后发布。推送 `v*` 标签会构建并上传中英文 PDF 到 GitHub Release。Pages、评论及手动发布的方法见[维护者设置](docs/maintainer-setup.md)。
