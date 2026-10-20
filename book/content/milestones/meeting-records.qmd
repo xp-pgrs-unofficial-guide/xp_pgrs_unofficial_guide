@@ -21,23 +21,23 @@ legacy-source:
 
 3.  点击Arange new meeting，会弹出窗口，填入日期时间，选择导师（在你后面全部填写完过后，被选中的导师会在他的利物浦邮箱收到邮件）。取消勾选第一个create calendar appointment，否则会在利物浦邮箱的日历里创建一个多半用不上的日程（因为西浦的学生一般都用西浦邮箱对应的日历系统，利物浦的日历系统应该是从来不用的），然后勾选下面的has been pre-agreed。
 
-    ![arange new meeting](../assets/imported/meeting_record_figures/arange_new_meeting.jpg)
+    ![arange new meeting](../../assets/imported/meeting_record_figures/arange_new_meeting.jpg)
 
 4.  然后回忆一下你最近一次跟导师meeting时谈论的内容，填写进度报告（你做了什么）、target（直到下次meeting前打算做什么）、讨论项目
 
-    ![add items to meetings](../assets/imported/meeting_record_figures/add_items_to_meetings.jpg)
+    ![add items to meetings](../../assets/imported/meeting_record_figures/add_items_to_meetings.jpg)
 
 5.  内容不用太多，但也不能太敷衍，毕竟利物浦是要检查的。填完过后，点击email this agenda，然后你和你导师的利物浦邮箱都会收到一封系统自动生成的邮件。
 
-    ![email to](../assets/imported/meeting_record_figures/email_to.jpg)
+    ![email to](../../assets/imported/meeting_record_figures/email_to.jpg)
 
 6.  到这里不要着急关闭，还要填一下你们会议中的意见。点击右边的view edit meeting
 
-    ![view edit](../assets/imported/meeting_record_figures/view_edit.jpg)
+    ![view edit](../../assets/imported/meeting_record_figures/view_edit.jpg)
 
 7.  填入会议中的意见。最后点左上角email，你和导师的利物浦邮箱又会收到一封邮件
 
-    ![post meeting](../assets/imported/meeting_record_figures/post_meeting.jpg)
+    ![post meeting](../../assets/imported/meeting_record_figures/post_meeting.jpg)
 
 8.  到这里你要做的就结束了。你导师需要在他利物浦邮箱收到的邮件里，点击sign off，之后你的利物浦邮箱会收到一封题为 *PGR Supervisor Meeting 5 (Fri 07th Oct 2022 @ 02:00 pm): sign off comments* 的邮件，然后这次meeting record才算全部完成。每年APR之前，必须要每月至少1次的meeting全部sign off。如果你的导师一直没sign off，需要提醒他
 

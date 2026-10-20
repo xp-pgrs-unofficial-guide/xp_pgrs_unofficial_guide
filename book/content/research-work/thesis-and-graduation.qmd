@@ -20,9 +20,9 @@ legacy-source:
 
 正如本攻略的宗旨是官方资料的补充，首先请尽量熟读下图的官方毕业流程，里面的时间线、条件和顺序都是万分准确的。
 
-![XJTLU VIVA Examination Arrangement Flowchart 2023](../assets/imported/shared/XJTLU VIVA Examination Arrangement Flowchart_2023.png)
+![XJTLU VIVA Examination Arrangement Flowchart 2023](../../assets/imported/shared/XJTLU%20VIVA%20Examination%20Arrangement%20Flowchart_2023.png)
 
-[下载原始 PDF](../assets/imported/shared/XJTLU VIVA Examination Arrangement Flowchart_2023.pdf)
+[下载原始 PDF](../../assets/imported/shared/XJTLU%20VIVA%20Examination%20Arrangement%20Flowchart_2023.pdf)
 
 *官方的毕业流程图。单独的文件可在fileshare里找到<https://gitee.com/kaiwu-astro/xp_pgrs_unofficial_guide/tree/main/fileshare>。注：我还真不知道这个文件在哪里下载的，这是我导发我的，想要最新版的可以在ebridge里找一下*
 
@@ -190,7 +190,7 @@ Tips：感觉老师就是比较好奇聊聊，放松回答就行。**最后来�
 
 1.  完读证明（Completion of Studies Certificate），由西浦研究生院开具。证明内容：已提交毕业论文，已通过答辩，即将在XXXX年X月的毕业典礼上授予博士学位。我的Example：
 
-    ![Completion of Studies Certificate EXAMPLE](../assets/imported/Kai.Wu/Completion_of_Studies_Certificate_EXAMPLE.jpg)
+    ![Completion of Studies Certificate EXAMPLE](../../assets/imported/Kai.Wu/Completion_of_Studies_Certificate_EXAMPLE.jpg)
 
     *仅供参考，因此加上了巨大的example防止非法盗用*
 

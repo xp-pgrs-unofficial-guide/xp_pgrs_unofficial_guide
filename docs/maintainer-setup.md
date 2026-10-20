@@ -1,6 +1,6 @@
 # 维护者设置与发布
 
-正文的唯一维护入口是 `book/content/`。网站、整本 PDF、纯 Markdown 均由 `python3 scripts/build.py` 生成到 `book/_book/`。Quarto 固定为 1.10.19；升级前先在分支完整构建并核对所有格式。
+首页维护于 `book/index.qmd`，其他正文按主题维护于 `book/content/` 的六个子目录中。网站、整本 PDF、纯 Markdown 均由 `python3 scripts/build.py` 生成到 `book/_book/`。Quarto 固定为 1.10.19；升级前先在分支完整构建并核对所有格式。
 
 先阅读[项目数据流](data-flow.md)，可了解原始材料、临时中间数据、发布产物，以及评论与供稿进入正文的过程。
 
@@ -24,7 +24,7 @@ gh workflow run CI.yml --ref codex/quarto-guide
 
 部署会发布当前分支构建出来的网页、PDF 和 Markdown，不会合并或修改 `main`。它使用上面的同一个 Pages 地址，不是独立的分支预览网址；以后从 `main` 部署会更新这个网站。普通推送当前分支不会更新网站，需要再次手动运行。
 
-当前预览的 `book.repo-branch` 配置为 `codex/quarto-guide`，网站“提出修改（PR）”和查看源代码的链接都指向该分支。读者提交 PR 时应确认目标分支也是 `codex/quarto-guide`。以后正式从 `main` 发布前，将 `book/_quarto.yml` 的 `book.repo-branch` 改为 `main`；文章编辑链接、供稿提示和 Issue 草稿中的源分支会使用同一配置。同时核对 `CONTRIBUTING.md`、`book/contributing.qmd` 中的 PR 目标分支和文档链接。
+当前预览的 `book.repo-branch` 配置为 `codex/quarto-guide`，网站“提出修改（PR）”和查看源代码的链接都指向该分支。读者提交 PR 时应确认目标分支也是 `codex/quarto-guide`。以后正式从 `main` 发布前，将 `book/_quarto.yml` 的 `book.repo-branch` 改为 `main`；文章编辑链接、供稿提示和 Issue 草稿中的源分支会使用同一配置。同时核对 `CONTRIBUTING.md`、`book/content/appendix/contributing.qmd` 中的 PR 目标分支和文档链接。
 
 “补充内容／纠错”使用 GitHub 支持的 `title`、`body` URL 参数，预填文章标题、链接、源文件、分支、`discussion-id` 和填写提示。它不依赖默认分支中的 Issue Form，当前预览无需合并 `main` 就可投稿。不要向该入口添加需要额外权限的标签、分派者等参数。Issue Form 模板仍保留在分支中，未来需要正式启用时应发布到默认分支。
 
@@ -69,7 +69,15 @@ python3 scripts/build.py
 
 PDF 使用 XeLaTeX 与 `ctexbook` 的 `fontset=fandol`，不依赖 macOS 系统字体。HTML 预览可用 `python3 scripts/build.py --html-only`，只查源文件用 `--check-only`。
 
-产物包括 `xp-pgrs-unofficial-guide.pdf`、`markdown/content/*.md` 和 `llms.txt`。Quarto 1.10.19 的书籍项目尚不能依赖原生 `book.llms-txt`，当前通过构建导出 Markdown 和索引，内容仍只有一份。未来升级到包含书籍支持的稳定版后，再评估移除这一步；不要仅因配置 schema 接受该字段就认定已有产物。
+产物包括 `xp-pgrs-unofficial-guide.pdf`、`markdown/content/<主题目录>/*.md` 和 `llms.txt`。Quarto 1.10.19 的书籍项目尚不能依赖原生 `book.llms-txt`，当前通过构建导出 Markdown 和索引，内容仍只有一份。未来升级到包含书籍支持的稳定版后，再评估移除这一步；不要仅因配置 schema 接受该字段就认定已有产物。
+
+## 调整文章目录与保留旧地址
+
+六个主题文件夹与新增文章位置见[贡献说明](../CONTRIBUTING.md#文章目录与文件移动)。`book/index.qmd` 保留为首页；构建递归发现 `book/content/` 各层文章，并校验 `book/_quarto.yml` 显式章节目录完整覆盖全部正文。章节目录决定网页与 PDF 的阅读顺序，文件系统排序只用于发现文件。
+
+移动文章时保留作者、补充者、文章 `discussion-id` 与已有锚点，更新章节目录、正文引用及 `book/redirects.yml` 中的别名目标。别名表中的旧 `.qmd` 路径应直接映射到当前文件；再次移动时同步改写所有历史别名目标，避免跳转链。
+
+构建自动生成旧 HTML 地址的跳转页，保留 URL 查询参数和锚点；旧 Markdown 地址生成迁移提示并链接到当前文章。兼容页属于 `book/_book/` 生成结果，不在旧路径保留重复 `.qmd`。移动后运行源检查、HTML 预览和完整构建，核对当前地址、旧地址及图片附件链接。
 
 ## PDF Release
 
@@ -79,6 +87,6 @@ PDF 使用 XeLaTeX 与 `ctexbook` 的 `fontset=fandol`，不依赖 macOS 系统�
 
 ## 投稿审核与历史归档
 
-新作者可使用 Issue Form 填写普通文字。编辑核实署名和来源，在 `book/_authors.yml` 登记作者，将正文整理为署名块并通过 PR 审核；对代录内容保留投稿人的作者身份。稿件、评论与正式正文分开，避免未经核实的信息自动上线。
+新作者可通过文章下方的预填 Issue 草稿提交普通文字。编辑核实署名和来源，在 `book/_authors.yml` 登记作者，将正文整理为署名块并通过 PR 审核；对代录内容保留投稿人的作者身份。稿件、评论与正式正文分开，避免未经核实的信息自动上线。
 
 `docs/legacy-workflows/latex-to-pr.yml` 与 `docs/legacy-workflows/deploy-to-cloud.yml` 是历史参考副本，已移出 `.github/workflows/`，不会被 GitHub Actions 执行。前者不再从 LaTeX 生成第二份正文，后者不再自动操作腾讯云。该迁移不读取密钥、不删除或修改既有云资源；如需清理旧云服务，由拥有者另行处理。

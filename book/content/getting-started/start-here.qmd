@@ -27,7 +27,7 @@ legacy-source:
 
 | 学校公众号 | 图书馆 | 学生服务（一站式） | IT |
 |:--:|:--:|:--:|:--:|
-| ![学校公众号二维码](../assets/imported/Kai.Wu/qrcode_XJTLU-China_1.jpg){width=110px} | ![图书馆二维码](../assets/imported/Kai.Wu/qrcode_XJTLU_library_1.jpg){width=110px} | ![学生服务二维码](../assets/imported/Kai.Wu/qrcode_student_service.jpg){width=110px} | ![IT二维码](../assets/imported/Kai.Wu/qrcode_IT.jpg){width=110px} |
+| ![学校公众号二维码](../../assets/imported/Kai.Wu/qrcode_XJTLU-China_1.jpg){width=110px} | ![图书馆二维码](../../assets/imported/Kai.Wu/qrcode_XJTLU_library_1.jpg){width=110px} | ![学生服务二维码](../../assets/imported/Kai.Wu/qrcode_student_service.jpg){width=110px} | ![IT二维码](../../assets/imported/Kai.Wu/qrcode_IT.jpg){width=110px} |
 
 另外，各学院可能有公众号，可在微信搜 “西浦 学院名" "西交利物浦 学院名"
 
@@ -41,10 +41,10 @@ legacy-source:
 
 - 利物浦PGR Handbook电子版 <https://www.liverpool.ac.uk/student-administration/research-students/pgr-handbook/>
 
-- 校园地图：见附录 [校园地图](campus-map.qmd#xp-guide-campus-map)。或者微信搜“西浦地图”小程序
+- 校园地图：见附录 [校园地图](../appendix/campus-map.qmd#xp-guide-campus-map)。或者微信搜“西浦地图”小程序
 
 - 校历：ebridge登录后左边 Academic Calendar
 
-- 常用电话：见附录 [学校电话](contacts.qmd#xp-guide-contacts)
+- 常用电话：见附录 [学校电话](../appendix/contacts.qmd#xp-guide-contacts)
 
 :::

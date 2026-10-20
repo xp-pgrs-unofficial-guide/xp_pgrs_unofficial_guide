@@ -12,7 +12,7 @@ This repository contains the Chinese guide. There is also a separate [English gu
 
 ## Content and contributions
 
-The `.qmd` files (Quarto Markdown) under `book/content/` are the single source for ongoing content updates. They produce the website, a complete PDF, and plain Markdown for LLMs. Contribution blocks explicitly identify authors and later contributors; editorial commits do not replace the original author attribution.
+The home page `book/index.qmd` and the `.qmd` files (Quarto Markdown) grouped into six topic directories under `book/content/` are the single source for ongoing content updates. See the [article directory and file move guide](CONTRIBUTING.md#文章目录与文件移动) (in Chinese) for the directory map, new article locations, and compatibility with old URLs. They produce the website, a complete PDF, and plain Markdown for LLMs. Contribution blocks explicitly identify authors and later contributors; editorial commits do not replace the original author attribution.
 
 Use an article's contribution link to open an Issue draft with the page information prefilled, or choose its PR link to propose a Markdown change on GitHub. Readers without repository write access can follow GitHub's fork and pull request flow. Comments and submissions require a GitHub account. Content changes are reviewed by a person before publication. See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions and attribution examples.
 

@@ -297,6 +297,8 @@ def main():
     parser.add_argument("--pandoc", default=shutil.which("pandoc"), required=not shutil.which("pandoc"))
     parser.add_argument("--pdftoppm", default=PDFTOPPM, help="Poppler PDF-to-PNG executable; needed only for missing previews")
     args = parser.parse_args()
+    if any(CONTENT.rglob("*.qmd")):
+        parser.error("正文已存在。此脚本仅用于一次性历史导入；日常维护请修改 .qmd 并运行 scripts/build.py。")
     PDFTOPPM = args.pdftoppm
     CONTENT.mkdir(parents=True, exist_ok=True)
     manifest = {"schema_version": 1, "purpose": "One-time import manifest; .qmd is now the maintained content source.",

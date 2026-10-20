@@ -10,8 +10,8 @@ legacy-source:
 
 ::: {.contribution authors="unknown" status="unverified"}
 
-![XJTLU-campus-map](../assets/imported/Kai.Wu/XJTLU-campus-map.png)
+![XJTLU-campus-map](../../assets/imported/Kai.Wu/XJTLU-campus-map.png)
 
-[下载原始 PDF](../assets/imported/Kai.Wu/XJTLU-campus-map.pdf)
+[下载原始 PDF](../../assets/imported/Kai.Wu/XJTLU-campus-map.pdf)
 
 :::

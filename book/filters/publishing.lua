@@ -13,7 +13,8 @@ return {
   { Meta = function(m) meta = m end },
   { Link = function(link)
     if FORMAT:match("latex") and not link.target:match("^%a[%w+.-]*:") then
-      local target = pandoc.path.normalize(link.target):gsub("^%.%./", "")
+      local target = pandoc.path.normalize(link.target)
+      while target:sub(1, 3) == "../" do target = target:sub(4) end
       if target:match("^assets/") or target == "llms.txt" then
         link.target = value(meta["guide-site"]) .. target
         return link

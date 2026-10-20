@@ -13,17 +13,17 @@ legacy-source:
 
 ::: {.contribution authors="unknown" status="unverified"}
 
-![mental 1](../assets/imported/Kai.Wu/mental_1.png)
+![mental 1](../../assets/imported/Kai.Wu/mental_1.png)
 
-[下载原始 PDF](../assets/imported/Kai.Wu/mental_1.pdf)
+[下载原始 PDF](../../assets/imported/Kai.Wu/mental_1.pdf)
 
-![mental 2](../assets/imported/Kai.Wu/mental_2.png)
+![mental 2](../../assets/imported/Kai.Wu/mental_2.png)
 
-[下载原始 PDF](../assets/imported/Kai.Wu/mental_2.pdf)
+[下载原始 PDF](../../assets/imported/Kai.Wu/mental_2.pdf)
 
-![mental 3](../assets/imported/Kai.Wu/mental_3.png)
+![mental 3](../../assets/imported/Kai.Wu/mental_3.png)
 
-[下载原始 PDF](../assets/imported/Kai.Wu/mental_3.pdf)
+[下载原始 PDF](../../assets/imported/Kai.Wu/mental_3.pdf)
 
 伯克利研究生会2014年发表的[研究生幸福和健康报告\[链接\]](http://ga.berkeley.edu/wellbeingreport)显示，46%的博士生存在心理健康问题。Nature等权威杂志发表的研究认为，
 
@@ -35,11 +35,11 @@ legacy-source:
 
 4.  新冠大流行期间，每5位研究者中就有4位表现出收精神健康困扰的迹象 [\[文献链接\]](https://www.tandfonline.com/doi/full/10.1080/21568235.2021.1992293)
 
-![chat1of3](../assets/imported/Kai.Wu/chat1of3.jpg)
+![chat1of3](../../assets/imported/Kai.Wu/chat1of3.jpg)
 
-![chat2of3](../assets/imported/Kai.Wu/chat2of3.jpg)
+![chat2of3](../../assets/imported/Kai.Wu/chat2of3.jpg)
 
-![chat3of3](../assets/imported/Kai.Wu/chat3of3.jpg)
+![chat3of3](../../assets/imported/Kai.Wu/chat3of3.jpg)
 
 *和一个已毕业的同学聊天的记录。抑郁在我们学校博士生的发生率也比想象高得多*
 

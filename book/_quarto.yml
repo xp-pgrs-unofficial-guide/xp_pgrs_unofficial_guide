@@ -23,51 +23,51 @@ book:
     collapse-level: 1
   chapters:
     - index.qmd
-    - content/preface.qmd
+    - content/getting-started/preface.qmd
     - part: 开始之前
       chapters:
-        - content/start-here.qmd
+        - content/getting-started/start-here.qmd
     - part: 毕业必经之路
       chapters:
-        - content/compulsory-courses.qmd
-        - content/meeting-records.qmd
-        - content/apr.qmd
-        - content/research-symposium.qmd
+        - content/milestones/compulsory-courses.qmd
+        - content/milestones/meeting-records.qmd
+        - content/milestones/apr.qmd
+        - content/milestones/research-symposium.qmd
     - part: 资源与福利
       chapters:
-        - content/conference-funding.qmd
-        - content/stationery.qmd
-        - content/printing.qmd
-        - content/sports-vouchers.qmd
-        - content/liverpool-account.qmd
-        - content/other-benefits.qmd
+        - content/resources/conference-funding.qmd
+        - content/resources/stationery.qmd
+        - content/resources/printing.qmd
+        - content/resources/sports-vouchers.qmd
+        - content/resources/liverpool-account.qmd
+        - content/resources/other-benefits.qmd
     - part: 研究与工作
       chapters:
-        - content/how-research-works.qmd
-        - content/teaching-assistant.qmd
-        - content/invigilation.qmd
-        - content/thesis-and-graduation.qmd
-        - content/career.qmd
+        - content/research-work/how-research-works.qmd
+        - content/research-work/teaching-assistant.qmd
+        - content/research-work/invigilation.qmd
+        - content/research-work/thesis-and-graduation.qmd
+        - content/research-work/career.qmd
     - part: 生活与工具
       chapters:
-        - content/backup.qmd
-        - content/remote-access.qmd
-        - content/ergonomics.qmd
-        - content/liverpool-visit.qmd
-        - content/campus-vm.qmd
-        - content/library-databases.qmd
-        - content/suzhou-library.qmd
-        - content/mental-health.qmd
-        - content/recommended-software.qmd
-        - content/pitfalls.qmd
+        - content/life-tools/backup.qmd
+        - content/life-tools/remote-access.qmd
+        - content/life-tools/ergonomics.qmd
+        - content/life-tools/liverpool-visit.qmd
+        - content/life-tools/campus-vm.qmd
+        - content/life-tools/library-databases.qmd
+        - content/life-tools/suzhou-library.qmd
+        - content/life-tools/mental-health.qmd
+        - content/life-tools/recommended-software.qmd
+        - content/life-tools/pitfalls.qmd
     - part: 附录与参与
       chapters:
-        - content/campus-map.qmd
-        - content/contacts.qmd
-        - content/join-us.qmd
-        - contributing.qmd
-        - content/acknowledgements.qmd
-        - content/changelog.qmd
+        - content/appendix/campus-map.qmd
+        - content/appendix/contacts.qmd
+        - content/appendix/join-us.qmd
+        - content/appendix/contributing.qmd
+        - content/appendix/acknowledgements.qmd
+        - content/appendix/changelog.qmd
 
 lang: zh-CN
 metadata-files: [_authors.yml]

@@ -12,7 +12,7 @@
 
 ## 内容与贡献
 
-`book/content/` 中的 `.qmd`（Quarto Markdown）是持续更新的唯一正文来源。同一份内容生成网站、整本 PDF 和供 LLM 阅读的纯 Markdown。段落块显式记录作者和补充者，代为整理、修正排版不会自动改变原作者。
+首页 `book/index.qmd` 与 `book/content/` 下按六个主题目录组织的 `.qmd`（Quarto Markdown）是持续更新的统一正文来源。文件夹与主题的对应关系、新文章位置及旧地址兼容规则见[文章目录与文件移动](CONTRIBUTING.md#文章目录与文件移动)。同一份内容生成网站、整本 PDF 和供 LLM 阅读的纯 Markdown。段落块显式记录作者和补充者，代为整理、修正排版不会自动改变原作者。
 
 可以通过文章下方的“补充内容／纠错”提交普通文字，Issue 草稿会预填文章信息；也可以点击“提出修改（PR）”，在 GitHub 网页中修改 Markdown。普通读者没有仓库写权限也可按提示 fork 后提交 Pull Request。评论和投稿均需 GitHub 登录，正文修改经过人工审核。详细步骤和段落署名示例见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 

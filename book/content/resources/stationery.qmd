@@ -10,7 +10,7 @@ legacy-source:
 
 ::: {.contribution authors="kai-wu"}
 
-![stationery room](../assets/imported/Kai.Wu/stationery_room.jpg)
+![stationery room](../../assets/imported/Kai.Wu/stationery_room.jpg)
 
 除了大笔的会议经费之外，最让大家省钱的应该就是免费的办公用品了。学校很多楼里都有Stationery room（办公用品领用室），里面所有东西都可以领取。抽纸、笔、马克笔、荧光笔、各种收纳架子、胶带胶水订书机，基本你能想到的都有。
 
@@ -35,7 +35,7 @@ legacy-source:
 
 4.  202306更新：下面这些东西不用填表可以直接过去拿（其他的需要正常填表
 
-![stationery no sign](../assets/imported/Kai.Wu/stationery_no_sign.jpg)
+![stationery no sign](../../assets/imported/Kai.Wu/stationery_no_sign.jpg)
 
 (2022年10月12日 by [Kai Wu](mailto:kaiwu.astro@gmail.com))
 

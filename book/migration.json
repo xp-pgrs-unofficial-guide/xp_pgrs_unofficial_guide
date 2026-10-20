@@ -37,7 +37,7 @@
   ],
   "pages": [
     {
-      "path": "content/preface.qmd",
+      "path": "content/getting-started/preface.qmd",
       "title": "前言",
       "group": "开始阅读",
       "discussion_id": "xp-guide-preface",
@@ -46,10 +46,11 @@
       ],
       "source_sha256": {
         "chapters/preface.tex": "474bc44e076d29254178e02d3afe471b99d8ad108dd1a308179dd61847ccafa7"
-      }
+      },
+      "import_path": "content/preface.qmd"
     },
     {
-      "path": "content/start-here.qmd",
+      "path": "content/getting-started/start-here.qmd",
       "title": "Start here: 入口级网站和应用",
       "group": "开始阅读",
       "discussion_id": "xp-guide-start-here",
@@ -58,10 +59,11 @@
       ],
       "source_sha256": {
         "chapters/necessary_resources.tex": "98a5b1530b9b22f5fdff5bd874982c61c1ac15252832d40f6ab2ec57307ebe7c"
-      }
+      },
+      "import_path": "content/start-here.qmd"
     },
     {
-      "path": "content/compulsory-courses.qmd",
+      "path": "content/milestones/compulsory-courses.qmd",
       "title": "必修课程",
       "group": "这些必须得做，不然毕不了业",
       "discussion_id": "xp-guide-compulsory-courses",
@@ -70,10 +72,11 @@
       ],
       "source_sha256": {
         "author-folder/Kai.Wu/compulsory_lesson.tex": "edfe5c046ba7939bc0cad59a66614429dd6397a22babca040a02eb95b08a79d6"
-      }
+      },
+      "import_path": "content/compulsory-courses.qmd"
     },
     {
-      "path": "content/meeting-records.qmd",
+      "path": "content/milestones/meeting-records.qmd",
       "title": "Liverpool Life 会议记录",
       "group": "这些必须得做，不然毕不了业",
       "discussion_id": "xp-guide-meeting-records",
@@ -82,10 +85,11 @@
       ],
       "source_sha256": {
         "author-folder/Kai.Wu/meeting-record.tex": "62eb8c0435868e255435f9c0719a1024396db35747a368448f8d7f8c29e15a96"
-      }
+      },
+      "import_path": "content/meeting-records.qmd"
     },
     {
-      "path": "content/apr.qmd",
+      "path": "content/milestones/apr.qmd",
       "title": "APR",
       "group": "这些必须得做，不然毕不了业",
       "discussion_id": "xp-guide-apr",
@@ -94,10 +98,11 @@
       ],
       "source_sha256": {
         "author-folder/Kai.Wu/APR.tex": "3e51429749967c3b1485a44d7285708ad2a269e4a65577e4f19d80142143c4e0"
-      }
+      },
+      "import_path": "content/apr.qmd"
     },
     {
-      "path": "content/research-symposium.qmd",
+      "path": "content/milestones/research-symposium.qmd",
       "title": "Research Symposium",
       "group": "这些必须得做，不然毕不了业",
       "discussion_id": "xp-guide-research-symposium",
@@ -106,10 +111,11 @@
       ],
       "source_sha256": {
         "author-folder/Kai.Wu/symposium.tex": "d91d7917960e3d8afe4fd973b6eb948705c4f17014847c1b24312818ba5af14a"
-      }
+      },
+      "import_path": "content/research-symposium.qmd"
     },
     {
-      "path": "content/conference-funding.qmd",
+      "path": "content/resources/conference-funding.qmd",
       "title": "会议经费",
       "group": "这些必须得看，不看吃大亏",
       "discussion_id": "xp-guide-conference-funding",
@@ -118,10 +124,11 @@
       ],
       "source_sha256": {
         "author-folder/Kai.Wu/fund.tex": "8726e8720c405a7f86dbc0b7bb0fd524ebaf70f8250e1043f79c8cc181a43c5c"
-      }
+      },
+      "import_path": "content/conference-funding.qmd"
     },
     {
-      "path": "content/stationery.qmd",
+      "path": "content/resources/stationery.qmd",
       "title": "免费办公用品",
       "group": "这些必须得看，不看吃大亏",
       "discussion_id": "xp-guide-stationery",
@@ -130,10 +137,11 @@
       ],
       "source_sha256": {
         "author-folder/Kai.Wu/stationary.tex": "fb5c05475c8447d27d64cd24bf280b2d3d2e955f1163cd8b4f09bff1e8ad29b2"
-      }
+      },
+      "import_path": "content/stationery.qmd"
     },
     {
-      "path": "content/printing.qmd",
+      "path": "content/resources/printing.qmd",
       "title": "免费打印",
       "group": "这些必须得看，不看吃大亏",
       "discussion_id": "xp-guide-printing",
@@ -142,10 +150,11 @@
       ],
       "source_sha256": {
         "author-folder/Kai.Wu/print.tex": "2323429320587cb27a31c90b1a17b625cc3cb43c39c75fd1703da55c950b0cc9"
-      }
+      },
+      "import_path": "content/printing.qmd"
     },
     {
-      "path": "content/sports-vouchers.qmd",
+      "path": "content/resources/sports-vouchers.qmd",
       "title": "体育馆代金券",
       "group": "这些必须得看，不看吃大亏",
       "discussion_id": "xp-guide-sports-vouchers",
@@ -154,10 +163,11 @@
       ],
       "source_sha256": {
         "author-folder/Kai.Wu/gym.tex": "833e3d74f215be59dd1ca813e143a8bb23a5e92c1629bfde151eb8fd0b207674"
-      }
+      },
+      "import_path": "content/sports-vouchers.qmd"
     },
     {
-      "path": "content/liverpool-account.qmd",
+      "path": "content/resources/liverpool-account.qmd",
       "title": "利物浦账号自带福利",
       "group": "这些必须得看，不看吃大亏",
       "discussion_id": "xp-guide-liverpool-account",
@@ -166,10 +176,11 @@
       ],
       "source_sha256": {
         "author-folder/Kai.Wu/liverpool-account-fuli.tex": "bb2f9a2b1c609bc0a0d4386e418a3048b579b713612b94e94b1e75293bdc2aab"
-      }
+      },
+      "import_path": "content/liverpool-account.qmd"
     },
     {
-      "path": "content/other-benefits.qmd",
+      "path": "content/resources/other-benefits.qmd",
       "title": "其他福利",
       "group": "这些必须得看，不看吃大亏",
       "discussion_id": "xp-guide-other-benefits",
@@ -178,10 +189,11 @@
       ],
       "source_sha256": {
         "chapters/fuli.tex": "30dd0b9de7fd121c2d038ac6c056378bcbe74e4e290db74acae69cd948bf0bf2"
-      }
+      },
+      "import_path": "content/other-benefits.qmd"
     },
     {
-      "path": "content/how-research-works.qmd",
+      "path": "content/research-work/how-research-works.qmd",
       "title": "学术研究是怎么发生的",
       "group": "最好要知道这些",
       "discussion_id": "xp-guide-how-research-works",
@@ -190,10 +202,11 @@
       ],
       "source_sha256": {
         "author-folder/Shiyao.Zhang14/how_research_works.tex": "b121c6988bb7ab720c890082f6864068be52e1085c86302ec173eabb5e368060"
-      }
+      },
+      "import_path": "content/how-research-works.qmd"
     },
     {
-      "path": "content/teaching-assistant.qmd",
+      "path": "content/research-work/teaching-assistant.qmd",
       "title": "助教（Teaching Assistant）怎么做",
       "group": "最好要知道这些",
       "discussion_id": "xp-guide-teaching-assistant",
@@ -202,10 +215,11 @@
       ],
       "source_sha256": {
         "author-folder/Kai.Wu/TA.tex": "5a14a450b992692ebaeedd97cac495f1cc63dc38a6a23e4d984627c133a095b6"
-      }
+      },
+      "import_path": "content/teaching-assistant.qmd"
     },
     {
-      "path": "content/invigilation.qmd",
+      "path": "content/research-work/invigilation.qmd",
       "title": "监考怎么做",
       "group": "最好要知道这些",
       "discussion_id": "xp-guide-invigilation",
@@ -214,10 +228,11 @@
       ],
       "source_sha256": {
         "author-folder/Kai.Wu/invigilation.tex": "57c815eda4e807be64c5895407818999b1e32e812e1f5e49be257cf5da91d746"
-      }
+      },
+      "import_path": "content/invigilation.qmd"
     },
     {
-      "path": "content/thesis-and-graduation.qmd",
+      "path": "content/research-work/thesis-and-graduation.qmd",
       "title": "学位论文，论文答辩，和毕业",
       "group": "最好要知道这些",
       "discussion_id": "xp-guide-thesis-and-graduation",
@@ -228,10 +243,11 @@
       "source_sha256": {
         "author-folder/Kai.Wu/thesis_viva_graduation.tex": "dd9ae70852dda7d85f8abd2dc697cb40af96ffe25aabf63391f93f3a02a06bae",
         "author-folder/Ziwen.Xie/viva.tex": "68fd4897ac7dfc33f9b3b323bedc27e315279c76e762913b8d58504daac5f2fc"
-      }
+      },
+      "import_path": "content/thesis-and-graduation.qmd"
     },
     {
-      "path": "content/career.qmd",
+      "path": "content/research-work/career.qmd",
       "title": "和就业有关的重要信息",
       "group": "最好要知道这些",
       "discussion_id": "xp-guide-career",
@@ -240,10 +256,11 @@
       ],
       "source_sha256": {
         "author-folder/Kai.Wu/career.tex": "611121e35ea5d4e26210999dc935564d27652bf9cb6c4b989886e5e56ed9735c"
-      }
+      },
+      "import_path": "content/career.qmd"
     },
     {
-      "path": "content/backup.qmd",
+      "path": "content/life-tools/backup.qmd",
       "title": "大坑：假如明天你突然丢失电脑所有数据怎么办？——如何备份资料",
       "group": "其他攻略",
       "discussion_id": "xp-guide-backup",
@@ -254,10 +271,11 @@
       "source_sha256": {
         "chapters/others.tex": "a4e6ac73f75d1a7c1292e09375a2a0d3a4a85e434de58ddf54be5a89a8879087",
         "author-folder/Kai.Wu/backup.tex": "8ce05e6fb5397a7b92348896bb3d2607a55aa3857701af38daed5356af9abfc2"
-      }
+      },
+      "import_path": "content/backup.qmd"
     },
     {
-      "path": "content/remote-access.qmd",
+      "path": "content/life-tools/remote-access.qmd",
       "title": "远程控制·如何校外访问校内电脑",
       "group": "其他攻略",
       "discussion_id": "xp-guide-remote-access",
@@ -266,10 +284,11 @@
       ],
       "source_sha256": {
         "author-folder/Kai.Wu/remote-control.tex": "f8aaac12cccbb84a5141457c0c4aefe89a28b5503f30946afe6edbcbf168571d"
-      }
+      },
+      "import_path": "content/remote-access.qmd"
     },
     {
-      "path": "content/ergonomics.qmd",
+      "path": "content/life-tools/ergonomics.qmd",
       "title": "我的老腰受不了了——如何保持颈椎、腰椎健康",
       "group": "其他攻略",
       "discussion_id": "xp-guide-ergonomics",
@@ -278,10 +297,11 @@
       ],
       "source_sha256": {
         "author-folder/Yue.Zhou/waist.tex": "758d7d92b48306fd7fb232dd7434a90cee37a82dc3641e41b7c77bc5d66a06ce"
-      }
+      },
+      "import_path": "content/ergonomics.qmd"
     },
     {
-      "path": "content/liverpool-visit.qmd",
+      "path": "content/life-tools/liverpool-visit.qmd",
       "title": "利物浦访学",
       "group": "其他攻略",
       "discussion_id": "xp-guide-liverpool-visit",
@@ -290,10 +310,11 @@
       ],
       "source_sha256": {
         "author-folder/Shiyao.Zhang14/UoL_visit.tex": "c031a5221d281d8c34a577f51a96c0aad94592f709e982ad41cad96fde9c2b8c"
-      }
+      },
+      "import_path": "content/liverpool-visit.qmd"
     },
     {
-      "path": "content/campus-vm.qmd",
+      "path": "content/life-tools/campus-vm.qmd",
       "title": "西浦虚拟机",
       "group": "其他攻略",
       "discussion_id": "xp-guide-campus-vm",
@@ -302,10 +323,11 @@
       ],
       "source_sha256": {
         "chapters/others.tex": "a4e6ac73f75d1a7c1292e09375a2a0d3a4a85e434de58ddf54be5a89a8879087"
-      }
+      },
+      "import_path": "content/campus-vm.qmd"
     },
     {
-      "path": "content/library-databases.qmd",
+      "path": "content/life-tools/library-databases.qmd",
       "title": "图书馆的文献数据库",
       "group": "其他攻略",
       "discussion_id": "xp-guide-library-databases",
@@ -314,10 +336,11 @@
       ],
       "source_sha256": {
         "chapters/others.tex": "a4e6ac73f75d1a7c1292e09375a2a0d3a4a85e434de58ddf54be5a89a8879087"
-      }
+      },
+      "import_path": "content/library-databases.qmd"
     },
     {
-      "path": "content/suzhou-library.qmd",
+      "path": "content/life-tools/suzhou-library.qmd",
       "title": "苏州图书馆借书和免费送书",
       "group": "其他攻略",
       "discussion_id": "xp-guide-suzhou-library",
@@ -326,10 +349,11 @@
       ],
       "source_sha256": {
         "chapters/others.tex": "a4e6ac73f75d1a7c1292e09375a2a0d3a4a85e434de58ddf54be5a89a8879087"
-      }
+      },
+      "import_path": "content/suzhou-library.qmd"
     },
     {
-      "path": "content/mental-health.qmd",
+      "path": "content/life-tools/mental-health.qmd",
       "title": "重视自己的负面情绪和抑郁倾向",
       "group": "其他攻略",
       "discussion_id": "xp-guide-mental-health",
@@ -338,10 +362,11 @@
       ],
       "source_sha256": {
         "chapters/others.tex": "a4e6ac73f75d1a7c1292e09375a2a0d3a4a85e434de58ddf54be5a89a8879087"
-      }
+      },
+      "import_path": "content/mental-health.qmd"
     },
     {
-      "path": "content/recommended-software.qmd",
+      "path": "content/life-tools/recommended-software.qmd",
       "title": "大家电脑上都装了什么软件？（期待你的补充）",
       "group": "其他攻略",
       "discussion_id": "xp-guide-recommended-software",
@@ -350,10 +375,11 @@
       ],
       "source_sha256": {
         "chapters/others.tex": "a4e6ac73f75d1a7c1292e09375a2a0d3a4a85e434de58ddf54be5a89a8879087"
-      }
+      },
+      "import_path": "content/recommended-software.qmd"
     },
     {
-      "path": "content/pitfalls.qmd",
+      "path": "content/life-tools/pitfalls.qmd",
       "title": "避坑指南（待补）",
       "group": "避坑指南",
       "discussion_id": "xp-guide-pitfalls",
@@ -362,10 +388,11 @@
       ],
       "source_sha256": {
         "chapters/bikeng.tex": "d529c8316ce63a1642908ada6f462052080393dec8c466e60d83229031e927a1"
-      }
+      },
+      "import_path": "content/pitfalls.qmd"
     },
     {
-      "path": "content/campus-map.qmd",
+      "path": "content/appendix/campus-map.qmd",
       "title": "校园地图",
       "group": "附录",
       "discussion_id": "xp-guide-campus-map",
@@ -374,10 +401,11 @@
       ],
       "source_sha256": {
         "chapters/appendix.tex": "27e7f48439a324d877d2a78f4ec6d4fd1104539812fc062111e4126c90674ded"
-      }
+      },
+      "import_path": "content/campus-map.qmd"
     },
     {
-      "path": "content/contacts.qmd",
+      "path": "content/appendix/contacts.qmd",
       "title": "学校电话",
       "group": "附录",
       "discussion_id": "xp-guide-contacts",
@@ -386,10 +414,11 @@
       ],
       "source_sha256": {
         "chapters/appendix.tex": "27e7f48439a324d877d2a78f4ec6d4fd1104539812fc062111e4126c90674ded"
-      }
+      },
+      "import_path": "content/contacts.qmd"
     },
     {
-      "path": "content/join-us.qmd",
+      "path": "content/appendix/join-us.qmd",
       "title": "加入我们：评论机制及委员会化运作动议",
       "group": "附录",
       "discussion_id": "xp-guide-join-us",
@@ -398,10 +427,11 @@
       ],
       "source_sha256": {
         "chapters/appendix.tex": "27e7f48439a324d877d2a78f4ec6d4fd1104539812fc062111e4126c90674ded"
-      }
+      },
+      "import_path": "content/join-us.qmd"
     },
     {
-      "path": "content/acknowledgements.qmd",
+      "path": "content/appendix/acknowledgements.qmd",
       "title": "致谢",
       "group": "附录",
       "discussion_id": "xp-guide-acknowledgements",
@@ -410,10 +440,11 @@
       ],
       "source_sha256": {
         "chapters/acknowledgement.tex": "79551cc5e3064dc27a987962a19ae07d1ef8991de09d7fe1ef85e809462c6a16"
-      }
+      },
+      "import_path": "content/acknowledgements.qmd"
     },
     {
-      "path": "content/changelog.qmd",
+      "path": "content/appendix/changelog.qmd",
       "title": "更新日志",
       "group": "附录",
       "discussion_id": "xp-guide-changelog",
@@ -422,7 +453,8 @@
       ],
       "source_sha256": {
         "chapters/update_log.tex": "d960d2eb53f4fc07bc77a562c2771027304cfca40d1e2a9aef25ba102af55ada"
-      }
+      },
+      "import_path": "content/changelog.qmd"
     }
   ],
   "assets": [
@@ -766,8 +798,9 @@
   "replaced": [
     {
       "source": "chapters/author-instruction.tex",
-      "replacement": "contributing.qmd",
-      "reason": "New web and Markdown contribution guide replaces the legacy TeX instructions."
+      "replacement": "content/appendix/contributing.qmd",
+      "reason": "New web and Markdown contribution guide replaces the legacy TeX instructions.",
+      "import_replacement": "contributing.qmd"
     }
   ],
   "excluded_inactive": [
@@ -783,6 +816,7 @@
     "Chapter grouping headings are preserved in the book navigation.",
     "The other-advice chapter epigraph is retained in backup.qmd.",
     "Existing facts, dates and recommendations are migrated without factual revision.",
-    "Mixed-author legacy text is marked unverified rather than assigned by file directory."
+    "Mixed-author legacy text is marked unverified rather than assigned by file directory.",
+    "Current page paths follow the topic folders; import_path and import_replacement preserve the initial import locations."
   ]
 }

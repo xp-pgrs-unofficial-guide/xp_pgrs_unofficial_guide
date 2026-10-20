@@ -24,12 +24,16 @@ class Anchors(HTMLParser):
     def __init__(self):
         super().__init__()
         self.anchors = []
+        self.scripts = []
         self.current = None
         self.text = []
 
     def handle_starttag(self, tag, attributes):
+        fields = dict(attributes)
+        if tag == "script" and fields.get("src"):
+            self.scripts.append(fields["src"])
         if tag == "a":
-            self.current = {**dict(attributes), "label": ""}
+            self.current = {**fields, "label": ""}
 
     def handle_data(self, data):
         self.text.append(data)
@@ -43,14 +47,14 @@ class Anchors(HTMLParser):
 
 
 def convert(input_file="content/apr.qmd", title="APR", branch="codex/quarto-guide",
-            discussion="xp-guide-apr"):
+            discussion="xp-guide-apr", output_format="html5", body="Article text."):
     metadata = [
         "---", f"title: {json.dumps(title, ensure_ascii=False)}",
         f"discussion-id: {discussion}", f"guide-repo: {REPO}", f"guide-site: {SITE}",
     ]
     if branch is not None:
         metadata.extend(["book:", f"  repo-branch: {json.dumps(branch)}"])
-    metadata.extend(["---", "", "Article text."])
+    metadata.extend(["---", "", body])
     environment = os.environ.copy()
     environment["GUIDE_TEST_INPUT"] = input_file
     environment["GUIDE_TEST_PUBLISHING_FILTER"] = str(FILTER)
@@ -59,7 +63,7 @@ def convert(input_file="content/apr.qmd", title="APR", branch="codex/quarto-guid
     pandoc = environment.get("PANDOC_BIN")
     command = [pandoc] if pandoc else [environment.get("QUARTO_BIN", "quarto"), "pandoc"]
     return subprocess.run(
-        command + ["--from=markdown", "--to=html5", f"--lua-filter={WRAPPER}"],
+        command + ["--from=markdown", f"--to={output_format}", f"--lua-filter={WRAPPER}"],
         input="\n".join(metadata), text=True, capture_output=True, cwd=ROOT, env=environment,
     )
 
@@ -81,6 +85,8 @@ class ContributionLinkTests(unittest.TestCase):
             ("index.qmd", "index.qmd", "欢迎阅读", "xp-guide-home"),
             ("content/apr.qmd", "content/apr.qmd", "APR", "xp-guide-apr"),
             (str(ROOT / "book/content/apr.qmd"), "content/apr.qmd", "APR", "xp-guide-apr"),
+            ("content/milestones/apr.qmd", "content/milestones/apr.qmd", "APR", "xp-guide-apr"),
+            (str(ROOT / "book/content/milestones/apr.qmd"), "content/milestones/apr.qmd", "APR", "xp-guide-apr"),
         ]
         for input_file, source, title, discussion in contexts:
             with self.subTest(input_file=input_file):
@@ -126,6 +132,32 @@ class ContributionLinkTests(unittest.TestCase):
         result = convert(branch=None)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("repo-branch", result.stderr)
+
+    def test_footer_links_resolve_from_each_article_depth(self):
+        contexts = [
+            ("index.qmd", "markdown/index.md", "assets/guide.js"),
+            ("content/apr.qmd", "../markdown/content/apr.md", "../assets/guide.js"),
+            ("content/milestones/apr.qmd", "../../markdown/content/milestones/apr.md", "../../assets/guide.js"),
+        ]
+        for source, markdown, script in contexts:
+            with self.subTest(source=source):
+                parser, _, _ = self.parse(input_file=source)
+                links = [link for link in parser.anchors if link["label"] == "纯 Markdown"]
+                self.assertEqual([link["href"] for link in links], [markdown])
+                self.assertEqual(parser.scripts, [script])
+
+    def test_pdf_attachments_and_llms_resolve_from_deep_articles(self):
+        body = "\n\n".join([
+            "[Attachment](../../assets/imported/handout.pdf)",
+            "[Markdown index](../../llms.txt)",
+            "[External](https://example.net/other.pdf)",
+        ])
+        result = convert(input_file="content/milestones/apr.qmd", output_format="latex", body=body)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        for url in (SITE + "assets/imported/handout.pdf", SITE + "llms.txt", "https://example.net/other.pdf"):
+            self.assertIn("\\href{" + url + "}", result.stdout)
+        self.assertNotIn("../", result.stdout)
+        self.assertNotIn("guide-participate", result.stdout)
 
 
 if __name__ == "__main__":

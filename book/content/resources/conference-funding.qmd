@@ -19,7 +19,7 @@ legacy-source:
 
 - 官方流程图
 
-  ![fund-flowchart](../assets/imported/Kai.Wu/fund-flowchart.jpg)
+  ![fund-flowchart](../../assets/imported/Kai.Wu/fund-flowchart.jpg)
 
 要注意
 

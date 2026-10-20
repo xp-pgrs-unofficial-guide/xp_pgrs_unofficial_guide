@@ -44,15 +44,15 @@ XJTLU Postgraduate Research Symposium，简称XPGRS，或者Symposium，官方�
 
 *2021 Symposium 的 poster 会场（CB G13W），正式开始前夕*
 
-![synposium poster](../assets/imported/Kai.Wu/synposium_poster.jpg)
+![synposium poster](../../assets/imported/Kai.Wu/synposium_poster.jpg)
 
 ## 有什么用
 
 1.  锻炼作报告的能力，锻炼英语口语，获得校内其他老师的指导
 
-2.  可以得奖。学校会请几位老师来听你讲海报、讲PPT，并给你打分。会选出最佳海报奖（10%）最佳演讲奖（10%）优秀海报奖（20%）优秀演讲奖（20%），会有一张奖状，外加1000和500元的……会议经费（会议经费使用参见章节[会议经费](conference-funding.qmd#sec.fund)），虽然不是现金奖励，但还算有用吧~~（抠门学校）~~
+2.  可以得奖。学校会请几位老师来听你讲海报、讲PPT，并给你打分。会选出最佳海报奖（10%）最佳演讲奖（10%）优秀海报奖（20%）优秀演讲奖（20%），会有一张奖状，外加1000和500元的……会议经费（会议经费使用参见章节[会议经费](../resources/conference-funding.qmd#sec.fund)），虽然不是现金奖励，但还算有用吧~~（抠门学校）~~
 
-![poster award](../assets/imported/Kai.Wu/poster_award.jpg)
+![poster award](../../assets/imported/Kai.Wu/poster_award.jpg)
 
 ## “我不想去”——尽量不要！
 
@@ -68,13 +68,13 @@ XJTLU Postgraduate Research Symposium，简称XPGRS，或者Symposium，官方�
 
 *2022年的打分表*
 
-![2022 XPGRS oral judging criteria](../assets/imported/Kai.Wu/2022_XPGRS_oral_judging_criteria.png)
+![2022 XPGRS oral judging criteria](../../assets/imported/Kai.Wu/2022_XPGRS_oral_judging_criteria.png)
 
-[下载原始 PDF](../assets/imported/Kai.Wu/2022_XPGRS_oral_judging_criteria.pdf)
+[下载原始 PDF](../../assets/imported/Kai.Wu/2022_XPGRS_oral_judging_criteria.pdf)
 
-![2022 XPGRS oral judging form](../assets/imported/Kai.Wu/2022_XPGRS_oral_judging_form.png)
+![2022 XPGRS oral judging form](../../assets/imported/Kai.Wu/2022_XPGRS_oral_judging_form.png)
 
-[下载原始 PDF](../assets/imported/Kai.Wu/2022_XPGRS_oral_judging_form.pdf)
+[下载原始 PDF](../../assets/imported/Kai.Wu/2022_XPGRS_oral_judging_form.pdf)
 
 如果你想表现出色、得奖，可以继续看下面的内容：
 

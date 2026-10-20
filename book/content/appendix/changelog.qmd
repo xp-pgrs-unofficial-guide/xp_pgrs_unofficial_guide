@@ -22,6 +22,6 @@ legacy-source:
 
 - v1.0 on 2024/08/12：补完毕业章节
 
-- v1.1 on 2024/10/21：新增 [学术研究是怎么发生的](how-research-works.qmd#section.how-research-works)、 [利物浦访学](liverpool-visit.qmd#section.UoL_visit)
+- v1.1 on 2024/10/21：新增 [学术研究是怎么发生的](../research-work/how-research-works.qmd#section.how-research-works)、 [利物浦访学](../life-tools/liverpool-visit.qmd#section.UoL_visit)
 
 :::

@@ -74,6 +74,8 @@ jobs:
         run: python3 -m unittest discover -s tests/attribution
       - name: Test article discussion mapping
         run: python3 -m unittest discover -s tests/publishing
+      - name: Test content paths and redirects
+        run: python3 -m unittest discover -s tests/build
       - name: Validate and build guide
         run: python3 scripts/build.py
       - name: Prepare versioned PDF

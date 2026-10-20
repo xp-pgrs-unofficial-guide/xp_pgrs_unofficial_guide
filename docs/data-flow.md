@@ -40,13 +40,18 @@ flowchart TD
 | 数据 | 位置与用途 |
 | --- | --- |
 | 历史原稿 | 根目录 LaTeX 入口、`chapters/`、`author-folder/`，用于核对原文与迁移来源。 |
-| 当前正文 | `book/index.qmd`、`book/content/*.qmd`、`book/contributing.qmd`；frontmatter 保存标题和稳定的 `discussion-id`，正文块保存原作者与补充者 ID。 |
+| 当前正文 | 首页为 `book/index.qmd`；其余文章在 `book/content/` 下的 `getting-started/`、`milestones/`、`resources/`、`research-work/`、`life-tools/`、`appendix/` 六个主题目录中，供稿说明为 `book/content/appendix/contributing.qmd`。frontmatter 保存标题和稳定的 `discussion-id`，正文块保存原作者与补充者 ID。 |
 | 作者、目录与样式 | `book/_authors.yml` 将作者 ID 对应到显示名；`book/_quarto.yml` 配置目录与输出；`book/filters/` 和 `book/assets/` 提供格式处理、样式、脚本及附件。 |
 | 迁移记录 | `book/migration.json` 记录原始材料及迁移情况，用于追溯；迁移脚本不在日常构建中执行。 |
+| 旧地址别名 | `book/redirects.yml` 记录旧 `.qmd` 路径到当前文件的映射，用于生成兼容旧链接的 HTML 跳转页和 Markdown 迁移提示。 |
 | 暂态中间数据 | Pandoc JSON AST 由程序读取到内存，供校验、Markdown 导出和搜索索引使用；Quarto 为 PDF 排版生成临时 TeX。它们不是持续维护的正文副本。 |
 | 生成结果 | `book/_book/` 包含网页、网站资源、`xp-pgrs-unofficial-guide.pdf`、`markdown/`、`llms.txt` 和 `search.json`，由构建重新生成。 |
 
 图中的 AST 节点概括了解析后的文档结构；源检查、导出和 Quarto 渲染会按各自需要解析正文，程序不维护一份长期保存的 AST 文件。搜索索引取自正文，避免把重复署名提示、供稿按钮等界面文本混入检索结果。
+
+迁移清单中的 `path` 和 `replacement` 跟随当前目录位置，`import_path` 和 `import_replacement` 保留最初导入时的位置；原稿路径与来源哈希保持不变。一次性迁移脚本会拒绝覆盖已有 `.qmd` 正文。
+
+文件夹按主题组织维护源，阅读顺序由 `book/_quarto.yml` 的显式章节目录决定。构建递归发现各层 `.qmd`，并校验章节目录是否完整覆盖全部正文。旧 HTML 地址通过生成的跳转页保留查询参数和锚点，旧 Markdown 地址提供迁移提示；这些兼容文件由当前正文和别名表生成，旧位置不保存重复正文源。新增和移动文章的步骤见[文章目录与文件移动](../CONTRIBUTING.md#文章目录与文件移动)。
 
 `scripts/build.py` 先检查源文件，再渲染、导出并校验生成结果。修改应写回 `.qmd`、作者表或配置；`book/_book/` 是生成目录。Actions 为普通分支推送保留构建附件；当前 `codex/quarto-guide` 分支需要手动触发才发布 Pages。发布此分支不会修改或合并 `main`。具体操作见[维护者设置与发布](maintainer-setup.md)。
 

@@ -30,7 +30,7 @@ legacy-source:
 
 2.  在ebridge上查到自己的监考安排，如下图
 
-    ![invigi-table](../assets/imported/Kai.Wu/invigi-table.jpg)
+    ![invigi-table](../../assets/imported/Kai.Wu/invigi-table.jpg)
 
 3.  监考第一部分：考前准备。开考前，注意上面表格里的两列："Arrive Time at Distribution Room" 和 "Distribution Room"，在指定时间，提前去签到并领取试卷。然后会拿到MCQ card、答题册、考场名单、小白卡、黏土等资料，拿到考场去
 
@@ -96,7 +96,7 @@ legacy-source:
 
 7.  分块列表：人数、缺勤、提前交、剩余、特殊
 
-![invigilation](../assets/imported/Kai.Wu/invigilation.jpg)
+![invigilation](../../assets/imported/Kai.Wu/invigilation.jpg)
 
 *2020年11月15日，CB楼G层某考场，监考中*
 

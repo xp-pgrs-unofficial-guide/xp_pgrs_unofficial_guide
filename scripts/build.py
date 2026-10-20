@@ -3,15 +3,16 @@
 from __future__ import annotations
 
 import argparse
+from html import escape
 from html.parser import HTMLParser
 import json
 import os
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import re
 import shutil
 import subprocess
 import sys
-from urllib.parse import unquote, urlsplit
+from urllib.parse import quote, unquote, urlsplit, urlunsplit
 
 import yaml
 
@@ -29,7 +30,95 @@ def frontmatter(path: Path):
 
 
 def pages():
-    return [BOOK / "index.qmd", *sorted((BOOK / "content").glob("*.qmd")), BOOK / "contributing.qmd"]
+    return [BOOK / "index.qmd", *sorted((BOOK / "content").rglob("*.qmd"))]
+
+
+class UniqueKeyLoader(yaml.SafeLoader):
+    """Redirect aliases must not silently overwrite an earlier YAML entry."""
+
+
+def unique_mapping(loader, node):
+    result = {}
+    for key_node, value_node in node.value:
+        key = loader.construct_object(key_node)
+        try:
+            if key in result:
+                raise ValueError(f"redirects.yml 包含重复键：{key}")
+            result[key] = loader.construct_object(value_node)
+        except TypeError as exc:
+            raise ValueError("redirects.yml 的键必须是路径字符串") from exc
+    return result
+
+
+UniqueKeyLoader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, unique_mapping)
+
+
+def safe_article_path(value):
+    """Accept canonical, unescaped book-relative qmd paths only."""
+    if (not isinstance(value, str) or not value or "\\" in value
+            or any(ord(character) < 32 or ord(character) == 127 for character in value)):
+        raise ValueError(f"redirects.yml 包含不安全文章路径：{value!r}")
+    parsed = urlsplit(value)
+    path = PurePosixPath(value)
+    if (parsed.scheme or parsed.netloc or parsed.query or parsed.fragment or path.is_absolute()
+            or ".." in path.parts or str(path) != value or path.suffix != ".qmd"
+            or unquote(value) != value or not (BOOK / value).resolve().is_relative_to(BOOK.resolve())):
+        raise ValueError(f"redirects.yml 包含不安全文章路径：{value!r}")
+    return value
+
+
+def load_redirects():
+    """Read legacy aliases, validating them before any output is written."""
+    path = BOOK / "redirects.yml"
+    if not path.exists():
+        return {}
+    try:
+        config = yaml.load(path.read_text(encoding="utf-8"), Loader=UniqueKeyLoader)
+    except yaml.YAMLError as exc:
+        raise ValueError(f"redirects.yml 不是合法 YAML：{exc}") from exc
+    if (not isinstance(config, dict) or set(config) != {"schema_version", "redirects"}
+            or type(config.get("schema_version")) is not int or config["schema_version"] != 1
+            or not isinstance(config.get("redirects"), dict)):
+        raise ValueError("redirects.yml 必须使用 schema_version: 1 和 redirects 路径映射")
+    redirects = {safe_article_path(old): safe_article_path(new) for old, new in config["redirects"].items()}
+    current = {source.relative_to(BOOK).as_posix() for source in pages()}
+    for old, new in redirects.items():
+        if old in current or (BOOK / old).exists():
+            raise ValueError(f"兼容跳转源路径与当前文章冲突：{old}")
+        if new in redirects:
+            raise ValueError(f"兼容跳转不能形成跳转链或循环：{old} → {new}")
+        if new not in current or not (BOOK / new).is_file():
+            raise ValueError(f"兼容跳转目标不是当前文章：{old} → {new}")
+    return redirects
+
+
+def redirect_outputs(suffix):
+    base = OUTPUT / "markdown" if suffix == ".md" else OUTPUT
+    return {
+        (base / Path(old).with_suffix(suffix)).resolve(): (base / Path(new).with_suffix(suffix)).resolve()
+        for old, new in load_redirects().items()
+    }
+
+
+def relative_url(target, parent):
+    return quote(Path(os.path.relpath(Path(target).resolve(), start=Path(parent).resolve())).as_posix(), safe="/")
+
+
+def rewrite_markdown_url(url, source, destination):
+    """Resolve each authored URL, then express it from the actual exported file."""
+    parsed = urlsplit(url)
+    if parsed.scheme or parsed.netloc or not parsed.path:
+        return url
+    decoded = unquote(parsed.path)
+    local = ((BOOK / decoded.lstrip("/")) if decoded.startswith("/") else source.parent / decoded).resolve()
+    if not local.is_relative_to(BOOK.resolve()):
+        raise ValueError(f"{source}: 链接超出 book 目录：{url}")
+    relative = local.relative_to(BOOK.resolve())
+    if local.suffix == ".qmd":
+        output = OUTPUT / "markdown" / relative.with_suffix(".md")
+    else:
+        output = OUTPUT / relative
+    return urlunsplit(("", "", relative_url(output, destination.parent), parsed.query, parsed.fragment))
 
 
 def chapters(node):
@@ -118,6 +207,7 @@ def validate_ast(node, path, known_authors, attributed=False):
 def validate_sources(quarto):
     config = yaml.safe_load((BOOK / "_quarto.yml").read_text(encoding="utf-8"))
     giscus_settings(config)  # Reject incomplete service configuration before rendering.
+    load_redirects()
     known = yaml.safe_load((BOOK / "_authors.yml").read_text(encoding="utf-8"))["guide-authors"]
     listed = list(chapters(config["book"]["chapters"]))
     actual = [str(p.relative_to(BOOK)) for p in pages()]
@@ -150,26 +240,13 @@ def export_markdown(quarto):
         relative = path.relative_to(BOOK).with_suffix(".md")
         target = destination / relative
         target.parent.mkdir(parents=True, exist_ok=True)
-        # Markdown is one directory level below its HTML sibling. Keep links to
-        # Markdown articles within the export, and resolve assets to the shared copy.
-        def rewrite(target_url):
-            parsed = urlsplit(target_url)
-            if parsed.scheme or parsed.netloc or not parsed.path or parsed.path.startswith("/"):
-                return target_url
-            if parsed.path.endswith(".qmd"):
-                target_url = target_url.replace(".qmd", ".md", 1)
-            elif parsed.path == "llms.txt":
-                target_url = "../llms.txt"
-            else:
-                target_url = "../" + target_url
-            return target_url
         def rewrite_nodes(node):
             if isinstance(node, list):
                 for child in node:
                     rewrite_nodes(child)
             elif isinstance(node, dict):
                 if node.get("t") in {"Image", "Link"}:
-                    node["c"][-1][0] = rewrite(node["c"][-1][0])
+                    node["c"][-1][0] = rewrite_markdown_url(node["c"][-1][0], path, target)
                 for child in node.values():
                     rewrite_nodes(child)
         ast = pandoc_json(quarto, path)
@@ -203,6 +280,49 @@ def export_markdown(quarto):
     print(f"纯 Markdown 导出完成：{len(entries)} 页。", flush=True)
 
 
+def export_redirects():
+    redirects = load_redirects()
+    if not redirects:
+        return
+    config = yaml.safe_load((BOOK / "_quarto.yml").read_text(encoding="utf-8"))
+    site = config.get("guide-site", "")
+    if not isinstance(site, str) or urlsplit(site).scheme not in {"http", "https"} or not urlsplit(site).netloc:
+        raise ValueError("生成兼容跳转需要合法的 guide-site 绝对网址")
+    # Never overwrite a rendered article or attachment, even if its route was not
+    # listed in the book's table of contents.
+    outputs = [path for suffix in (".html", ".md") for path in redirect_outputs(suffix)]
+    for path in outputs:
+        if path.exists():
+            raise ValueError(f"兼容跳转不能覆盖已生成文件：{path.relative_to(OUTPUT)}")
+    for old, new in redirects.items():
+        html_file = OUTPUT / Path(old).with_suffix(".html")
+        new_html = OUTPUT / Path(new).with_suffix(".html")
+        target = relative_url(new_html, html_file.parent)
+        canonical = site.rstrip("/") + "/" + quote(Path(new).with_suffix(".html").as_posix(), safe="/")
+        title = frontmatter(BOOK / new)[0]["title"]
+        html_file.parent.mkdir(parents=True, exist_ok=True)
+        html_file.write_text(
+            '<!doctype html>\n<html lang="zh-CN"><head><meta charset="utf-8">\n'
+            '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+            f'<title>文章已迁移：{escape(title)}</title>\n'
+            f'<link rel="canonical" href="{escape(canonical, quote=True)}">\n'
+            '</head><body>\n<h1>文章已迁移</h1>\n'
+            f'<p>请前往新地址阅读：<a href="{escape(target, quote=True)}">{escape(title)}</a>。</p>\n'
+            '<script>\n'
+            f'const target = new URL({json.dumps(target)}, window.location.href);\n'
+            'target.search = window.location.search;\n'
+            'target.hash = window.location.hash;\n'
+            'window.location.replace(target.href);\n'
+            '</script>\n</body></html>\n', encoding="utf-8")
+        markdown_file = OUTPUT / "markdown" / Path(old).with_suffix(".md")
+        new_markdown = OUTPUT / "markdown" / Path(new).with_suffix(".md")
+        markdown_file.parent.mkdir(parents=True, exist_ok=True)
+        markdown_file.write_text(
+            f'# 文章已迁移\n\n请前往新地址阅读：[当前文章]({relative_url(new_markdown, markdown_file.parent)})。\n',
+            encoding="utf-8")
+    print(f"兼容路径导出完成：{len(redirects)} 个 HTML 跳转与 Markdown 迁移提示。", flush=True)
+
+
 class Links(HTMLParser):
     def __init__(self):
         super().__init__()
@@ -227,6 +347,8 @@ class Links(HTMLParser):
 def validate_output(html_only):
     config = yaml.safe_load((BOOK / "_quarto.yml").read_text(encoding="utf-8"))
     giscus = giscus_settings(config)
+    articles = {(OUTPUT / source.relative_to(BOOK).with_suffix(".html")).resolve() for source in pages()}
+    redirects = redirect_outputs(".html")
     discussions = {
         (OUTPUT / source.relative_to(BOOK).with_suffix(".html")).resolve(): frontmatter(source)[0]["discussion-id"]
         for source in pages()
@@ -237,6 +359,11 @@ def validate_output(html_only):
         parser.feed(path.read_text(encoding="utf-8"))
         documents[path.resolve()] = parser
     errors = set()
+    expected = articles | set(redirects)
+    for path in expected - set(documents):
+        errors.add(f"缺少{'文章' if path in articles else '兼容跳转'}：{path.relative_to(OUTPUT)}")
+    for path in set(documents) - expected:
+        errors.add(f"存在未登记的 HTML：{path.relative_to(OUTPUT)}")
     for path, parser in documents.items():
         for identifier in parser.duplicate_ids:
             errors.add(f"{path.relative_to(OUTPUT)} → 重复锚点 {identifier}")
@@ -257,9 +384,14 @@ def validate_output(html_only):
                 target /= "index.html"
             if not target.is_relative_to(OUTPUT.resolve()) or not target.exists():
                 errors.add(f"{path.relative_to(OUTPUT)} → {url}")
-            elif parts.fragment and target in documents and unquote(parts.fragment) not in documents[target].ids:
+            # An old HTML URL redirects with its fragment intact. Check that
+            # fragment on the current article rather than on its tiny stub.
+            elif (parts.fragment and redirects.get(target, target) in documents
+                  and unquote(parts.fragment) not in documents[redirects.get(target, target)].ids):
                 errors.add(f"{path.relative_to(OUTPUT)} → 锚点不存在 {url}")
-        if giscus:
+        if path in redirects and parser.giscus_scripts:
+            errors.add(f"{path.relative_to(OUTPUT)} 的兼容跳转不应包含 Giscus 讨论区")
+        if giscus and path in articles:
             label = path.relative_to(OUTPUT)
             if len(parser.giscus_scripts) != 1:
                 errors.add(f"{label} 必须包含一个独立 Giscus 讨论区")
@@ -277,10 +409,12 @@ def validate_output(html_only):
     search = json.loads((OUTPUT / "search.json").read_text(encoding="utf-8"))
     if len(search) != len(pages()) or any("一起完善这一页" in entry["text"] for entry in search):
         raise ValueError("搜索索引不完整或混入供稿控件文本")
-    print(f"产物检查通过：{len(documents)} 个 HTML 页，本地链接和锚点有效。", flush=True)
+    print(f"产物检查通过：{len(articles)} 篇 HTML 文章、{len(redirects)} 个兼容跳转，本地链接和锚点有效。", flush=True)
 
 
 def validate_markdown(quarto):
+    articles = {(OUTPUT / "markdown" / source.relative_to(BOOK).with_suffix(".md")).resolve() for source in pages()}
+    redirects = redirect_outputs(".md")
     documents = {}
     for path in (OUTPUT / "markdown").rglob("*.md"):
         result = run([quarto, "pandoc", path, "--from=gfm", "--to=json"], capture_output=True, text=True)
@@ -303,6 +437,11 @@ def validate_markdown(quarto):
         inspect(ast["blocks"])
         documents[path.resolve()] = parser
     errors = set()
+    expected = articles | set(redirects)
+    for path in expected - set(documents):
+        errors.add(f"缺少{'文章' if path in articles else '迁移提示'}：{path.relative_to(OUTPUT)}")
+    for path in set(documents) - expected:
+        errors.add(f"存在未登记的 Markdown：{path.relative_to(OUTPUT)}")
     for path, parser in documents.items():
         for url in parser.urls:
             parts = urlsplit(url)
@@ -315,7 +454,7 @@ def validate_markdown(quarto):
                 errors.add(f"{path.relative_to(OUTPUT)} → 锚点不存在 {url}")
     if errors:
         raise ValueError("Markdown 链接检查失败：\n" + "\n".join(sorted(errors)))
-    print(f"Markdown 检查通过：{len(documents)} 页，图片、文件链接与显式锚点有效。", flush=True)
+    print(f"Markdown 检查通过：{len(articles)} 篇文章、{len(redirects)} 个迁移提示，图片、文件链接与显式锚点有效。", flush=True)
 
 
 def validate_pdf():
@@ -362,6 +501,7 @@ def main():
         shutil.rmtree(OUTPUT)
     run([quarto, "render", BOOK, "--to", "html" if args.html_only else "all"])
     export_markdown(quarto)
+    export_redirects()
     validate_output(args.html_only)
     validate_markdown(quarto)
     if not args.html_only:

@@ -16,6 +16,6 @@ legacy-source:
 
 (2022年10月12日 by [Kai Wu](mailto:kaiwu.astro@gmail.com))
 
-![sportcenter miniprogram](../assets/imported/Kai.Wu/sportcenter_miniprogram.jpg)
+![sportcenter miniprogram](../../assets/imported/Kai.Wu/sportcenter_miniprogram.jpg)
 
 :::
