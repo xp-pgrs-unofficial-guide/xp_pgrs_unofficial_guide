@@ -57,7 +57,7 @@ return {
         .. '" data-repo-id="' .. html(repoid) .. '" data-category="' .. html(category)
         .. '" data-category-id="' .. html(categoryid) .. '" data-mapping="specific" data-term="' .. html(discussion)
         .. '" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top"'
-        .. ' data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>'
+        .. ' data-theme="light" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>'
     else
       parts[#parts + 1] = '<p>欢迎到 GitHub Discussions 讨论本页，并附上文章链接。</p>'
     end

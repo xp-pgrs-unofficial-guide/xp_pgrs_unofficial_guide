@@ -24,6 +24,7 @@ GISCUS_ATTRIBUTES = {
     "data-mapping": "specific",
     "data-strict": "1",
     "data-lang": "zh-CN",
+    "data-theme": "light",
 }
 
 
