@@ -4,7 +4,7 @@ discussion-id: xp-guide-contributing
 lang: en
 translation-source: content/appendix/contributing.qmd
 translation-status: draft
-translation-source-sha256: 4992b2279b8a8afbddbc4e7c9c116c661d787338be68af41ca72b5b36f8d91b3
+translation-source-sha256: ff31db7f28e1e09877f64900f63c58aad773fa94c26696f030dc12b0f78c3f26
 ---
 
 ::: {#xp-guide-contributing}
@@ -22,11 +22,11 @@ Editors will check the content, clarify anything necessary with you, and incorpo
 
 ## Edit an article directly {#直接修改文章}
 
-Click "Propose an edit (PR)" to edit Markdown on GitHub. Ordinary readers can also contribute: if you do not have write access to this repository, follow GitHub's prompts to create your own fork, then open a pull request. For the current preview, choose `codex/quarto-guide` as the target branch. Maintainers with write access should also create a working branch and have changes reviewed through a pull request before updating the guide.
+Click "Propose an edit (PR)" to edit Markdown on GitHub. Ordinary readers can also contribute: if you do not have write access to this repository, follow GitHub's prompts to create your own fork, then open a pull request targeting `main`. Maintainers with write access should also create a working branch and have changes reviewed through a pull request before updating the guide.
 
 Put new articles under `book/content/` and add them to the appropriate contents group in `book/_quarto.yml`.
 
-Each article needs a title and a `discussion-id` that remains stable when the article is renamed. Put the body in attributed contribution blocks. Consecutive paragraphs by the same author can share a block; start a new block when the author changes. See the current preview branch's [contribution guide](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/codex/quarto-guide/CONTRIBUTING.md) for a complete example.
+Each article needs a title and a `discussion-id` that remains stable when the article is renamed. Put the body in attributed contribution blocks. Consecutive paragraphs by the same author can share a block; start a new block when the author changes. See the [contribution guide](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md) for a complete example.
 
 ## Attribution {#怎样署名}
 

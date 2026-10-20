@@ -6,27 +6,27 @@
 
 ## 第一次启用 GitHub Pages
 
-在仓库 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。当前仓库为公开仓库，可使用 GitHub Free 的 Pages。部署环境 `github-pages` 如配置分支限制，应允许 `main` 和用于手动预览的 `codex/quarto-guide`；保留既有审核要求。
+在仓库 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。当前仓库为公开仓库，可使用 GitHub Free 的 Pages。部署环境 `github-pages` 如配置分支限制，应允许 `main`；保留既有审核要求。
 
-合并到 `main` 后，`Build guide and deploy Pages` 会先检查并构建全部格式，再部署网站。也可选择 `main` 手动运行。`codex/quarto-guide` 只在手动触发时部署；该分支的普通推送、PR 和其他分支的运行只验证和保存构建产物。网站地址为：
+`Build guide and deploy Pages` 在 `main` 有新推送时，先检查并构建全部格式，再部署网站；也可选择 `main` 手动运行。其他分支的推送、PR 和手动运行只验证并保存构建产物。网站地址为：
 
 <https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/>
 
 不要在 `book/_book/` 手工修正文；下次构建会覆盖它。部署前需要审核的是源文件 PR。
 
-## 不合并 main，手动预览当前分支
+## 从 main 手动发布
 
-先推送 `codex/quarto-guide`，再在 Actions 中打开 `.github/workflows/CI.yml` 对应工作流，选择 **Run workflow → codex/quarto-guide → Run workflow**。工作流列表的显示名可能仍是默认分支里的旧名称 `test-compile`，以文件路径为准。也可使用 GitHub CLI：
+在 Actions 中打开 **Build guide and deploy Pages**（`.github/workflows/CI.yml`），选择 **Run workflow → main → Run workflow**。也可使用 GitHub CLI：
 
 ```sh
-gh workflow run CI.yml --ref codex/quarto-guide
+gh workflow run CI.yml --ref main
 ```
 
-部署会发布当前分支构建出来的网页、PDF 和 Markdown，不会合并或修改 `main`。它使用上面的同一个 Pages 地址，不是独立的分支预览网址；以后从 `main` 部署会更新这个网站。普通推送当前分支不会更新网站，需要再次手动运行。
+部署会将 `main` 构建出来的网页、PDF 和 Markdown 发布到上面的 Pages 地址。日常修改先在工作分支提交 PR，审核并合并到 `main` 后自动发布。其他分支的构建产物可从 Actions 的 `guide-build` 附件下载；需要交互预览时可在本地运行 Quarto。
 
-当前预览的 `book.repo-branch` 配置为 `codex/quarto-guide`，网站“提出修改（PR）”和查看源代码的链接都指向该分支。读者提交 PR 时应确认目标分支也是 `codex/quarto-guide`。以后正式从 `main` 发布前，将 `book/_quarto.yml` 的 `book.repo-branch` 改为 `main`；文章编辑链接、供稿提示和 Issue 草稿中的源分支会使用同一配置。同时核对 `CONTRIBUTING.md`、`book/content/appendix/contributing.qmd` 中的 PR 目标分支和文档链接。
+`book/_quarto.yml` 的 `book.repo-branch` 为 `main`，网站“提出修改（PR）”和查看源代码的链接都指向该分支；文章编辑链接与 Issue 草稿中的源分支使用同一配置。读者提交 PR 时应确认目标分支为 `main`。若未来调整发布分支，同时更新工作流、此配置、`CONTRIBUTING.md` 和中英文供稿说明。
 
-“补充内容／纠错”使用 GitHub 支持的 `title`、`body` URL 参数，预填文章标题、链接、源文件、分支、`discussion-id` 和填写提示。它不依赖默认分支中的 Issue Form，当前预览无需合并 `main` 就可投稿。不要向该入口添加需要额外权限的标签、分派者等参数。Issue Form 模板仍保留在分支中，未来需要正式启用时应发布到默认分支。
+“补充内容／纠错”使用 GitHub 支持的 `title`、`body` URL 参数，直接打开预填文章标题、链接、源文件、分支、`discussion-id` 和填写提示的 Issue 草稿。不要向该入口添加需要额外权限的标签、分派者等参数。直接新建 Issue 时，也可使用默认分支 `.github/ISSUE_TEMPLATE/` 中的投稿与纠错表单；修改表单需合并到 `main` 后生效。
 
 ## 配置文章评论
 
@@ -36,7 +36,7 @@ gh workflow run CI.yml --ref codex/quarto-guide
 2. 安装 [giscus GitHub App](https://github.com/apps/giscus)，只授予本仓库访问权限。
 3. 在 [giscus 配置页](https://giscus.app/zh-CN)选择本仓库和该分类，复制实际生成的仓库 ID、分类 ID。
 4. 在 **Settings → Secrets and variables → Actions → Variables** 添加 `GISCUS_REPO_ID` 和 `GISCUS_CATEGORY_ID`。这两项是公开标识符，使用 repository variables 即可，无需新建访问令牌或 secrets。如果分类名称不是“文章评论”，另设 `GISCUS_CATEGORY` 为实际分类名称。
-5. 在 Actions 中选择 **Run workflow → codex/quarto-guide** 手动部署，验证至少两篇文章下方出现对应语言的评论组件和 GitHub 登录入口，且不同文章关联不同讨论标识、同篇中英文共用标识。当前预览无需修改或合并 `main`；正式版本之后可从 `main` 发布。
+5. 在 Actions 中选择 **Run workflow → main** 手动部署，验证至少两篇文章下方出现对应语言的评论组件和 GitHub 登录入口，且不同文章关联不同讨论标识、同篇中英文共用标识。
 
 当前配置的公开变量为：
 
@@ -46,7 +46,7 @@ gh workflow run CI.yml --ref codex/quarto-guide
 | `GISCUS_CATEGORY_ID` | `DIC_kwDOH1Tts84CQ6ob` |
 | `GISCUS_CATEGORY` | `Announcements` |
 
-GitHub App 安装、Discussions 和 Actions variables 是仓库级设置，不属于某一个分支；正文和工作流的修改仍在预览分支中。App 安装时选择 **Only select repositories**，仅授权 `xp_pgrs_unofficial_guide`。变量已存在不代表 App 已安装，应在 [giscus 配置页](https://giscus.app/zh-CN)填写仓库全名确认可用。
+GitHub App 安装、Discussions 和 Actions variables 是仓库级设置，不属于某一个分支；正文和工作流通过 PR 合并到 `main` 后生效。新增 App 安装时可选择 **Only select repositories**，仅授权 `xp_pgrs_unofficial_guide`。变量已存在不代表 App 已安装，应在 [giscus 配置页](https://giscus.app/zh-CN)填写仓库全名确认可用。
 
 未设置 Giscus 变量时，网页仍可阅读，文章显示通往 GitHub Discussions 的链接；不要用示例 ID 冒充已启用评论。若开始配置但两个 ID 不齐，构建会报错，避免静默发布失效的评论区。分支和 fork PR 的构建不依赖任何 secret，完全缺失评论配置也应通过构建。
 

@@ -4,7 +4,7 @@ on:
   push:
     branches: ["**"]
   pull_request:
-    branches: [main, codex/quarto-guide]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -56,20 +56,16 @@ jobs:
           retention-days: 14
       - name: Prepare Pages artifact
         if: >-
-          (github.ref == 'refs/heads/main' &&
-           (github.event_name == 'push' || github.event_name == 'workflow_dispatch')) ||
-          (github.ref == 'refs/heads/codex/quarto-guide' &&
-           github.event_name == 'workflow_dispatch')
+          github.ref == 'refs/heads/main' &&
+          (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         uses: actions/upload-pages-artifact@v3
         with:
           path: book/_book/
 
   deploy:
     if: >-
-      (github.ref == 'refs/heads/main' &&
-       (github.event_name == 'push' || github.event_name == 'workflow_dispatch')) ||
-      (github.ref == 'refs/heads/codex/quarto-guide' &&
-       github.event_name == 'workflow_dispatch')
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     needs: build
     runs-on: ubuntu-24.04
     permissions:

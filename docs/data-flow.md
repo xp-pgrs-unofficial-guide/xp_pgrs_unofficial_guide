@@ -34,7 +34,7 @@ flowchart TD
     SEARCH --> OUT
 
     OUT --> ART["Actions 构建附件 guide-build<br/>供下载、审阅"]
-    OUT -->|"codex/quarto-guide 手动部署"| PAGES["GitHub Pages<br/>明暗主题、同篇中英切换、作者主页<br/>阅读、搜索、PDF 与 Markdown 下载"]
+    OUT -->|"main 推送或手动部署"| PAGES["GitHub Pages<br/>明暗主题、同篇中英切换、作者主页<br/>阅读、搜索、PDF 与 Markdown 下载"]
 ```
 
 各类数据的维护位置如下：
@@ -58,7 +58,7 @@ flowchart TD
 
 文件夹按主题组织维护源，阅读顺序由 `book/_quarto.yml` 的显式章节目录决定。构建递归发现各层 `.qmd`，并校验每种语言的章节目录是否完整覆盖全部正文与作者页。旧 HTML 地址通过生成的跳转页保留查询参数和锚点，旧 Markdown 地址提供迁移提示；这些兼容文件由当前正文和别名表生成，旧位置不保存重复正文源。新增和移动文章的步骤见[文章目录与文件移动](../CONTRIBUTING.md#文章目录与文件移动)。
 
-`scripts/build.py` 先检查源文件，再渲染、导出并校验生成结果。修改应写回 `.qmd`、作者表或配置；`book/_book/` 是生成目录。Actions 为普通分支推送保留构建附件；当前 `codex/quarto-guide` 分支需要手动触发才发布 Pages。发布此分支不会修改或合并 `main`。具体操作见[维护者设置与发布](maintainer-setup.md)。
+`scripts/build.py` 先检查源文件，再渲染、导出并校验生成结果。修改应写回 `.qmd`、作者表或配置；`book/_book/` 是生成目录。Actions 为分支构建保留附件；只有 `main` 的推送或手动运行会发布 Pages。其他分支用于修改与审核，PR 合并到 `main` 后自动更新网站。具体操作见[维护者设置与发布](maintainer-setup.md)。
 
 ## 读者评论、供稿与编辑采纳
 
@@ -74,8 +74,8 @@ flowchart LR
     READER -->|"供稿、纠错"| SUBMIT["Issue 或 PR"]
     SUBMIT --> EDITOR["编辑审核<br/>核对来源与署名"]
     DISC -.->|"采纳有价值的补充"| EDITOR
-    EDITOR --> SRC["更新分支中的日常维护源<br/>book/ 中文与 book/en/ 英文<br/>book/_authors.yml"]
-    SRC -->|"重新构建并手动部署"| PAGES
+    EDITOR --> SRC["通过 PR 更新日常维护源<br/>book/ 中文与 book/en/ 英文<br/>book/_authors.yml"]
+    SRC -->|"合并到 main，构建并自动部署"| PAGES
 ```
 
 构建时只把公开的 Giscus 仓库 ID、分类 ID 和文章 `discussion-id` 写入 HTML。读者打开网页后，浏览器通过 Giscus 从 GitHub Discussions 加载评论；留言与回应写入 Discussions，首次留言或回应时由 Giscus 自动建立对应讨论。

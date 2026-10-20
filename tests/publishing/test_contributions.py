@@ -46,7 +46,7 @@ class Anchors(HTMLParser):
             self.current = None
 
 
-def convert(input_file="content/apr.qmd", title="APR", branch="codex/quarto-guide",
+def convert(input_file="content/apr.qmd", title="APR", branch="main",
             discussion="xp-guide-apr", output_format="html5", body="Article text.",
             lang="zh-CN", source_prefix="", site=SITE, site_root=SITE, translation_status=None):
     metadata = [
@@ -104,11 +104,11 @@ class ContributionLinkTests(unittest.TestCase):
                 self.assertIn(title, query["title"][0])
                 body = unquote(query["body"][0])
                 for context in (title, SITE + source.replace(".qmd", ".html"),
-                                "book/" + source, "codex/quarto-guide", discussion,
+                                "book/" + source, "main", discussion,
                                 "内容", "署名", "来源"):
                     self.assertIn(context, body)
                 self.assertNotIn(str(ROOT), body)
-                self.assertEqual(edit["href"], REPO + "/edit/codex/quarto-guide/book/" + source)
+                self.assertEqual(edit["href"], REPO + "/edit/main/book/" + source)
 
     def test_unicode_and_reserved_characters_cannot_split_query_or_path(self):
         source = 'content/复核 & "说明"?.qmd'
@@ -121,18 +121,18 @@ class ContributionLinkTests(unittest.TestCase):
         self.assertIn("复核 & APR?", query["title"][0])
         self.assertIn(source, query["body"][0])
         self.assertIn(SITE + source.replace(".qmd", ".html"), unquote(query["body"][0]))
-        self.assertEqual(unquote(urlsplit(edit["href"]).path), "/example/guide/edit/codex/quarto-guide/book/" + source)
+        self.assertEqual(unquote(urlsplit(edit["href"]).path), "/example/guide/edit/main/book/" + source)
         self.assertEqual(urlsplit(edit["href"]).query, "")
         self.assertEqual(urlsplit(edit["href"]).fragment, "")
         self.assertEqual(edit["label"], "提出修改（PR）")
         self.assertIn("fork", "".join(parser.text).lower())
 
     def test_source_branch_is_configurable_for_publication(self):
-        _, issue, edit = self.parse(branch="main")
-        self.assertEqual(edit["href"], REPO + "/edit/main/book/content/apr.qmd")
+        _, issue, edit = self.parse(branch="codex/contribution-test")
+        self.assertEqual(edit["href"], REPO + "/edit/codex/contribution-test/book/content/apr.qmd")
         body = parse_qs(urlsplit(issue["href"]).query)["body"][0]
-        self.assertIn("main", body)
-        self.assertNotIn("codex/quarto-guide", body)
+        self.assertIn("codex/contribution-test", body)
+        self.assertNotIn("Branch: main", body)
 
     def test_missing_source_branch_fails_instead_of_linking_to_another_branch(self):
         result = convert(branch=None)
@@ -182,11 +182,11 @@ class ContributionLinkTests(unittest.TestCase):
                 body = query["body"][0]
                 for context in ("Title: " + title, "Source: book/en/" + source,
                                 "URL: " + SITE + "en/" + source.replace(".qmd", ".html"),
-                                "Discussion ID: " + discussion, "codex/quarto-guide",
+                                "Discussion ID: " + discussion, "main",
                                 "Public name or pseudonym", "Source and date checked"):
                     self.assertIn(context, body)
                 self.assertNotIn(str(ROOT), body)
-                self.assertEqual(edit["href"], REPO + "/edit/codex/quarto-guide/book/en/" + source)
+                self.assertEqual(edit["href"], REPO + "/edit/main/book/en/" + source)
                 self.assertEqual(edit["label"], "Propose an edit (PR)")
 
     def test_language_switches_point_to_the_same_article_in_the_other_language(self):

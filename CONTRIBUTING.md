@@ -6,13 +6,13 @@
 
 推荐从目标文章下方点击“补充内容／纠错”：登录 GitHub 后，Issue 草稿会预填文章标题、网页链接、源文件、分支和文章标识，以及内容、署名和来源的填写提示。补充建议和资料后再提交即可，无需仓库写权限，也不需要安装 Git、学习 LaTeX 或配置构建环境。
 
-也可直接[新建 Issue](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/issues/new)，手动填写目标文章链接或新文章主题。GitHub Issue Form 模板只从默认分支加载；当前预览分支使用不依赖模板的预填 Issue，在不合并 `main` 的情况下也可投稿。
+也可直接[新建 Issue](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/issues/new/choose)，选择投稿或纠错表单，填写目标文章链接或新文章主题。文章下方的入口直接打开预填 Issue 草稿，方便保留页面信息。
 
 编辑会核对来源和署名，把采用的内容整理成 Pull Request，经人工审核后发布。提交 Issue 或发表评论不会直接改动正文。Issue 和附件公开可见，请使用适合公开的资料；需要匿名时明确填写“匿名”。
 
 ## 在网页中提出修改
 
-文章的“提出修改（PR）”会打开当前预览分支中的对应源文件。没有仓库写权限时，GitHub 会引导创建 fork；修改文字后选择提出更改，再创建 Pull Request，无需使用本地 Git。当前预览版本的 PR 目标分支（base）请选择 `codex/quarto-guide`，创建前检查文件差异，避免误将整套迁移内容提交给 `main`。拥有写权限的维护者也应创建修改分支，经 PR 审核后更新正文。
+文章的“提出修改（PR）”会打开 `main` 中的对应源文件。没有仓库写权限时，GitHub 会引导创建 fork；修改文字后选择提出更改，再创建 Pull Request，无需使用本地 Git。PR 的目标分支（base）请选择 `main`，创建前检查文件差异。拥有写权限的维护者也应创建修改分支，经 PR 审核并合并到 `main` 后发布正文。
 
 小改动可以直接修改原段落；新增经验通常单独建一个署名块。不要因代录、润色或排版调整删除原作者；对内容有实质补充时，在 `contributors` 中添加补充者。
 

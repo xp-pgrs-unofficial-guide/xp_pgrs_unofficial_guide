@@ -54,4 +54,4 @@ One build command checks that translations match the Chinese sources and are cur
 
 After a build, use `quarto preview book/en` to preview English. Do not edit the generated `book/en/_quarto.yml` manually.
 
-GitHub Actions validates branch pushes and pull requests. Pages deploys for a push or manual run from `main`, or a manual preview run from `codex/quarto-guide`. Ordinary feature-branch pushes do not deploy. The existing `v*` tag workflow continues to publish PDF releases. See [maintainer setup](docs/maintainer-setup.md) for Pages, comments, and branch preview configuration.
+GitHub Actions validates branch pushes and pull requests targeting `main`. A push or manual run from `main` deploys Pages; other branches only build and save artifacts. Content changes are published after their pull request is merged into `main`. The existing `v*` tag workflow continues to publish PDF releases. See [maintainer setup](docs/maintainer-setup.md) for Pages, comments, and manual deployment.

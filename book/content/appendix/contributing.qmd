@@ -18,11 +18,11 @@ discussion-id: xp-guide-contributing
 
 ## 直接修改文章 {#直接修改文章}
 
-点击“提出修改（PR）”，在 GitHub 网页中修改 Markdown。普通读者也可以参与：没有本仓库写权限时，按 GitHub 提示创建自己的 fork，再提出 Pull Request。当前预览版本的 PR 目标分支请选择 `codex/quarto-guide`。拥有写权限的维护者也应创建修改分支并通过 PR 审核后更新正文。
+点击“提出修改（PR）”，在 GitHub 网页中修改 Markdown。普通读者也可以参与：没有本仓库写权限时，按 GitHub 提示创建自己的 fork，再提出 Pull Request，目标分支请选择 `main`。拥有写权限的维护者也应创建修改分支并通过 PR 审核后更新正文。
 
 新增文章放在 `book/content/`，同时在 `book/_quarto.yml` 的相应目录分组里加入它。
 
-每篇文章需要标题和不随改名变化的 `discussion-id`；正文放在带署名的内容块中。连续同作者的段落可共用一个内容块，作者变化时另起一块。完整范例见当前预览分支的 [贡献说明](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/codex/quarto-guide/CONTRIBUTING.md)。
+每篇文章需要标题和不随改名变化的 `discussion-id`；正文放在带署名的内容块中。连续同作者的段落可共用一个内容块，作者变化时另起一块。完整范例见 [贡献说明](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md)。
 
 ## 怎样署名 {#怎样署名}
 

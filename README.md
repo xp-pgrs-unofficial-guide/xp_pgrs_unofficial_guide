@@ -54,4 +54,4 @@ python3 scripts/build.py
 
 运行一次构建后，可用 `quarto preview book/en` 预览英文；不要手工修改生成的 `book/en/_quarto.yml`。
 
-GitHub Actions 会验证分支和 PR；`main` 的推送或手动运行会部署 Pages，`codex/quarto-guide` 也可手动部署以预览，普通分支推送不部署。`v*` 标签继续生成 GitHub Release PDF。首次配置 Pages、评论及分支预览的方法见[维护者设置](docs/maintainer-setup.md)。
+GitHub Actions 会验证分支推送和目标为 `main` 的 PR；`main` 的推送或手动运行会部署 Pages，其他分支仅构建并保存附件。正文修改通过 PR 合并到 `main` 后发布。`v*` 标签继续生成 GitHub Release PDF。Pages、评论及手动发布的方法见[维护者设置](docs/maintainer-setup.md)。
