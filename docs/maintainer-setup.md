@@ -46,7 +46,7 @@ gh workflow run CI.yml --ref codex/quarto-guide
 
 ```sh
 sudo apt-get update
-sudo apt-get install -y --no-install-recommends texlive-xetex texlive-lang-chinese texlive-latex-extra texlive-fonts-recommended lmodern
+sudo apt-get install -y --no-install-recommends texlive-xetex texlive-lang-chinese texlive-latex-extra texlive-fonts-recommended texlive-plain-generic lmodern
 python3 -m pip install -r requirements-build.txt
 python3 scripts/build.py
 ```
