@@ -16,9 +16,20 @@
 
 可以通过文章下方的“补充内容／纠错”提交普通文字，Issue 草稿会预填文章信息；也可以点击“提出修改（PR）”，在 GitHub 网页中修改 Markdown。普通读者没有仓库写权限也可按提示 fork 后提交 Pull Request。评论和投稿均需 GitHub 登录，正文修改经过人工审核。详细步骤和段落署名示例见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
-根目录的 LaTeX 入口、`chapters/` 和 `author-folder/` 保留为历史快照，便于核对原文，不再接收新正文。旧 LaTeX 转稿与云部署工作流已归档到 `docs/legacy-workflows/`，不会再自动生成第二份正文。
+旧 LaTeX 原稿、作者资料和附件统一保存在 `archive/latex/`；旧工作流和一次性迁移工具也收在 `archive/`。这些历史资料供核对来源，日常修改写入 Quarto 正文。详见[历史归档说明](archive/README.md)。
 
 正文、构建产物、网站和评论之间的关系见[项目数据流](docs/data-flow.md)，其中包含构建发布与读者互动的 Mermaid 图。
+
+## 项目目录
+
+| 位置 | 用途 |
+| --- | --- |
+| `book/` | 当前 Quarto 正文、作者表、配置和发布使用的资源。 |
+| `scripts/` | 当前构建入口 `build.py`。 |
+| `tests/` | 署名、评论、供稿链接和文章路径的检查。 |
+| `docs/` | 当前项目数据流与维护发布说明。 |
+| `.github/` | 当前 CI、发布工作流和投稿模板。 |
+| `archive/` | [历史 LaTeX、附件、旧工作流与迁移工具](archive/README.md)。 |
 
 ## 本地预览与构建
 

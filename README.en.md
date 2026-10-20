@@ -16,9 +16,20 @@ The home page `book/index.qmd` and the `.qmd` files (Quarto Markdown) grouped in
 
 Use an article's contribution link to open an Issue draft with the page information prefilled, or choose its PR link to propose a Markdown change on GitHub. Readers without repository write access can follow GitHub's fork and pull request flow. Comments and submissions require a GitHub account. Content changes are reviewed by a person before publication. See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions and attribution examples.
 
-The root LaTeX entry point, `chapters/`, and `author-folder/` remain as historical snapshots for checking the original text. Add new content to the Quarto source. The old LaTeX conversion and cloud deployment workflows are archived under `docs/legacy-workflows/` and no longer produce a separate content copy.
+Legacy LaTeX sources, author materials, and attachments are stored together in `archive/latex/`. Old workflows and the one-time migration tool are also under `archive/`. These materials support source checks; ongoing edits belong in the Quarto source. See the [archive guide](archive/README.md) (in Chinese).
 
 See [project data flow](docs/data-flow.md) (in Chinese) for Mermaid diagrams of the build, publication, comments, and editorial contribution process.
+
+## Repository layout
+
+| Location | Purpose |
+| --- | --- |
+| `book/` | Current Quarto content, authors, configuration, and publication assets. |
+| `scripts/` | Current build entry point, `build.py`. |
+| `tests/` | Checks for attribution, discussions, contribution links, and article paths. |
+| `docs/` | Current data flow and maintenance documentation. |
+| `.github/` | Active CI, release workflows, and contribution templates. |
+| `archive/` | [Legacy LaTeX, attachments, workflows, and migration tooling](archive/README.md). |
 
 ## Preview and build locally
 

@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "legacy_root": "archive/latex",
   "purpose": "One-time import manifest; .qmd is now the maintained content source.",
   "legacy_entrypoint": "xp_pgrs_unofficial_guide.tex",
   "legacy_active_sources": [
@@ -817,6 +818,7 @@
     "The other-advice chapter epigraph is retained in backup.qmd.",
     "Existing facts, dates and recommendations are migrated without factual revision.",
     "Mixed-author legacy text is marked unverified rather than assigned by file directory.",
-    "Current page paths follow the topic folders; import_path and import_replacement preserve the initial import locations."
+    "Current page paths follow the topic folders; import_path and import_replacement preserve the initial import locations.",
+    "Legacy source paths (including QMD legacy-source metadata) are relative to legacy_root; current output paths remain relative to book/. Original legacy paths and source hashes are preserved after archival."
   ]
 }

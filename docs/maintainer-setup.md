@@ -89,4 +89,8 @@ PDF 使用 XeLaTeX 与 `ctexbook` 的 `fontset=fandol`，不依赖 macOS 系统�
 
 新作者可通过文章下方的预填 Issue 草稿提交普通文字。编辑核实署名和来源，在 `book/_authors.yml` 登记作者，将正文整理为署名块并通过 PR 审核；对代录内容保留投稿人的作者身份。稿件、评论与正式正文分开，避免未经核实的信息自动上线。
 
-`docs/legacy-workflows/latex-to-pr.yml` 与 `docs/legacy-workflows/deploy-to-cloud.yml` 是历史参考副本，已移出 `.github/workflows/`，不会被 GitHub Actions 执行。前者不再从 LaTeX 生成第二份正文，后者不再自动操作腾讯云。该迁移不读取密钥、不删除或修改既有云资源；如需清理旧云服务，由拥有者另行处理。
+历史资料统一收在 `archive/`，目录与追溯方法见[历史归档说明](../archive/README.md)。`archive/latex/` 保留旧 LaTeX 源码、作者资料、图片、附件、模板和编辑器配置的原有相对目录。当前发布使用 `book/assets/` 中的资源，归档附件不会自动同步到正文。
+
+`book/migration.json` 的 `legacy_root` 为 `archive/latex`，其中的原稿路径及文章 `legacy-source` 均相对该目录；核对时同时检查清单中的来源哈希。当前 Quarto 的文件路径仍相对 `book/`。`archive/tools/migrate_legacy.py` 仅保存一次性历史导入流程，会拒绝覆盖已有正文；日常发布继续运行 `python3 scripts/build.py`。
+
+`archive/workflows/latex-to-pr.yml` 与 `archive/workflows/deploy-to-cloud.yml` 是历史参考副本，位于 `.github/workflows/` 之外，不会被 GitHub Actions 执行。旧转稿和云部署流程已停用；归档不操作既有云资源，如需清理旧云服务，由拥有者另行处理。

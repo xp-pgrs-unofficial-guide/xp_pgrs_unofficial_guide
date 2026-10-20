@@ -2,7 +2,9 @@
 """One-time, reviewable migration of the active legacy TeX book.
 
 This is an import utility, not part of the publishing pipeline. The .qmd files
-become the maintained source after import. Run with --pandoc /path/to/pandoc.
+become the maintained source after import. This archived importer recreates the
+initial flat content layout, not the current grouped book. Run only in an empty
+book with --pandoc /path/to/pandoc.
 """
 from __future__ import annotations
 
@@ -15,7 +17,8 @@ import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
+LEGACY_ROOT = ROOT / "archive/latex"
 CONTENT = ROOT / "book/content"
 ASSETS = ROOT / "book/assets/imported"
 PDFTOPPM = shutil.which("pdftoppm")
@@ -58,7 +61,7 @@ def uncomment(text: str) -> str:
 
 
 def read(path: str) -> str:
-    return uncomment((ROOT / path).read_text())
+    return uncomment((LEGACY_ROOT / path).read_text())
 
 
 def active_sources(path="xp_pgrs_unofficial_guide.tex", seen=None):
@@ -69,7 +72,7 @@ def active_sources(path="xp_pgrs_unofficial_guide.tex", seen=None):
     seen.append(path)
     for target in re.findall(r"\\(?:include|input)\{([^}]+)\}", read(path)):
         target = target if target.endswith(".tex") else target + ".tex"
-        if (ROOT / target).is_file():
+        if (LEGACY_ROOT / target).is_file():
             active_sources(target, seen)
     return seen
 
@@ -228,7 +231,7 @@ def preprocess(text: str, asset_manifest: dict, source_title: str) -> str:
 
     def image(m):
         legacy = m.group(1)
-        src = ROOT / legacy
+        src = LEGACY_ROOT / legacy
         if not src.is_file():
             raise FileNotFoundError(src)
         author = src.parent.name if legacy.startswith("author-folder/") else "shared"
@@ -297,12 +300,12 @@ def main():
     parser.add_argument("--pandoc", default=shutil.which("pandoc"), required=not shutil.which("pandoc"))
     parser.add_argument("--pdftoppm", default=PDFTOPPM, help="Poppler PDF-to-PNG executable; needed only for missing previews")
     args = parser.parse_args()
-    if any(CONTENT.rglob("*.qmd")):
+    if any((ROOT / "book").rglob("*.qmd")) or (ROOT / "book/migration.json").exists():
         parser.error("正文已存在。此脚本仅用于一次性历史导入；日常维护请修改 .qmd 并运行 scripts/build.py。")
     PDFTOPPM = args.pdftoppm
     CONTENT.mkdir(parents=True, exist_ok=True)
     manifest = {"schema_version": 1, "purpose": "One-time import manifest; .qmd is now the maintained content source.",
-                "legacy_entrypoint": "xp_pgrs_unofficial_guide.tex", "legacy_active_sources": active_sources(), "pages": [], "assets": [],
+                "legacy_root": "archive/latex", "legacy_entrypoint": "xp_pgrs_unofficial_guide.tex", "legacy_active_sources": active_sources(), "pages": [], "assets": [],
                 "replaced": [{"source": "chapters/author-instruction.tex", "replacement": "contributing.qmd", "reason": "New web and Markdown contribution guide replaces the legacy TeX instructions."}],
                 "excluded_inactive": ["chapters/non-xjtluer.tex", "chapters/pgrsociety.tex", "chapters/copyright.tex", "author-folder/Kai.Wu/train_ticket.tex", "author-folder/Kai.Wu/empty.tex", "author-guide/elegantbook-cn-example.tex", "author-guide/elegantbook-en-example.tex"],
                 "notes": ["Chapter grouping headings are preserved in the book navigation.", "The other-advice chapter epigraph is retained in backup.qmd.",
@@ -357,7 +360,7 @@ def main():
         manifest["pages"].append({"path": "content/" + page.slug + ".qmd", "title": page.title,
                                   "group": page.group, "discussion_id": "xp-guide-" + page.slug,
                                   "sources": page.sources,
-                                  "source_sha256": {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in page.sources}})
+                                  "source_sha256": {p: hashlib.sha256((LEGACY_ROOT / p).read_bytes()).hexdigest() for p in page.sources}})
         print(page.slug)
     manifest["assets"] = list(asset_manifest.values())
     (ROOT / "book/migration.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
