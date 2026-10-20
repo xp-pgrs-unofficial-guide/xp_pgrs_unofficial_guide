@@ -81,6 +81,8 @@ HTML 预览可用 `python3 scripts/build.py --html-only`，只查源文件用 `-
 
 HTML 使用 Quarto 的 `light: cosmo`／`dark: darkly` 双主题，`respect-user-color-scheme` 让初次访问跟随系统；手动选择由浏览器保存并跨语言保留，Giscus 跟随当前主题。核验时至少检查系统默认、切换后的正文与署名卡片对比度、评论区，以及中英切换后主题和段落定位。
 
+还应覆盖先切换主题再滚动到评论区，以及保存选择后刷新页面，确认延迟加载的评论也使用当前网页的配色。
+
 作者中英文显示名集中在 `book/_authors.yml` 的 `guide-authors` 与 `guide-authors-en`，稳定 ID 相同。作者清单与主页在 `book/authors/` 和 `book/en/authors/`；`author-pages.lua` 从 `.contribution` 的原作者与补充者字段自动汇总参与文章。“归属待确认”是归属标记，不代表个人。网页只对连续且作者、补充者、确认状态相同的内容合并显示署名，源块和 PDF／Markdown 仍保留各块作者。
 
 更改控件、署名或构建逻辑时，除完整构建外运行：

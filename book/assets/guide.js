@@ -48,6 +48,7 @@
   const origin = "https://giscus.app";
   const sentThemes = new WeakMap();
   const watchedFrames = new WeakSet();
+  const readyFrames = new WeakSet();
   const preferredScheme = window.matchMedia?.("(prefers-color-scheme: dark)");
   const currentTheme = () => {
     if (document.body.classList.contains("quarto-dark")) return "dark";
@@ -71,7 +72,10 @@
     document.querySelectorAll("iframe.giscus-frame").forEach((frame) => {
       if (!watchedFrames.has(frame)) {
         watchedFrames.add(frame);
-        frame.addEventListener("load", () => synchronizeFrame(frame, true));
+        frame.addEventListener("load", () => {
+          readyFrames.delete(frame);
+          synchronizeFrame(frame, true);
+        });
       }
       synchronizeFrame(frame);
     });
@@ -84,6 +88,20 @@
     childList: true, subtree: true, attributes: true, attributeFilter: ["class", "src"]
   });
   preferredScheme?.addEventListener("change", synchronize);
+  // An iframe's load event can precede Giscus's React message listener. Its
+  // first resize message confirms that listener is ready; retry once then,
+  // using the latest page theme. Later resizes must not form a message loop.
+  window.addEventListener("message", (event) => {
+    if (event.origin !== origin) return;
+    const height = event.data?.giscus?.resizeHeight;
+    if (!Number.isFinite(height) || height <= 0) return;
+    document.querySelectorAll("iframe.giscus-frame").forEach((frame) => {
+      if (frame.contentWindow !== event.source) return;
+      const firstReadyMessage = !readyFrames.has(frame);
+      readyFrames.add(frame);
+      synchronizeFrame(frame, firstReadyMessage);
+    });
+  });
   synchronize();
 })();
 

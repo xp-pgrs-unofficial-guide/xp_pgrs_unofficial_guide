@@ -61,6 +61,12 @@ function widget(src = "https://giscus.app/en/widget") {
   });
 }
 function theme(frame) { return frame.messages.at(-1).message.giscus.setConfig.theme; }
+function ready(h, frame, height = 500) {
+  h.window.dispatch("message", {
+    origin: "https://giscus.app", source: frame.contentWindow,
+    data: { giscus: { resizeHeight: height } },
+  });
+}
 
 test("saved light choice takes precedence over a dark operating system", () => {
   const frame = widget();
@@ -110,6 +116,65 @@ test("system preference is used before Quarto has selected a class", () => {
   h.media.matches = false;
   h.media.dispatch("change");
   assert.equal(theme(frame), "light");
+});
+
+test("a widget that drops messages before hydration receives the latest theme when ready", () => {
+  const frame = widget();
+  let receiverReady = false;
+  const delivered = [];
+  frame.contentWindow.postMessage = (message, origin) => {
+    if (receiverReady) delivered.push({ message, origin });
+  };
+  const h = harness({ dark: true, className: "quarto-light", frames: [frame] });
+  frame.dispatch("load");
+  assert.equal(delivered.length, 0);
+  receiverReady = true;
+  ready(h, frame);
+  assert.equal(delivered.length, 1);
+  assert.equal(delivered[0].message.giscus.setConfig.theme, "light");
+  assert.equal(delivered[0].origin, "https://giscus.app");
+});
+
+test("readiness uses a theme changed during loading and resizes do not create a message loop", () => {
+  const frame = widget();
+  const h = harness({ frames: [frame] });
+  h.body.className = "quarto-dark";
+  h.observation.notify([{ type: "attributes", target: h.body }]);
+  const beforeReady = frame.messages.length;
+  ready(h, frame);
+  assert.equal(frame.messages.length, beforeReady + 1);
+  assert.equal(theme(frame), "dark");
+  for (let i = 0; i < 10; i++) ready(h, frame, 500 + i);
+  assert.equal(frame.messages.length, beforeReady + 1);
+  h.body.className = "quarto-light";
+  h.observation.notify([{ type: "attributes", target: h.body }]);
+  assert.equal(theme(frame), "light");
+  const afterSwitch = frame.messages.length;
+  ready(h, frame);
+  assert.equal(frame.messages.length, afterSwitch);
+  frame.dispatch("load");
+  const afterReload = frame.messages.length;
+  ready(h, frame);
+  assert.equal(frame.messages.length, afterReload + 1);
+  assert.equal(theme(frame), "light");
+});
+
+test("readiness must come from the matching Giscus window and contain a valid height", () => {
+  const frame = widget();
+  const other = widget();
+  const h = harness({ frames: [frame, other] });
+  const event = { origin: "https://giscus.app", source: frame.contentWindow,
+    data: { giscus: { resizeHeight: 500 } } };
+  for (const fields of [
+    { origin: "https://giscus.app.attacker.test" },
+    { source: {} }, { source: null }, { data: null }, { data: "not a Giscus message" },
+    ...[undefined, "500", 0, -1, NaN, Infinity].map((height) => ({ data: { giscus: { resizeHeight: height } } })),
+  ]) h.window.dispatch("message", { ...event, ...fields });
+  assert.equal(frame.messages.length, 1);
+  assert.equal(other.messages.length, 1);
+  ready(h, frame);
+  assert.equal(frame.messages.length, 2);
+  assert.equal(other.messages.length, 1);
 });
 
 test("language switching preserves the latest anchor and drops query parameters", () => {
