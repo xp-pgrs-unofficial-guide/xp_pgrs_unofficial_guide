@@ -26,17 +26,29 @@ gh workflow run CI.yml --ref codex/quarto-guide
 
 ## 配置文章评论
 
-仓库已开启 Discussions。维护者仍需完成以下设置：
+仓库已开启 Discussions，当前使用现有的 `Announcements` 公告分类保存文章评论。维护者设置如下：
 
-1. 在 Discussions 创建一个 **Announcements** 类型的分类，推荐命名“文章评论”。
+1. 选择 Discussions 中的 **Announcements** 类型分类。本仓库使用 `Announcements`；也可另建“文章评论”公告分类，但切换分类时需要同步更新构建变量，并核对已有讨论的归属。
 2. 安装 [giscus GitHub App](https://github.com/apps/giscus)，只授予本仓库访问权限。
 3. 在 [giscus 配置页](https://giscus.app/zh-CN)选择本仓库和该分类，复制实际生成的仓库 ID、分类 ID。
 4. 在 **Settings → Secrets and variables → Actions → Variables** 添加 `GISCUS_REPO_ID` 和 `GISCUS_CATEGORY_ID`。这两项是公开标识符，使用 repository variables 即可，无需新建访问令牌或 secrets。如果分类名称不是“文章评论”，另设 `GISCUS_CATEGORY` 为实际分类名称。
-5. 从 `main` 重新运行构建部署，验证文章评论区可以加载、登录 GitHub 并回复。
+5. 在 Actions 中选择 **Run workflow → codex/quarto-guide** 手动部署，验证至少两篇文章下方出现中文评论组件和 GitHub 登录入口，且关联不同的讨论标识。当前预览无需修改或合并 `main`；正式版本之后可从 `main` 发布。
 
-未填写两个 ID 时，网页仍可阅读，文章显示通往 GitHub Discussions 的链接；不要用示例 ID 冒充已启用评论。分支和 fork PR 的构建不依赖任何 secret，缺失评论配置也应通过构建。
+当前配置的公开变量为：
+
+| 变量 | 值 |
+| --- | --- |
+| `GISCUS_REPO_ID` | `R_kgDOH1Ttsw` |
+| `GISCUS_CATEGORY_ID` | `DIC_kwDOH1Tts84CQ6ob` |
+| `GISCUS_CATEGORY` | `Announcements` |
+
+GitHub App 安装、Discussions 和 Actions variables 是仓库级设置，不属于某一个分支；正文和工作流的修改仍在预览分支中。App 安装时选择 **Only select repositories**，仅授权 `xp_pgrs_unofficial_guide`。变量已存在不代表 App 已安装，应在 [giscus 配置页](https://giscus.app/zh-CN)填写仓库全名确认可用。
+
+未设置 Giscus 变量时，网页仍可阅读，文章显示通往 GitHub Discussions 的链接；不要用示例 ID 冒充已启用评论。若开始配置但两个 ID 不齐，构建会报错，避免静默发布失效的评论区。分支和 fork PR 的构建不依赖任何 secret，完全缺失评论配置也应通过构建。
 
 评论按文章 frontmatter 的 `discussion-id` 关联，使用 giscus 的固定 term 和严格匹配。新文章必须分配唯一 ID，改标题、移动文件时保留原 ID。不要为所有文章使用同一个 ID，也不要重命名已关联 Discussion 的匹配标识。删除内容时保留原讨论，便于追溯。
+
+初次部署时没有对应 Discussion 属于正常情况；giscus 会在读者第一次留言或回应时自动建帖。严格匹配依赖正文中的 SHA-1 标识，让 giscus 自动创建即可，无需手工预建帖子或发布测试留言。构建会核对每篇文章实际生成的仓库、分类、固定标识、严格匹配和中文界面设置，防止不同页面误用同一讨论。
 
 本地测试评论可以临时在运行环境设置 `GISCUS_REPO_ID`、`GISCUS_CATEGORY_ID`（以及可选 `GISCUS_CATEGORY`）再构建。ID 不是密码，但不要把 GitHub 登录令牌写入网页、源文件或日志。
 

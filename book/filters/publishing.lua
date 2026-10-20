@@ -49,6 +49,7 @@ return {
     local categoryid = os.getenv("GISCUS_CATEGORY_ID") or ""
     local discussion = value(meta["discussion-id"])
     if repoid ~= "" and categoryid ~= "" and discussion ~= "" then
+      parts[#parts + 1] = '<p>使用 GitHub 账号登录后即可留言；评论保存在本仓库的 Discussions。</p>'
       local reponame = repo:gsub("^https://github.com/", "")
       local category = os.getenv("GISCUS_CATEGORY") or ""
       if category == "" then category = "文章评论" end

@@ -42,6 +42,26 @@ def chapters(node):
         yield from chapters(node.get("chapters", []))
 
 
+def giscus_settings(config):
+    values = {name: os.environ.get(name, "") for name in
+              ("GISCUS_REPO_ID", "GISCUS_CATEGORY_ID", "GISCUS_CATEGORY")}
+    if not any(values.values()):
+        return None
+    if any(value != value.strip() for value in values.values()):
+        raise ValueError("Giscus 配置值不能含首尾空白")
+    if not values["GISCUS_REPO_ID"] or not values["GISCUS_CATEGORY_ID"]:
+        raise ValueError("启用 Giscus 必须同时设置 GISCUS_REPO_ID 和 GISCUS_CATEGORY_ID")
+    return {
+        "data-repo": config["guide-repo"].removeprefix("https://github.com/"),
+        "data-repo-id": values["GISCUS_REPO_ID"],
+        "data-category": values["GISCUS_CATEGORY"] or "文章评论",
+        "data-category-id": values["GISCUS_CATEGORY_ID"],
+        "data-mapping": "specific",
+        "data-strict": "1",
+        "data-lang": "zh-CN",
+    }
+
+
 def run(command, **kwargs):
     return subprocess.run([str(x) for x in command], check=True, cwd=ROOT, **kwargs)
 
@@ -96,6 +116,7 @@ def validate_ast(node, path, known_authors, attributed=False):
 
 def validate_sources(quarto):
     config = yaml.safe_load((BOOK / "_quarto.yml").read_text(encoding="utf-8"))
+    giscus_settings(config)  # Reject incomplete service configuration before rendering.
     known = yaml.safe_load((BOOK / "_authors.yml").read_text(encoding="utf-8"))["guide-authors"]
     listed = list(chapters(config["book"]["chapters"]))
     actual = [str(p.relative_to(BOOK)) for p in pages()]
@@ -187,7 +208,7 @@ class Links(HTMLParser):
         self.urls = []
         self.ids = set()
         self.duplicate_ids = set()
-        self.giscus_terms = []
+        self.giscus_scripts = []
     def handle_starttag(self, tag, attrs):
         fields = dict(attrs)
         if fields.get("id"):
@@ -199,10 +220,16 @@ class Links(HTMLParser):
                 if fields.get(key):
                     self.urls.append(fields[key])
         if tag == "script" and fields.get("src") == "https://giscus.app/client.js":
-            self.giscus_terms.append(fields.get("data-term"))
+            self.giscus_scripts.append(fields)
 
 
 def validate_output(html_only):
+    config = yaml.safe_load((BOOK / "_quarto.yml").read_text(encoding="utf-8"))
+    giscus = giscus_settings(config)
+    discussions = {
+        (OUTPUT / source.relative_to(BOOK).with_suffix(".html")).resolve(): frontmatter(source)[0]["discussion-id"]
+        for source in pages()
+    } if giscus else {}
     documents = {}
     for path in OUTPUT.rglob("*.html"):
         parser = Links()
@@ -231,8 +258,17 @@ def validate_output(html_only):
                 errors.add(f"{path.relative_to(OUTPUT)} → {url}")
             elif parts.fragment and target in documents and unquote(parts.fragment) not in documents[target].ids:
                 errors.add(f"{path.relative_to(OUTPUT)} → 锚点不存在 {url}")
-        if os.getenv("GISCUS_REPO_ID") and os.getenv("GISCUS_CATEGORY_ID") and len(parser.giscus_terms) != 1:
-            errors.add(f"{path.relative_to(OUTPUT)} 缺少独立 giscus 讨论区")
+        if giscus:
+            label = path.relative_to(OUTPUT)
+            if len(parser.giscus_scripts) != 1:
+                errors.add(f"{label} 必须包含一个独立 Giscus 讨论区")
+            elif path not in discussions:
+                errors.add(f"{label} 的 Giscus 讨论区没有对应的源文章")
+            else:
+                expected = {**giscus, "data-term": discussions[path]}
+                for field, value in expected.items():
+                    if parser.giscus_scripts[0].get(field) != value:
+                        errors.add(f"{label} 的 Giscus {field} 与配置或文章 discussion-id 不一致")
     if errors:
         raise ValueError("产物链接检查失败：\n" + "\n".join(sorted(errors)))
     if not html_only and not (OUTPUT / "xp-pgrs-unofficial-guide.pdf").exists():

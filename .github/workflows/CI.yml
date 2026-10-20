@@ -39,6 +39,8 @@ jobs:
           sudo apt-get install -y --no-install-recommends texlive-xetex texlive-lang-chinese texlive-latex-extra texlive-fonts-recommended texlive-plain-generic lmodern
       - name: Test paragraph attribution
         run: python3 -m unittest discover -s tests/attribution
+      - name: Test article discussion mapping
+        run: python3 -m unittest discover -s tests/publishing
       - name: Validate and build HTML, PDF, and Markdown
         run: python3 scripts/build.py
       - name: Save build for review
