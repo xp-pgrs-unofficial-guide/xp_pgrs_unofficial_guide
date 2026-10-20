@@ -1,0 +1,38 @@
+name: 投稿 / 补充内容
+description: 用表单提供经验和资料，由编辑审核后整理为正文，无需安装 Git。
+title: "[投稿] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢分享经验！提交后会公开显示在 GitHub，请只填写适合公开的信息。
+        表单是待审稿件；编辑会核实署名、资料来源，再通过 Pull Request 纳入正文。
+  - type: input
+    id: article
+    attributes:
+      label: 目标文章链接或建议位置
+      description: 补充已有文章时粘贴链接；新文章可填写主题或建议章节。
+      placeholder: "例如：研究与学术 / APR，或粘贴文章链接"
+    validations:
+      required: true
+  - type: textarea
+    id: content
+    attributes:
+      label: 投稿内容
+      description: 可以直接粘贴普通文字，并说明适用情况、时间和需要保留的图片。
+    validations:
+      required: true
+  - type: input
+    id: attribution
+    attributes:
+      label: 公开署名 / 昵称
+      description: 填写希望显示在相应段落旁的姓名或昵称；需要匿名请填“匿名”。
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: 来源与核实时间
+      description: 提供官方链接、参考资料或亲身经历的时间；无外部来源可写“个人经验”。
+    validations:
+      required: true

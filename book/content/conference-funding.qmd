@@ -1,0 +1,34 @@
+---
+title: "会议经费"
+discussion-id: xp-guide-conference-funding
+legacy-source:
+  - author-folder/Kai.Wu/fund.tex
+---
+
+::: {#xp-guide-conference-funding}
+:::
+
+::: {#sec.fund}
+:::
+
+::: {.contribution authors="kai-wu"}
+
+每位同学，无论是自费生还是奖学金学生，都有16500元的会议经费。参加会议的时候，可以用来报销注册费、住宿交通等费用。这笔钱毕业前不用完拿去~~在会议周边吃喝玩乐出去浪~~丰富自己的学术经历就亏啦。钱虽多，申请和报销流程比较繁琐。主要资料在：
+
+- e-bridge: <https://ebridge.xjtlu.edu.cn/>，登陆过后点击PGR Policies, Procedures and Forms，找到 *Postgraduate Research Students’ Conference Fund Policy* 和 *Guideline and Procedures on Doctoral Student Travel Arrangement and Reimbursement*
+
+- 官方流程图
+
+  ![fund-flowchart](../assets/imported/Kai.Wu/fund-flowchart.jpg)
+
+要注意
+
+1.  必须要至少提前30天申请。因此不能用于“你突然听说有个30天内要开的会议”
+
+2.  必须要在会议上作报告，poster或者oral都可以，否则不能使用经费
+
+3.  不能使用学校经费的时候，可能可以使用你导师的某些经费。我就因为上述原因，用导师的经费报销过几场会议。具体怎么做&你导师到底有没有这种经费，问你自己的导师
+
+(2022年10月12日 by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+
+:::

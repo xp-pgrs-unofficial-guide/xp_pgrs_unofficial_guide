@@ -1,33 +1,92 @@
-name: release_on_tag
+name: Release PDF
 
 on:
   push:
-    tags:
-      - "v*"
+    tags: ["v*"]
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing v* tag to release; may be omitted when running from a tag"
+        required: false
+        type: string
+
+permissions:
+  contents: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  release:
+    runs-on: ubuntu-24.04
+    concurrency:
+      group: release-${{ inputs.tag || github.ref_name }}
+      cancel-in-progress: false
+    env:
+      GISCUS_REPO_ID: ${{ vars.GISCUS_REPO_ID }}
+      GISCUS_CATEGORY_ID: ${{ vars.GISCUS_CATEGORY_ID }}
+      GISCUS_CATEGORY: ${{ vars.GISCUS_CATEGORY }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: compile
-        uses: xu-cheng/latex-action@v2
+      - name: Check out source and tags
+        uses: actions/checkout@v4
         with:
-          root_file: "xp_pgrs_unofficial_guide.tex"
-          latexmk_use_xelatex: true
-      - name: Get tag
-        id: tag
-        uses: dawidd6/action-get-tag@v1
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Resolve existing release tag
+        id: release
+        env:
+          REQUESTED_TAG: ${{ inputs.tag }}
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -n "$REQUESTED_TAG" ]]; then
+            release_tag="$REQUESTED_TAG"
+          elif [[ "$REF_TYPE" == tag ]]; then
+            release_tag="$REF_NAME"
+          else
+            echo "Provide an existing v* tag for a manual release." >&2
+            exit 1
+          fi
+          if [[ "$release_tag" != v?* ]]; then
+            echo "Release tags must begin with v and include a version." >&2
+            exit 1
+          fi
+          git check-ref-format "refs/tags/$release_tag"
+          git show-ref --verify "refs/tags/$release_tag"
+          git checkout --detach "refs/tags/$release_tag"
+          printf 'tag=%s\n' "$release_tag" >> "$GITHUB_OUTPUT"
+          printf 'asset=xp_pgrs_unofficial_guide_%s.pdf\n' "${release_tag#v}" >> "$GITHUB_OUTPUT"
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          # Optionally strip `v` prefix
-          strip_v: true
-      - name: Rename output file
-        run: mv "xp_pgrs_unofficial_guide.pdf" "xp_pgrs_unofficial_guide_${{steps.tag.outputs.tag}}.pdf"
-      - name: Release
-        uses: "marvinpinto/action-automatic-releases@latest"
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-build.txt
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
-          files: xp_pgrs_unofficial_guide_${{steps.tag.outputs.tag}}.pdf
+          version: "1.10.19"
+      - name: Install build dependencies
+        run: |
+          python -m pip install -r requirements-build.txt
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-xetex texlive-lang-chinese texlive-latex-extra texlive-fonts-recommended
+      - name: Test paragraph attribution
+        run: python3 -m unittest discover -s tests/attribution
+      - name: Validate and build guide
+        run: python3 scripts/build.py
+      - name: Prepare versioned PDF
+        env:
+          ASSET_PATH: ${{ steps.release.outputs.asset }}
+        run: cp book/_book/xp-pgrs-unofficial-guide.pdf "$ASSET_PATH"
+      - name: Publish PDF release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+          ASSET_PATH: ${{ steps.release.outputs.asset }}
+        run: |
+          if gh release view "$RELEASE_TAG" > /dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" "$ASSET_PATH" --clobber
+          else
+            gh release create "$RELEASE_TAG" "$ASSET_PATH" --verify-tag --title "$RELEASE_TAG" --generate-notes
+          fi

@@ -308,3 +308,13 @@ TSWLatexianTemp*
 
 *.bbl-SAVE-ERROR
 *.bcf-SAVE-ERROR
+
+# Generated Quarto and Python output
+book/_book/
+book/.quarto/
+book/.quarto-*/
+book/*.tex
+book/*.pdf
+__pycache__/
+output/
+tmp/

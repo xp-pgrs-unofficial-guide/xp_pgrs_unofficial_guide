@@ -1,0 +1,30 @@
+---
+title: "利物浦账号自带福利"
+discussion-id: xp-guide-liverpool-account
+legacy-source:
+  - author-folder/Kai.Wu/liverpool-account-fuli.tex
+---
+
+::: {#xp-guide-liverpool-account}
+:::
+
+::: {#sec.fuli_liverpool}
+:::
+
+::: {.contribution authors="kai-wu"}
+
+- Liverpool 免费高级Zoom账户：<https://liverpool.service-now.com/sp?id=kb_article&sysparm_article=KB0011854>
+
+- Liverpool 免费 Office365：<https://liverpool.service-now.com/sp?id=kb_article&sysparm_article=KB0010032>
+
+- Liverpool 免费 1T Onedrive 云盘 网页使用： <https://liverpool.service-now.com/sp?id=kb_article&sysparm_article=KB0011362>
+
+- Liverpool 免费 1T Onedrive 云盘 本地备份同步： <https://support.microsoft.com/zh-cn/office/%E4%BD%BF%E7%94%A8-onedrive-%E8%BF%9B%E8%A1%8C%E5%90%8C%E6%AD%A5-bb89981b-e382-4969-b8fd-d413a90b6db3>
+
+- 其他Liverpool免费软件：<https://www.liverpool.ac.uk/it/software/software-downloads/>
+
+- Liverpool软件序列号：<https://www.liverpool.ac.uk/it/software/licencecodes/>
+
+(2022年10月2日 by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+
+:::

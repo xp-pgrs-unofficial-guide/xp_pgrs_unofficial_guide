@@ -1,19 +1,39 @@
-
 # 西浦博士生非官方攻略
 
-🌐[English version](README.en.md)
+🌐 [English version](README.en.md)
 
-本攻略建立的目的是弥补官方 induction 的诸多不足，并基于“前人栽树，后人乘凉”的思想，为后来的博士生提供经验。
+本攻略分享西浦博士生的学习、研究和生活经验，补充官方 induction 的实用信息。项目最初由西浦 PGR Society 发起，现由志愿编辑维护。
 
-项目最初由西浦 PRG Society 社团发起，现在由编辑志愿管理，欢迎围观，欢迎下载（[下载链接](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest)）。
+- [在线版](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/)：可搜索、按文章阅读、讨论和提出修改；首次上线需维护者启用 GitHub Pages。
+- [PDF 下载](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest)：保留离线阅读和版本归档。
+- [投稿 / 纠错](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/issues/new/choose)：使用 GitHub 账号填写表单，无需安装 Git 或 LaTeX。
 
-如果本项目帮到了你，可以在右上角帮本项目点个赞（点 star）。
+本仓库维护中文内容；另有独立的[英文版项目](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide_EN)。
 
-本项目为中文文档，我们同时开设了[英文版项目](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide_EN)
+## 内容与贡献
 
-## 贡献方法
-如果你在读博期间有所经验，比如解决了遇到的坑、发现了可能帮到其他同学的资源等，欢迎写攻略帮助学弟学妹。方法有：
-- 直接把原稿（txt, tex, word 都可以）用邮件发给项目管理员（shiyao.zhang14@student），或在 discussion 或者 issue 页面直接粘贴原稿或上传文件，由项目管理员整理
-- 交 PR。在 author-folder 下建立自己的文件夹，在里面新建 tex 文件写作，第一行直接以 section 命令开始然后在 chapters 目录里找到你的攻略属于的章节，用 input 命令插入
+`book/content/` 中的 `.qmd`（Quarto Markdown）是持续更新的唯一正文来源。同一份内容生成网站、整本 PDF 和供 LLM 阅读的纯 Markdown。段落块显式记录作者和补充者，代为整理、修正排版不会自动改变原作者。
 
-更详细的写作指南，请参见 PDF（[下载链接](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest)）的「写作指南」章节。
+可以通过投稿表单提交普通文字，由编辑审核后纳入；也可以点击网站的编辑链接，在 GitHub 网页中修改 Markdown 并提交 Pull Request。评论和投稿均需 GitHub 登录，正文修改经过人工审核。详细步骤和段落署名示例见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+根目录的 LaTeX 入口、`chapters/` 和 `author-folder/` 保留为历史快照，便于核对原文，不再接收新正文。旧 LaTeX 转稿与云部署工作流已归档到 `docs/legacy-workflows/`，不会再自动生成第二份正文。
+
+## 本地预览与构建
+
+使用 Python 3.12、[Quarto 1.10.19](https://github.com/quarto-dev/quarto-cli/releases/tag/v1.10.19)，先安装 Python 依赖：
+
+```sh
+python3 -m pip install -r requirements-build.txt
+python3 scripts/build.py --html-only
+quarto preview book
+```
+
+完整构建还需 XeLaTeX、ctex 和 Fandol 中文字体（TeX 发行版自带）：
+
+```sh
+python3 scripts/build.py
+```
+
+构建会先验证内容，输出到 `book/_book/`。整本 PDF 为 `xp-pgrs-unofficial-guide.pdf`；纯 Markdown 位于 `markdown/content/`，索引为 `llms.txt`。只检查源文件可运行 `python3 scripts/build.py --check-only`。LLM 可直接阅读源文件或网站的 Markdown 导出，无需本项目专用 skill。
+
+GitHub Actions 会验证分支和 PR；仅 `main` 的推送或从 `main` 手动运行会部署 Pages。`v*` 标签继续生成 GitHub Release PDF。首次配置 Pages、评论及发布的方法见[维护者设置](docs/maintainer-setup.md)。

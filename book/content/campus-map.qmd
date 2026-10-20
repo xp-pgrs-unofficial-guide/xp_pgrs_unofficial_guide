@@ -1,0 +1,17 @@
+---
+title: "校园地图"
+discussion-id: xp-guide-campus-map
+legacy-source:
+  - chapters/appendix.tex
+---
+
+::: {#xp-guide-campus-map}
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+![XJTLU-campus-map](../assets/imported/Kai.Wu/XJTLU-campus-map.png)
+
+[下载原始 PDF](../assets/imported/Kai.Wu/XJTLU-campus-map.pdf)
+
+:::
