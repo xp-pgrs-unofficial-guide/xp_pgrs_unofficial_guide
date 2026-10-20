@@ -24,7 +24,7 @@ GISCUS_ATTRIBUTES = {
     "data-mapping": "specific",
     "data-strict": "1",
     "data-lang": "zh-CN",
-    "data-theme": "light",
+    "data-theme": "preferred_color_scheme",
 }
 
 
@@ -70,6 +70,19 @@ class GiscusOutputTests(unittest.TestCase):
 
     def test_each_article_accepts_its_own_discussion(self):
         self.validate()
+
+    def test_english_translation_shares_the_discussion_but_uses_english_controls(self):
+        english = self.book / "en/index.qmd"
+        english.parent.mkdir()
+        english.write_text("---\ntitle: Welcome\nlang: en\ndiscussion-id: xp-guide-home\n---\nTranslation.\n")
+        (self.output / "en").mkdir()
+        self.sources.append(english)
+        (self.output / "en/search.json").write_text(json.dumps([{"text": "English home"}]))
+        self.write_article("en/index.html", "xp-guide-home", **{"data-lang": "en"})
+        self.validate()
+        self.write_article("en/index.html", "xp-guide-home", **{"data-lang": "zh-CN"})
+        with self.assertRaisesRegex(ValueError, "en/index.html 的 Giscus data-lang"):
+            self.validate()
 
     def test_reusing_another_articles_term_fails(self):
         self.write_article("content/apr.html", "xp-guide-home")

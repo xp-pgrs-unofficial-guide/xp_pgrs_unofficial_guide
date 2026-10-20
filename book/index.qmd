@@ -12,7 +12,7 @@ discussion-id: xp-guide-home
 
 这份攻略由同学们共同撰写和维护。经验有适用时间与条件，请结合原文日期及学校最新通知使用；遇到变化，欢迎在文章下讨论或提交纠错。
 
-## 从哪里开始
+## 从哪里开始 {#从哪里开始}
 
 - **刚入学**：[常用网站、应用与资源](content/getting-started/start-here.qmd#xp-guide-start-here)。
 - **准备评审与毕业**：[年度进展评审 APR](content/milestones/apr.qmd#xp-guide-apr)、[论文、答辩与毕业](content/research-work/thesis-and-graduation.qmd#xp-guide-thesis-and-graduation)。
@@ -21,11 +21,13 @@ discussion-id: xp-guide-home
 
 左侧目录保留整本指南的主题结构，也可以使用搜索查找内容。需要离线阅读时，可从目录上方下载整本 PDF。
 
-## 一起完善它
+## 一起完善它 {#一起完善它}
 
-每段内容旁的署名入口可以悬停或点击，查看原作者、补充者和归属确认情况。历史材料的署名正在整理；“归属待确认”表示目前没有足够证据把这一段准确归给某个人。
+网页中，连续同署名内容只在开头显示一次署名入口；悬停或点击可查看原作者、补充者和归属确认情况。历史材料的署名正在整理；“归属待确认”表示目前没有足够证据把这一段准确归给某个人。
 
 每篇文章下方可以讨论，也可以通过“补充内容／纠错”提交文字与附件。熟悉 Markdown 的读者可以直接编辑本页并提交 PR，所有正文修改经编辑审核后发布。[查看供稿方法](content/appendix/contributing.qmd#xp-guide-contributing)。
+
+作者主页与参与文章见[作者与贡献者清单](authors/index.qmd#xp-guide-authors)。
 
 供程序或 agent 阅读的版本见 [Markdown 索引](llms.txt)，它与网页和 PDF 从同一份正文生成。
 

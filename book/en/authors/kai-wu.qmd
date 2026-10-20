@@ -1,0 +1,21 @@
+---
+title: Kai Wu
+discussion-id: xp-guide-author-kai-wu
+guide-author-id: kai-wu
+lang: en
+translation-source: authors/kai-wu.qmd
+translation-status: draft
+translation-source-sha256: 56cfd280a013db01cb90931f67f096b339eef8bf6bc8aa2dffb3652eb9115c8b
+---
+
+::: {#xp-guide-author-kai-wu}
+:::
+
+:::: {.contribution authors="editorial"}
+
+This page lists the contributions recorded under this author ID. For an attribution correction or a public profile introduction, use the contribution link below.
+
+::: {.guide-author-profile data-guide-author-id="kai-wu"}
+:::
+
+::::

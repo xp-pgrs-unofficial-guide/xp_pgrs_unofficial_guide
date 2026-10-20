@@ -31,15 +31,47 @@ class AttributionFilterTests(unittest.TestCase):
     def setUp(self):
         self.source = (ROOT / "tests/attribution/sample.md").read_text()
 
-    def test_html_attributes_paragraphs_lists_quotes_tables_and_figures(self):
+    def test_html_shows_one_credit_per_run_without_rewriting_content(self):
         result = convert(self.source, "html5")
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertEqual(result.stdout.count('class="paragraph-attribution"'), 7)
+        self.assertEqual(result.stdout.count('class="paragraph-attribution"'), 2)
         self.assertIn("<summary", result.stdout)
         self.assertIn("<table", result.stdout)
         self.assertIn('id="fig-example"', result.stdout)
         self.assertIn("具体段落归属待确认", result.stdout)
         self.assertIn("归属待确认", result.stdout)
+
+    def test_identical_adjacent_authorship_continues_across_headings(self):
+        source = '::: {.contribution authors="kai-wu"}\nFirst.\n:::\n\n## A heading\n\n::: {.contribution authors="kai-wu"}\nSecond.\n:::\n'
+        result = convert(source, "html5")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout.count('class="paragraph-attribution"'), 1)
+        self.assertEqual(result.stdout.count('data-author-ids="kai-wu"'), 2)
+        self.assertIn("Second.", result.stdout)
+        self.assertIn('authors/kai-wu.html', result.stdout)
+
+    def test_additions_confirmation_and_returning_author_start_new_runs(self):
+        source = "\n\n".join(
+            '::: {.contribution ' + attrs + '}\nText.\n:::'
+            for attrs in ['authors="kai-wu"', 'authors="kai-wu" contributors="yue-zhou"',
+                          'authors="kai-wu" contributors="yue-zhou" status="unverified"',
+                          'authors="unknown"', 'authors="kai-wu"'])
+        result = convert(source, "html5")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout.count('class="paragraph-attribution"'), 5)
+
+    def test_order_of_the_same_author_set_does_not_repeat_a_run(self):
+        source = '::: {.contribution authors="kai-wu,yue-zhou"}\nFirst.\n:::\n\n::: {.contribution authors="yue-zhou,kai-wu"}\nSecond.\n:::\n'
+        result = convert(source, "html5")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout.count('class="paragraph-attribution"'), 1)
+
+    def test_english_labels_and_names_are_localized(self):
+        result = convert('---\nlang: en\n---\n\n::: {.contribution authors="kai-wu"}\nText.\n:::\n', "html5")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("Original author", result.stdout)
+        self.assertIn("By Kai Wu", result.stdout)
+        self.assertNotIn("原作者", result.stdout)
 
     def test_markdown_export_preserves_names_without_web_controls(self):
         result = convert(self.source, "gfm")

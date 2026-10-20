@@ -10,7 +10,7 @@ legacy-source:
 
 ::: {.contribution authors="kai-wu,yue-zhou" status="unverified"}
 
-## 如何参加
+## 如何参加 {#如何参加}
 
 全奖博士如果没有做满规定的TA时长，这时候学院就会给你安排监考。监考一学期只有两次，期中考和期末考。由于近两年疫情，很久没有线下考试啦。
 
@@ -18,7 +18,7 @@ legacy-source:
 
 监考的工资单价，2022年是60元一个小时，准备工作比较少，监考途中基本也就是走一走，相对轻松，对于非全奖是不错的挣钱方法。
 
-## 具体怎么做
+## 具体怎么做 {#具体怎么做}
 
 首先学校有监考的培训，在*Teaching Assistant (TA) Training Programme*为题的邮件里的Assessment and invigilation那一项就是，或者是在你的LMO里翻一下。如果一次都没去过，可以考虑去听一下大致的流程。
 

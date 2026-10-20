@@ -1,0 +1,79 @@
+---
+title: 'Remote control: accessing an on-campus computer from off campus'
+discussion-id: xp-guide-remote-access
+legacy-source:
+- author-folder/Kai.Wu/remote-control.tex
+lang: en
+translation-source: content/life-tools/remote-access.qmd
+translation-status: draft
+translation-source-sha256: f2e4d698b5f1915dc5ccfe7b1ef0fb6bf68ef2de717ad769936317d2763a68f2
+---
+
+::: {#xp-guide-remote-access}
+:::
+
+::: {.contribution authors="kai-wu"}
+
+When you are off campus, you often miss your on-campus computer. Whether it is the small desktop the university provides each person or another computer bought with your supervisor's funding, it can be controlled remotely.
+
+## Preparing a university-provided computer {#学校配的电脑准备工作}
+
+(If you are not trying to access a university-provided computer, skip to the next section.)
+
+University-provided computers are unusual in that we cannot install software by default. There are two approaches:
+
+1. Email or phone IT and directly ask for administrator privileges. Explain that you are a PhD student and need to install software on the university computer. You can then install remote-control software.
+
+2. With the first approach, the university still manages the computer and some restrictions remain, although it is sufficient for ordinary use. Students who ~~are obsessive, like me, and~~ want complete control can wipe the drive and reinstall the operating system, or create another partition and install a second system while retaining the original. Bilibili and Zhihu have many tutorials on reinstalling Windows and setting up a dual-boot system.
+
+## Recommended remote desktop software {#桌面控制软件推荐}
+
+The software below is available on Windows, Linux, and Mac.
+
+- VNC: install VNC Server on the controlled computer at university, <https://www.realvnc.com/en/connect/download/vnc/>, and VNC Viewer on the computer you have with you, <https://www.realvnc.com/en/connect/download/viewer/>. Register an account and log in; no connection code needs to be remembered. I recommend it because VNC is a time-tested remote desktop solution and generally works as long as the network remains up.
+
+- ToDesk: <https://www.todesk.com/>. Install the same software on both computers. I recommend this newer application because it is generally a little smoother than VNC.
+
+- Other options to try include AnyDesk, TeamViewer, and Sunlogin. I do not particularly recommend TeamViewer: although well established, it may detect XJTLU's network environment and require you to buy a commercial licence. The other programs do not have this problem.
+
+## Remote SSH {#远程ssh}
+
+(If you do not use Linux, skip to the next section on pitfalls.)
+
+If the controlled computer runs Linux and you mainly work at the command line, finding a way to connect directly over SSH, rather than using the remote desktop, will be much faster.
+
+An on-campus computer has an internal IP address beginning with 10. How do you SSH to it from outside? The trick is called NAT traversal or tunnelling (内网穿透).
+
+I first recommend this video:
+
+[Public internet access? NAT traversal! A zero-experience introduction](https://www.bilibili.com/video/BV1Qq4y1w7F5) <https://www.bilibili.com/video/BV1Qq4y1w7F5>
+
+The video includes two approaches that can work for on-campus computers:
+
+- At 04:52, connecting over IPv6. Be aware that in my tests, the university's IPv6 was unstable: after a few days, a machine could retain an IPv6 address but fail to access IPv6 websites, let alone be accessed remotely. Even if you can set up DDNS, I personally do not recommend it.
+
+- The more reliable option is the NAT traversal approach at 08:09. Free, easy-to-use options include ZeroTier, hosted overseas and a little slow; Oray/花生壳, a long-established Chinese service that requires an ID card to register; and NOFRP, a newer option whose reliability may be uncertain. Or search Bilibili for "免费内网穿透" to find many new options. Bilibili and Zhihu have plenty of tutorials if you do not know how to use these services.
+
+- Advanced high-volume option, with a steeper learning curve: free plans usually have fairly strict transfer and bandwidth limits, though they are more than sufficient for SSH commands alone. If you want the luxury of copying files with SCP or forwarding VNC over SSH, consider using your supervisor's funding to rent a cloud server and set up FRP manually. Setup is troublesome, but it is very satisfying afterwards: forwarded VNC is faster than the remote desktop options above. You could even use an old computer on your home or dorm broadband as a jump host, obtain a public IP, and combine it with DDNS for unlimited traffic. These approaches take more learning; interested readers can work through online tutorials at their own pace.
+
+## Pitfalls I have encountered {#踩过的坑}
+
+Here is what I learned from a great many mishaps:
+
+1. Redundancy improves reliability. Do not use just one remote-control method: if it fails, another can still work. Install at least two, and more if you will be away for a long time. My own four-layer backup setup is a second-hand thin client on home broadband running FRP with DDNS, plus Oray as a backup plan, VNC as another backup plan, and ToDesk. This gives me reliable access to the on-campus Linux computer.
+
+2. After installation, restart the computer once and check that the remote-control software starts automatically.
+
+3. If the controlled computer runs Windows, make sure you block system updates. Ordinary restarts are fine, but after a major Windows update the computer can stop at a screen asking you to accept a new user agreement. Until someone clicks it in person, no software will start, and remote control is lost. Search Baidu for "禁止windows更新". I personally suggest combining Group Policy settings with changes to the hosts file.
+
+4. If you run programs, take particular care not to exhaust system memory. Once memory is full, the system freezes immediately, all remote-control programs die, and the computer does not restart by itself. Someone must physically force a restart. Find a way to monitor and limit memory usage in your programs.
+
+5. If possible, buy remote KVM hardware such as Sunlogin's 控控, which lets you force a restart remotely even when the computer freezes.
+
+6. Even the best setup cannot prevent outages caused by university network maintenance or construction-related power cuts. You can, however, prepare for them. For network outages, tick macauth when logging in to the network so access resumes once maintenance finishes. Automatic startup after power is restored needs motherboard support. Search the motherboard manual for "boot on power", "boot with power", or simply "power" to see whether it is available. Alternatively, buy a Sunlogin 控控. Power and network outages are rare, though, so unless you will be away for several months, there is generally no need to worry ~~but what if?~~
+
+7. Maintain a good relationship with at least one student on campus. Beginners will encounter all kinds of unexpected failures and need office mates to check the machine in person. Behind a hundred remote-control methods, you still need a good friend to provide physical control. What if someone accidentally kicks out the network cable one day? You will still need to ~~strike a shady bargain and~~ ask someone to reconnect it.
+
+(9 November 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+
+:::

@@ -1,0 +1,33 @@
+---
+title: University contacts
+discussion-id: xp-guide-contacts
+legacy-source:
+- chapters/appendix.tex
+lang: en
+translation-source: content/appendix/contacts.qmd
+translation-status: draft
+translation-source-sha256: 36833a8b37995142bc73180b61a1f532235d2b3683f6a678ef7f398a587e805b
+---
+
+::: {#xp-guide-contacts}
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+| Department | Phone | Email |
+|:---|:--:|:--:|
+| Academic Services Office | 8188 4754 | aso@xjtlu.edu.cn |
+| Alumni Service | 8816 1869 | alumni@xjtlu.edu.cn |
+| Campus Management Office | 8816 1071 | cmo@xjtlu.edu.cn |
+| Career Service | 8188 8308 | careers@xjtlu.edu.cn |
+| IT Service Centre | 8816 1250 | it@xjtlu.edu.cn |
+| Library | 8816 1290 | askalibrarian@xjtlu.edu.cn |
+| Media Service | 8816 1351/1032 | news@xjtlu.edu.cn |
+| Postgraduate Recruitment | 8816 1889/7111 | pgenquiries@xjtlu.edu.cn |
+| President's Office | 8816 1004 | president.office@xjtlu.edu.cn |
+| Registry | 8816 1230 | registry@xjtlu.edu.cn |
+| Research Management Office | 8816 1139 |  |
+| Student Onestop Centre | 8816 1854 | onestop@xjtlu.edu.cn |
+| XJTLU Global (Support) | 8897 3094/3093 | global@xjtlu.edu.cn |
+
+:::

@@ -1,0 +1,54 @@
+---
+title: Take negative emotions and signs of depression seriously
+discussion-id: xp-guide-mental-health
+legacy-source:
+- chapters/others.tex
+lang: en
+translation-source: content/life-tools/mental-health.qmd
+translation-status: draft
+translation-source-sha256: b9a4a1663b26fdee83b52b28f1fc2452ce4d215ccb2b0d611d5aca81b6fa19ef
+---
+
+::: {#xp-guide-mental-health}
+:::
+
+::: {#sec.mental_health}
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+![Mental health presentation, slide 1](../../../assets/imported/Kai.Wu/mental_1.png)
+
+[Download the original PDF](../../../assets/imported/Kai.Wu/mental_1.pdf)
+
+![Mental health presentation, slide 2](../../../assets/imported/Kai.Wu/mental_2.png)
+
+[Download the original PDF](../../../assets/imported/Kai.Wu/mental_2.pdf)
+
+![Mental health presentation, slide 3](../../../assets/imported/Kai.Wu/mental_3.png)
+
+[Download the original PDF](../../../assets/imported/Kai.Wu/mental_3.pdf)
+
+The [Graduate Student Happiness and Well-Being Report \[link\]](http://ga.berkeley.edu/wellbeingreport), published by Berkeley's Graduate Assembly in 2014, reported that 46% of PhD students experienced mental health problems. Research published in Nature and other authoritative journals suggests that:
+
+1. Graduate students are six times as likely as the general population to experience severe anxiety and depression. [\[Article\]](https://www.nature.com/articles/nbt.4089)
+
+2. More intelligent people are more likely to experience mood disorders such as anxiety or depression, but less likely to seek help. [\[Article\]](https://www.nature.com/articles/nj7677-549a)
+
+3. Mood disorders account for 80-90% of suicides. [\[Article\]](https://www.sciencedirect.com/science/article/pii/S0160289616303324)
+
+4. During the COVID-19 pandemic, four in five researchers showed signs of mental health distress. [\[Article\]](https://www.tandfonline.com/doi/full/10.1080/21568235.2021.1992293)
+
+![Conversation with a graduate, part 1](../../../assets/imported/Kai.Wu/chat1of3.jpg)
+
+![Conversation with a graduate, part 2](../../../assets/imported/Kai.Wu/chat2of3.jpg)
+
+![Conversation with a graduate, part 3](../../../assets/imported/Kai.Wu/chat3of3.jpg)
+
+*A conversation with someone who has graduated. Depression among PhD students at our university is also much more common than one might imagine.*
+
+We are a high-risk group who receive extensive training in specialist knowledge and skills, yet are rarely taught how to maintain mental health. If you often feel tense, anxious, or disappointed, or even experience symptoms such as insomnia as a result, please face the situation promptly, put your health first, and feel free to seek help from the university counselling service.
+
+Prevention is also always more effective than treatment afterwards. Whether or not you currently feel well, I hope you will follow the links below to read Zoe Ayres's talk at Liverpool, the source of the slides above, and her book *Managing Your Mental Health During Your PhD - A Survival Guide*, and stay healthy throughout postgraduate study. [\[GitHub link\]](https://github.com/kaiwu-astro/xp_pgrs_unofficial_guide/tree/main/fileshare) [\[Alternative if you cannot access GitHub\]](https://gitee.com/kaiwu-astro/xp_pgrs_unofficial_guide/tree/main/fileshare)
+
+:::

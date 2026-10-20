@@ -1,0 +1,38 @@
+---
+title: Welcome
+discussion-id: xp-guide-home
+lang: en
+translation-source: index.qmd
+translation-status: draft
+translation-source-sha256: 206ba739003b86aae44138e8963967ed6424ce97a7e3d76df5898b75a0aa7f78
+---
+
+::: {#xp-guide-home}
+:::
+
+::: {.contribution authors="editorial"}
+
+From enrolment, annual reviews, and graduation to teaching assistant work and everyday resources, this guide gathers experiences that XJTLU PhD students want to pass on to those who follow.
+
+Students write and maintain this guide together. Advice applies to particular times and circumstances: read it alongside the original dates and the University's latest notices. When things change, please discuss them below the article or submit a correction.
+
+## Where to start {#从哪里开始}
+
+- **New students**: [Useful websites, apps, and resources](content/getting-started/start-here.qmd#xp-guide-start-here).
+- **Preparing for reviews or graduation**: [Annual Progress Review (APR)](content/milestones/apr.qmd#xp-guide-apr) and [Thesis, viva, and graduation](content/research-work/thesis-and-graduation.qmd#xp-guide-thesis-and-graduation).
+- **Understanding research and work**: [How academic research happens](content/research-work/how-research-works.qmd#xp-guide-how-research-works) and [Working as a teaching assistant](content/research-work/teaching-assistant.qmd#xp-guide-teaching-assistant).
+- **Planning a visit to Liverpool**: [Visiting Liverpool](content/life-tools/liverpool-visit.qmd#xp-guide-liverpool-visit).
+
+The left-hand contents preserve the guide's topic structure. You can also search for information. For offline reading, download the complete PDF from above the contents.
+
+## Help improve the guide {#一起完善它}
+
+On the website, a continuous passage with the same credits shows one attribution control at its start. Hover over or click it to see the original authors, later contributors, and whether attribution has been confirmed. Attribution for historical material is still being checked. "Attribution unconfirmed" means that there is not yet enough evidence to assign that passage accurately to a particular person.
+
+You can discuss each article below it, or use "Add or correct content" to submit text and attachments. Readers familiar with Markdown can edit a page and submit a pull request. Editors review all changes before publication. [How to contribute](content/appendix/contributing.qmd#xp-guide-contributing).
+
+See [Authors and contributors](authors/index.qmd#xp-guide-authors) for profiles and credited articles.
+
+For software or agents, see the [Markdown index](llms.txt). It is generated from the same source as the website and PDF.
+
+:::

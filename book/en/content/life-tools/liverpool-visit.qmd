@@ -1,0 +1,167 @@
+---
+title: A research visit to Liverpool
+discussion-id: xp-guide-liverpool-visit
+legacy-source:
+- author-folder/Shiyao.Zhang14/UoL_visit.tex
+lang: en
+translation-source: content/life-tools/liverpool-visit.qmd
+translation-status: draft
+translation-source-sha256: cb7eaf55c7cc648f101418ceda3c7e6086e0787da012cde1f7bb599bc2f0b4c1
+---
+
+::: {#xp-guide-liverpool-visit}
+:::
+
+::: {#section.UoL_visit}
+:::
+
+::: {.contribution authors="shiyao-zhang,yue-zhou" status="unverified"}
+
+## Length of the visit {#交流时长}
+
+Usually three to six months. A visit shorter than three months is also possible. In principle, visits should not exceed six months. A longer visit needs sufficient reasons and approval from both supervisors and the Head of Department. However, the Liverpool school administrator told me they had no budget for any period beyond six months, which could be a problem. A visit longer than six months may also raise visa issues, so ask about these in advance.
+
+## The host supervisor {#关于-host-supervisor}
+
+If your supervisory team includes a Liverpool supervisor, that person is the default host. If not, but you are particularly keen to visit Liverpool, contact a potential host there yourself and obtain their permission and signature.
+
+Although most students have a Liverpool supervisor on their team, every project may be different, and you may not have interacted with them much before the visit. There can be various reasons for this, not necessarily that your research fields differ. If you think collaborating with them in Liverpool would be interesting, prepare beforehand.
+
+If you have had little interaction, establish some familiarity first to make the collaboration smoother. This could mean sharing research progress and plans over video calls or email, writing a paper together, or thinking through possible collaborative research in advance.
+
+Collaboration can have different motivations, as discussed under [Collaboration](../research-work/how-research-works.qmd#subsection.teamwork). Whatever the reason, agree at least broadly with your Liverpool supervisor about the visit's activities beforehand, including what needs their involvement, the timetable, what you need to prepare, and what you plan to do.
+
+## Funding {#关于-funding}
+
+XJTLU: the university provides RMB 12,000, covering high-speed rail between Suzhou and Shanghai for the visa application, the visa fee, return flights to the UK, UK train fares to and from Liverpool, and accommodation necessary for the flights. For example, if you land in Manchester and take a train to Liverpool, that journey is reimbursable, as is the train or coach from Liverpool to the airport on your return. Nothing else is reimbursed! The total cannot exceed RMB 12,000, and the university is not responsible for any excess.
+
+Liverpool: free accommodation with bills included, meaning water, electricity, and gas, plus GBP 100 per week for living expenses.
+
+## Visa application process {#签证流程}
+
+- Fill in the relevant information on the official website.
+
+- After completing it, choose the location and date for submitting your application.
+
+- You are redirected to another website to select optional services, such as priority processing or delivery. Be sure to remember your application number, "GWF" followed by digits.
+
+- Prepare the required documents, checking the checklist for the specific requirements. All documents must be in English. Translations need a translation stamp, or you can ask someone you know with a TEM-8 certificate to sign them.\
+  \
+  A passport is essential. Other documents include, but are not limited to:
+
+  - Bank statements or a deposit certificate. I submitted a deposit certificate because I had stated my savings amount in the application, and reportedly a deposit certificate contains less information and can speed up review. Proof of fixed assets can also be submitted here.
+
+  - Marriage certificate, if married.
+
+  - A university student-status letter and financial support letter, because I am a student. Employed applicants can provide proof of employment.
+
+- Submitting the application: arrive at the visa application centre half an hour early. Staff will direct you into the queue. Inside, give the checklist to a staff member, receive a number, and wait to be called. The first call is a preliminary enquiry about delivery, SMS, and priority services. SMS is unnecessary because email notifications arrive promptly too. If you selected no services in step 3 but now want to buy one, staff issue a slip and direct you to pay. If you buy delivery, you receive an EMS waybill to fill in your recipient details; Chinese is fine. Queue again for a small room where you hand over your passport, provide fingerprints, and have a photograph taken.
+
+- On the day of submission, an email confirms that the application has been sent for review.
+
+- You receive an email when the visa is returned, and the courier phones to arrange collection. P.S. I recommend delivery if you live some distance from the visa centre or do not want to queue to collect it.
+
+## Everyday life {#衣食住行}
+
+[Halls Life](https://hallslife.liverpool.ac.uk) is the University of Liverpool student accommodation community hub. It offers advice on everyday living. I strongly recommend browsing it before leaving for the UK, as it can help you decide what to pack.
+
+### What to bring to the UK, especially for autumn and winter visits {#赴英物品供秋冬季去的那批参考}
+
+- Two plug adapters and one extension lead.
+
+- One small cooking pot, two bowls, and two pairs of chopsticks.
+
+- An insulated flask and an electric travel mug or kettle cup.
+
+- A waterproof outdoor jacket, long down coat, cashmere sweater, one scarf, one hat, essential for surviving Liverpool, and waterproof trainers.
+
+- Plastic slippers. They are available there too, but a little expensive.
+
+- Several sets of underwear, two sets of thermal underwear, genuinely necessary, and two sets of pyjamas. Pyjamas are available there, but the quality is rather ordinary.
+
+- Two small towels and one hair-drying towel.
+
+- Folding clothes hangers.
+
+- Toothbrush and toothpaste.
+
+- Laundry soap and a laundry bag.
+
+- Headphones. Wireless earphones are essential; bring over-ear headphones too if you regularly work in the office or library.
+
+- Eye drops.
+
+- Cash. GBP 50 is enough; you hardly need it.
+
+- A sturdy umbrella, essential!
+
+- Sheets, pillowcases, duvet cover, duvet, and pillow. Bedding can also be bought after arrival. I did not have much other luggage and am particular about my pillow, so I brought my own.
+
+There are many SIM options. You can pick up a CMLink SIM while applying for the visa, but beware of scams! Once activated, it attracts all sorts of scam calls; simply ignore them. After arriving in the UK, you can get an EE, Vodafone, O2, or other SIM. Some companies offer benefits such as free coffee vouchers.
+
+### Transport {#交通}
+
+Trip.com, Ctrip's overseas service, can book trains, underground travel, flights, and hotels across the UK. There are also many commonly used dedicated apps: Trainline for trains, Skyscanner for flights, Booking for hotels, and Uber for taxis.
+
+If you expect to travel by train frequently, consider a Railcard, which saves one third on each ticket.
+
+### Accommodation {#住宿}
+
+You should receive an email two weeks before arriving in Liverpool. Liverpool allocates accommodation centrally. Locations differ between groups, so the distance from campus is not certain, but the halls are all reasonably close, around a twenty-minute walk. You cannot choose which students you live with; simply wait patiently for the allocation. If the move-in date is approaching and no email has arrived, which has happened, contact Liverpool's accommodation team at <hallsres@liverpool.ac.uk> to ask.
+
+### Office and ID card {#办公室和id卡}
+
+After arrival, the relevant staff tell you where your office is, and you can go there yourself. The office has monitors and desktop computers.
+
+Take your passport to IT to change your campus code and obtain a student card. The card provides access to offices and the library, printing, and book borrowing.
+
+### Good food in Liverpool {#利物浦好吃的}
+
+- Zhangji (张记).
+
+- Meiweixuan (美味轩).
+
+- Laoshuren (老蜀人).
+
+- Jianbing at Ejoy.
+
+- Taixijia (泰熙家), Korean food.
+
+- Turtle Bay, Caribbean food.
+
+- Cowshed, excellent steak!
+
+- Bamboo, Western-style food and a place with atmosphere, good for photographs and checking in.
+
+- Hardware, good for brunch and afternoon tea!
+
+- Johnny's fish and chips: try a little; ordinary and very greasy.
+
+- Zizzi - Liverpool One, Italian food.
+
+- Haute Dolci Liverpool, a nice setting, tasty food, and good photo opportunities.
+
+- Chaiiwala: definitely try the Indian milk tea.
+
+- Sweet Time Bakery: buy here when you want Chinese-style bread.
+
+- TSUJIRI Matcha House, a delight for matcha fans.
+
+- Gong Cha: whenever I feel down, I reward myself with a brown-sugar pearl milk tea with milk foam!
+
+### Visiting other university libraries {#访问其他学校图书馆}
+
+While travelling and visiting places around the UK, if you happen to pass a university library when you are tired, you can go in and sit down, provided you have applied for [SCONUL Access](https://access.sconul.ac.uk/sconul-access) in advance.
+
+Policies differ, but successful applicants can at least enter most participating libraries. Some also provide computer access or borrowing rights.
+
+> Q. Do I need to complete an online application for each institution I would like to visit?
+>
+> A. No, although you do need to indicate a library you are interested in visiting as part of your application, your approval email allows you to visit any of those libraries on the list. You do not need to reapply. 21 Oct, 2024 from [Access FAQ \| SCONUL](https://access.sconul.ac.uk/page/access-faq#Multiple%20applications)
+
+Liverpool Library processes the application after submission. Once approved, take the email to the reception desk of a participating university library to obtain a visitor card.
+
+21 October 2022, by [Shiyao](mailto:shiyao.zhang14@student.xjtlu.edu.cn)\
+Major update: 6 March 2025, by [Yue Zhou](mailto:jasminezhou828@gmail.com): added funding, visa, and everyday-life information.
+
+:::

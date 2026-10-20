@@ -1,0 +1,17 @@
+---
+title: 吴开（Kai Wu）
+discussion-id: xp-guide-author-kai-wu
+guide-author-id: kai-wu
+---
+
+::: {#xp-guide-author-kai-wu}
+:::
+
+:::: {.contribution authors="editorial"}
+
+本页展示此作者 ID 已登记的内容贡献。如需纠正署名或补充公开简介，可使用页面下方的供稿入口。
+
+::: {.guide-author-profile data-guide-author-id="kai-wu"}
+:::
+
+::::

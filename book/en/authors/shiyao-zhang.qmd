@@ -1,0 +1,21 @@
+---
+title: Shiyao Zhang
+discussion-id: xp-guide-author-shiyao-zhang
+guide-author-id: shiyao-zhang
+lang: en
+translation-source: authors/shiyao-zhang.qmd
+translation-status: draft
+translation-source-sha256: 51de653541f64c1a9fa24cfcea3a018a0e361ac364bed8cada89d7a6bcee988c
+---
+
+::: {#xp-guide-author-shiyao-zhang}
+:::
+
+:::: {.contribution authors="editorial"}
+
+This page lists the contributions recorded under this author ID. For an attribution correction or a public profile introduction, use the contribution link below.
+
+::: {.guide-author-profile data-guide-author-id="shiyao-zhang"}
+:::
+
+::::

@@ -1,0 +1,14 @@
+# English project settings are derived from _quarto.yml during scripts/build.py.
+lang: en
+book:
+  title: Unofficial Guide for XJTLU PhD Students
+  subtitle: Experience shared from enrolment to graduation
+  author: Guide editors and contributors
+parts:
+  开始之前: Before you start
+  毕业必经之路: Required milestones
+  资源与福利: Resources and benefits
+  研究与工作: Research and work
+  生活与工具: Life and tools
+  附录与参与: Appendix and participation
+  作者与贡献者: Authors and contributors

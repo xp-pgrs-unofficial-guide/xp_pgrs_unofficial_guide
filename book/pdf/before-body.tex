@@ -1,0 +1,46 @@
+$if(has-frontmatter)$
+\frontmatter
+$endif$
+$if(title)$
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north west,inner sep=0pt] at (current page.north west)
+    {\includegraphics[width=\paperwidth]{$if(guide-pdf-cover)$$guide-pdf-cover$$else$pdf/cover.jpg$endif$}};
+  \fill[guideCover]
+    ([yshift=-118.1mm]current page.north west)
+    rectangle ([yshift=-130.8mm]current page.north east);
+  \node[anchor=north west,inner sep=0pt,align=left,text width=174mm]
+    at ([xshift=18mm,yshift=-162mm]current page.north west)
+    {\fontsize{30}{39}\selectfont\bfseries $title$\par};
+$if(subtitle)$
+  \node[anchor=north west,inner sep=0pt,align=left,text width=174mm,text=guideGray]
+    at ([xshift=18mm,yshift=-207mm]current page.north west)
+    {\large\bfseries $subtitle$\par};
+$endif$
+  \node[anchor=north west,inner sep=0pt,align=left,text width=174mm,text=guideGray]
+    at ([xshift=18mm,yshift=-233mm]current page.north west)
+    {\normalsize $for(authors)$$it.name.literal$$sep$\quad$endfor$\par};
+  \node[anchor=north west,inner sep=0pt,align=left,text width=174mm,text=guideGray]
+    at ([xshift=18mm,yshift=-247mm]current page.north west)
+    {\small\href{$guide-site$}{$if(guide-english)$Read online$else$在线阅读$endif$}\quad
+      \textbar\quad\href{$guide-repo$}{GitHub}\par};
+$if(guide-english)$
+  \node[anchor=north west,inner sep=0pt,align=left,text width=174mm,text=guideGray]
+    at ([xshift=18mm,yshift=-262mm]current page.north west)
+    {\footnotesize\itshape English translation draft · awaiting human review\par};
+$endif$
+  \node[anchor=south,inner sep=0pt,align=center,text width=174mm,text=guideGray]
+    at ([yshift=15mm]current page.south)
+    {\small{}$if(guide-english)$For those who follow, from those who came before.$else$前人栽树，后人乘凉\quad 吃水不忘挖井人$endif$\par};
+\end{tikzpicture}
+\null\vfill
+\end{titlepage}
+\hypersetup{pageanchor=true}
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+$endif$

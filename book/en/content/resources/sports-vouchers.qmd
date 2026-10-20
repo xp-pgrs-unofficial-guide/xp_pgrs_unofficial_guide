@@ -1,0 +1,25 @@
+---
+title: Sports centre vouchers
+discussion-id: xp-guide-sports-vouchers
+legacy-source:
+- author-folder/Kai.Wu/gym.tex
+lang: en
+translation-source: content/resources/sports-vouchers.qmd
+translation-status: draft
+translation-source-sha256: f2aaae79a31b7c0ea1d8b7ae2e15862654cba6316e6a3f0c156c1a17da97fd56
+---
+
+::: {#xp-guide-sports-vouchers}
+:::
+
+::: {.contribution authors="kai-wu"}
+
+The University's sports centre operates commercially, so it charges for use. However, the WeChat mini program "西浦体育中心" issues RMB 100 in vouchers each month. They can be used to book basketball courts, table tennis tables, gym time, and more; explore the mini program for details. The University gym is very well equipped, and its equipment is new. If you have never visited, go and explore it soon. A voucher is essentially \[a balance with an expiry date\]: unused value is retained. For example, if you use a RMB 100 voucher for a RMB 25 gym booking, you receive a RMB 75 voucher, but vouchers do expire.
+
+After booking, use your XJTLU campus card to enter the sports centre, then scan the QR code for your booked facility at its entrance.
+
+(12 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+
+![Sports centre mini program](../../../assets/imported/Kai.Wu/sportcenter_miniprogram.jpg)
+
+:::

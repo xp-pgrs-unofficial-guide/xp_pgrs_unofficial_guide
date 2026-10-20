@@ -1,0 +1,32 @@
+---
+title: Preface
+discussion-id: xp-guide-preface
+legacy-source:
+- chapters/preface.tex
+lang: en
+translation-source: content/getting-started/preface.qmd
+translation-status: draft
+translation-source-sha256: 24a6ca65efeda8bedf8a66fd640df585b0cd435fc1b905e809179bb037585743
+---
+
+::: {#xp-guide-preface}
+:::
+
+::: {.contribution authors="kai-wu"}
+
+When talking to fellow PhD students, I have found that some were almost graduating without knowing they could collect office supplies. Others did not even know where the University's sports centre was, let alone the gym and sports facilities they could use for free. Every year, someone in the PhD WeChat group only discovers that meeting records are required when their first APR approaches. Even fewer people know about the extensive digital resources available through a Liverpool account. There are important things that you, your supervisor, and your office mates might all be unaware of. You could genuinely reach graduation before finding out.
+
+That is why I started this guide. Every student receives a PhD Student Handbook on enrolment, but unfortunately it is far from enough. First, it leaves out a great deal: Liverpool meeting records and account benefits are barely covered, for example. Second, it is entirely in English; after a few pages without much practical detail, many students probably lose interest in reading it, just as I did. Third, new students receive a mountain of documents. Important as the official handbook is, it can easily disappear into that pile.
+
+Personally, I learned much of what I needed from senior students in my office when I arrived. I therefore wanted to record these experiences for future students while addressing the original handbook's limitations. It is also a small contribution I can make to the XJTLU community. I hope students who benefit from this guide will record their own valuable experiences as they study and pass the help on.
+
+This guide is intended to supplement the PhD Student Handbook and highlight key information, rather than replace it. If you read this guide, please also retrieve the official handbook from the rubbish bin when you have time. You may find something important.
+
+If you would like to thank the authors, you can star this project on GitHub: <https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide>. If this guide has helped you, please also consider spending a few minutes recording your own experience and passing that help on. See [How to contribute](../appendix/contributing.qmd#xp-guide-contributing).
+
+Finally, this guide is entirely a labour of love. It has never received funding and has no official backing. There may be errors and omissions; please bear with us, and corrections are welcome.
+
+Project initiator [Kai Wu](mailto:kaiwu.astro@gmail.com)\
+18 August 2022, MB
+
+:::

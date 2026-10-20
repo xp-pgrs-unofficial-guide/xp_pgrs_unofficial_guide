@@ -2,9 +2,8 @@ project:
   type: book
   output-dir: _book
   resources:
-    - assets/guide.js
-    - assets/imported/**
-
+  - assets/guide.js
+  - assets/imported/**
 book:
   title: 西浦博士生非官方攻略
   subtitle: 从入学到毕业，分享亲历的经验
@@ -14,96 +13,122 @@ book:
   repo-url: https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide
   repo-branch: codex/quarto-guide
   repo-subdir: book
-  repo-actions: [source]
-  downloads: [pdf]
+  repo-actions:
+  - source
+  downloads:
+  - pdf
   search: true
   page-navigation: true
   sidebar:
     style: docked
     collapse-level: 1
   chapters:
-    - index.qmd
-    - content/getting-started/preface.qmd
-    - part: 开始之前
-      chapters:
-        - content/getting-started/start-here.qmd
-    - part: 毕业必经之路
-      chapters:
-        - content/milestones/compulsory-courses.qmd
-        - content/milestones/meeting-records.qmd
-        - content/milestones/apr.qmd
-        - content/milestones/research-symposium.qmd
-    - part: 资源与福利
-      chapters:
-        - content/resources/conference-funding.qmd
-        - content/resources/stationery.qmd
-        - content/resources/printing.qmd
-        - content/resources/sports-vouchers.qmd
-        - content/resources/liverpool-account.qmd
-        - content/resources/other-benefits.qmd
-    - part: 研究与工作
-      chapters:
-        - content/research-work/how-research-works.qmd
-        - content/research-work/teaching-assistant.qmd
-        - content/research-work/invigilation.qmd
-        - content/research-work/thesis-and-graduation.qmd
-        - content/research-work/career.qmd
-    - part: 生活与工具
-      chapters:
-        - content/life-tools/backup.qmd
-        - content/life-tools/remote-access.qmd
-        - content/life-tools/ergonomics.qmd
-        - content/life-tools/liverpool-visit.qmd
-        - content/life-tools/campus-vm.qmd
-        - content/life-tools/library-databases.qmd
-        - content/life-tools/suzhou-library.qmd
-        - content/life-tools/mental-health.qmd
-        - content/life-tools/recommended-software.qmd
-        - content/life-tools/pitfalls.qmd
-    - part: 附录与参与
-      chapters:
-        - content/appendix/campus-map.qmd
-        - content/appendix/contacts.qmd
-        - content/appendix/join-us.qmd
-        - content/appendix/contributing.qmd
-        - content/appendix/acknowledgements.qmd
-        - content/appendix/changelog.qmd
-
+  - index.qmd
+  - content/getting-started/preface.qmd
+  - part: 开始之前
+    chapters:
+    - content/getting-started/start-here.qmd
+  - part: 毕业必经之路
+    chapters:
+    - content/milestones/compulsory-courses.qmd
+    - content/milestones/meeting-records.qmd
+    - content/milestones/apr.qmd
+    - content/milestones/research-symposium.qmd
+  - part: 资源与福利
+    chapters:
+    - content/resources/conference-funding.qmd
+    - content/resources/stationery.qmd
+    - content/resources/printing.qmd
+    - content/resources/sports-vouchers.qmd
+    - content/resources/liverpool-account.qmd
+    - content/resources/other-benefits.qmd
+  - part: 研究与工作
+    chapters:
+    - content/research-work/how-research-works.qmd
+    - content/research-work/teaching-assistant.qmd
+    - content/research-work/invigilation.qmd
+    - content/research-work/thesis-and-graduation.qmd
+    - content/research-work/career.qmd
+  - part: 生活与工具
+    chapters:
+    - content/life-tools/backup.qmd
+    - content/life-tools/remote-access.qmd
+    - content/life-tools/ergonomics.qmd
+    - content/life-tools/liverpool-visit.qmd
+    - content/life-tools/campus-vm.qmd
+    - content/life-tools/library-databases.qmd
+    - content/life-tools/suzhou-library.qmd
+    - content/life-tools/mental-health.qmd
+    - content/life-tools/recommended-software.qmd
+    - content/life-tools/pitfalls.qmd
+  - part: 附录与参与
+    chapters:
+    - content/appendix/campus-map.qmd
+    - content/appendix/contacts.qmd
+    - content/appendix/join-us.qmd
+    - content/appendix/contributing.qmd
+    - content/appendix/acknowledgements.qmd
+    - content/appendix/changelog.qmd
+  - part: 作者与贡献者
+    chapters:
+    - authors/index.qmd
+    - authors/kai-wu.qmd
+    - authors/shiyao-zhang.qmd
+    - authors/yue-zhou.qmd
+    - authors/ziwen-xie.qmd
+    - authors/jialin-wang.qmd
+    - authors/editorial.qmd
+    - authors/unknown.qmd
 lang: zh-CN
-metadata-files: [_authors.yml]
+metadata-files:
+- _authors.yml
 filters:
-  - filters/attribution.lua
-  - filters/publishing.lua
+- filters/author-pages.lua
+- filters/attribution.lua
+- filters/publishing.lua
 guide-repo: https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide
 guide-site: https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/
 comments: false
 toc: true
 number-sections: false
 link-external-newwindow: true
-
 format:
   html:
-    theme: cosmo
+    theme:
+      light: cosmo
+      dark: darkly
     css: assets/guide.css
     toc-title: 本页内容
     anchor-sections: true
     smooth-scroll: true
     code-copy: true
+    respect-user-color-scheme: true
   pdf:
     documentclass: ctexbook
-    classoption: [UTF8, fontset=fandol, oneside, openany]
+    classoption:
+    - UTF8
+    - fontset=fandol
+    - oneside
+    - openany
     pdf-engine: xelatex
     latex-auto-install: false
     papersize: a4
-    fontsize: 11pt
-    geometry: [margin=24mm]
+    fontsize: 12pt
+    geometry:
+    - top=25.4mm
+    - bottom=25.4mm
+    - left=20mm
+    - right=20mm
+    - headheight=28pt
+    - headsep=4mm
+    - footskip=12mm
     colorlinks: true
     link-citations: true
     keep-tex: false
-    include-in-header:
-      text: |
-        \usepackage{xeCJKfntef}
-        \providecommand{\st}[1]{#1}
-        \renewcommand{\st}[1]{\sout{#1}}
-        \providecommand{\ul}[1]{#1}
-        \renewcommand{\ul}[1]{\uline{#1}}
+    include-in-header: pdf/style.tex
+    number-sections: true
+    template-partials:
+    - pdf/before-body.tex
+guide-language: zh-CN
+guide-source-prefix: ''
+guide-site-root: https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/

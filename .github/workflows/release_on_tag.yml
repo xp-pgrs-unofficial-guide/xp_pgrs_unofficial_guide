@@ -69,13 +69,15 @@ jobs:
         run: |
           python -m pip install -r requirements-build.txt
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends texlive-xetex texlive-lang-chinese texlive-latex-extra texlive-fonts-recommended texlive-plain-generic lmodern
+          sudo apt-get install -y --no-install-recommends texlive-xetex texlive-pictures texlive-lang-chinese texlive-latex-extra texlive-fonts-recommended texlive-plain-generic lmodern
       - name: Test paragraph attribution
         run: python3 -m unittest discover -s tests/attribution
       - name: Test article discussion mapping
         run: python3 -m unittest discover -s tests/publishing
       - name: Test content paths and redirects
         run: python3 -m unittest discover -s tests/build
+      - name: Test reader controls
+        run: node --test tests/ui/guide.test.js
       - name: Validate and build guide
         run: python3 scripts/build.py
       - name: Prepare versioned PDF

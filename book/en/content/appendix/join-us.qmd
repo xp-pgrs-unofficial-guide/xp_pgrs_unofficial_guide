@@ -1,0 +1,44 @@
+---
+title: 'Join us: a proposal for comments and committee-based operation'
+discussion-id: xp-guide-join-us
+legacy-source:
+- chapters/appendix.tex
+lang: en
+translation-source: content/appendix/join-us.qmd
+translation-status: draft
+translation-source-sha256: 3d44f76c566ed0a30b4093cea93ae07e0195de6a7ddc75493a6325ba53e072a8
+---
+
+::: {#xp-guide-join-us}
+:::
+
+::: {.contribution authors="shiyao-zhang"}
+
+**Abstract:** *This guide now covers many important topics and experiences throughout an XJTLU PhD, from enrolment to graduation. It has effectively become the only systematic guide written from XJTLU PhD students' perspective. However, its sustainability presents challenges. We therefore propose changes including a commenting mechanism, workshops, broader contribution channels, operational funding, and an operating committee. We warmly welcome students who would like to participate and any help that others can offer.*
+
+It is encouraging that, after two and a half years, our *Unofficial Guide for XJTLU PhD Students* has six main chapters! Alongside the original [Chinese edition](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases), we are also working on an [English translation](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide_EN/releases). Thanks to the efforts of our editors and contributors, the guide now covers many important topics and experiences throughout a PhD at XJTLU.
+
+However, content management currently relies entirely on individual students volunteering their time. Topics and articles depend on contributors' personal experiences, and some material written by editors has no reviewer. Given the guide's scale, all I can currently do is add chapters based on my own experience, or broadly review other students' contributions and fit them into an already cumbersome contents list. This is disastrous for the guide: unreviewed content, or content that has been reviewed but remains unreliable - the more worrying case - inevitably reduces its value.
+
+Fortunately, the guide has enough value to make it possible to try to change this. As far as I know, it remains the only systematic guide covering multiple aspects of the XJTLU PhD experience from students' perspective. Its scope extends far beyond any single University department's responsibilities, making it difficult for official documents to match its breadth. Current and former XJTLU PhD students write and edit it in a way fellow students can understand. More than two years of contributions and editing by multiple people have also given it a scale and structure well beyond an individual advice post or guide.
+
+To make better use of that value, I plan to change how the guide operates:
+
+- Introduce comments. The experience and knowledge of students beyond the existing authors and editors are very important to content quality. I plan to add a commenting stage to the production process, so that readers can comment on both existing and new content. This can help maintain quality and identify gaps that could become new articles. In addition to the existing open-source platform, I therefore plan to add a commenting mechanism that offers students a more convenient way to give suggestions. Editors will adjust the guide in response or contact the original contributor to make changes. Students whose suggestions are adopted will also be included among the guide's contributors.
+
+- Organise workshops. The guide covers many topics. Given the space and time required, it is almost impossible to produce a version containing every perspective on every topic in a short period. We therefore plan workshops on particular topics to build understanding, exchange views, and improve the guide. We also hope these events can bring some variety to students' study and everyday lives.
+
+- Broaden channels for commissioning contributions. Previously, articles came from students volunteering their work or from editors inviting people they knew. At the guide's present scale, this model requires editors to devote a substantial amount of their spare time alongside their studies, and it is becoming unsustainable. I plan to use peer review and workshops as additional sources of contributions. Topics identified as missing during peer review will be circulated periodically to current and former PhD students to invite contributions. We will also invite students to write about distinctive perspectives raised in workshops.
+
+- Seek operational funding. Whether we organise peer review, workshops, or other future activities, there will clearly be some costs beyond the value of the activities themselves. Funding would help the guide operate sustainably. I therefore plan to explore sponsorship, partnerships, and other sources of operational funding.
+
+- Expand the editorial team. The potential work above, together with the English edition already in progress, will require more editors. At least one Chinese-edition editor and one English-edition editor are currently needed. A large language model has already produced the Chinese-to-English translation for the English edition, but organising proofreading and editing content specifically relevant to international students remain substantial challenges.
+
+- Establish an operating committee. Editing the guide, organising activities, and seeking funding cannot all depend on individuals' spare time. I therefore plan to establish a committee as the body responsible for every aspect of the guide's operation. Instead of leaving all organisation and management to the editors, it would allow members to lead different areas according to their abilities. The committee would have no fixed seats or upper limit on membership. In principle, however, it would only admit individuals or organisational representatives who significantly influence the guide's operation, and would limit the number of members who are neither current PhD students nor alumni.
+
+If you are interested in any of these activities, or have other ideas that could improve how the guide operates, please contact me directly at <shiyao.zhang14@student.xjtlu.edu.cn>. We warmly welcome students who want to get involved and any help that others can offer! This remains a proposal for now, but I plan to make progress on these operational changes this year.
+
+Editor [Shiyao](mailto:shiyao.zhang14@student.xjtlu.edu.cn)\
+11 February 2025
+
+:::

@@ -10,11 +10,11 @@ legacy-source:
 
 ::: {.contribution authors="kai-wu"}
 
-## XPGRS是什么
+## XPGRS是什么 {#xpgrs是什么}
 
 XJTLU Postgraduate Research Symposium，简称XPGRS，或者Symposium，官方中文名是“博士生论坛”，是研究生院组织的活动。每年12月，会让全校的博士生一起用poster或者oral presentation展示自己的研究成果或者进展。每年的XPGRS，会在国庆节前后用邮件通知大家。
 
-## 我需要参加哪一项？
+## 我需要参加哪一项？ {#我需要参加哪一项}
 
 官方要求是这样的：
 
@@ -46,7 +46,7 @@ XJTLU Postgraduate Research Symposium，简称XPGRS，或者Symposium，官方�
 
 ![synposium poster](../../assets/imported/Kai.Wu/synposium_poster.jpg)
 
-## 有什么用
+## 有什么用 {#有什么用}
 
 1.  锻炼作报告的能力，锻炼英语口语，获得校内其他老师的指导
 
@@ -54,7 +54,7 @@ XJTLU Postgraduate Research Symposium，简称XPGRS，或者Symposium，官方�
 
 ![poster award](../../assets/imported/Kai.Wu/poster_award.jpg)
 
-## “我不想去”——尽量不要！
+## “我不想去”——尽量不要！ {#我不想去尽量不要}
 
 经常听到有同学这么想：奖励这么少，含金量又低，即使最后拿个最佳也没卵用。而且即使不去，最后也没能把我怎么样。是的，坦白了讲，一来，导师同意，就可以合法不去；二来，即使直接装消失，最后也不会怎么样，和毕业无关。
 
@@ -62,7 +62,7 @@ XJTLU Postgraduate Research Symposium，简称XPGRS，或者Symposium，官方�
 
 所有，既然在Symposium里，你不会Fail，只会评奖，评委老师也都很友善，会帮你找出重要问题。所以，[**是非常安全的、绝佳的【锻炼机会】**]{.underline}。可不能等到答辩了或者等到你参加顶会了再去锻炼啊！
 
-## 注意事项、如何表现出色
+## 注意事项、如何表现出色 {#注意事项如何表现出色}
 
 下面附上我在2022年symposium看到的口头报告打分表（可放大查看），poster的注意事项其实很类似（参加poster的，也需要准备一个3分钟左右的talk来给到场的评委老师介绍）。坦白的说，这些项目放在任何报告里都是值得注意的地方，可以用来仔细审视自己的海报。
 

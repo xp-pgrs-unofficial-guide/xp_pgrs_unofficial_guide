@@ -1,0 +1,37 @@
+---
+title: Acknowledgements
+discussion-id: xp-guide-acknowledgements
+legacy-source:
+- chapters/acknowledgement.tex
+lang: en
+translation-source: content/appendix/acknowledgements.qmd
+translation-status: draft
+translation-source-sha256: 933046df18e3c10af3cd6d7f2f445aa6ab058dc071690c56b1052cff80b0b55d
+---
+
+::: {#xp-guide-acknowledgements}
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+This guide uses the ElegantBook template: <https://github.com/ElegantLaTeX/ElegantBook>.
+
+:::
+
+::: {.contribution authors="kai-wu"}
+
+[Kai Wu](mailto:kaiwu.astro@gmail.com) thanks senior students Chengyu Wang, Francesco Flammini Dotti, Xiuming Xu, and Yu Wang in MB321, among others, listed here alphabetically, for their generous help during his first two PhD years. Their help was especially valuable in learning about sports facilities, collecting office supplies, supervisory meeting records, and the APR. Thanks to students including 22-AoFE-Tian and 2023-InD-Rolf for corrections, and 22-ARC-Yang for additional information. Thanks also to the other authors for their hard work.
+
+:::
+
+::: {.contribution authors="shiyao-zhang"}
+
+[Shiyao](mailto:shiyao.zhang14@student.xjtlu.edu.cn) thanks [Kai Wu](mailto:kaiwu.astro@gmail.com) for founding this project in August 2022 and editing a large part of the guide over the following two years.
+
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+(Other authors: please add your acknowledgements here.)
+
+:::

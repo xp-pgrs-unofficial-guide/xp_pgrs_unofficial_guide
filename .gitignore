@@ -11,3 +11,10 @@ book/*.pdf
 __pycache__/
 output/
 tmp/
+
+# English Quarto configuration is derived from the shared project settings.
+book/en/_quarto.yml
+book/en/.quarto/
+book/en/.quarto-*/
+book/en/*.tex
+book/en/*.pdf

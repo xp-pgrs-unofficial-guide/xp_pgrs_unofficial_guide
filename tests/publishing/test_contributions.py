@@ -47,11 +47,17 @@ class Anchors(HTMLParser):
 
 
 def convert(input_file="content/apr.qmd", title="APR", branch="codex/quarto-guide",
-            discussion="xp-guide-apr", output_format="html5", body="Article text."):
+            discussion="xp-guide-apr", output_format="html5", body="Article text.",
+            lang="zh-CN", source_prefix="", site=SITE, site_root=SITE, translation_status=None):
     metadata = [
         "---", f"title: {json.dumps(title, ensure_ascii=False)}",
-        f"discussion-id: {discussion}", f"guide-repo: {REPO}", f"guide-site: {SITE}",
+        f"discussion-id: {discussion}", f"guide-repo: {REPO}", f"guide-site: {site}",
+        f"lang: {json.dumps(lang)}", f"guide-source-prefix: {json.dumps(source_prefix)}",
     ]
+    if site_root is not None:
+        metadata.append(f"guide-site-root: {site_root}")
+    if translation_status is not None:
+        metadata.append(f"translation-status: {translation_status}")
     if branch is not None:
         metadata.extend(["book:", f"  repo-branch: {json.dumps(branch)}"])
     metadata.extend(["---", "", body])
@@ -158,6 +164,80 @@ class ContributionLinkTests(unittest.TestCase):
             self.assertIn("\\href{" + url + "}", result.stdout)
         self.assertNotIn("../", result.stdout)
         self.assertNotIn("guide-participate", result.stdout)
+
+
+    def test_english_articles_prefill_the_translation_source_and_shared_discussion(self):
+        contexts = [
+            ("index.qmd", "index.qmd", "Welcome", "xp-guide-home"),
+            ("content/milestones/apr.qmd", "content/milestones/apr.qmd", "APR", "xp-guide-apr"),
+            (str(ROOT / "book/en/content/milestones/apr.qmd"), "content/milestones/apr.qmd", "APR", "xp-guide-apr"),
+        ]
+        for input_file, source, title, discussion in contexts:
+            with self.subTest(input_file=input_file):
+                _, issue, edit = self.parse(input_file=input_file, title=title, discussion=discussion,
+                                           lang="en", source_prefix="en/", site=SITE + "en/")
+                query = parse_qs(urlsplit(issue["href"]).query)
+                self.assertEqual(set(query), {"title", "body"})
+                self.assertEqual(query["title"][0], "[Addition / correction] " + title)
+                body = query["body"][0]
+                for context in ("Title: " + title, "Source: book/en/" + source,
+                                "URL: " + SITE + "en/" + source.replace(".qmd", ".html"),
+                                "Discussion ID: " + discussion, "codex/quarto-guide",
+                                "Public name or pseudonym", "Source and date checked"):
+                    self.assertIn(context, body)
+                self.assertNotIn(str(ROOT), body)
+                self.assertEqual(edit["href"], REPO + "/edit/codex/quarto-guide/book/en/" + source)
+                self.assertEqual(edit["label"], "Propose an edit (PR)")
+
+    def test_language_switches_point_to_the_same_article_in_the_other_language(self):
+        contexts = [
+            ("index.qmd", "zh-CN", SITE, "", SITE + "en/index.html", "en"),
+            ("content/milestones/apr.qmd", "zh-CN", SITE, "", SITE + "en/content/milestones/apr.html", "en"),
+            ("content/milestones/apr.qmd", "en", SITE + "en/", "en/", SITE + "content/milestones/apr.html", "zh-CN"),
+        ]
+        for source, lang, site, prefix, target, alternate_lang in contexts:
+            with self.subTest(source=source, lang=lang):
+                parser, _, _ = self.parse(input_file=source, lang=lang, site=site, source_prefix=prefix)
+                switches = [link for link in parser.anchors if "guide-language-switch" in link.get("class", "").split()]
+                self.assertEqual(len(switches), 1)
+                self.assertEqual(switches[0]["href"], target)
+                self.assertEqual(switches[0]["hreflang"], alternate_lang)
+                self.assertEqual(switches[0]["target"], "_self")
+
+    def test_english_footer_links_keep_markdown_local_and_javascript_shared(self):
+        contexts = [
+            ("index.qmd", "markdown/index.md", "../assets/guide.js"),
+            ("content/milestones/apr.qmd", "../../markdown/content/milestones/apr.md", "../../../assets/guide.js"),
+            ("authors/kai-wu.qmd", "../markdown/authors/kai-wu.md", "../../assets/guide.js"),
+        ]
+        for source, markdown, script in contexts:
+            with self.subTest(source=source):
+                parser, _, _ = self.parse(input_file=source, lang="en", site=SITE + "en/", source_prefix="en/")
+                links = [link for link in parser.anchors if link["label"] == "Plain Markdown"]
+                self.assertEqual([link["href"] for link in links], [markdown])
+                self.assertEqual(parser.scripts, [script])
+
+    def test_english_pdf_uses_shared_attachments_and_its_own_markdown_index(self):
+        body = "\n\n".join([
+            "[Attachment](../../../assets/imported/handout.pdf)",
+            "[Markdown index](../../llms.txt)",
+            "[External](https://example.net/other.pdf)",
+        ])
+        result = convert(input_file="content/milestones/apr.qmd", lang="en", site=SITE + "en/",
+                         source_prefix="en/", output_format="latex", body=body)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        for url in (SITE + "assets/imported/handout.pdf", SITE + "en/llms.txt", "https://example.net/other.pdf"):
+            self.assertIn("\\href{" + url + "}", result.stdout)
+        self.assertNotIn(SITE + "en/assets/", result.stdout)
+        self.assertNotIn("../", result.stdout)
+
+    def test_translation_draft_notice_links_to_the_current_chinese_source(self):
+        parser, _, _ = self.parse(input_file="content/milestones/apr.qmd", lang="en", site=SITE + "en/",
+                                  source_prefix="en/", translation_status="draft")
+        self.assertIn("awaiting human review", "".join(parser.text))
+        source = [link for link in parser.anchors if link["label"] == "Read the Chinese source"]
+        self.assertEqual(len(source), 1)
+        self.assertEqual(source[0]["href"], SITE + "content/milestones/apr.html")
 
 
 if __name__ == "__main__":
