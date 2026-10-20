@@ -104,7 +104,7 @@ class ContributionLinkTests(unittest.TestCase):
                 self.assertIn(title, query["title"][0])
                 body = unquote(query["body"][0])
                 for context in (title, SITE + source.replace(".qmd", ".html"),
-                                "book/" + source, "main", discussion,
+                                "book/" + source, "源分支：main", discussion,
                                 "内容", "署名", "来源"):
                     self.assertIn(context, body)
                 self.assertNotIn(str(ROOT), body)
@@ -132,7 +132,7 @@ class ContributionLinkTests(unittest.TestCase):
         self.assertEqual(edit["href"], REPO + "/edit/codex/contribution-test/book/content/apr.qmd")
         body = parse_qs(urlsplit(issue["href"]).query)["body"][0]
         self.assertIn("codex/contribution-test", body)
-        self.assertNotIn("Branch: main", body)
+        self.assertNotIn("源分支：main", body)
 
     def test_missing_source_branch_fails_instead_of_linking_to_another_branch(self):
         result = convert(branch=None)
@@ -182,7 +182,7 @@ class ContributionLinkTests(unittest.TestCase):
                 body = query["body"][0]
                 for context in ("Title: " + title, "Source: book/en/" + source,
                                 "URL: " + SITE + "en/" + source.replace(".qmd", ".html"),
-                                "Discussion ID: " + discussion, "main",
+                                "Discussion ID: " + discussion, "Branch: main",
                                 "Public name or pseudonym", "Source and date checked"):
                     self.assertIn(context, body)
                 self.assertNotIn(str(ROOT), body)
