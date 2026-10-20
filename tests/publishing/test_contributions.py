@@ -203,6 +203,9 @@ class ContributionLinkTests(unittest.TestCase):
                 self.assertEqual(switches[0]["href"], target)
                 self.assertEqual(switches[0]["hreflang"], alternate_lang)
                 self.assertEqual(switches[0]["target"], "_self")
+                # Quarto treats the Chinese root as external to its English subsite.
+                # Its browser script otherwise replaces even explicit _self targets.
+                self.assertIn("no-external", switches[0].get("class", "").split())
 
     def test_english_footer_links_keep_markdown_local_and_javascript_shared(self):
         contexts = [
@@ -238,6 +241,8 @@ class ContributionLinkTests(unittest.TestCase):
         source = [link for link in parser.anchors if link["label"] == "Read the Chinese source"]
         self.assertEqual(len(source), 1)
         self.assertEqual(source[0]["href"], SITE + "content/milestones/apr.html")
+        self.assertEqual(source[0]["target"], "_self")
+        self.assertIn("no-external", source[0].get("class", "").split())
 
 
 if __name__ == "__main__":
