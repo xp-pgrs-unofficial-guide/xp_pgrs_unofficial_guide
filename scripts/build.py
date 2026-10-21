@@ -637,6 +637,67 @@ class Links(HTMLParser):
             self.giscus_scripts.append(fields)
 
 
+def normalize_author_breadcrumbs():
+    """Keep the author navigation group as text in both breadcrumb layouts."""
+    labels = {"作者与贡献者", "Authors and contributors"}
+
+    class BreadcrumbLinks(HTMLParser):
+        def __init__(self, text):
+            super().__init__()
+            self.text = text
+            self.offsets = [0, *(match.end() for match in re.finditer("\n", text))]
+            self.navigation = []
+            self.anchor = None
+            self.replacements = []
+            self.feed(text)
+
+        def position_offset(self):
+            line, column = self.getpos()
+            return self.offsets[line - 1] + column
+
+        def handle_starttag(self, tag, attrs):
+            fields = dict(attrs)
+            if tag == "nav":
+                self.navigation.append("quarto-page-breadcrumbs" in (fields.get("class") or "").split())
+            elif tag == "a" and any(self.navigation) and fields.get("href") is not None:
+                start = self.position_offset()
+                self.anchor = (start, start + len(self.get_starttag_text()), [])
+
+        def handle_data(self, text):
+            if self.anchor is not None:
+                self.anchor[2].append(text)
+
+        def handle_endtag(self, tag):
+            if tag == "a" and self.anchor is not None:
+                start, end, content = self.anchor
+                if " ".join("".join(content).split()) in labels:
+                    closing = self.position_offset()
+                    # Remove only the link tags, preserving label markup and
+                    # every surrounding byte of Quarto's rendered navigation.
+                    self.replacements.extend([(start, end), (closing, self.text.index(">", closing) + 1)])
+                self.anchor = None
+            elif tag == "nav" and self.navigation:
+                self.navigation.pop()
+
+    updated = 0
+    for source in pages():
+        if not frontmatter(source)[0].get("guide-author-id"):
+            continue
+        document = OUTPUT / source.relative_to(BOOK).with_suffix(".html")
+        if not document.is_file():
+            continue
+        text = document.read_text(encoding="utf-8")
+        parser = BreadcrumbLinks(text)
+        for start, end in reversed(parser.replacements):
+            text = text[:start] + text[end:]
+        if parser.replacements:
+            document.write_text(text, encoding="utf-8")
+            updated += 1
+    if updated:
+        print(f"作者页面包屑已调整为纯文字分组：{updated} 页。", flush=True)
+    return updated
+
+
 def version_stylesheets():
     """Keep rendered pages paired with the current local reader stylesheet."""
     source = BOOK / "assets/guide.css"
@@ -878,6 +939,7 @@ def main():
     run([quarto, "render", BOOK, "--to", "html" if args.html_only else "all"])
     if len(language_roots()) > 1:
         run([quarto, "render", BOOK / "en", "--to", "html" if args.html_only else "all"])
+    normalize_author_breadcrumbs()
     version_stylesheets()
     export_markdown(quarto)
     export_redirects()

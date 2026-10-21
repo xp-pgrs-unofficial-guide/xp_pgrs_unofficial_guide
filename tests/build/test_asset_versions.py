@@ -120,6 +120,7 @@ class AssetVersionTests(unittest.TestCase):
         (self.book / "_quarto.yml").write_text("book: {}\n", encoding="utf-8")
         steps = []
         functions = {"prepare_english_config": "prepare", "validate_sources": "sources",
+                     "normalize_author_breadcrumbs": "breadcrumbs",
                      "version_stylesheets": "versions", "export_markdown": "markdown",
                      "export_redirects": "redirects", "validate_output": "output",
                      "validate_markdown": "markdown-check"}
@@ -131,7 +132,7 @@ class AssetVersionTests(unittest.TestCase):
                 patch.object(build, "giscus_settings"), patch("sys.argv", ["build.py", "--html-only"]), \
                 patch.dict("os.environ", {"QUARTO": "test-quarto"}):
             build.main()
-        self.assertEqual(steps, ["prepare", "sources", "render", "render", "versions", "markdown",
+        self.assertEqual(steps, ["prepare", "sources", "render", "render", "breadcrumbs", "versions", "markdown",
                                  "redirects", "output", "markdown-check"])
 
 
