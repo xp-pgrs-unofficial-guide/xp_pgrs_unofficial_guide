@@ -25,9 +25,7 @@ book:
   chapters:
   - index.qmd
   - content/getting-started/preface.qmd
-  - part: 开始之前
-    chapters:
-    - content/getting-started/start-here.qmd
+  - content/getting-started/start-here.qmd
   - part: 毕业必经之路
     chapters:
     - content/milestones/compulsory-courses.qmd

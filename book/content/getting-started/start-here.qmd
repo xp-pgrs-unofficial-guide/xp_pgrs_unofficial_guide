@@ -1,5 +1,5 @@
 ---
-title: "Start here: 入口级网站和应用"
+title: "入口级网站和应用"
 discussion-id: xp-guide-start-here
 legacy-source:
   - chapters/necessary_resources.tex

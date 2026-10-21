@@ -1,12 +1,12 @@
 ---
-title: 'Start here: useful websites and apps'
+title: 'Useful websites and apps'
 discussion-id: xp-guide-start-here
 legacy-source:
 - chapters/necessary_resources.tex
 lang: en
 translation-source: content/getting-started/start-here.qmd
 translation-status: draft
-translation-source-sha256: 1493b978552ed3da3f3eb1b53783d5b22bc75f3357e072b83538212d2f5add19
+translation-source-sha256: 606dd14afedc671d61053296f6662c716437ebd15f6f40faef0cc6e08350c62a
 ---
 
 ::: {#xp-guide-start-here}
