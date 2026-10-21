@@ -225,7 +225,8 @@ body.quarto-dark .guide-profile-icon > .guide-profile-icon-dark { display: block
   width: auto; max-width: 100%; margin-top: .1rem;
   box-sizing: border-box; box-shadow: none;
 }
-.guide-profile-links-attribution > .guide-profile-link:hover + .guide-profile-tooltip,
+/* Mouse users get the native title without moving the hovered icon. Keyboard
+   users get an in-flow hint, kept inside even a clipped or scrolling card. */
 .guide-profile-links-attribution > .guide-profile-link:focus-visible + .guide-profile-tooltip {
   display: block; visibility: visible; opacity: 1;
 }
