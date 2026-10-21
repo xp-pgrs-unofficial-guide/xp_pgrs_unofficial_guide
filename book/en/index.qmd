@@ -4,7 +4,7 @@ discussion-id: xp-guide-home
 lang: en
 translation-source: index.qmd
 translation-status: draft
-translation-source-sha256: a0222588443168462f0e5f8d445609c4d305acc61d9aa480258e116c44788f57
+translation-source-sha256: 041b4cbb40f006ed26f28415385083c00bd9e1837a532558999e4124f01f5edb
 ---
 
 ::: {#xp-guide-home}
@@ -27,7 +27,7 @@ The left-hand contents preserve the guide's topic structure. You can also search
 
 ## Help improve the guide {#一起完善它}
 
-On the website, a continuous passage with the same credits shows one attribution control at its start. Hover over or click it to see the original authors, later contributors, and whether attribution has been confirmed. Attribution for historical material is still being checked. "Attribution unconfirmed" means that there is not yet enough evidence to assign that passage accurately to a particular person.
+On the website, consecutive content with the same credits shares one author icon on the right. The icon follows your reading position within that content's range. Hover over, focus with the keyboard, or click the icon to see the original authors, later contributors, and confirmation status, with the corresponding range highlighted. On a phone, tap the icon. Attribution for historical material is still being checked. "Attribution unconfirmed" means that there is not yet enough evidence to assign that passage accurately to a particular person.
 
 You can discuss each article below it, or use "Add or correct content" to submit text and attachments. Readers familiar with Markdown can edit a page and submit a pull request. Editors review all changes before publication. [How to contribute](content/appendix/contributing.qmd#xp-guide-contributing).
 

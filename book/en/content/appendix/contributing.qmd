@@ -4,7 +4,7 @@ discussion-id: xp-guide-contributing
 lang: en
 translation-source: content/appendix/contributing.qmd
 translation-status: draft
-translation-source-sha256: daf7bf9def1eb25a4e34554ce5cfe16e3bbb8aeab5f9c9b396f66b8e52712e6f
+translation-source-sha256: 0b36d5bb45ea1766b61d1120eb153971eed2091b698a4796e996ac25ce4cdafd
 ---
 
 ::: {#xp-guide-contributing}
@@ -48,7 +48,7 @@ Put content confirmed as Yue Zhou's contribution here.
 :::
 ```
 
-Use `authors="shiyao-zhang,yue-zhou"` when both people actually wrote the same passage together. Use `authors="shiyao-zhang" contributors="yue-zhou"` when the original text is retained and another person adds substantive material. The website shows one attribution entry for consecutive content with identical credits and shows a new entry when they change. See [paragraph attribution and writing format](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md#段落署名与写作格式) for more examples.
+Use `authors="shiyao-zhang,yue-zhou"` when both people actually wrote the same passage together. Use `authors="shiyao-zhang" contributors="yue-zhou"` when the original text is retained and another person adds substantive material. Consecutive content with the same authors, contributors, and confirmation status shares one author icon on the right; a change starts a new icon. The icon follows the scroll position within its content's range. Hover over, focus with the keyboard, or click it to see the credits and highlight that range; tap it on a phone. Press Escape or click outside to close it. Keep each source block attributed according to its actual authorship; PDF and Markdown retain each block's credits. See [paragraph attribution and writing format](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md#段落署名与写作格式) for more examples.
 
 When organizing a historical article with several authors, check the original material or obtain confirmation from the authors, then divide it into blocks according to the actual contributions. Keep `status="unverified"` on historical content whose attribution remains uncertain, and use `authors="unknown"` if the author's identity is also unknown.
 

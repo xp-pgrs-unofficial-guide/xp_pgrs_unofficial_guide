@@ -19,32 +19,82 @@ class Events {
   }
 }
 
-function harness({ dark = false, className = "quarto-light", frames = [], configs = [] } = {}) {
-  const body = { className, classList: { contains(value) { return body.className.split(/\s+/).includes(value); } } };
+function classed(element) {
+  element.className ||= "";
+  element.classList = {
+    contains(value) { return element.className.split(/\s+/).includes(value); },
+    add(value) { if (!this.contains(value)) element.className = `${element.className} ${value}`.trim(); },
+    remove(value) { element.className = element.className.split(/\s+/).filter((entry) => entry !== value).join(" "); },
+    toggle(value, force) {
+      const active = force ?? !this.contains(value);
+      if (active) this.add(value); else this.remove(value);
+      return active;
+    },
+  };
+  return element;
+}
+
+function attribution(cardHeight = 200) {
+  const card = { getBoundingClientRect: () => ({ width: 280, height: cardHeight }) };
+  const details = classed(Object.assign(new Events(), { open: false, style: {} }));
+  const summary = Object.assign(new Events(), {
+    focused: false,
+    focus() { this.focused = true; details.dispatch("focusin", { target: this }); },
+    getBoundingClientRect() { return { top: 0, bottom: 40, left: 0, right: 40, width: 40, height: 40 }; },
+  });
+  Object.assign(details, {
+    querySelector(selector) {
+      if (selector === "summary") return summary;
+      if (selector === ".attribution-card") return card;
+      throw new Error(`Unexpected details selector: ${selector}`);
+    },
+    contains: (node) => node === details || node === summary || node === card,
+  });
+  return { details, summary, card };
+}
+
+function contribution(run, top, bottom, marker = null, parentElement = {}) {
+  return classed({
+    className: "contribution", parentElement, rect: { top, bottom, left: 100, right: 800 },
+    getAttribute: (name) => name === "data-attribution-run" ? run : null,
+    querySelector: () => marker?.details || null,
+    getBoundingClientRect() { return { ...this.rect, width: this.rect.right - this.rect.left, height: this.rect.bottom - this.rect.top }; },
+  });
+}
+
+function harness({ dark = false, className = "quarto-light", frames = [], configs = [], blocks = [],
+  viewport = null, observeResize = true } = {}) {
+  const body = classed({ className, children: [], appendChild(child) { this.children.push(child); } });
   const media = Object.assign(new Events(), { matches: dark });
+  const animationFrames = [];
   const window = Object.assign(new Events(), {
     location: { href: "https://example.test/guide/content/apr.html?private=do-not-forward#sec.IPAP", hash: "#sec.IPAP" },
     matchMedia: () => media,
+    ...(viewport && { innerWidth: viewport.width, innerHeight: viewport.height,
+      requestAnimationFrame(callback) { animationFrames.push(callback); } }),
   });
   const link = Object.assign(new Events(), { href: "https://example.test/guide/en/content/apr.html" });
-  const summary = Object.assign(new Events(), { focused: false, focus() { this.focused = true; } });
-  const details = Object.assign(new Events(), {
-    open: false,
-    querySelector: () => summary,
-    contains: (node) => node === summary,
-  });
+  const markers = blocks.map((block) => block.querySelector()).filter(Boolean);
+  const fallback = attribution();
+  const details = markers[0] || fallback.details;
+  const summary = details.querySelector("summary");
+  const fonts = new Events();
+  let fontsReady;
+  fonts.ready = { then(callback) { fontsReady = callback; } };
   const document = Object.assign(new Events(), {
-    body,
+    body, fonts,
     createElement(tag) {
-      assert.equal(tag, "script");
+      assert.ok(["script", "div"].includes(tag));
       const attributes = new Map();
       return Object.assign(new Events(), {
+        style: {},
         setAttribute(name, value) { attributes.set(name, value); },
         getAttribute(name) { return attributes.get(name) ?? null; },
       });
     },
     querySelectorAll(selector) {
-      if (selector === "details.paragraph-attribution") return [details];
+      if (selector === "details.paragraph-attribution") return markers.length ? markers : [details];
+      if (selector === ".contribution[data-attribution-run]") return blocks;
       if (selector === "iframe.giscus-frame") return frames;
       if (selector === "a.guide-language-switch") return [link];
       if (selector === "script.guide-giscus-config") return configs;
@@ -56,8 +106,23 @@ function harness({ dark = false, className = "quarto-light", frames = [], config
     constructor(callback) { observation.notify = callback; }
     observe(target, options) { observation.target = target; observation.options = options; }
   }
-  vm.runInNewContext(script, { document, window, URL, MutationObserver });
-  return { body, window, document, media, link, details, summary, frames, observation };
+  const resizeObservation = { targets: [] };
+  class ResizeObserver {
+    constructor(callback) { resizeObservation.notify = callback; }
+    observe(target) { resizeObservation.targets.push(target); }
+  }
+  vm.runInNewContext(script, { document, window, URL, MutationObserver,
+    ResizeObserver: observeResize ? ResizeObserver : undefined });
+  function flushFrames() {
+    let count = 0;
+    while (animationFrames.length) {
+      assert.ok(count++ < 5, "geometry updates must not create an animation loop");
+      for (const callback of animationFrames.splice(0)) callback();
+    }
+    return count;
+  }
+  return { body, window, document, media, link, details, summary, frames, observation,
+    resizeObservation, flushFrames, animationFrames, fontsReady: () => fontsReady?.() };
 }
 
 function giscusConfig(overrides = {}) {
@@ -259,6 +324,7 @@ test("language switching preserves the latest anchor and drops query parameters"
 
 test("attribution remains usable with mouse pinning, keyboard and outside clicks", () => {
   const h = harness();
+  assert.equal(h.body.classList.contains("attribution-enhanced"), false);
   h.details.dispatch("pointerenter", { pointerType: "mouse" });
   assert.equal(h.details.open, true);
   h.summary.dispatch("click");
@@ -272,4 +338,140 @@ test("attribution remains usable with mouse pinning, keyboard and outside clicks
   assert.equal(h.details.open, false);
   h.details.dispatch("pointerenter", { pointerType: "touch" });
   assert.equal(h.details.open, false);
+});
+
+test("an author run follows scrolling across different Quarto sections without moving content", () => {
+  const marker = attribution();
+  const sections = [{ id: "first-section" }, { id: "next-section" }];
+  const blocks = [contribution("1", 100, 200, marker, sections[0]),
+    contribution("1", 250, 400, null, sections[0]), contribution("1", 450, 700, null, sections[1])];
+  const h = harness({ blocks, viewport: { width: 1200, height: 600 } });
+  h.flushFrames();
+  assert.equal(h.body.classList.contains("attribution-enhanced"), true);
+  assert.equal(marker.details.style.top, "104px");
+  assert.equal(marker.details.style.left, "754px");
+  marker.details.dispatch("pointerenter", { pointerType: "mouse" });
+  h.flushFrames();
+  const overlay = h.body.children[0];
+  assert.equal(overlay.className, "attribution-range-highlight");
+  assert.equal(overlay.getAttribute("aria-hidden"), "true");
+  assert.equal(overlay.hidden, false);
+  assert.deepEqual([overlay.style.top, overlay.style.height, overlay.style.borderTopWidth,
+    overlay.style.borderBottomWidth], ["100px", "500px", "2px", "0px"]);
+  blocks.forEach((block) => assert.equal(block.classList.contains("attribution-active"), true));
+  blocks.forEach((block) => { block.rect.top -= 300; block.rect.bottom -= 300; });
+  h.window.dispatch("scroll");
+  h.flushFrames();
+  assert.equal(marker.details.style.top, "24px");
+  assert.deepEqual([overlay.style.top, overlay.style.height, overlay.style.borderTopWidth,
+    overlay.style.borderBottomWidth], ["0px", "400px", "0px", "2px"]);
+  assert.equal(blocks[0].parentElement, sections[0]);
+  assert.equal(blocks[2].parentElement, sections[1]);
+});
+
+test("the marker stops at its true author boundary and closes before the next author", () => {
+  const first = attribution();
+  const second = attribution();
+  const a = contribution("1", -200, 64, first);
+  const b = contribution("2", 90, 500, second);
+  const h = harness({ blocks: [a, b], viewport: { width: 1200, height: 600 } });
+  h.flushFrames();
+  assert.equal(first.details.style.top, "20px", "marker is bounded by the last block, even above its sticky inset");
+  first.summary.dispatch("click");
+  h.flushFrames();
+  assert.equal(first.details.open, true);
+  a.rect.bottom = 20;
+  b.rect.top = 30;
+  h.window.dispatch("scroll");
+  h.flushFrames();
+  assert.equal(first.details.style.visibility, "hidden");
+  assert.equal(first.details.open, false);
+  assert.equal(a.classList.contains("attribution-active"), false);
+  assert.equal(h.body.children[0].hidden, true);
+  assert.equal(second.details.style.visibility, "visible");
+  assert.equal(second.details.style.top, "34px");
+  assert.equal(second.details.open, false);
+  a.rect.top = 100;
+  a.rect.bottom = 200;
+  h.window.dispatch("scroll");
+  h.flushFrames();
+  first.summary.dispatch("click");
+  assert.equal(first.details.open, true, "returning to the run starts with an unpinned, closed card");
+});
+
+test("keyboard focus opens the scope; Escape and a second pinned click dismiss it", () => {
+  const marker = attribution();
+  const block = contribution("1", 100, 500, marker);
+  const h = harness({ blocks: [block], viewport: { width: 1200, height: 600 } });
+  h.flushFrames();
+  marker.details.dispatch("focusin", { target: marker.summary });
+  assert.equal(marker.details.open, true);
+  assert.equal(block.classList.contains("attribution-active"), true);
+  marker.details.dispatch("keydown", { key: "Escape" });
+  assert.equal(marker.summary.focused, true);
+  assert.equal(marker.details.open, false, "Escape focus restoration must not immediately reopen the card");
+  assert.equal(block.classList.contains("attribution-active"), false);
+  marker.details.dispatch("focusout", { relatedTarget: {} });
+  marker.details.dispatch("focusin", { target: marker.summary });
+  marker.summary.dispatch("click");
+  marker.details.dispatch("pointerleave");
+  assert.equal(marker.details.open, true);
+  marker.summary.dispatch("click");
+  assert.equal(marker.details.open, false, "the second click wins over focus and hover");
+  assert.equal(block.classList.contains("attribution-active"), false);
+  assert.equal(h.body.children[0].hidden, true);
+  marker.details.dispatch("pointerenter", { pointerType: "touch" });
+  assert.equal(marker.details.open, false);
+  marker.summary.dispatch("click");
+  assert.equal(marker.details.open, true);
+  h.document.dispatch("pointerdown", { target: {} });
+  assert.equal(marker.details.open, false);
+});
+
+test("narrow screens use the navigation inset and cards flip above near the viewport bottom", () => {
+  const marker = attribution(220);
+  const block = contribution("1", 0, 1000, marker);
+  Object.assign(block.rect, { left: 16, right: 374 });
+  const h = harness({ blocks: [block], viewport: { width: 390, height: 480 } });
+  h.flushFrames();
+  assert.equal(marker.details.style.top, "80px");
+  assert.equal(marker.details.style.left, "328px");
+  marker.summary.dispatch("click");
+  h.flushFrames();
+  assert.equal(marker.details.classList.contains("attribution-card-above"), false);
+  block.rect.top = 300;
+  h.window.dispatch("scroll");
+  h.flushFrames();
+  assert.equal(marker.details.style.top, "304px");
+  assert.equal(marker.details.classList.contains("attribution-card-above"), true);
+  h.window.innerWidth = 1200;
+  h.window.innerHeight = 600;
+  block.rect.top = 400;
+  h.window.dispatch("resize");
+  h.flushFrames();
+  assert.equal(marker.details.classList.contains("attribution-card-above"), true);
+});
+
+test("layout changes coalesce into one frame and observe content rather than moving overlays", () => {
+  for (const observeResize of [true, false]) {
+    const marker = attribution();
+    const block = contribution("1", 100, 500, marker);
+    const h = harness({ blocks: [block], viewport: { width: 1200, height: 600 }, observeResize });
+    h.flushFrames();
+    assert.deepEqual(h.resizeObservation.targets, observeResize ? [block] : []);
+    block.rect.top = 160;
+    block.rect.right = 900;
+    h.window.dispatch("scroll");
+    h.window.dispatch("resize");
+    h.window.dispatch("load");
+    h.document.dispatch("load", { target: { tagName: "IMG" } });
+    h.document.fonts.dispatch("loadingdone");
+    h.fontsReady();
+    h.resizeObservation.notify?.([]);
+    assert.equal(h.animationFrames.length, 1);
+    assert.equal(h.flushFrames(), 1);
+    assert.equal(marker.details.style.top, "164px");
+    assert.equal(marker.details.style.left, "854px");
+    assert.equal(h.animationFrames.length, 0);
+  }
 });

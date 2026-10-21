@@ -44,7 +44,7 @@ discussion-id: xp-guide-contributing
 :::
 ```
 
-同一段确实共同撰写时用 `authors="shiyao-zhang,yue-zhou"`；保留原文并由另一人实质补充时用 `authors="shiyao-zhang" contributors="yue-zhou"`。连续同署名内容在网页只显示一次署名入口，变化后重新显示。更多写法见[段落署名与写作格式](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md#段落署名与写作格式)。
+同一段确实共同撰写时用 `authors="shiyao-zhang,yue-zhou"`；保留原文并由另一人实质补充时用 `authors="shiyao-zhang" contributors="yue-zhou"`。连续且作者、补充者、确认状态相同的内容共用一个右侧作者图标，变化后另显示一个。图标随滚动停留在对应内容范围内；悬停、键盘聚焦或点击时显示署名并高亮范围，手机上可轻点。按 Escape 或点击外部可关闭。源文件仍按实际归属逐块署名，PDF 与 Markdown 保留各块署名。更多写法见[段落署名与写作格式](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md#段落署名与写作格式)。
 
 整理历史多作者文章时，应核对原稿或由作者确认后，按实际归属划分署名块。暂时无法确认的历史内容保留 `status="unverified"`，作者身份也未知时使用 `authors="unknown"`。
 

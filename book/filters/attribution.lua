@@ -4,6 +4,7 @@
 local registry = {}
 local english = false
 local previous_signature = nil
+local run_number = 0
 local profile_prefix = "authors/"
 
 local function fail(message)
@@ -20,6 +21,7 @@ end
 local function read_registry(meta)
   english = pandoc.utils.stringify(meta.lang or ""):match("^en") ~= nil
   previous_signature = nil
+  run_number = 0
   if quarto and quarto.doc then
     local input = quarto.doc.input_file
     if type(input) == "function" then input = input() end
@@ -83,9 +85,11 @@ local function attribution_html(ids, names, contributor_ids, contributors, uncer
   if uncertain then
     rows[#rows + 1] = '<p class="attribution-status">' .. (english and 'Paragraph attribution awaiting confirmation' or '具体段落归属待确认') .. '</p>'
   end
+  rows[#rows + 1] = '<p class="attribution-scope">' .. (english and 'Scope: the continuous content marked by the right-hand boundary.' or '范围：右侧边线标出的连续内容。') .. '</p>'
   return '<details class="paragraph-attribution">' ..
-    '<summary aria-label="' .. (english and 'Attribution for this continuous passage' or '查看这段连续内容的署名') .. '">' ..
-    '<span class="attribution-icon" aria-hidden="true">i</span>' ..
+    '<summary aria-label="' .. html_escape((english and 'View attribution. ' or '查看署名。') .. label_text(names, contributors, uncertain)) .. '">' ..
+    '<svg class="attribution-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' ..
+    '<circle cx="12" cy="8" r="3"></circle><path d="M5.5 20v-2a6.5 6.5 0 0 1 13 0v2"></path></svg>' ..
     '<span class="attribution-label">' .. (english and 'By ' or '作者：') .. html_escape(table.concat(names, "、")) .. '</span></summary>' ..
     '<div class="attribution-card" role="note">' .. table.concat(rows, "") .. '</div></details>'
 end
@@ -114,12 +118,16 @@ local function contribution(div)
     end})
     local key = signature(ids, contributor_ids, uncertain)
     if key ~= previous_signature then
+      run_number = run_number + 1
       div.content:insert(1, pandoc.RawBlock("html", attribution_html(ids, names, contributor_ids, contributors, uncertain)))
     end
     previous_signature = key
     div.attributes["data-author-ids"] = table.concat(ids, ",")
     div.attributes["data-contributor-ids"] = table.concat(contributor_ids, ",")
     div.attributes["data-attribution-status"] = status or "confirmed"
+    div.attributes["data-attribution-run"] = tostring(run_number)
+    div.attributes.role = "group"
+    div.attributes["aria-label"] = label_text(names, contributors, uncertain)
 
     div.attributes.authors = nil
     div.attributes.contributors = nil

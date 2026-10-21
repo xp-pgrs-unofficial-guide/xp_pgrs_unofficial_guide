@@ -2,36 +2,68 @@
 (() => {
   "use strict";
   const instances = [];
+  let schedule = () => {};
+  const highlight = (instance) => {
+    const active = instance.details.open && instance.visible !== false;
+    instance.blocks?.forEach((block) => block.classList.toggle("attribution-active", active));
+    if (instance.overlay) instance.overlay.hidden = !active;
+  };
   document.querySelectorAll("details.paragraph-attribution").forEach((details) => {
     const summary = details.querySelector("summary");
     if (!summary) return;
-    let pinned = false;
+    const instance = { details, summary, pinned: false, focused: false };
+    let restoringFocus = false;
     const close = () => {
-      pinned = false;
+      instance.pinned = false;
       details.open = false;
+      highlight(instance);
+      schedule();
     };
-    instances.push({ details, close });
+    const open = () => {
+      if (instance.visible === false) return;
+      instances.forEach((other) => { if (other !== instance && other.details.open) other.close(); });
+      details.open = true;
+      highlight(instance);
+      schedule();
+    };
+    instance.close = close;
+    instances.push(instance);
     summary.addEventListener("click", (event) => {
       event.preventDefault();
-      pinned = !pinned;
       // A second click explicitly closes the card even with the mouse over it.
-      details.open = pinned;
+      if (instance.pinned) close();
+      else { instance.pinned = true; open(); }
     });
     details.addEventListener("pointerenter", (event) => {
       if (event.pointerType !== "mouse") return;
-      details.open = true;
+      open();
     });
     details.addEventListener("pointerleave", () => {
-      if (!pinned) details.open = false;
+      if (!instance.pinned && !instance.focused) close();
+    });
+    details.addEventListener("focusin", () => {
+      instance.focused = true;
+      if (!restoringFocus) open();
     });
     details.addEventListener("focusout", (event) => {
-      if (!details.contains(event.relatedTarget)) close();
+      if (!details.contains(event.relatedTarget)) {
+        instance.focused = false;
+        close();
+      }
     });
     details.addEventListener("keydown", (event) => {
       if (event.key !== "Escape") return;
       event.preventDefault();
       close();
+      // focus() fires focusin synchronously; it must not reopen the disclosure.
+      restoringFocus = true;
       summary.focus();
+      restoringFocus = false;
+    });
+    details.addEventListener("toggle", () => {
+      if (!details.open) instance.pinned = false;
+      highlight(instance);
+      schedule();
     });
   });
   document.addEventListener("pointerdown", (event) => {
@@ -39,6 +71,101 @@
       if (!details.contains(event.target)) close();
     });
   });
+
+  // A run may span Quarto sections. Measure its original blocks in document
+  // order without wrapping or moving headings (which would break the TOC).
+  const runs = new Map();
+  document.querySelectorAll(".contribution[data-attribution-run]").forEach((block) => {
+    const id = block.getAttribute("data-attribution-run");
+    if (!runs.has(id)) runs.set(id, []);
+    runs.get(id).push(block);
+  });
+  const positioned = [];
+  runs.forEach((blocks) => {
+    const details = blocks[0].querySelector("details.paragraph-attribution");
+    const instance = instances.find((entry) => entry.details === details);
+    if (instance) { instance.blocks = blocks; positioned.push(instance); }
+  });
+  const rectFor = (element) => {
+    const rect = element.getBoundingClientRect?.();
+    return rect && [rect.top, rect.bottom, rect.left, rect.right].every(Number.isFinite) &&
+      rect.right > rect.left && rect.bottom > rect.top ? rect : null;
+  };
+  if (!positioned.length || !window.requestAnimationFrame || !document.body.classList.add ||
+    !Number.isFinite(window.innerHeight) || !Number.isFinite(window.innerWidth) ||
+    !positioned.every(({ blocks, summary }) => blocks.every(rectFor) && rectFor(summary))) return;
+
+  positioned.forEach((instance) => {
+    const overlay = document.createElement("div");
+    overlay.className = "attribution-range-highlight";
+    overlay.setAttribute("aria-hidden", "true");
+    overlay.hidden = true;
+    document.body.appendChild(overlay);
+    instance.overlay = overlay;
+    instance.details.style.visibility = "hidden";
+  });
+  document.body.classList.add("attribution-enhanced");
+  const update = () => {
+    const height = window.innerHeight;
+    const width = window.innerWidth;
+    const inset = width <= 991.98 ? 80 : 24;
+    positioned.forEach((instance) => {
+      const { details, summary, blocks, overlay } = instance;
+      const rects = blocks.map(rectFor);
+      if (rects.some((rect) => !rect)) {
+        instance.visible = false;
+        details.style.visibility = "hidden";
+        instance.close();
+        return;
+      }
+      const top = rects[0].top;
+      const bottom = rects.at(-1).bottom;
+      const left = Math.min(...rects.map((rect) => rect.left));
+      const right = Math.max(...rects.map((rect) => rect.right));
+      instance.visible = bottom > inset && top < height;
+      details.style.visibility = instance.visible ? "visible" : "hidden";
+      if (!instance.visible) {
+        instance.close();
+        return;
+      }
+      const marker = summary.getBoundingClientRect();
+      const markerWidth = marker.width || 40;
+      const markerHeight = marker.height || 40;
+      const markerTop = Math.min(Math.max(top + 4, inset), Math.max(top + 4, bottom - markerHeight - 4));
+      details.style.left = `${Math.max(4, Math.min(right - markerWidth - 6, width - markerWidth - 4))}px`;
+      details.style.top = `${markerTop}px`;
+      const cardHeight = details.open ? details.querySelector(".attribution-card")?.getBoundingClientRect().height || 0 : 0;
+      const cardTop = markerTop + (width <= 991.98 ? markerHeight : 0);
+      details.classList.toggle("attribution-card-above", !!cardHeight && cardTop + cardHeight > height - 8);
+      const visibleTop = Math.max(0, top);
+      const visibleBottom = Math.min(height, bottom);
+      Object.assign(overlay.style, {
+        left: `${left}px`, top: `${visibleTop}px`, width: `${right - left}px`,
+        height: `${visibleBottom - visibleTop}px`,
+        borderTopWidth: top >= 0 ? "2px" : "0px",
+        borderBottomWidth: bottom <= height ? "2px" : "0px",
+      });
+      highlight(instance);
+    });
+  };
+  let queued = false;
+  schedule = () => {
+    if (queued) return;
+    queued = true;
+    window.requestAnimationFrame(() => { update(); queued = false; });
+  };
+  window.addEventListener("scroll", schedule, { passive: true, capture: true });
+  window.addEventListener("resize", schedule, { passive: true });
+  window.addEventListener("load", schedule);
+  // Image and font loads can move a run without changing the viewport size.
+  document.addEventListener("load", schedule, true);
+  document.fonts?.ready?.then(schedule, () => {});
+  document.fonts?.addEventListener?.("loadingdone", schedule);
+  if (typeof ResizeObserver === "function") {
+    const observer = new ResizeObserver(schedule);
+    positioned.forEach(({ blocks }) => blocks.forEach((block) => observer.observe(block)));
+  }
+  schedule();
 })();
 
 /* Match Giscus to Quarto's resolved appearance, including a saved manual choice.

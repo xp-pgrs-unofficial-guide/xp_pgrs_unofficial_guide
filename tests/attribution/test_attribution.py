@@ -6,6 +6,7 @@ No Python packages beyond the standard library are needed.
 """
 
 import os
+from html.parser import HTMLParser
 from pathlib import Path
 import subprocess
 import unittest
@@ -16,6 +17,21 @@ FILTER = ROOT / "book/filters/attribution.lua"
 AUTHORS = ROOT / "book/_authors.yml"
 QUARTO = os.environ.get("QUARTO_BIN", "quarto")
 PANDOC = os.environ.get("PANDOC_BIN")
+
+
+class AttributionHTML(HTMLParser):
+    def __init__(self, html):
+        super().__init__()
+        self.elements = []
+        self.feed(html)
+
+    def handle_starttag(self, tag, attrs):
+        self.elements.append((tag, dict(attrs)))
+
+    def attributes(self, tag, class_name=None):
+        return [attrs for element, attrs in self.elements
+                if element == tag and (class_name is None or
+                class_name in attrs.get("class", "").split())]
 
 
 def convert(text, output_format):
@@ -47,6 +63,11 @@ class AttributionFilterTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(result.stdout.count('class="paragraph-attribution"'), 1)
         self.assertEqual(result.stdout.count('data-author-ids="kai-wu"'), 2)
+        blocks = AttributionHTML(result.stdout).attributes("div", "contribution")
+        self.assertEqual([block["data-attribution-run"] for block in blocks], ["1", "1"])
+        # Keeping the heading at root preserves Pandoc/Quarto's section and TOC
+        # handling; a run must not introduce a wrapper around these siblings.
+        self.assertIn('</div>\n<h2 id="a-heading">A heading</h2>\n<div', result.stdout)
         self.assertIn("Second.", result.stdout)
         self.assertIn('authors/kai-wu.html', result.stdout)
 
@@ -59,12 +80,42 @@ class AttributionFilterTests(unittest.TestCase):
         result = convert(source, "html5")
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(result.stdout.count('class="paragraph-attribution"'), 5)
+        blocks = AttributionHTML(result.stdout).attributes("div", "contribution")
+        self.assertEqual([block["data-attribution-run"] for block in blocks],
+                         ["1", "2", "3", "4", "5"])
 
     def test_order_of_the_same_author_set_does_not_repeat_a_run(self):
         source = '::: {.contribution authors="kai-wu,yue-zhou"}\nFirst.\n:::\n\n::: {.contribution authors="yue-zhou,kai-wu"}\nSecond.\n:::\n'
         result = convert(source, "html5")
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(result.stdout.count('class="paragraph-attribution"'), 1)
+        blocks = AttributionHTML(result.stdout).attributes("div", "contribution")
+        self.assertEqual([block["data-attribution-run"] for block in blocks], ["1", "1"])
+
+    def test_every_block_has_accessible_authorship_even_when_run_icon_is_hidden(self):
+        source = '\n\n'.join(
+            '::: {.contribution authors="kai-wu" contributors="yue-zhou" status="unverified"}\n' +
+            text + '\n:::' for text in ["First.", "Second."])
+        result = convert(source, "html5")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        html = AttributionHTML(result.stdout)
+        blocks = html.attributes("div", "contribution")
+        expected_label = "原作者：吴开（Kai Wu）；实质补充：Yue Zhou；具体段落归属待确认"
+        self.assertEqual(len(blocks), 2)
+        for block in blocks:
+            self.assertEqual(block["role"], "group")
+            self.assertEqual(block["aria-label"], expected_label)
+        summaries = html.attributes("summary")
+        self.assertEqual(len(summaries), 1)
+        self.assertIn(expected_label, summaries[0]["aria-label"])
+        icons = html.attributes("svg", "attribution-icon")
+        self.assertEqual(len(icons), 1)
+        self.assertEqual(icons[0]["aria-hidden"], "true")
+        self.assertEqual(icons[0]["focusable"], "false")
+        self.assertIn('class="attribution-label"', result.stdout)
+        self.assertIn('class="attribution-scope">范围：右侧边线标出的连续内容。', result.stdout)
+        self.assertIn('href="authors/kai-wu.html"', result.stdout)
+        self.assertIn('href="authors/yue-zhou.html"', result.stdout)
 
     def test_english_labels_and_names_are_localized(self):
         result = convert('---\nlang: en\n---\n\n::: {.contribution authors="kai-wu"}\nText.\n:::\n', "html5")
@@ -72,6 +123,10 @@ class AttributionFilterTests(unittest.TestCase):
         self.assertIn("Original author", result.stdout)
         self.assertIn("By Kai Wu", result.stdout)
         self.assertNotIn("原作者", result.stdout)
+        html = AttributionHTML(result.stdout)
+        self.assertEqual(html.attributes("div", "contribution")[0]["aria-label"], "Original author: Kai Wu")
+        self.assertIn("Original author: Kai Wu", html.attributes("summary")[0]["aria-label"])
+        self.assertIn('class="attribution-scope">Scope: the continuous content marked by the right-hand boundary.', result.stdout)
 
     def test_markdown_export_preserves_names_without_web_controls(self):
         result = convert(self.source, "gfm")
@@ -81,6 +136,8 @@ class AttributionFilterTests(unittest.TestCase):
         self.assertIn("具体段落归属待确认", result.stdout)
         self.assertNotIn("<details", result.stdout)
         self.assertNotIn(".contribution", result.stdout)
+        for marker in ["data-attribution-run", 'role="group"', "attribution-scope", "<svg"]:
+            self.assertNotIn(marker, result.stdout)
 
     def test_latex_retains_attribution_and_content(self):
         result = convert(self.source, "latex")
@@ -88,6 +145,8 @@ class AttributionFilterTests(unittest.TestCase):
         self.assertIn("吴开（Kai Wu）", result.stdout)
         self.assertIn("A tight list item.", result.stdout)
         self.assertNotIn("<details", result.stdout)
+        for marker in ["data-attribution-run", 'role="group"', "attribution-scope", "<svg"]:
+            self.assertNotIn(marker, result.stdout)
 
     def test_unknown_author_fails_instead_of_silently_misattributing(self):
         result = convert('::: {.contribution authors="typo-author"}\nText.\n:::\n', "html5")

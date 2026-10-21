@@ -87,7 +87,9 @@ HTML 使用 Quarto 的 `light: cosmo`／`dark: darkly` 双主题，`respect-user
 
 “下载整本攻略”区域只在中英文首页正文后出现。供稿与评论统一放在带“正文结束”标记的独立区域中，由 `publishing.lua` 生成、`guide.css` 设置配色和分隔；调整时核对明暗主题和窄屏下的按钮换行、评论宽度及正文边界。
 
-作者中英文显示名集中在 `book/_authors.yml` 的 `guide-authors` 与 `guide-authors-en`，稳定 ID 相同。作者清单与主页在 `book/authors/` 和 `book/en/authors/`；`author-pages.lua` 从 `.contribution` 的原作者与补充者字段自动汇总参与文章。“归属待确认”是归属标记，不代表个人。网页只对连续且作者、补充者、确认状态相同的内容合并显示署名，源块和 PDF／Markdown 仍保留各块作者。
+作者中英文显示名集中在 `book/_authors.yml` 的 `guide-authors` 与 `guide-authors-en`，稳定 ID 相同。作者清单与主页在 `book/authors/` 和 `book/en/authors/`；`author-pages.lua` 从 `.contribution` 的原作者与补充者字段自动汇总参与文章。“归属待确认”是归属标记，不代表个人。网页只对连续且作者、补充者、确认状态相同的内容共用一个右侧作者图标。图标随滚动停留在对应范围内；悬停、键盘聚焦或点击时打开署名卡片并高亮范围，手机上可轻点，按 Escape 或点击外部可关闭。源块格式、标题与目录结构不变，PDF／Markdown 仍保留各块作者。
+
+署名交互由 `attribution.lua` 生成范围标记，`guide.js` 按源块位置定位图标，`guide.css` 设置外观。核验长内容滚动时图标不会越过作者交界、短块卡片仍可操作、连续同署名只出现一个图标，并检查键盘、窄屏及明暗主题下的范围高亮。
 
 更改控件、署名或构建逻辑时，除完整构建外运行：
 
