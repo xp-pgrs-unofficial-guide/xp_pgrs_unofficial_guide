@@ -10,7 +10,7 @@ legacy-source:
 
 ::: {.contribution authors="kai-wu"}
 
-[吴开](mailto:kaiwu.astro@gmail.com)：我来抛砖引玉说一些我一定会推荐同门师弟尝试的软件：
+我来抛砖引玉说一些我一定会推荐同门师弟尝试的软件：
 
 ![kai mac dock](../../assets/imported/Kai.Wu/kai_mac_dock.jpg)
 

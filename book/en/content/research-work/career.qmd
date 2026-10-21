@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/research-work/career.qmd
 translation-status: draft
-translation-source-sha256: 9cf15b30b4bcb4148185330d083f568eef01e5e1e70c40e703a337a4faf1bcd9
+translation-source-sha256: 06b5d29f33ced9039628881a2283de0271e5697a1f5bdb7f6d20e7ab88474955
 ---
 
 ::: {#xp-guide-career}
@@ -26,6 +26,6 @@ After graduation, your Liverpool degree needs Ministry of Education credential r
 
 Unlike domestic Chinese PhD programmes, we do not receive a transcript when we graduate. Liverpool's equivalent of a transcript is the HEAR report, but a student who asked Liverpool directly was explicitly told that PhD students do not receive one. If an employer insists on a transcript, email Liverpool to ask.
 
-(12 August 2024, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 12 August 2024)
 
 :::

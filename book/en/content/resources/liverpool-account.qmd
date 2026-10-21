@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/resources/liverpool-account.qmd
 translation-status: draft
-translation-source-sha256: 84dbd35ea0c494a2a1dd042614b7a99cf72c77a9e61516bb9d40607bc73eff94
+translation-source-sha256: 3eb7114e99fd89f4f81e6dfea82f6496dc98a9588ef6cf9dea324be0a3db1192
 ---
 
 ::: {#xp-guide-liverpool-account}
@@ -29,6 +29,6 @@ translation-source-sha256: 84dbd35ea0c494a2a1dd042614b7a99cf72c77a9e61516bb9d406
 
 - Liverpool software licence codes: <https://www.liverpool.ac.uk/it/software/licencecodes/>
 
-(2 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 2 October 2022)
 
 :::

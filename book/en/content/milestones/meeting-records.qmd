@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/milestones/meeting-records.qmd
 translation-status: draft
-translation-source-sha256: 8ff7b4a8dfbb3bac2c2d4cd13082a9676f437fa0d98e0ac4394b17bc1288895a
+translation-source-sha256: 5d2b46527f840077a30d656409e13d84f65bf7236a6b957090f74c0dca7fb38f
 ---
 
 ::: {#xp-guide-meeting-records}
@@ -51,6 +51,6 @@ As part of the APR requirements, every student registered as a Liverpool PhD stu
 
 - Liverpool Life and the record-entry system are **frequently inaccessible** because of network and system problems. Even on XJTLU Wi-Fi or wired connections, access can be hit or miss. Students who have tested it report much better connectivity with an internet-circumvention tool in global-proxy mode. However, I cannot teach these potentially unlawful methods here, and they must not be discussed on WeChat or QQ, where accounts or groups could be suspended. If you do not know how to use such tools, fill in your records particularly early: being unable to log in at the deadline is even more stressful.
 
-(10 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 10 October 2022)
 
 :::

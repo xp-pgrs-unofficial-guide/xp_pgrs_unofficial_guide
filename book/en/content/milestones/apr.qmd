@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/milestones/apr.qmd
 translation-status: draft
-translation-source-sha256: 4f62d356e60e1550d9aa3122023d6aab65c6d2b0106671149aca4d0df69e228b
+translation-source-sha256: 8d53fbb8410483f3b9daa708c058d8df0d16ef276767774a2564c174d8a59ac7
 ---
 
 ::: {#xp-guide-apr}
@@ -102,6 +102,6 @@ Your school will arrange an interview with two academics who are not your superv
 
 The main purpose of the APR is to identify and address problems so that you can begin the next academic year. For anything the APR cannot conveniently address or resolve, speak promptly to your supervisor, head of department, dean, DA, or the University counselling service. Also see [Taking emotional difficulties and depression seriously](../life-tools/mental-health.qmd#sec.mental_health).
 
-(12 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 12 October 2022)
 
 :::

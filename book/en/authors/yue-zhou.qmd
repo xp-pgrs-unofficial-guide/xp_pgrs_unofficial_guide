@@ -5,7 +5,7 @@ guide-author-id: yue-zhou
 lang: en
 translation-source: authors/yue-zhou.qmd
 translation-status: draft
-translation-source-sha256: 44ab53a66f1989ef229df62c24f7b481efad128d64f130c9bfa6ed62b3f6a42b
+translation-source-sha256: 992e562fac0607c54e8be41572cb510ab7d1cc2e7a0cf84f2c88e5c48924e702
 ---
 
 ::: {#xp-guide-author-yue-zhou}
@@ -13,7 +13,7 @@ translation-source-sha256: 44ab53a66f1989ef229df62c24f7b481efad128d64f130c9bfa6e
 
 :::: {.contribution authors="editorial"}
 
-This page lists the contributions recorded under this author ID. For an attribution correction or a public profile introduction, use the contribution link below.
+This page lists the contributions recorded under this author ID and public information supplied or confirmed by the person. To correct a credit or add an affiliation, research interests, ORCID, Google Scholar, or other profile information, use the contribution link below.
 
 ::: {.guide-author-profile data-guide-author-id="yue-zhou"}
 :::

@@ -64,6 +64,8 @@ python3 -c "import hashlib,pathlib; print(hashlib.sha256(pathlib.Path('book/cont
 
 正文按实际作者划分为相邻的 `.contribution` 块。一个块可以包含同一作者连续撰写的多段文字、标题、列表、表格和图片；作者变化时，先关闭当前块，再另起一块。不要嵌套署名块。网页会将连续且原作者、补充者、确认状态均一致的内容合用一个右侧作者图标，遇到变化另显示一个。图标随滚动停留在对应内容范围内；悬停、键盘聚焦或点击时显示署名并高亮范围，手机上可轻点。按 Escape 或点击外部可关闭。源文件仍需逐块标记，PDF 与 Markdown 继续保留各块署名。不要为了网页去重而删掉源署名。
 
+正文不再手写姓名落款、`by …` 或“某某更新”等重复署名，统一由块属性生成。资料日期、适用时间和更新依据仍可写在正文中；引用来源、致谢对象和有用的联系信息按内容需要保留。
+
 以下用已登记的两个作者 ID 演示相邻署名块。示例中的文字和 ID 应按实际内容及作者替换：
 
 ```markdown
@@ -106,6 +108,36 @@ python3 -c "import hashlib,pathlib; print(hashlib.sha256(pathlib.Path('book/cont
 目录中的作者清单和每位作者的主页位于 `book/authors/`，英文页位于 `book/en/authors/`。主页依据现有 `.contribution` 的 `authors` 与 `contributors` 自动汇总参与文章，不根据 Git 提交者推断作者，也不推断个人简介。“归属待确认”是历史材料的归属标记，不代表某位作者。
 
 登记新作者时，在作者表补充两种语言的显示名，并参照已有作者页添加中英文页面及共享章节目录条目。作者页的 `.guide-author-profile` 占位 Div 中填写对应的 `data-guide-author-id`；它必须放在署名内容块内，使网页、Markdown 和整本 PDF 都能原位生成列表。参与文章清单由构建汇总，无需手工重复维护。公开简介或外部主页仅在本人提供或确认后填写。
+
+公开资料统一维护在 `book/_authors.yml` 的 `guide-author-profiles`，以同一个作者 ID 索引；作者和实质补充者共用这套资料。作者清单和主页会自动展示已填写的资料，网页、PDF、Markdown 使用同一来源。例如现有项目身份：
+
+```yaml
+guide-author-profiles:
+  shiyao-zhang:
+    type: person
+    project-roles: [编辑]
+    project-roles-en: [Editor]
+```
+
+可按需要补充以下字段。未知项直接省略，不填 `null`、空字符串、示例账号或同名者的链接。
+
+| 字段 | 内容与格式 |
+| --- | --- |
+| `type` | `person`（默认）、`team` 或 `placeholder`；编辑组和待确认标记分别使用后两者 |
+| `project-roles` / `project-roles-en` | 项目角色，成对的中文／英文字符串列表 |
+| `affiliation` / `affiliation-en` | 机构名称，成对的中文／英文文本 |
+| `department` / `department-en` | 部门或院系，成对的中文／英文文本 |
+| `research-interests` / `research-interests-en` | 研究方向，成对的中文／英文字符串列表 |
+| `bio` / `bio-en` | 简短公开简介，成对的中文／英文文本 |
+| `orcid` | 带连字符的 16 位 ORCID iD，末位可为大写 `X`；构建校验格式与校验位 |
+| `google-scholar` | 本人的完整 `https://scholar.google.com/citations?user=…` 链接 |
+| `website` | 个人主页的完整 HTTPS 链接 |
+| `institutional-profile` | 机构个人资料页的完整 HTTPS 链接 |
+| `github` | 本人的完整 `https://github.com/…` 主页链接 |
+
+机构、研究方向和简介应由本人提供或确认；资料变动后更新相应字段，不依据旧邮箱推断当前任职机构。机构等中英文展示字段一起填写，账号链接两种语言共用。没有学术资料时，作者页只显示简短的待补充提示，不生成空链接；`team` 与 `placeholder` 不填写个人 ORCID 或 Scholar。
+
+补充资料可从作者页下方“补充内容／纠错”提交作者 ID 和希望公开的字段，或提交修改作者表的 PR。构建会在发布前检查作者 ID、字段类型、双语配对、ORCID 校验位和链接格式；格式通过不代表身份已核实，维护者仍需核对本人确认。
 
 ## 本地检查与预览
 

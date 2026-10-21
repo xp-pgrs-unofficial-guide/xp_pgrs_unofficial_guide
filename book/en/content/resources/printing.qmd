@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/resources/printing.qmd
 translation-status: draft
-translation-source-sha256: 4d2e0d6fd5438e1ff3e53c2a33b6123e1fc20535d847026e86575e3e92bd20fb
+translation-source-sha256: bc2ca6b8f521ae213b399745db87442575fe424ef6adc7060a13b641c1f6bcfb
 ---
 
 ::: {#xp-guide-printing}
@@ -22,6 +22,6 @@ Every September, the University resets PhD students' printing balances to RMB 2,
 
 Please do not print entire books: it violates printing policy and may be investigated. Printing individual chapters is generally allowed. If you really need a whole book printed, use a Taobao printing service.
 
-(12 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 12 October 2022)
 
 :::

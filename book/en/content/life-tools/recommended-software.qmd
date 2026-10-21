@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/life-tools/recommended-software.qmd
 translation-status: draft
-translation-source-sha256: 1eac09a75a05457a62987c823ea1a039904cb8d3c45dc3235b345212d26117e4
+translation-source-sha256: 4d4f83b0411c42ea990eda12fde56bf2de29350515e25fe75db0f3cc35d89c20
 ---
 
 ::: {#xp-guide-recommended-software}
@@ -14,7 +14,7 @@ translation-source-sha256: 1eac09a75a05457a62987c823ea1a039904cb8d3c45dc3235b345
 
 ::: {.contribution authors="kai-wu"}
 
-[Kai Wu](mailto:kaiwu.astro@gmail.com): To get the conversation started, here is some software I would definitely recommend that junior colleagues try:
+To get the conversation started, here is some software I would definitely recommend that junior colleagues try:
 
 ![Kai's Mac Dock](../../../assets/imported/Kai.Wu/kai_mac_dock.jpg)
 

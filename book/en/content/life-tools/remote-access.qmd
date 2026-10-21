@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/life-tools/remote-access.qmd
 translation-status: draft
-translation-source-sha256: f2e4d698b5f1915dc5ccfe7b1ef0fb6bf68ef2de717ad769936317d2763a68f2
+translation-source-sha256: d67122023ecea0e9682b4fdaacb9f0ea253721d411aacab293e6083015344496
 ---
 
 ::: {#xp-guide-remote-access}
@@ -74,6 +74,6 @@ Here is what I learned from a great many mishaps:
 
 7. Maintain a good relationship with at least one student on campus. Beginners will encounter all kinds of unexpected failures and need office mates to check the machine in person. Behind a hundred remote-control methods, you still need a good friend to provide physical control. What if someone accidentally kicks out the network cable one day? You will still need to ~~strike a shady bargain and~~ ask someone to reconnect it.
 
-(9 November 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 9 November 2022)
 
 :::

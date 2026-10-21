@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/resources/conference-funding.qmd
 translation-status: draft
-translation-source-sha256: 838c2d7f544f1c4e45b0bf0d00d17133c42b96005b31bd58e6bc873ef4ae9aa0
+translation-source-sha256: 4882bc669a066030167bda22d299494476ef23ebe8293cfea93c4161c48d3221
 ---
 
 ::: {#xp-guide-conference-funding}
@@ -33,6 +33,6 @@ Please note:
 
 3.  If University conference funding cannot be used, your supervisor may have other funds available. For these reasons, I have claimed expenses for several conferences from my supervisor's funding. Ask your own supervisor whether they have suitable funds and how to use them.
 
-(12 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 12 October 2022)
 
 :::

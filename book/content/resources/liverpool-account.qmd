@@ -25,6 +25,6 @@ legacy-source:
 
 - Liverpool软件序列号：<https://www.liverpool.ac.uk/it/software/licencecodes/>
 
-(2022年10月2日 by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(资料日期：2022年10月2日)
 
 :::

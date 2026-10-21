@@ -9,7 +9,7 @@ guide-author-id: kai-wu
 
 :::: {.contribution authors="editorial"}
 
-本页展示此作者 ID 已登记的内容贡献。如需纠正署名或补充公开简介，可使用页面下方的供稿入口。
+本页展示此作者 ID 已登记的内容贡献，以及本人提供或确认的公开资料。如需纠正署名，或补充机构、研究方向、ORCID、Google Scholar 等资料，可使用页面下方的供稿入口。
 
 ::: {.guide-author-profile data-guide-author-id="kai-wu"}
 :::

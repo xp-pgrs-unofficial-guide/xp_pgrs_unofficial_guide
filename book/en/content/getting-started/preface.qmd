@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/getting-started/preface.qmd
 translation-status: draft
-translation-source-sha256: 24a6ca65efeda8bedf8a66fd640df585b0cd435fc1b905e809179bb037585743
+translation-source-sha256: e34ff739fa3173c88eb8dd5973dfba1b5e41980fbef44e77fc9a9c16b2c609c3
 ---
 
 ::: {#xp-guide-preface}
@@ -26,7 +26,6 @@ If you would like to thank the authors, you can star this project on GitHub: <ht
 
 Finally, this guide is entirely a labour of love. It has never received funding and has no official backing. There may be errors and omissions; please bear with us, and corrections are welcome.
 
-Project initiator [Kai Wu](mailto:kaiwu.astro@gmail.com)\
 18 August 2022, MB
 
 :::

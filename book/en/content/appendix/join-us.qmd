@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/appendix/join-us.qmd
 translation-status: draft
-translation-source-sha256: 3d44f76c566ed0a30b4093cea93ae07e0195de6a7ddc75493a6325ba53e072a8
+translation-source-sha256: 8fb49a6efb6dc9eafb457a029f32b64941a29011929b183180b2919df17a094f
 ---
 
 ::: {#xp-guide-join-us}
@@ -38,7 +38,6 @@ To make better use of that value, I plan to change how the guide operates:
 
 If you are interested in any of these activities, or have other ideas that could improve how the guide operates, please contact me directly at <shiyao.zhang14@student.xjtlu.edu.cn>. We warmly welcome students who want to get involved and any help that others can offer! This remains a proposal for now, but I plan to make progress on these operational changes this year.
 
-Editor [Shiyao](mailto:shiyao.zhang14@student.xjtlu.edu.cn)\
 11 February 2025
 
 :::

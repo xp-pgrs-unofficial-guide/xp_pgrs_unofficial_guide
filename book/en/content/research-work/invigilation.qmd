@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/research-work/invigilation.qmd
 translation-status: draft
-translation-source-sha256: f07a1363edd72b43f774ef871f41537ae7b2267428e8c76d3162aefc57a4e43a
+translation-source-sha256: 07fa73abb890d6c6d1b1cdefaca76529c894217fac01752d5d9bc1a9013e5e60
 ---
 
 ::: {#xp-guide-invigilation}
@@ -104,8 +104,8 @@ Finally, here is the checklist I use after invigilating more than a dozen times:
 
 *Invigilating an exam on the ground floor of CB, 15 November 2020.*
 
-(22 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 22 October 2022)
 
-(Major update: 30 December 2022, by [Yue Zhou](mailto:jasminezhou828@gmail.com))
+(Major update: 30 December 2022)
 
 :::

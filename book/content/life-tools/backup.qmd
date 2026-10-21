@@ -117,8 +117,8 @@ Box（<https://box.xjtlu.edu.cn/>）是学校的自建网盘，2022年升级到�
 
 5.  会一点Git、GitHub的同学，请直接把整个论文文件夹创建成Git项目，并上传到GitHub做成private repo，每天工作结束后交一个commit来备份版本，同时记录你修改了什么内容。对于论文，Git是最完美的备份方案，可以轻松回滚到老版本同时从不担心覆盖、甚至能轻松知道哪个地方的修改是在什么时候引入的，比以上所有方法都靠谱。Overleaf也有GitHub集成，可以方便的与导师协作。但Git学习成本略高，不过网上有无数详尽的教程，感兴趣、学有余力的同学可自行学习。
 
-(2022年12月02日 by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(资料日期：2022年12月02日)
 
-(major update: 2022年12月30日 by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(重要更新：2022年12月30日)
 
 :::

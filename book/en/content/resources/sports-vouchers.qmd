@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/resources/sports-vouchers.qmd
 translation-status: draft
-translation-source-sha256: f2aaae79a31b7c0ea1d8b7ae2e15862654cba6316e6a3f0c156c1a17da97fd56
+translation-source-sha256: 78dd2b441768e2cbaf9d44e9193aef430c9a3295b2c41eb57cdddbeff5fa3d8f
 ---
 
 ::: {#xp-guide-sports-vouchers}
@@ -18,7 +18,7 @@ The University's sports centre operates commercially, so it charges for use. How
 
 After booking, use your XJTLU campus card to enter the sports centre, then scan the QR code for your booked facility at its entrance.
 
-(12 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 12 October 2022)
 
 ![Sports centre mini program](../../../assets/imported/Kai.Wu/sportcenter_miniprogram.jpg)
 

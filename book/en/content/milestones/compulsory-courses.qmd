@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/milestones/compulsory-courses.qmd
 translation-status: draft
-translation-source-sha256: e439209252621ae8c1cd81d2fa896091690c88209d3457e8bf245a553c25af30
+translation-source-sha256: 588477c0af918289da74d066ba616822aba69029766fb8dba43f8b20d0c0241e
 ---
 
 ::: {#xp-guide-compulsory-courses}
@@ -22,6 +22,6 @@ The University offers a range of courses for PhD students. They are announced on
 
 Both workshops run every **semester**. You must attend each one at least once before graduating; attendance is determined by scanning the sign-in QR code at the event.
 
-(7 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 7 October 2022)
 
 :::

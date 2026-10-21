@@ -16,3 +16,26 @@ guide-authors-en:
   jialin-wang: Jialin Wang
   editorial: Editorial team
   unknown: Attribution awaiting confirmation
+
+# Optional public profiles, keyed by the same stable IDs as the display names.
+# Omit information that has not been supplied or confirmed by the author.
+# Field definitions and a complete example: CONTRIBUTING.md#作者清单与主页
+guide-author-profiles:
+  kai-wu:
+    type: person
+    project-roles: [项目发起人]
+    project-roles-en: [Project founder]
+  shiyao-zhang:
+    type: person
+    project-roles: [编辑]
+    project-roles-en: [Editor]
+  yue-zhou:
+    type: person
+  ziwen-xie:
+    type: person
+  jialin-wang:
+    type: person
+  editorial:
+    type: team
+  unknown:
+    type: placeholder

@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/research-work/how-research-works.qmd
 translation-status: draft
-translation-source-sha256: 527c290a81a5c4fd910507ccdf2c4179713a20ecf1e1e79ebcc128980922cb56
+translation-source-sha256: 9b3047142c4b5853e95d38291d09758efca0f502aae632d4544052c33c53bc1b
 ---
 
 ::: {#xp-guide-how-research-works}
@@ -79,6 +79,6 @@ In research, collaboration with other researchers may be unavoidable, for a vari
 
 Before starting a collaboration with researchers outside your supervisor's team, be sure to read the university's [Guidance on Authorship and Affiliation](https://ebridge.xjtlu.edu.cn/urd/sits.urd/run/SIW_FILE_LOAD.start_url?08F2CBCAE3174A7365Px9_5kBfG0_iGiWj8zb7ybwaO0YBYc8NiKlPG93xyQA9X2SClXOLLd7-_EgF50aijROwT-rdSGIUIbRRzhFu-76Ha0g2HymUr0S-Fgjm1DXP9RO1GhGzx5-akgsDSMBlNhR7vpib85F9vlqa67My7RKHFSiluZueFy52YCBtintt0wDTKmx4fCjkWnldNDaxo6ZVD2L572Us3V-FOv485wYZUNUn5NLzgR0pAaU7aiKnTVJY8Aa2su5F4u7o-rNPJPety3jwwJ4O1v1agpDZLZ1it1H5fWn3IgLNaWlUh84YpxNRXyTW1kIwrX0r4-dT1eoxdZUAFrJhaBwz6E0w) on e-Bridge. It may save you a lot of trouble.
 
-1 October 2024, by [Shiyao](mailto:shiyao.zhang14@student.xjtlu.edu.cn)
+Information dated: 1 October 2024
 
 :::

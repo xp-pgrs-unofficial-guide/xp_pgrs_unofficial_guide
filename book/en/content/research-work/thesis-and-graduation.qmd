@@ -7,7 +7,7 @@ legacy-source:
 lang: en
 translation-source: content/research-work/thesis-and-graduation.qmd
 translation-status: draft
-translation-source-sha256: 35fd968d35d3d96615616e700547deb5706ff068112578bb60f514710cee5093
+translation-source-sha256: 06729e2ace824a320e15bc1aece6dfedcf6da6c55920c72a61a063e07f4e4137
 ---
 
 ::: {#xp-guide-thesis-and-graduation}
@@ -80,7 +80,7 @@ Q: The Code of Practice only states a maximum word count. What is the minimum?
 
 A: Another constantly recurring question. I once asked a teacher at the Graduate School's Thesis Writing Camp. His view was that, since XJTLU master's theses have a maximum of 30,000 words, a PhD thesis should preferably exceed that. But I later found this was not really the case. I have seen theses shorter than 100 pages and others close to 200 pages, all of whose authors graduated. Across the university, there truly is no fixed requirement. If you still want a rough minimum for peace of mind, download theses from the Liverpool and XJTLU libraries. Focus on your school, department, and subject, ideally theses by graduates from your own research group, and see their word and page counts. **Remember: more words do not guarantee an easy graduation.** A senior student's thesis was close to 200 pages and received major corrections; the external examiner said it was too long and read like a textbook.
 
-(12 August 2024, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 12 August 2024)
 
 :::
 
@@ -104,7 +104,7 @@ A: Another constantly recurring question. I once asked a teacher at the Graduate
 
 7. Once the corrections are confirmed, upload the final thesis, completing the process.
 
-(5 July 2024, by Ziwen Xie)
+(Information dated: 5 July 2024)
 
 ### How to prepare for a viva {#如何准备好一场答辩}
 
@@ -180,7 +180,7 @@ Tip: the examiners often seem simply curious and interested in a conversation, s
 
 **5. Ask your supervisor whether they can suggest possible questions and, if there is enough time, arrange a mock viva; this is optional. Also ask senior students about their vivas soon after they finish, since arrangements may change somewhat each year.**
 
-(5 July 2024, by Ziwen Xie)
+(Information dated: 5 July 2024)
 
 :::
 
@@ -232,6 +232,6 @@ Following the flowchart in [Official process and timeline](thesis-and-graduation
 
 7. Paper degree: if you attend the Liverpool ceremony, you collect it there. If not, it is officially posted to XJTLU after the ceremony, so you simply wait. In my case, I did not attend the 15 July Liverpool ceremony, and the paper certificate reached the Graduate School on 30 July. If you have already left campus, you can ask the Graduate School to post it to you, which I do not recommend: a lost original cannot be replaced, and you bear the risk.
 
-(12 August 2024, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 12 August 2024)
 
 :::

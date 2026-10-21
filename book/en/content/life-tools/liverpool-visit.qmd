@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/life-tools/liverpool-visit.qmd
 translation-status: draft
-translation-source-sha256: 08c1ff3b3d9912a33480ebaa7905aea831179a1b14937874ea58d38d45f52e88
+translation-source-sha256: c2e86cb2bbf7513a7f2747d7bca32a8c1abcf79b98d5cd10a605d7df4646863c
 ---
 
 ::: {#xp-guide-liverpool-visit}
@@ -181,7 +181,7 @@ Policies differ, but successful applicants can at least enter most participating
 
 Liverpool Library processes the application after submission. Once approved, take the email to the reception desk of a participating university library to obtain a visitor card.
 
-21 October 2022, by [Shiyao](mailto:shiyao.zhang14@student.xjtlu.edu.cn)\
-Major update: 6 March 2025, by [Yue Zhou](mailto:jasminezhou828@gmail.com): added funding, visa, and everyday-life information.
+Information dated: 21 October 2022\
+Major update: 6 March 2025: added funding, visa, and everyday-life information.
 
 :::

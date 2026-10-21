@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/resources/stationery.qmd
 translation-status: draft
-translation-source-sha256: 10b27df4bb1cbe320346580a753c8001c08bee97866af364c6d0e59795b977dc
+translation-source-sha256: 0a0c45ee6482b723eb68d1ef5b16f3acbc51a591c8c6a6a201941a0f12faf58f
 ---
 
 ::: {#xp-guide-stationery}
@@ -41,6 +41,6 @@ How to collect supplies:
 
 ![Supplies that need no form](../../../assets/imported/Kai.Wu/stationery_no_sign.jpg)
 
-(12 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 12 October 2022)
 
 :::

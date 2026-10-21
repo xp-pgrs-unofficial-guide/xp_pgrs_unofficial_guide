@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/milestones/research-symposium.qmd
 translation-status: draft
-translation-source-sha256: 794d5df72c15859cb64557e9afaaf583d0e41a81905ac7bfa650eba92d4eed75
+translation-source-sha256: a2e6cc233f5197f2f1bdfa083dcc227a437de925be9fadd46ebd7e939d381ede
 ---
 
 ::: {#xp-guide-research-symposium}
@@ -86,8 +86,8 @@ There are plenty of online tutorials about presentations and posters. The bigges
 
 My supervisor told me that XPGRS is closer to science communication than a specialist academic talk because you are speaking to non-specialists. Part of its purpose is to interest an outsider in your research in a short time and help them understand perhaps 70% of it. If you are unsure how, imagine meeting Youmin Xi in a lift: how would you quickly explain what you do, why it matters, and ideally make him interested? Or imagine explaining your work to a relative or old school friend when you go home for the New Year. Research is not something to keep behind closed doors. Communicating it and making its results useful to others is also an important skill.
 
-(19 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 19 October 2022)
 
-(Major update: 16 December 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Major update: 16 December 2022)
 
 :::

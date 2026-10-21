@@ -5,7 +5,7 @@ guide-author-id: kai-wu
 lang: en
 translation-source: authors/kai-wu.qmd
 translation-status: draft
-translation-source-sha256: 56cfd280a013db01cb90931f67f096b339eef8bf6bc8aa2dffb3652eb9115c8b
+translation-source-sha256: 260a99a537756b84791a9661ce3725949f7c0d1628cd48146615de99ecfd661a
 ---
 
 ::: {#xp-guide-author-kai-wu}
@@ -13,7 +13,7 @@ translation-source-sha256: 56cfd280a013db01cb90931f67f096b339eef8bf6bc8aa2dffb36
 
 :::: {.contribution authors="editorial"}
 
-This page lists the contributions recorded under this author ID. For an attribution correction or a public profile introduction, use the contribution link below.
+This page lists the contributions recorded under this author ID and public information supplied or confirmed by the person. To correct a credit or add an affiliation, research interests, ORCID, Google Scholar, or other profile information, use the contribution link below.
 
 ::: {.guide-author-profile data-guide-author-id="kai-wu"}
 :::

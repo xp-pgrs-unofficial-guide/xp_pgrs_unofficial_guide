@@ -4,7 +4,7 @@ discussion-id: xp-guide-contributing
 lang: en
 translation-source: content/appendix/contributing.qmd
 translation-status: draft
-translation-source-sha256: 0b36d5bb45ea1766b61d1120eb153971eed2091b698a4796e996ac25ce4cdafd
+translation-source-sha256: ea895c34344f6c2887666ce750f98b57d147a904d351992f1148b3dbc8a50a78
 ---
 
 ::: {#xp-guide-contributing}
@@ -32,6 +32,8 @@ Each article needs a title and a `discussion-id` that remains stable when the ar
 
 Attribution records the people who actually provided the content. When an editor transcribes a contribution, fixes formatting, or corrects a typo, the original author remains credited. Credit later contributors for substantive additions. You may use a name, nickname, or clearly agreed anonymous credit; there is no need to publish an email address.
 
+Credits are generated from contribution-block attributes. Do not repeat author bylines, `by …` signatures, or updater names in the body. Keep useful source dates and reasons for updates; source citations and the people being thanked remain part of the content.
+
 In an article with several authors, use adjacent `.contribution` blocks. A block can contain consecutive paragraphs, headings, or lists by the same author. Close it and start another when the author changes; do not nest attribution blocks. This example uses registered author IDs to demonstrate the syntax. Replace the text and IDs according to the actual content and authors:
 
 ```markdown
@@ -55,6 +57,12 @@ When organizing a historical article with several authors, check the original ma
 "Attribution unconfirmed" in historical content does not describe a new author. If you know the original source, include the original draft, existing credit, or other verifiable evidence with your submission.
 
 When a suggestion from the comments is incorporated into the guide, editors will retain the actual contributor's credit. Comments do not become part of the guide automatically: all changes are reviewed.
+
+## Academic profiles {#author-academic-profile}
+
+The [authors and contributors directory](../../authors/index.qmd#xp-guide-authors) links to each person's credited articles and public information confirmed by that person. Optional fields include project roles, affiliation, department, research interests, biography, ORCID, Google Scholar, personal website, institutional profile, and GitHub. Leave unknown details empty; do not infer accounts or affiliations from a name.
+
+To add or update your information, use "Contribute / correct" below your author page and provide the fields and links you want to publish. Readers familiar with GitHub can also edit `guide-author-profiles` in `book/_authors.yml` and submit a PR. Provide both Chinese and English display text; account links are shared between languages. See the [author directory and profile maintenance instructions](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md#作者清单与主页) for field formats.
 
 Thank you for leaving some experience for those who come after you.
 

@@ -15,7 +15,7 @@ import re
 import shutil
 import subprocess
 import sys
-from urllib.parse import quote, unquote, urlsplit, urlunsplit
+from urllib.parse import parse_qs, quote, unquote, urlsplit, urlunsplit
 
 import yaml
 
@@ -119,6 +119,115 @@ def unique_mapping(loader, node):
 
 
 UniqueKeyLoader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, unique_mapping)
+
+
+class AuthorMetadataLoader(yaml.SafeLoader):
+    """Reject duplicate author IDs and fields before YAML can overwrite them."""
+
+    def construct_mapping(self, node, deep=False):
+        keys = set()
+        for key_node, _ in node.value:
+            key = self.construct_object(key_node, deep=deep)
+            if not isinstance(key, str):
+                raise ValueError("_authors.yml 的键必须是字符串")
+            if key in keys:
+                raise ValueError(f"_authors.yml 包含重复键：{key}")
+            keys.add(key)
+        return super().construct_mapping(node, deep=deep)
+
+
+def load_author_metadata():
+    """Validate optional public profiles alongside the stable bilingual name maps."""
+    try:
+        config = yaml.load((BOOK / "_authors.yml").read_text(encoding="utf-8"), Loader=AuthorMetadataLoader)
+    except yaml.YAMLError as exc:
+        raise ValueError(f"_authors.yml 不是合法 YAML：{exc}") from exc
+    allowed = {"guide-authors", "guide-authors-en", "guide-author-profiles"}
+    if not isinstance(config, dict) or set(config) - allowed:
+        raise ValueError("_authors.yml 只能包含作者姓名映射和 guide-author-profiles")
+    names = config.get("guide-authors")
+    if not isinstance(names, dict) or not names:
+        raise ValueError("_authors.yml 缺少非空 guide-authors 映射")
+    for field in ("guide-authors", "guide-authors-en"):
+        if field not in config:
+            continue  # Preserve existing single-language projects without profile metadata.
+        mapping = config[field]
+        if not isinstance(mapping, dict) or set(mapping) != set(names):
+            raise ValueError("_authors.yml 中英文作者 ID 名单不一致")
+        for identifier, name in mapping.items():
+            if not re.fullmatch(r"[a-z][a-z0-9]*(?:-[a-z0-9]+)*", identifier):
+                raise ValueError(f"_authors.yml 作者 ID 不合法：{identifier}")
+            if not isinstance(name, str) or not name.strip() or name != name.strip() or "\n" in name:
+                raise ValueError(f"_authors.yml {field}.{identifier} 必须是非空姓名字符串")
+    profiles = config.get("guide-author-profiles", {})
+    if not isinstance(profiles, dict) or set(profiles) - set(names):
+        raise ValueError("_authors.yml guide-author-profiles 必须是已注册作者 ID 的资料映射")
+    localized_text = ("affiliation", "department", "bio")
+    localized_lists = ("research-interests", "project-roles")
+    links = ("google-scholar", "website", "github", "institutional-profile")
+    fields = {"type", "orcid", *links}
+    for field in (*localized_text, *localized_lists):
+        fields.update((field, field + "-en"))
+    for identifier, profile in profiles.items():
+        prefix = f"_authors.yml guide-author-profiles.{identifier}"
+        if not isinstance(profile, dict) or set(profile) - fields:
+            raise ValueError(f"{prefix} 必须是资料映射且不能包含未知字段")
+        kind = profile.get("type", "person")
+        if kind not in ("person", "team", "placeholder"):
+            raise ValueError(f"{prefix}.type 必须为 person、team 或 placeholder")
+        for field in (*localized_text, *localized_lists):
+            if (field in profile) != (field + "-en" in profile):
+                raise ValueError(f"{prefix}.{field} 必须同时提供中英文字段")
+            for key in (field, field + "-en"):
+                if key not in profile:
+                    continue
+                content = profile[key]
+                if field in localized_lists:
+                    if (not isinstance(content, list) or not content or
+                            any(not isinstance(item, str) or not item.strip() or item != item.strip() for item in content)):
+                        raise ValueError(f"{prefix}.{key} 必须是非空字符串列表")
+                elif not isinstance(content, str) or not content.strip() or content != content.strip():
+                    raise ValueError(f"{prefix}.{key} 必须是非空字符串")
+            if field in localized_lists and field in profile and len(profile[field]) != len(profile[field + "-en"]):
+                raise ValueError(f"{prefix}.{field} 中英文列表条目数必须一致")
+        if kind != "person" and any(field in profile for field in ("orcid", "google-scholar")):
+            raise ValueError(f"{prefix} 团队或占位身份不能填写个人 ORCID／Google Scholar")
+        if "orcid" in profile:
+            orcid = profile["orcid"]
+            if not isinstance(orcid, str) or not re.fullmatch(r"[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]", orcid):
+                raise ValueError(f"{prefix}.orcid 必须是带连字符的 16 位 ORCID 标识")
+            digits = orcid.replace("-", "")
+            total = 0
+            # ORCID's published ISO 7064 MOD 11-2 checksum, including final X.
+            for digit in digits[:-1]:
+                total = (total + int(digit)) * 2
+            checksum = (12 - total % 11) % 11
+            if digits[-1] != ("X" if checksum == 10 else str(checksum)):
+                raise ValueError(f"{prefix}.orcid 校验位不正确")
+        for field in links:
+            if field not in profile:
+                continue
+            address = profile[field]
+            message = f"{prefix}.{field} 必须是有效的 HTTPS 公开主页链接"
+            if (not isinstance(address, str) or not address or "\\" in address or
+                    any(ord(character) <= 32 or ord(character) == 127 for character in address)):
+                raise ValueError(message)
+            try:
+                parsed = urlsplit(address)
+                if (parsed.scheme != "https" or not parsed.hostname or parsed.username is not None or parsed.password is not None
+                        or parsed.port not in (None, 443) or "%" in parsed.netloc):
+                    raise ValueError(message)
+            except ValueError as exc:
+                raise ValueError(message) from exc
+            if field == "google-scholar":
+                users = parse_qs(parsed.query, keep_blank_values=True).get("user", [])
+                if (parsed.hostname != "scholar.google.com" or parsed.path != "/citations"
+                        or len(users) != 1 or not re.fullmatch(r"[A-Za-z0-9_-]+", users[0])):
+                    raise ValueError(f"{prefix}.google-scholar 必须是含唯一 user ID 的 Google Scholar 个人主页")
+            if field == "github" and (parsed.hostname != "github.com" or
+                    not re.fullmatch(r"/[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?/?", parsed.path)):
+                raise ValueError(f"{prefix}.github 必须指向 GitHub 用户或组织主页")
+    return config
 
 
 def safe_article_path(value):
@@ -346,8 +455,8 @@ def validate_translation(source, translation, source_ast, translated_ast):
 def validate_sources(quarto):
     config = yaml.safe_load((BOOK / "_quarto.yml").read_text(encoding="utf-8"))
     giscus_settings(config)  # Reject incomplete service configuration before rendering.
+    known = load_author_metadata()["guide-authors"]
     load_redirects()
-    known = yaml.safe_load((BOOK / "_authors.yml").read_text(encoding="utf-8"))["guide-authors"]
     current = pages()
     asts = {}
     for root in language_roots():

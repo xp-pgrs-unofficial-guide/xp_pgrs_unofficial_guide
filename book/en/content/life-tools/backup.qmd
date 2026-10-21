@@ -8,7 +8,7 @@ legacy-source:
 lang: en
 translation-source: content/life-tools/backup.qmd
 translation-status: draft
-translation-source-sha256: d365a78fa514d825bd925ac63b2aa6258ea078084dd7eecdf7cebc41931f3289
+translation-source-sha256: 8d78f9aa502c595646a223c61370d155b47c616d184d4c7e1ef83b525f0a9012
 ---
 
 ::: {#xp-guide-backup}
@@ -122,8 +122,8 @@ For the safety of your thesis, your lifeline, an extra layer of protection is th
 
 5. If you know some Git and GitHub, turn the whole thesis folder into a Git repository and upload it to a private GitHub repository. At the end of each working day, commit a backup version and record what you changed. For papers, Git is the ideal backup solution: you can easily return to old versions without worrying about overwriting them, and even identify when a particular change was introduced. It is more reliable than all the methods above. Overleaf also has GitHub integration for convenient collaboration with your supervisor. Git does have a somewhat steeper learning curve, but there are countless detailed tutorials online for interested students with time to learn.
 
-(2 December 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 2 December 2022)
 
-(Major update: 30 December 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Major update: 30 December 2022)
 
 :::

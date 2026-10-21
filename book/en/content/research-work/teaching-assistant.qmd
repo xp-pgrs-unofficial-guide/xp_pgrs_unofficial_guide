@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/research-work/teaching-assistant.qmd
 translation-status: draft
-translation-source-sha256: 96c03a4e7ce77a62ab12a31054c451fac229a3d46e102d6e9eb07528225d8fb2
+translation-source-sha256: 1c1a1fd33e08f773a4a27765e25be68c7088c6d7d7dbebf57a011b694cdd1791
 ---
 
 ::: {#xp-guide-teaching-assistant}
@@ -22,11 +22,11 @@ translation-source-sha256: 96c03a4e7ce77a62ab12a31054c451fac229a3d46e102d6e9eb07
 
 For fully funded students, 300 compulsory TA hours per academic year, divided across 40 teaching weeks, means 7.5 hours of duties every week: effectively one day a week gone. You may well ask whether this is really enforced so strictly. In practice, schools vary greatly. Some have even built a digital system specifically to track your hours and require you to complete them all; others are more relaxed. Ask senior students in your own programme how it is implemented.
 
-(21 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 21 October 2022)
 
-(Major update: 30 December 2022, by [Yue Zhou](mailto:jasminezhou828@gmail.com): TA hours corrected according to the latest official handbook.)
+(Major update: 30 December 2022: TA hours corrected according to the latest official handbook.)
 
-(Update: 15 January 2024, by [Kai Wu](mailto:kaiwu.astro@gmail.com): TA hours corrected according to the latest official handbook.)
+(Update: 15 January 2024: TA hours corrected according to the latest official handbook.)
 
 :::
 
@@ -42,7 +42,7 @@ Schools recruit TAs around the first week of each semester. Usually the School A
 
 If you are keen to take part, or want to secure a place on a particular module or with a particular teacher, contact the administrator and the relevant teacher early.
 
-(30 December 2022, by [Yue Zhou](mailto:jasminezhou828@gmail.com))
+(Information dated: 30 December 2022)
 
 :::
 
@@ -128,7 +128,7 @@ Some of my marking experience:
 
 8. After marking, students may contact you through LMO or email. Try not to reply directly, because the teacher is responsible if your reply is wrong. Forward student messages to the teacher and let them reply, unless they have agreed that you should respond yourself.
 
-(21 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 21 October 2022)
 
 :::
 
@@ -148,7 +148,7 @@ Modules such as university physics laboratory classes require TAs to lead labs. 
 
 I find lab teaching very challenging because it really is university teaching. You must spend time preparing the class and your notes, organizing your thoughts, and anticipating students' questions. The module teacher trains TAs in the lab beforehand, but you need to understand the experiment thoroughly yourself. You also need to handle unexpected incidents, such as students breaking equipment; ask the teacher promptly. Since there are only a few lab sessions, the total hours, even including report marking, are fewer than the coursework marking for most other modules, yet it is excellent training. Try challenging yourself. If you do not want to do it, tell the teacher and school administrator as early as possible and ask to move to another module.
 
-(22 October 2022, by [Kai Wu](mailto:kaiwu.astro@gmail.com))
+(Information dated: 22 October 2022)
 
 ![Lab teaching](../../../assets/imported/Kai.Wu/lab.jpg)
 
@@ -164,7 +164,7 @@ I find lab teaching very challenging because it really is university teaching. Y
 
 3. Discuss problems promptly with the module leader. Do not make your own decision on difficult issues: consult them. You can also discuss student feedback with co-teachers to improve the learning experience. Better experiences naturally raise Module Questionnaire (MQ) scores. MQ scores are student teaching evaluations, and good results can go on your CV when applying for jobs.
 
-(30 December 2022, by [Yue Zhou](mailto:jasminezhou828@gmail.com))
+(Information dated: 30 December 2022)
 
 :::
 

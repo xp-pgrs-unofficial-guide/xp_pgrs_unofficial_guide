@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/life-tools/ergonomics.qmd
 translation-status: draft
-translation-source-sha256: de63459f495b08d1e64bfa3f8a20fa29d79338a9d89d03ba5a7aed208b79b886
+translation-source-sha256: 15e49631ccd27ef639ff5288f9ce03d3e987e297e4aa1c4d2d4d2f061dc6b672
 ---
 
 ::: {#xp-guide-ergonomics}
@@ -20,7 +20,7 @@ translation-source-sha256: de63459f495b08d1e64bfa3f8a20fa29d79338a9d89d03ba5a7ae
 
 Before starting my PhD, I already had severe lower-back muscle strain. How should I put it? It is not exactly a major illness, but it torments you all the time. At its worst, I was in so much pain that I could not sleep at night. I went to hospital and was prescribed medication, but the doctor said that managing it myself was necessary and that there was no complete cure. Later I tried running for six months and, surprisingly, the strain got better. It no longer hurts now, though sitting for too long still causes pain. After starting the PhD I no longer felt like exercising, so I bought an adjustable workstation. I recommend one for everyone; it is so useful! You can work standing up and sit down when tired, greatly reducing the harm prolonged sitting does to the lower back.
 
-(30 December 2022, by [Yue Zhou](mailto:jasminezhou828@gmail.com))
+(Information dated: 30 December 2022)
 
 :::
 
@@ -68,6 +68,6 @@ For memberships, I remember that Dushu Lake Swimming Pool offers half-price annu
 
 Finally, if your back pain is fairly severe, consider visiting a hospital's orthopaedics department when you have time and having an MRI to find out how far the condition has progressed and determine a suitable recovery approach. Back pain is now very common among young people.
 
-(30 December 2022, by Jialin Wang)
+(Information dated: 30 December 2022)
 
 :::
