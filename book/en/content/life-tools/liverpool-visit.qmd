@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/life-tools/liverpool-visit.qmd
 translation-status: draft
-translation-source-sha256: c2e86cb2bbf7513a7f2747d7bca32a8c1abcf79b98d5cd10a605d7df4646863c
+translation-source-sha256: b009583f63c30a5eff17fd23e341da193c0bce7e096e143c9517237a4177cb48
 ---
 
 ::: {#xp-guide-liverpool-visit}
@@ -15,13 +15,17 @@ translation-source-sha256: c2e86cb2bbf7513a7f2747d7bca32a8c1abcf79b98d5cd10a605d
 ::: {#section.UoL_visit}
 :::
 
-::: {.contribution authors="yue-zhou"}
-
 ## Length of the visit {#交流时长}
+
+::: {.contribution authors="yue-zhou"}
 
 Usually three to six months. A visit shorter than three months is also possible. In principle, visits should not exceed six months. A longer visit needs sufficient reasons and approval from both supervisors and the Head of Department. However, the Liverpool school administrator told me they had no budget for any period beyond six months, which could be a problem. A visit longer than six months may also raise visa issues, so ask about these in advance.
 
+:::
+
 ## The host supervisor {#关于-host-supervisor}
+
+::: {.contribution authors="yue-zhou"}
 
 If your supervisory team includes a Liverpool supervisor, that person is the default host. If not, but you are particularly keen to visit Liverpool, contact a potential host there yourself and obtain their permission and signature.
 
@@ -31,13 +35,21 @@ If you have had little interaction, establish some familiarity first to make the
 
 Collaboration can have different motivations, as discussed under [Collaboration](../research-work/how-research-works.qmd#subsection.teamwork). Whatever the reason, agree at least broadly with your Liverpool supervisor about the visit's activities beforehand, including what needs their involvement, the timetable, what you need to prepare, and what you plan to do.
 
+:::
+
 ## Funding {#关于-funding}
+
+::: {.contribution authors="yue-zhou"}
 
 XJTLU: the university provides RMB 12,000, covering high-speed rail between Suzhou and Shanghai for the visa application, the visa fee, return flights to the UK, UK train fares to and from Liverpool, and accommodation necessary for the flights. For example, if you land in Manchester and take a train to Liverpool, that journey is reimbursable, as is the train or coach from Liverpool to the airport on your return. Nothing else is reimbursed! The total cannot exceed RMB 12,000, and the university is not responsible for any excess.
 
 Liverpool: free accommodation with bills included, meaning water, electricity, and gas, plus GBP 100 per week for living expenses.
 
+:::
+
 ## Visa application process {#签证流程}
+
+::: {.contribution authors="yue-zhou"}
 
 - Fill in the relevant information on the official website.
 
@@ -71,9 +83,9 @@ Liverpool: free accommodation with bills included, meaning water, electricity, a
 
 :::
 
-::: {.contribution authors="yue-zhou"}
-
 ### What to bring to the UK, especially for autumn and winter visits {#赴英物品供秋冬季去的那批参考}
+
+::: {.contribution authors="yue-zhou"}
 
 - Two plug adapters and one extension lead.
 
@@ -107,7 +119,11 @@ Liverpool: free accommodation with bills included, meaning water, electricity, a
 
 There are many SIM options. You can pick up a CMLink SIM while applying for the visa, but beware of scams! Once activated, it attracts all sorts of scam calls; simply ignore them. After arriving in the UK, you can get an EE, Vodafone, O2, or other SIM. Some companies offer benefits such as free coffee vouchers.
 
+:::
+
 ### Transport {#交通}
+
+::: {.contribution authors="yue-zhou"}
 
 Trip.com, Ctrip's overseas service, can book trains, underground travel, flights, and hotels across the UK. There are also many commonly used dedicated apps: Trainline for trains, Skyscanner for flights, Booking for hotels, and Uber for taxis.
 
@@ -115,23 +131,27 @@ If you expect to travel by train frequently, consider a Railcard, which saves on
 
 :::
 
-::: {.contribution authors="shiyao-zhang"}
-
 ### Accommodation {#住宿}
+
+::: {.contribution authors="shiyao-zhang"}
 
 You should receive an email two weeks before arriving in Liverpool. Liverpool allocates accommodation centrally. Locations differ between groups, so the distance from campus is not certain, but the halls are all reasonably close, around a twenty-minute walk. You cannot choose which students you live with; simply wait patiently for the allocation. If the move-in date is approaching and no email has arrived, which has happened, contact Liverpool's accommodation team at <hallsres@liverpool.ac.uk> to ask.
 
 :::
 
-::: {.contribution authors="yue-zhou"}
-
 ### Office and ID card {#办公室和id卡}
+
+::: {.contribution authors="yue-zhou"}
 
 After arrival, the relevant staff tell you where your office is, and you can go there yourself. The office has monitors and desktop computers.
 
 Take your passport to IT to change your campus code and obtain a student card. The card provides access to offices and the library, printing, and book borrowing.
 
+:::
+
 ### Good food in Liverpool {#利物浦好吃的}
+
+::: {.contribution authors="yue-zhou"}
 
 - Zhangji (张记).
 
@@ -167,9 +187,9 @@ Take your passport to IT to change your campus code and obtain a student card. T
 
 :::
 
-::: {.contribution authors="shiyao-zhang"}
-
 ### Visiting other university libraries {#访问其他学校图书馆}
+
+::: {.contribution authors="shiyao-zhang"}
 
 While travelling and visiting places around the UK, if you happen to pass a university library when you are tired, you can go in and sit down, provided you have applied for [SCONUL Access](https://access.sconul.ac.uk/sconul-access) in advance.
 

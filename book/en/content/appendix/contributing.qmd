@@ -4,7 +4,7 @@ discussion-id: xp-guide-contributing
 lang: en
 translation-source: content/appendix/contributing.qmd
 translation-status: draft
-translation-source-sha256: 7fc27dbfa05f6cfac151f6bf7753413139bd4dcbfbb109abf42533e41af67048
+translation-source-sha256: d24b39c1400a5c689ee7ec55fbd06173651407e4c455b350f274aac7660308af
 ---
 
 ::: {#xp-guide-contributing}
@@ -34,7 +34,7 @@ Attribution records the people who actually provided the content. When an editor
 
 Credits are generated from contribution-block attributes. Do not repeat author bylines, `by …` signatures, or updater names in the body. Keep useful source dates and reasons for updates; source citations and the people being thanked remain part of the content.
 
-In an article with several authors, use adjacent `.contribution` blocks. A block can contain consecutive paragraphs, headings, or lists by the same author. Close it and start another when the author changes; do not nest attribution blocks. This example uses registered author IDs to demonstrate the syntax. Replace the text and IDs according to the actual content and authors:
+In an article with several authors, use adjacent `.contribution` blocks. Put section headings (`##`, `###`, and so on) outside the blocks so that the on-page contents can be generated correctly; headings do not need separate credits. Consecutive paragraphs, lists, tables, and images by the same author can share a block. Keep information dates, update notes, and similar text inside the actual provider's block too. Close the current block before the next heading or a change of author, then start a new one; do not nest attribution blocks. This example uses registered author IDs to demonstrate the syntax. Replace the text and IDs according to the actual content and authors:
 
 ```markdown
 ::: {.contribution authors="shiyao-zhang"}

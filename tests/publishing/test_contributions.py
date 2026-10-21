@@ -33,9 +33,15 @@ class Anchors(HTMLParser):
         self.regions = []
         self.region_stack = []
         self.region_errors = []
+        self.headings = []
+        self.ids = []
 
     def handle_starttag(self, tag, attributes):
         fields = dict(attributes)
+        if fields.get("id"):
+            self.ids.append(fields["id"])
+        if tag in {"h2", "h3"}:
+            self.headings.append((tag, fields, [name for _, names in self.region_stack for name in names]))
         if tag == "script" and fields.get("src"):
             self.scripts.append(fields["src"])
         if tag == "script" and "guide-giscus-config" in fields.get("class", "").split():
@@ -217,6 +223,27 @@ class ContributionLinkTests(unittest.TestCase):
                     if source == "index.qmd":
                         self.assertLess(result.stdout.index('class="guide-downloads"'),
                                         result.stdout.index('<footer class="guide-afterword"'))
+
+    def test_footer_headings_own_their_anchors_after_an_article_subsection(self):
+        body = '## Everyday life {#everyday-life}\n\n### Other libraries {#other-libraries}\n\nArticle text.'
+        for lang, expected_ids in [("zh-CN", ["一起完善这一页", "讨论"]),
+                                   ("en", ["help-improve-this-page", "discussion"])]:
+            with self.subTest(lang=lang):
+                parser, _, _ = self.parse(input_file="content/life-tools/liverpool-visit.qmd",
+                                          lang=lang, body=body)
+                footer = [fields for _, fields, ancestors in parser.headings if "guide-afterword" in ancestors]
+                self.assertEqual([heading["id"] for heading in footer], expected_ids)
+                self.assertEqual([heading["data-anchor-id"] for heading in footer], expected_ids)
+                self.assertTrue(all("unlisted" in heading["class"].split() for heading in footer))
+                self.assertEqual(len(parser.ids), len(set(parser.ids)))
+                article = [fields for _, fields, ancestors in parser.headings if "guide-afterword" not in ancestors]
+                self.assertEqual([heading["id"] for heading in article], ["everyday-life", "other-libraries"])
+                self.assertEqual([heading["data-anchor-id"] for heading in article], ["everyday-life", "other-libraries"])
+
+        for output_format in ("gfm", "latex"):
+            result = convert(body=body, output_format=output_format)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertNotIn("data-anchor-id", result.stdout)
 
     def test_publication_controls_are_absent_from_pdf_and_plain_markdown(self):
         for lang in ("zh-CN", "en"):

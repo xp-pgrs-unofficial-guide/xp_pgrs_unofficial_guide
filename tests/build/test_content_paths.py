@@ -134,6 +134,33 @@ class TemporaryBook(unittest.TestCase):
 
 
 class ContentPathTests(TemporaryBook):
+    def test_navigation_headings_can_leave_credit_blocks_but_trailing_dates_cannot(self):
+        sections = '''## Visit length {#visit-length}
+
+::: {.contribution authors="editorial"}
+First section text.
+:::
+
+### University libraries {#university-libraries}
+
+::: {.contribution authors="editorial"}
+Final section text.
+'''
+        ending = "\n:::\n"
+        date = "\nInformation dated: 21 October 2022.\n"
+
+        def blocks(source):
+            result = self.pandoc_run(["test-quarto", "pandoc", "--from=markdown", "--to=json"],
+                                     input=source, capture_output=True, text=True)
+            return json.loads(result.stdout)["blocks"]
+
+        parsed = blocks(sections + ending)
+        self.assertEqual([block["t"] for block in parsed], ["Header", "Div", "Header", "Div"])
+        build.validate_ast(parsed, self.book / "index.qmd", {"editorial"})
+        with self.assertRaisesRegex(ValueError, "未归入署名内容块的 Para"):
+            build.validate_ast(blocks(sections + ending + date), self.book / "index.qmd", {"editorial"})
+        build.validate_ast(blocks(sections + date + ending), self.book / "index.qmd", {"editorial"})
+
     def test_recursive_discovery_includes_every_article_and_no_generated_file(self):
         self.articles["content/resources/nested/extra.qmd"] = ("Deep article", "xp-guide-extra")
         self.write_source("content/resources/nested/extra.qmd")

@@ -32,6 +32,14 @@ return {
       end
     end
   end},
+  {Header = function(header)
+    if FORMAT:match("html") and header.identifier ~= "" then
+      -- Pandoc moves the ID to its surrounding section in HTML. Preserve the
+      -- source heading's own anchor before Quarto scans descendant headings.
+      header.attributes["data-anchor-id"] = header.identifier
+      return header
+    end
+  end},
   {Pandoc = function(doc)
     if not FORMAT:match("html") then return doc end
     local repo, site = value(meta["guide-repo"]), value(meta["guide-site"])
@@ -91,14 +99,14 @@ return {
       '<footer class="guide-afterword" aria-label="' .. text("参与与讨论", "Contribute and discuss") .. '">',
       '<p class="guide-afterword-label">' .. text("正文结束 · 参与与讨论", "End of article · Contribute and discuss") .. '</p>',
       '<section class="guide-participate" aria-label="' .. text("参与完善本页", "Improve this page") .. '">',
-      '<h2 class="unnumbered">' .. text("一起完善这一页", "Help improve this page") .. '</h2>',
+      '<h2 id="' .. text("一起完善这一页", "help-improve-this-page") .. '" data-anchor-id="' .. text("一起完善这一页", "help-improve-this-page") .. '" class="unnumbered unlisted">' .. text("一起完善这一页", "Help improve this page") .. '</h2>',
       '<p>' .. text("分享变化、补充经验，或帮我们修正一处错误。正文由编辑审核后发布。", "Share an update, add your experience, or correct an error. Editors review changes before publication.") .. '</p>',
       '<nav class="guide-actions" aria-label="' .. text("供稿入口", "Contribution options") .. '">',
       '<a href="' .. html(issue) .. '">' .. text("补充内容／纠错", "Add or correct content") .. '</a>',
       '<a href="' .. html(edit) .. '">' .. text("提出修改（PR）", "Propose an edit (PR)") .. '</a>',
       '<a data-noresolveinput href="' .. html(markdown) .. '">' .. text("纯 Markdown", "Plain Markdown") .. '</a></nav>',
       '<p class="guide-contribution-help">' .. text("“补充内容／纠错”已带上文章信息，填写建议后提交即可。也可选择“提出修改（PR）”在 GitHub 网页编辑；无仓库写权限时，按提示创建 fork 并提交 PR，目标分支选择 ", "The contribution draft includes this page’s details. You can also edit on GitHub; without write access, follow the fork and pull request prompts. Target branch: ") .. '<code>' .. html(branch) .. '</code>' .. text('。', '.') .. '</p>',
-      '</section><section class="guide-discussion" aria-label="' .. text("文章讨论", "Article discussion") .. '"><h2 class="unnumbered">' .. text("讨论", "Discussion") .. '</h2>'
+      '</section><section class="guide-discussion" aria-label="' .. text("文章讨论", "Article discussion") .. '"><h2 id="' .. text("讨论", "discussion") .. '" data-anchor-id="' .. text("讨论", "discussion") .. '" class="unnumbered unlisted">' .. text("讨论", "Discussion") .. '</h2>'
     }
     for _, part in ipairs(afterword) do parts[#parts + 1] = part end
     local repoid, categoryid = os.getenv("GISCUS_REPO_ID") or "", os.getenv("GISCUS_CATEGORY_ID") or ""
