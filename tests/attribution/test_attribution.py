@@ -132,6 +132,28 @@ class AttributionFilterTests(unittest.TestCase):
         self.assertIn("Original author: Kai Wu", html.attributes("summary")[0]["aria-label"])
         self.assertIn('class="attribution-scope">Scope: the continuous content marked by the right-hand boundary.', result.stdout)
 
+    def test_profile_pages_keep_content_and_anchors_without_editorial_attribution_rails(self):
+        for language in ["zh-CN", "en"]:
+            source = ('---\nlang: ' + language + '\nguide-author-id: kai-wu\n---\n\n'
+                      '::: {#profile-content .contribution authors="kai-wu"}\n'
+                      'Profile details and public links.\n\n## Credited articles\n\n'
+                      '[Article](../content/example.html)\n:::\n')
+            result = convert(source, "html5")
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn('id="profile-content"', result.stdout)
+            self.assertIn("Profile details and public links.", result.stdout)
+            self.assertIn('href="../content/example.html"', result.stdout)
+            for marker in ['class="contribution"', "paragraph-attribution", "attribution-icon",
+                           "data-attribution-run", "data-author-ids", 'role="group"',
+                           'authors="kai-wu"']:
+                self.assertNotIn(marker, result.stdout)
+            # Source attribution still survives printable and agent-readable
+            # exports; suppression applies only to the webpage presentation.
+            for output_format in ["gfm", "latex"]:
+                exported = convert(source, output_format)
+                self.assertEqual(exported.returncode, 0, exported.stderr)
+                self.assertIn("Kai Wu", exported.stdout)
+
     def test_popovers_group_public_icons_with_their_author_or_contributor(self):
         metadata = {"guide-author-profiles": {
             "kai-wu": {"orcid": "0000-0002-1825-0097",

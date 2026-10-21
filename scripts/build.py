@@ -277,9 +277,12 @@ def load_redirects():
 
 
 def redirect_outputs(suffix):
-    base = OUTPUT / "markdown" if suffix == ".md" else OUTPUT
+    def output(path):
+        if suffix == ".md":
+            return markdown_output(BOOK / path)
+        return OUTPUT / Path(path).with_suffix(suffix)
     return {
-        (base / Path(old).with_suffix(suffix)).resolve(): (base / Path(new).with_suffix(suffix)).resolve()
+        output(old).resolve(): output(new).resolve()
         for old, new in load_redirects().items()
     }
 
@@ -591,8 +594,8 @@ def export_redirects():
             'target.hash = window.location.hash;\n'
             'window.location.replace(target.href);\n'
             '</script>\n</body></html>\n', encoding="utf-8")
-        markdown_file = OUTPUT / "markdown" / Path(old).with_suffix(".md")
-        new_markdown = OUTPUT / "markdown" / Path(new).with_suffix(".md")
+        markdown_file = markdown_output(BOOK / old)
+        new_markdown = markdown_output(BOOK / new)
         markdown_file.parent.mkdir(parents=True, exist_ok=True)
         markdown_file.write_text(
             f'# 文章已迁移\n\n请前往新地址阅读：[当前文章]({relative_url(new_markdown, markdown_file.parent)})。\n',

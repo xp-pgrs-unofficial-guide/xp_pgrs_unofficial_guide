@@ -4,7 +4,7 @@ discussion-id: xp-guide-contributing
 lang: en
 translation-source: content/appendix/contributing.qmd
 translation-status: draft
-translation-source-sha256: 6cbd63e2248534528b7fb8628878211a624168f57c98dab01430f8d8caf5ed17
+translation-source-sha256: 7fc27dbfa05f6cfac151f6bf7753413139bd4dcbfbb109abf42533e41af67048
 ---
 
 ::: {#xp-guide-contributing}
@@ -60,7 +60,7 @@ When a suggestion from the comments is incorporated into the guide, editors will
 
 ## Academic profiles {#author-academic-profile}
 
-The [authors and contributors directory](../../authors/index.qmd#xp-guide-authors) links to each person's credited articles and public information confirmed by that person. Optional fields include project roles, affiliation, department, research interests, biography, ORCID, Google Scholar, personal website, institutional profile, GitHub, and public email address. Leave unknown details empty; do not infer accounts or affiliations from a name.
+Choose a name under the "Authors and contributors" navigation group to view that person's credited articles and public information confirmed by them. Optional fields include project roles, affiliation, department, research interests, biography, ORCID, Google Scholar, personal website, institutional profile, GitHub, and public email address. Leave unknown details empty; do not infer accounts or affiliations from a name.
 
 Academic and contact links appear as icons on the website. Hover over an icon or focus it with the keyboard to see its name and address; click to visit. PDF, Markdown, and browser printing retain readable text and links.
 

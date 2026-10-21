@@ -198,7 +198,7 @@ class AuthorProfileTests(unittest.TestCase):
         latex = self.convert("latex")
         self.assertIn("https://orcid.org/0000-0002-1825-0097", latex)
         self.assertIn("xp-guide-example", latex)
-        self.assertIn("xp-guide-authors", latex)
+        self.assertNotIn("xp-guide-authors", latex)
         self.assertNotIn("../index.qmd", latex)
         self.assertNotIn("guide-author-expanded", latex)
         for marker in ["guide-profile-link", "<svg", "data:image", "aria-label", "guide-profile-tooltip"]:

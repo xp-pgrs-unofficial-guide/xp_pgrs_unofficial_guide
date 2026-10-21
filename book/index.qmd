@@ -6,7 +6,7 @@ discussion-id: xp-guide-home
 ::: {#xp-guide-home}
 :::
 
-::: {.contribution authors="editorial"}
+:::: {.contribution authors="editorial"}
 
 从入学、年度评审到毕业，从助教工作到生活资源，这里汇集西浦博士生愿意留给后来人的经验。
 
@@ -27,8 +27,11 @@ discussion-id: xp-guide-home
 
 每篇文章下方可以讨论，也可以通过“补充内容／纠错”提交文字与附件。熟悉 Markdown 的读者可以直接编辑本页并提交 PR，所有正文修改经编辑审核后发布。[查看供稿方法](content/appendix/contributing.qmd#xp-guide-contributing)。
 
-作者主页与参与文章见[作者与贡献者清单](authors/index.qmd#xp-guide-authors)。
+::: {#xp-guide-authors}
+:::
+
+在目录的“作者与贡献者”分组中选择姓名，可查看作者主页与参与文章。
 
 供程序或 agent 阅读的版本见 [Markdown 索引](llms.txt)，它与网页和 PDF 从同一份正文生成。
 
-:::
+::::

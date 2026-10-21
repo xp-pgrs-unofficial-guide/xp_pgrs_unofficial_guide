@@ -1,5 +1,7 @@
 schema_version: 1
 redirects:
+  authors/index.qmd: index.qmd
+  en/authors/index.qmd: en/index.qmd
   content/acknowledgements.qmd: content/appendix/acknowledgements.qmd
   content/apr.qmd: content/milestones/apr.qmd
   content/backup.qmd: content/life-tools/backup.qmd

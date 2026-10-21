@@ -12,7 +12,7 @@ This repository contains Chinese content and [English translations on the same s
 
 ## Content and contributions
 
-The Chinese home page is `book/index.qmd`, with `.qmd` files (Quarto Markdown) grouped into six topic directories under `book/content/`. English translations mirror these paths under `book/en/`. See the [article directory and file move guide](CONTRIBUTING.md#文章目录与文件移动) (in Chinese) for the directory map, new article locations, and compatibility with old URLs. Each language’s source produces its website, complete PDF, and plain Markdown for LLMs. Contribution blocks identify original authors and later contributors. Consecutive matching credits appear once on the website, with links to author pages; the navigation includes an author directory. Editorial commits do not replace original author attribution.
+The Chinese home page is `book/index.qmd`, with `.qmd` files (Quarto Markdown) grouped into six topic directories under `book/content/`. English translations mirror these paths under `book/en/`. See the [article directory and file move guide](CONTRIBUTING.md#文章目录与文件移动) (in Chinese) for the directory map, new article locations, and compatibility with old URLs. Each language’s source produces its website, complete PDF, and plain Markdown for LLMs. Contribution blocks identify original authors and later contributors. Consecutive matching credits appear once on the website, with links to author pages; the “Authors and contributors” navigation group also links to individual profiles. Editorial commits do not replace original author attribution.
 
 The website initially follows the system’s light/dark preference. A manual choice is retained in the browser and across language switches, and the discussion widget follows the current theme.
 

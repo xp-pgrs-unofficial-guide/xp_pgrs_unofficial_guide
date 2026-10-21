@@ -112,6 +112,36 @@ class LanguageBuildTests(TemporaryBook):
             self.assertIn("markdown/content/milestones/apr.md", index)
             self.assertNotIn("markdown/en/", index)
 
+    def test_legacy_author_directory_redirects_keep_markdown_in_each_language(self):
+        self.write_source("index.qmd", "[Old author directory](authors/index.qmd)")
+        self.mirror()
+        self.write_redirects({"authors/index.qmd": "index.qmd",
+                              "en/authors/index.qmd": "en/index.qmd"})
+        self.write_html()
+        for relative, (_, identifier) in self.articles.items():
+            target = self.output / "en" / Path(relative).with_suffix(".html")
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(f'<h1 id="{identifier}">English article</h1>')
+        for prefix in ("", "en/"):
+            home = self.output / prefix / "index.html"
+            home.write_text(home.read_text() +
+                            '<a href="authors/index.html#xp-guide-home">Old author directory</a>')
+        with patch.object(build, "run", self.pandoc_run):
+            self.quietly(build.export_markdown, "test-quarto")
+            self.quietly(build.export_redirects)
+            self.quietly(build.validate_output, html_only=True)
+            self.quietly(build.validate_markdown, "test-quarto")
+        mapping = build.redirect_outputs(".md")
+        for prefix in ("", "en/"):
+            directory = self.output / prefix / "markdown"
+            alias = directory / "authors/index.md"
+            self.assertEqual(mapping[alias], directory / "index.md")
+            self.assertIn("(../index.md)", alias.read_text())
+            self.assertIn("authors/index.md", (directory / "index.md").read_text())
+        self.assertFalse((self.output / "markdown/en").exists())
+        english_html = (self.output / "en/authors/index.html").read_text()
+        self.assertIn(self.config["guide-site"] + "en/index.html", english_html)
+
     def test_generated_english_config_preserves_shared_navigation_and_theme(self):
         self.mirror()
         config = deepcopy(self.config)

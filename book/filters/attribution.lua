@@ -6,6 +6,7 @@ local profile_renderer = dofile(pandoc.path.join({pandoc.path.directory(filter_f
 local public_profiles
 local registry = {}
 local english = false
+local profile_page = false
 local previous_signature = nil
 local run_number = 0
 local profile_prefix = "authors/"
@@ -23,6 +24,7 @@ end
 
 local function read_registry(meta)
   english = pandoc.utils.stringify(meta.lang or ""):match("^en") ~= nil
+  profile_page = pandoc.utils.stringify(meta["guide-author-id"] or "") ~= ""
   previous_signature = nil
   run_number = 0
   registry = {}
@@ -121,6 +123,15 @@ local function contribution(div)
   end
   local uncertain = status == "unverified"
   if FORMAT:match("html") then
+    if profile_page then
+      -- A profile introduces the named person. An editorial attribution rail
+      -- here would look like that person's identity rather than page upkeep.
+      div.classes = div.classes:filter(function(name) return name ~= "contribution" end)
+      div.attributes.authors = nil
+      div.attributes.contributors = nil
+      div.attributes.status = nil
+      return div
+    end
     pandoc.Div(div.content):walk({Div = function(child)
       if has_class(child, "contribution") then
         fail("Nested .contribution blocks are ambiguous; use adjacent blocks instead.")

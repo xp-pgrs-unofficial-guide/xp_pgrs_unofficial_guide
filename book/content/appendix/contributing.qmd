@@ -56,7 +56,7 @@ discussion-id: xp-guide-contributing
 
 ## 作者的学术资料 {#author-academic-profile}
 
-[作者与贡献者清单](../../authors/index.qmd#xp-guide-authors)可进入每位作者的主页，查看其参与文章和本人确认的公开资料。可选资料包括项目角色、机构、院系、研究方向、简介、ORCID、Google Scholar、个人主页、机构资料页、GitHub 和公开邮箱。未知项留空，不凭姓名推断账号或机构。
+在目录的“作者与贡献者”分组中选择姓名，可进入每位作者的主页，查看其参与文章和本人确认的公开资料。可选资料包括项目角色、机构、院系、研究方向、简介、ORCID、Google Scholar、个人主页、机构资料页、GitHub 和公开邮箱。未知项留空，不凭姓名推断账号或机构。
 
 网页以图标展示学术和联系链接，悬停或键盘聚焦可查看名称与地址，点击即可访问。PDF、Markdown 与网页打印保留文字和链接。
 

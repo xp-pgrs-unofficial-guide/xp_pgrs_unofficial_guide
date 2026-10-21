@@ -4,13 +4,13 @@ discussion-id: xp-guide-home
 lang: en
 translation-source: index.qmd
 translation-status: draft
-translation-source-sha256: 041b4cbb40f006ed26f28415385083c00bd9e1837a532558999e4124f01f5edb
+translation-source-sha256: 7acac7264ad3df1e13c9b1f1af1bf1a3b132a4798251f1afdd3c3827d5ca6eda
 ---
 
 ::: {#xp-guide-home}
 :::
 
-::: {.contribution authors="editorial"}
+:::: {.contribution authors="editorial"}
 
 From enrolment, annual reviews, and graduation to teaching assistant work and everyday resources, this guide gathers experiences that XJTLU PhD students want to pass on to those who follow.
 
@@ -31,8 +31,11 @@ On the website, consecutive content with the same credits shares one author icon
 
 You can discuss each article below it, or use "Add or correct content" to submit text and attachments. Readers familiar with Markdown can edit a page and submit a pull request. Editors review all changes before publication. [How to contribute](content/appendix/contributing.qmd#xp-guide-contributing).
 
-See [Authors and contributors](authors/index.qmd#xp-guide-authors) for profiles and credited articles.
+::: {#xp-guide-authors}
+:::
+
+Choose a name under the "Authors and contributors" navigation group to view that person's profile and credited articles.
 
 For software or agents, see the [Markdown index](llms.txt). It is generated from the same source as the website and PDF.
 
-:::
+::::

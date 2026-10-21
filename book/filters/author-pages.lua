@@ -183,8 +183,6 @@ return {{Pandoc = function(doc)
       end
       if #items > 0 then blocks:insert(pandoc.BulletList(items))
       else blocks:insert(pandoc.Para({pandoc.Str(english and "No confirmed article credits are recorded yet." or "当前尚无已登记的文章署名。") })) end
-      local target = pdf and "#xp-guide-authors" or "index.qmd"
-      blocks:insert(pandoc.Para({pandoc.Link({pandoc.Str(english and "All authors and contributors" or "返回作者与贡献者清单")}, target)}))
     end
     return blocks
   end
