@@ -11,7 +11,7 @@ legacy-source:
 ::: {#section.UoL_visit}
 :::
 
-::: {.contribution authors="shiyao-zhang,yue-zhou" status="unverified"}
+::: {.contribution authors="yue-zhou"}
 
 ## 交流时长 {#交流时长}
 
@@ -57,9 +57,17 @@ legacy-source:
 
 - 收到签证返回的邮件，快递打电话通知取签证。PS: 如果离签证中心有一定距离或者不想排队领签证的话，推荐快递服务
 
+:::
+
 ## 衣食住行 {#衣食住行}
 
+::: {.contribution authors="shiyao-zhang"}
+
 [Halls Life](https://hallslife.liverpool.ac.uk) 是利物浦大学学生宿舍的 community hub，提供了对衣食住行的若干建议，强烈建议在出发前往英国之前浏览，可帮助决定是否携带某些行李。
+
+:::
+
+::: {.contribution authors="yue-zhou"}
 
 ### 赴英物品（供秋冬季去的那批参考） {#赴英物品供秋冬季去的那批参考}
 
@@ -101,9 +109,17 @@ trip.com （携程海外版）可订全英火车、地铁、飞机、酒店。 �
 
 如果有经常坐火车的需求，可以考虑办个 railcard，每张火车票可以省 1/3 的钱。
 
+:::
+
+::: {.contribution authors="shiyao-zhang"}
+
 ### 住宿 {#住宿}
 
 抵达利物浦前两星期会有邮件通知，利物浦会统一安排，每批学生住宿的地点不一样，所以离学校的远近也就无法确定。但几个宿舍区离学校都不算远，步行20分钟左右能到。无法自主选定一起住的同学，耐心等待安排即可。但如果临近入住时间还没有收到邮件（发生过），可以主动联系利物浦的学生宿舍部门 <hallsres@liverpool.ac.uk> 询问。
+
+:::
+
+::: {.contribution authors="yue-zhou"}
 
 ### 办公室和ID卡 {#办公室和id卡}
 
@@ -144,6 +160,10 @@ trip.com （携程海外版）可订全英火车、地铁、飞机、酒店。 �
 - TSUJIRI Matcha House （抹茶党狂喜）
 
 - 贡茶（每每emo就奖励自己一杯黑糖啵啵奶盖！）
+
+:::
+
+::: {.contribution authors="shiyao-zhang"}
 
 ### 访问其他学校图书馆 {#访问其他学校图书馆}
 

@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/life-tools/liverpool-visit.qmd
 translation-status: draft
-translation-source-sha256: cb7eaf55c7cc648f101418ceda3c7e6086e0787da012cde1f7bb599bc2f0b4c1
+translation-source-sha256: 08c1ff3b3d9912a33480ebaa7905aea831179a1b14937874ea58d38d45f52e88
 ---
 
 ::: {#xp-guide-liverpool-visit}
@@ -15,7 +15,7 @@ translation-source-sha256: cb7eaf55c7cc648f101418ceda3c7e6086e0787da012cde1f7bb5
 ::: {#section.UoL_visit}
 :::
 
-::: {.contribution authors="shiyao-zhang,yue-zhou" status="unverified"}
+::: {.contribution authors="yue-zhou"}
 
 ## Length of the visit {#交流时长}
 
@@ -61,9 +61,17 @@ Liverpool: free accommodation with bills included, meaning water, electricity, a
 
 - You receive an email when the visa is returned, and the courier phones to arrange collection. P.S. I recommend delivery if you live some distance from the visa centre or do not want to queue to collect it.
 
+:::
+
 ## Everyday life {#衣食住行}
 
+::: {.contribution authors="shiyao-zhang"}
+
 [Halls Life](https://hallslife.liverpool.ac.uk) is the University of Liverpool student accommodation community hub. It offers advice on everyday living. I strongly recommend browsing it before leaving for the UK, as it can help you decide what to pack.
+
+:::
+
+::: {.contribution authors="yue-zhou"}
 
 ### What to bring to the UK, especially for autumn and winter visits {#赴英物品供秋冬季去的那批参考}
 
@@ -105,9 +113,17 @@ Trip.com, Ctrip's overseas service, can book trains, underground travel, flights
 
 If you expect to travel by train frequently, consider a Railcard, which saves one third on each ticket.
 
+:::
+
+::: {.contribution authors="shiyao-zhang"}
+
 ### Accommodation {#住宿}
 
 You should receive an email two weeks before arriving in Liverpool. Liverpool allocates accommodation centrally. Locations differ between groups, so the distance from campus is not certain, but the halls are all reasonably close, around a twenty-minute walk. You cannot choose which students you live with; simply wait patiently for the allocation. If the move-in date is approaching and no email has arrived, which has happened, contact Liverpool's accommodation team at <hallsres@liverpool.ac.uk> to ask.
+
+:::
+
+::: {.contribution authors="yue-zhou"}
 
 ### Office and ID card {#办公室和id卡}
 
@@ -148,6 +164,10 @@ Take your passport to IT to change your campus code and obtain a student card. T
 - TSUJIRI Matcha House, a delight for matcha fans.
 
 - Gong Cha: whenever I feel down, I reward myself with a brown-sugar pearl milk tea with milk foam!
+
+:::
+
+::: {.contribution authors="shiyao-zhang"}
 
 ### Visiting other university libraries {#访问其他学校图书馆}
 

@@ -64,7 +64,7 @@ python3 -c "import hashlib,pathlib; print(hashlib.sha256(pathlib.Path('book/cont
 
 正文按实际作者划分为相邻的 `.contribution` 块。一个块可以包含同一作者连续撰写的多段文字、标题、列表、表格和图片；作者变化时，先关闭当前块，再另起一块。不要嵌套署名块。网页会将连续且原作者、补充者、确认状态均一致的内容只显示一次署名，遇到变化重新显示；源文件仍需逐块标记，PDF 与 Markdown 继续保留各块署名。不要为了网页去重而删掉源署名。
 
-例如《利物浦访学》目前整篇共用 `authors="shiyao-zhang,yue-zhou" status="unverified"`，表示已知两位作者参与，但具体段落归属仍待确认。核实后可以按作者切成下面这样的相邻块。以下仅演示语法，不代表已确认该文各段的作者：
+以下用已登记的两个作者 ID 演示相邻署名块。示例中的文字和 ID 应按实际内容及作者替换：
 
 ```markdown
 ::: {#p-your-topic-001 .contribution authors="shiyao-zhang"}

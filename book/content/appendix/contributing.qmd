@@ -28,7 +28,7 @@ discussion-id: xp-guide-contributing
 
 署名记录内容的实际提供者。编辑帮忙录入、整理格式或改正错字时保留原作者；实质补充内容时注明补充者。可以使用姓名、昵称或明确的匿名署名，无需公开邮箱。
 
-多人文章按作者切成相邻的 `.contribution` 块：同一作者连续的多段、标题或列表可以共用一个块，作者变化时关闭当前块、另起一块，不要嵌套。下面仅演示语法，不代表已确认《利物浦访学》各段的作者：
+多人文章按作者切成相邻的 `.contribution` 块：同一作者连续的多段、标题或列表可以共用一个块，作者变化时关闭当前块、另起一块，不要嵌套。下面用已登记的作者 ID 演示语法，实际文字和 ID 应按内容及作者替换：
 
 ```markdown
 ::: {.contribution authors="shiyao-zhang"}
@@ -46,7 +46,7 @@ discussion-id: xp-guide-contributing
 
 同一段确实共同撰写时用 `authors="shiyao-zhang,yue-zhou"`；保留原文并由另一人实质补充时用 `authors="shiyao-zhang" contributors="yue-zhou"`。连续同署名内容在网页只显示一次署名入口，变化后重新显示。更多写法见[段落署名与写作格式](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md#段落署名与写作格式)。
 
-[《利物浦访学》](../life-tools/liverpool-visit.qmd#xp-guide-liverpool-visit)目前整篇共用两位作者的待核实署名块，尚未细分到具体段落。只有核对原稿或由作者确认后，才按实际归属拆分；暂时无法确认的历史内容保留 `status="unverified"`，作者身份也未知时使用 `authors="unknown"`。
+整理历史多作者文章时，应核对原稿或由作者确认后，按实际归属划分署名块。暂时无法确认的历史内容保留 `status="unverified"`，作者身份也未知时使用 `authors="unknown"`。
 
 历史内容中的“归属待确认”不是新的作者身份。若你知道具体来源，请在投稿中提供原稿、既有署名或其他可核实的线索。
 
