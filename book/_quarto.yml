@@ -67,9 +67,8 @@ book:
     - content/appendix/contributing.qmd
     - content/appendix/acknowledgements.qmd
     - content/appendix/changelog.qmd
-  - part: 作者与贡献者
+  - part: authors/index.qmd
     chapters:
-    - authors/index.qmd
     - authors/kai-wu.qmd
     - authors/shiyao-zhang.qmd
     - authors/yue-zhou.qmd

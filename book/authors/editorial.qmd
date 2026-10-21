@@ -9,8 +9,6 @@ guide-author-id: editorial
 
 :::: {.contribution authors="editorial"}
 
-编辑组负责整理与审核投稿，代录和排版不改变原作者署名。
-
 ::: {.guide-author-profile data-guide-author-id="editorial"}
 :::
 

@@ -1,6 +1,9 @@
 -- A contribution describes editorial attribution, never Git commit ownership.
 -- Keep this as a Pandoc filter so the source remains readable Markdown and the
 -- same attribution survives HTML, PDF and plain Markdown exports.
+local filter_file = debug.getinfo(1, "S").source:gsub("^@", "")
+local profile_renderer = dofile(pandoc.path.join({pandoc.path.directory(filter_file), "profile-links.lua"}))
+local public_profiles
 local registry = {}
 local english = false
 local previous_signature = nil
@@ -22,6 +25,8 @@ local function read_registry(meta)
   english = pandoc.utils.stringify(meta.lang or ""):match("^en") ~= nil
   previous_signature = nil
   run_number = 0
+  registry = {}
+  public_profiles = profile_renderer.new(meta, "attribution")
   if quarto and quarto.doc then
     local input = quarto.doc.input_file
     if type(input) == "function" then input = input() end
@@ -72,9 +77,14 @@ end
 local function profile_links(ids, names)
   local links = {}
   for i, id in ipairs(ids) do
-    links[#links + 1] = '<a href="' .. profile_prefix .. id .. '.html">' .. html_escape(names[i]) .. '</a>'
+    local icons = public_profiles.links(id)
+    local profile = '<a class="attribution-person-name" href="' .. profile_prefix .. id .. '.html">' .. html_escape(names[i]) .. '</a>'
+    if #icons > 0 then
+      profile = profile .. public_profiles.html(icons, id, true, "guide-profile-links-attribution")
+    end
+    links[#links + 1] = '<span class="attribution-person" data-author-id="' .. html_escape(id) .. '">' .. profile .. '</span>'
   end
-  return table.concat(links, "、")
+  return table.concat(links, "")
 end
 
 local function attribution_html(ids, names, contributor_ids, contributors, uncertain)

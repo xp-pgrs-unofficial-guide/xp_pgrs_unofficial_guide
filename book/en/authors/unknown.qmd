@@ -5,15 +5,13 @@ guide-author-id: unknown
 lang: en
 translation-source: authors/unknown.qmd
 translation-status: draft
-translation-source-sha256: cb79c8f9879b8099f02d5eb024a64bb685e7e3059d2f0ef65c3b12c67a57e5e6
+translation-source-sha256: 37ac7be9cb8278bd4986ff88814d08baab31ae5eda609f91f194156b5877389a
 ---
 
 ::: {#xp-guide-author-unknown}
 :::
 
 :::: {.contribution authors="editorial"}
-
-This is an attribution label for historical material whose author has not yet been confirmed; it is not a person. Please provide evidence when proposing an attribution correction.
 
 ::: {.guide-author-profile data-guide-author-id="unknown"}
 :::

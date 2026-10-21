@@ -5,15 +5,13 @@ guide-author-id: ziwen-xie
 lang: en
 translation-source: authors/ziwen-xie.qmd
 translation-status: draft
-translation-source-sha256: 415cad39274896a810040f3082d28481610b7212905262cf9b8f622501697001
+translation-source-sha256: 5a1db0458aa7539d6e3a4a4fb635dafd52101fd3dbded35e007cdafe30020302
 ---
 
 ::: {#xp-guide-author-ziwen-xie}
 :::
 
 :::: {.contribution authors="editorial"}
-
-This page lists the contributions recorded under this author ID and public information supplied or confirmed by the person. To correct a credit or add an affiliation, research interests, ORCID, Google Scholar, or other profile information, use the contribution link below.
 
 ::: {.guide-author-profile data-guide-author-id="ziwen-xie"}
 :::

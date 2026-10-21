@@ -2,37 +2,8 @@
 -- Explicit source placeholders also work when Quarto combines chapters for PDF.
 local function value(v) return v and pandoc.utils.stringify(v) or "" end
 local function has_class(div, name) return div.classes:includes(name) end
--- Local assets are embedded in HTML so profiles also work below /en/ and when
--- their source is rendered independently of the book project.
 local filter_file = debug.getinfo(1, "S").source:gsub("^@", "")
-local icon_directory = pandoc.path.normalize(pandoc.path.join({pandoc.path.directory(filter_file), "../assets/icons"}))
-local icon_cache = {}
-local function read_icon(name)
-  if icon_cache[name] then return table.unpack(icon_cache[name]) end
-  for _, extension in ipairs({"svg", "png"}) do
-    local file = io.open(icon_directory .. "/" .. name .. "." .. extension, "rb")
-    if file then
-      local contents = file:read("*a")
-      file:close()
-      icon_cache[name] = {contents, extension}
-      return contents, extension
-    end
-  end
-  error("[authors] Missing local profile icon " .. name)
-end
-local function base64(contents)
-  local alphabet, encoded = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", {}
-  for offset = 1, #contents, 3 do
-    local first, second, third = contents:byte(offset, offset + 2)
-    local bits = first * 65536 + (second or 0) * 256 + (third or 0)
-    for _, shift in ipairs({18, 12, 6, 0}) do
-      local position = math.floor(bits / 2 ^ shift) % 64 + 1
-      encoded[#encoded + 1] = ((shift == 6 and not second) or (shift == 0 and not third))
-        and "=" or alphabet:sub(position, position)
-    end
-  end
-  return table.concat(encoded)
-end
+local profile_renderer = dofile(pandoc.path.join({pandoc.path.directory(filter_file), "profile-links.lua"}))
 return {{Pandoc = function(doc)
   local has_placeholders = false
   doc:walk({Div = function(div)
@@ -54,90 +25,15 @@ return {{Pandoc = function(doc)
   local function localized(profile, key)
     return profile[english and (key .. "-en") or key]
   end
-  local function profile_links(id)
-    local profile, links = profiles[id] or {}, {}
-    local orcid = value(profile.orcid)
-    if orcid ~= "" then links[#links + 1] = {kind="orcid", label="ORCID", target="https://orcid.org/" .. orcid, identifier=orcid} end
-    for _, field in ipairs({
-      {"google-scholar", "Google Scholar", "Google Scholar", "google-scholar"},
-      {"institutional-profile", "机构主页", "Institutional profile", "institution"},
-      {"website", "个人主页", "Website", "website"},
-      {"github", "GitHub", "GitHub", "github"},
-    }) do
-      local target = value(profile[field[1]])
-      if target ~= "" then links[#links + 1] = {kind=field[4], label=field[english and 3 or 2], target=target} end
-    end
-    local email = value(profile.email)
-    if email ~= "" then
-      links[#links + 1] = {kind="email", label=english and "Email" or "邮箱", target="mailto:" .. email,
-        identifier=email, separator=english and ": " or "：", contact=true}
-    end
-    return links
-  end
+  local public_profiles = profile_renderer.new(doc.meta)
+  local profile_links = public_profiles.links
+  local icon_links = public_profiles.icons
   local function append_links(inlines, links, identifiers)
     for _, link in ipairs(links) do
       if #inlines > 0 then inlines:insert(pandoc.Str(" · ")) end
       local label = identifiers and link.identifier and (link.label .. (link.separator or ": ") .. link.identifier) or link.label
       inlines:insert(pandoc.Link({pandoc.Str(label)}, link.target))
     end
-  end
-  local icon_instance = 0
-  local function icon_image(name, variant)
-    local contents, extension = read_icon(name)
-    local classes = "guide-profile-icon-image" .. (variant and (" guide-profile-icon-" .. variant) or "")
-    if extension == "png" then
-      return '<img class="' .. classes .. '" src="data:image/png;base64,' .. base64(contents) ..
-        '" width="24" height="24" alt="" aria-hidden="true" draggable="false">'
-    end
-    local svg = contents:match("<svg[%s>].-</svg>")
-    if not svg then error("[authors] Invalid SVG profile icon " .. name) end
-    icon_instance = icon_instance + 1
-    local prefix = "guide-profile-icon-" .. icon_instance .. "-"
-    -- Official logo files can contain clipping paths. Give every copy unique
-    -- IDs while preserving the supplied shapes, colours and proportions.
-    local ids = {}
-    for identifier in svg:gmatch('id="([^"]+)"') do ids[identifier] = prefix .. identifier end
-    svg = svg:gsub('id="([^"]+)"', function(identifier) return 'id="' .. ids[identifier] .. '"' end)
-      :gsub('url%(#([^)]+)%)', function(identifier) return "url(#" .. (ids[identifier] or identifier) .. ")" end)
-      :gsub('href="#([^"]+)"', function(identifier) return 'href="#' .. (ids[identifier] or identifier) .. '"' end)
-    -- ORCID's supplied SVG has internal .st0/.st1 rules. Scope those class
-    -- selectors too, so an inline logo cannot recolour another page figure.
-    local classes_by_name = {}
-    for names_in_attribute in svg:gmatch('class="([^"]+)"') do
-      for name_in_attribute in names_in_attribute:gmatch("%S+") do
-        classes_by_name[name_in_attribute] = prefix .. name_in_attribute
-      end
-    end
-    svg = svg:gsub('class="([^"]+)"', function(names_in_attribute)
-      return 'class="' .. names_in_attribute:gsub("%S+", classes_by_name) .. '"'
-    end)
-    for original, scoped in pairs(classes_by_name) do
-      local pattern = original:gsub("([^%w])", "%%%1")
-      svg = svg:gsub("%." .. pattern .. "%f[^%w_-]", "." .. scoped)
-    end
-    svg = svg:gsub("<svg", '<svg class="' .. classes .. '" aria-hidden="true" focusable="false"', 1)
-    return svg
-  end
-  local function icon_links(links, id, compact)
-    local inlines = pandoc.Inlines({})
-    for _, link in ipairs(links) do
-      local detail = link.label .. (link.separator or ": ") .. (link.identifier or link.target)
-      local label = value(names[id]) .. " — " .. detail
-      local icon = icon_image(link.kind, link.kind == "github" and "light" or nil)
-      if link.kind == "github" then icon = icon .. icon_image("github-dark", "dark") end
-      local content = pandoc.Inlines({
-        pandoc.RawInline("html", '<span class="guide-profile-icon" aria-hidden="true">' .. icon .. '</span>'),
-        pandoc.Span({pandoc.Str(detail)}, pandoc.Attr("", {"guide-profile-tooltip"}, {["aria-hidden"]="true"})),
-        pandoc.Span({pandoc.Str(detail)}, pandoc.Attr("", {"guide-profile-print-label"}, {["aria-hidden"]="true"})),
-      })
-      inlines:insert(pandoc.Link(content, link.target, "", pandoc.Attr("", {"guide-profile-link"}, {
-        title=label, ["aria-label"]=label, ["data-profile-kind"]=link.kind,
-      })))
-    end
-    return pandoc.Span(inlines, pandoc.Attr("", {"guide-profile-links",
-      compact and "guide-profile-links-compact" or "guide-profile-links-profile"}, {
-        role="group", ["aria-label"]=english and "Public profile links" or "公开资料链接",
-      }))
   end
   local function profile_blocks(id)
     local profile, kind = profiles[id] or {}, profile_kind(id)
@@ -204,8 +100,11 @@ return {{Pandoc = function(doc)
     if type(node) == "string" or kind == "Inlines" then
       local text = value(node)
       if text:match("%.qmd$") then paths[#paths + 1] = text end
-    elseif node.chapters then chapters(node.chapters)
-    elseif type(node) == "table" then for _, child in ipairs(node) do chapters(child) end end
+    elseif type(node) == "table" then
+      if node.part then chapters(node.part) end
+      if node.chapters then chapters(node.chapters)
+      else for _, child in ipairs(node) do chapters(child) end end
+    end
   end
   chapters(doc.meta.book and doc.meta.book.chapters)
   -- Read sources once per document, then reuse the credits for every placeholder.
@@ -260,6 +159,18 @@ return {{Pandoc = function(doc)
       blocks:insert(pandoc.Para({pandoc.Link({pandoc.Str(english and "Content awaiting attribution" or "查看归属待确认的内容")}, target)}))
     else
       if not names[id] then error("[authors] Unknown profile ID " .. id) end
+      -- This is the shared profile-page template. Sources only declare the
+      -- stable author ID; explanatory copy belongs here once per identity kind.
+      local kind = profile_kind(id)
+      if kind == "team" then
+        blocks:insert(pandoc.Para({pandoc.Str(english
+          and "The editorial team organizes and reviews submissions. Transcription and formatting do not change the original author's credit."
+          or "编辑组负责整理与审核投稿，代录和排版不改变原作者署名。")}))
+      elseif kind == "placeholder" then
+        blocks:insert(pandoc.Para({pandoc.Str(english
+          and "This label identifies historical content whose original author has not been verified; it does not represent a person. Please provide verifiable evidence when correcting a credit."
+          or "这是尚未核实原作者的历史内容归属标记，不代表某位作者。补充作者信息时，请同时提供可核对的依据。")}))
+      end
       blocks:extend(profile_blocks(id))
       blocks:insert(pandoc.Header(2, english and "Credited articles" or "参与文章", pandoc.Attr("credited-articles-" .. id)))
       local items = {}

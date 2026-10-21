@@ -312,6 +312,9 @@ def chapters(node):
         for item in node:
             yield from chapters(item)
     elif isinstance(node, dict):
+        # A part may itself be a source page. It appears once as the clickable
+        # parent in Quarto's sidebar, rather than again as its own child chapter.
+        yield from chapters(node.get("part"))
         yield from chapters(node.get("chapters", []))
 
 

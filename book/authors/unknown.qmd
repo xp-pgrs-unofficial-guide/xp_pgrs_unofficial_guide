@@ -9,8 +9,6 @@ guide-author-id: unknown
 
 :::: {.contribution authors="editorial"}
 
-这是尚未核实原作者的历史内容归属标记，不代表某位作者。补充作者信息时，请同时提供可核对的依据。
-
 ::: {.guide-author-profile data-guide-author-id="unknown"}
 :::
 

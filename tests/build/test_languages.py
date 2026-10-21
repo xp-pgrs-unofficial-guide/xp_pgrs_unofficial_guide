@@ -138,6 +138,21 @@ class LanguageBuildTests(TemporaryBook):
         self.assertEqual(english["guide-site-root"], self.config["guide-site"])
         self.assertEqual(english["guide-site"], self.config["guide-site"] + "en/")
 
+    def test_file_valued_parts_are_validated_once_and_remain_shared_in_english(self):
+        self.mirror()
+        config = deepcopy(self.config)
+        config.update({"project": {"type": "book", "output-dir": "_book"},
+                       "format": {"html": {}, "pdf": {}}})
+        config["book"]["chapters"] = [
+            "index.qmd", {"part": "content/milestones/apr.qmd", "chapters": list(self.articles)[2:]}]
+        (self.book / "_quarto.yml").write_text(yaml.safe_dump(config))
+        (self.book / "_languages.yml").write_text("lang: en\n")
+        build.prepare_english_config()
+        english = yaml.safe_load((self.book / "en/_quarto.yml").read_text())
+        self.assertEqual(list(build.chapters(config["book"]["chapters"])), list(self.articles))
+        self.assertEqual(english["book"]["chapters"][1]["part"], "content/milestones/apr.qmd")
+        self.validate_sources()
+
     def test_output_validator_rejects_a_search_index_with_another_language_prefix(self):
         self.mirror()
         self.write_html()

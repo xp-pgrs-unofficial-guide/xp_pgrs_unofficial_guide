@@ -5,11 +5,15 @@ PANDOC_BIN=/path/to/pandoc also works when only Pandoc is installed.
 No Python packages beyond the standard library are needed.
 """
 
+import json
 import os
+import re
 from html.parser import HTMLParser
 from pathlib import Path
 import subprocess
 import unittest
+
+from test_author_pages import ProfileMarkup
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -127,6 +131,76 @@ class AttributionFilterTests(unittest.TestCase):
         self.assertEqual(html.attributes("div", "contribution")[0]["aria-label"], "Original author: Kai Wu")
         self.assertIn("Original author: Kai Wu", html.attributes("summary")[0]["aria-label"])
         self.assertIn('class="attribution-scope">Scope: the continuous content marked by the right-hand boundary.', result.stdout)
+
+    def test_popovers_group_public_icons_with_their_author_or_contributor(self):
+        metadata = {"guide-author-profiles": {
+            "kai-wu": {"orcid": "0000-0002-1825-0097",
+                       "google-scholar": "https://scholar.google.com/citations?user=example&hl=en",
+                       "email": "kai@example.edu"},
+            "yue-zhou": {"github": "https://github.com/example"},
+        }}
+        source = ('---\n' + json.dumps(metadata) + '\n---\n\n' +
+                  '::: {.contribution authors="kai-wu,unknown" contributors="yue-zhou"}\nText.\n:::\n')
+        result = convert(source, "html5")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        parsed = ProfileMarkup(result.stdout)
+        people = parsed.elements("span", "attribution-person")
+        self.assertEqual([person["attributes"]["data-author-id"] for person in people],
+                         ["kai-wu", "unknown", "yue-zhou"])
+        expected = [{"orcid", "google-scholar", "email"}, set(), {"github"}]
+        for person, kinds in zip(people, expected):
+            links = parsed.elements("a", "guide-profile-link", root=person)
+            self.assertEqual({link["attributes"]["data-profile-kind"] for link in links}, kinds)
+            self.assertEqual(len(parsed.elements("span", "guide-profile-links-attribution", root=person)),
+                             int(bool(kinds)), "unknown profiles should not render empty icon rows")
+            self.assertEqual(len(parsed.elements("a", "attribution-person-name", root=person)), 1)
+            for link in links:
+                self.assertEqual(link["attributes"]["title"], link["attributes"]["aria-label"])
+                self.assertIn(" — ", link["attributes"]["aria-label"])
+                self.assertEqual(parsed.elements("span", "guide-profile-tooltip", root=link), [],
+                                 "scrolling cards need their hints outside the link, in normal flow")
+                self.assertEqual(len(parsed.elements("span", "guide-profile-print-label", root=link)), 1)
+            for group in parsed.elements("span", "guide-profile-links-attribution", root=person):
+                children = [child for child in group["children"] if isinstance(child, dict)]
+                self.assertEqual(len(children), 2 * len(kinds))
+                for index in range(0, len(children), 2):
+                    self.assertEqual(children[index]["tag"], "a")
+                    hint = children[index + 1]
+                    self.assertIn("guide-profile-tooltip", hint["attributes"]["class"].split())
+                    self.assertEqual(hint["attributes"]["aria-hidden"], "true")
+                    self.assertIn(" ".join(ProfileMarkup.text(hint).split()), children[index]["attributes"]["aria-label"])
+        email = next(link for link in parsed.elements("a", "guide-profile-link")
+                     if link["attributes"]["data-profile-kind"] == "email")
+        self.assertEqual(email["attributes"]["href"], "mailto:kai@example.edu")
+        self.assertEqual(email["attributes"]["aria-label"], "吴开（Kai Wu） — 邮箱：kai@example.edu")
+        for output_format in ["gfm", "latex"]:
+            exported = convert(source, output_format)
+            self.assertEqual(exported.returncode, 0, exported.stderr)
+            self.assertNotIn("guide-profile", exported.stdout)
+            self.assertNotIn("mailto:", exported.stdout)
+            self.assertIn("Yue Zhou", exported.stdout)
+
+    def test_popover_icons_localize_labels_and_keep_svg_ids_unique_across_runs(self):
+        metadata = {"lang": "en", "guide-author-profiles": {
+            "kai-wu": {"github": "https://github.com/example", "email": "kai@example.edu"},
+        }}
+        source = '---\n' + json.dumps(metadata) + '\n---\n\n' + "\n\n".join(
+            f'::: {{.contribution authors="{author}"}}\nText.\n:::'
+            for author in ["kai-wu", "unknown", "kai-wu"])
+        result = convert(source, "html5")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        parsed = ProfileMarkup(result.stdout)
+        email_links = [link for link in parsed.elements("a", "guide-profile-link")
+                       if link["attributes"]["data-profile-kind"] == "email"]
+        self.assertEqual(len(email_links), 2)
+        self.assertTrue(all(link["attributes"]["aria-label"] == "Kai Wu — Email: kai@example.edu"
+                            for link in email_links))
+        identifiers = [node["attributes"]["id"] for node in parsed.nodes if "id" in node["attributes"]]
+        self.assertEqual(len(identifiers), len(set(identifiers)))
+        references = [match for node in parsed.nodes for attribute in node["attributes"].values()
+                      for match in re.findall(r"url\(#([^)]+)\)", attribute or "")]
+        self.assertTrue(references)
+        self.assertTrue(set(references).issubset(identifiers))
 
     def test_markdown_export_preserves_names_without_web_controls(self):
         result = convert(self.source, "gfm")

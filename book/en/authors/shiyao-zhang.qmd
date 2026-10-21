@@ -5,15 +5,13 @@ guide-author-id: shiyao-zhang
 lang: en
 translation-source: authors/shiyao-zhang.qmd
 translation-status: draft
-translation-source-sha256: 53a8d421cb36a43a4adc7f57dcea0b79e845d2af0e1a204753f2d6be500735f5
+translation-source-sha256: 5aecb9cc8de9cf8171a22fc66b06d2c1ca26e3a50cbe0cbd33eb8d9d0ca1f90f
 ---
 
 ::: {#xp-guide-author-shiyao-zhang}
 :::
 
 :::: {.contribution authors="editorial"}
-
-This page lists the contributions recorded under this author ID and public information supplied or confirmed by the person. To correct a credit or add an affiliation, research interests, ORCID, Google Scholar, or other profile information, use the contribution link below.
 
 ::: {.guide-author-profile data-guide-author-id="shiyao-zhang"}
 :::

@@ -35,7 +35,7 @@ function classed(element) {
 }
 
 function attribution(cardHeight = 200) {
-  const card = { getBoundingClientRect: () => ({ width: 280, height: cardHeight }) };
+  const card = { height: cardHeight, style: {}, getBoundingClientRect() { return { width: 280, height: this.height }; } };
   const details = classed(Object.assign(new Events(), { open: false, style: {} }));
   const summary = Object.assign(new Events(), {
     focused: false,
@@ -452,13 +452,41 @@ test("narrow screens use the navigation inset and cards flip above near the view
   assert.equal(marker.details.classList.contains("attribution-card-above"), true);
 });
 
+test("expanding profile hints use the larger viewport space and keep tall cards scrollable", () => {
+  const marker = attribution(180);
+  const block = contribution("1", 200, 1000, marker);
+  const h = harness({ blocks: [block], viewport: { width: 390, height: 480 } });
+  h.flushFrames();
+  marker.summary.dispatch("click");
+  h.flushFrames();
+  assert.equal(marker.details.classList.contains("attribution-card-above"), false);
+  assert.equal(marker.card.style.maxHeight, "228px");
+  marker.card.height = 300;
+  h.resizeObservation.notify([]);
+  h.flushFrames();
+  assert.equal(marker.details.classList.contains("attribution-card-above"), false,
+               "a card larger than either side must stay in the larger lower space");
+  assert.equal(marker.card.style.maxHeight, "228px");
+  block.rect.top = 300;
+  h.window.dispatch("scroll");
+  h.flushFrames();
+  assert.equal(marker.details.classList.contains("attribution-card-above"), true);
+  assert.equal(marker.card.style.maxHeight, "296px");
+  marker.card.height = 100;
+  h.resizeObservation.notify([]);
+  h.flushFrames();
+  assert.equal(marker.details.classList.contains("attribution-card-above"), true,
+               "hiding a hint must not move icons away from the pointer");
+  assert.equal(marker.card.style.maxHeight, "296px");
+});
+
 test("layout changes coalesce into one frame and observe content rather than moving overlays", () => {
   for (const observeResize of [true, false]) {
     const marker = attribution();
     const block = contribution("1", 100, 500, marker);
     const h = harness({ blocks: [block], viewport: { width: 1200, height: 600 }, observeResize });
     h.flushFrames();
-    assert.deepEqual(h.resizeObservation.targets, observeResize ? [block] : []);
+    assert.deepEqual(h.resizeObservation.targets, observeResize ? [block, marker.card] : []);
     block.rect.top = 160;
     block.rect.right = 900;
     h.window.dispatch("scroll");

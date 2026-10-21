@@ -5,15 +5,13 @@ guide-author-id: editorial
 lang: en
 translation-source: authors/editorial.qmd
 translation-status: draft
-translation-source-sha256: bee77ff4dae53bad1d926f163095abee9008f2652784ab60272d712809f6f2f2
+translation-source-sha256: 5dc57c37dee99f89afeeffea293784303ea1bf402db65f1326bd86505d4d5270
 ---
 
 ::: {#xp-guide-author-editorial}
 :::
 
 :::: {.contribution authors="editorial"}
-
-The editorial team records and reviews submitted material. Original authors retain their attribution.
 
 ::: {.guide-author-profile data-guide-author-id="editorial"}
 :::

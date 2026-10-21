@@ -134,9 +134,19 @@
       const markerTop = Math.min(Math.max(top + 4, inset), Math.max(top + 4, bottom - markerHeight - 4));
       details.style.left = `${Math.max(4, Math.min(right - markerWidth - 6, width - markerWidth - 4))}px`;
       details.style.top = `${markerTop}px`;
-      const cardHeight = details.open ? details.querySelector(".attribution-card")?.getBoundingClientRect().height || 0 : 0;
-      const cardTop = markerTop + (width <= 991.98 ? markerHeight : 0);
-      details.classList.toggle("attribution-card-above", !!cardHeight && cardTop + cardHeight > height - 8);
+      const card = details.querySelector(".attribution-card");
+      if (details.open && card) {
+        const narrow = width <= 991.98;
+        const below = Math.max(40, height - markerTop - (narrow ? markerHeight : 0) - 8);
+        const above = Math.max(40, markerTop + (narrow ? 0 : markerHeight) - 8);
+        // Prefer the roomier side consistently, so revealing a profile hint
+        // cannot flip the icons away from the reader's pointer mid-interaction.
+        const showAbove = above > below;
+        details.classList.toggle("attribution-card-above", showAbove);
+        // Tall cards scroll in the larger available space; flipping alone can
+        // otherwise put a multi-author card above the top of a small screen.
+        card.style.maxHeight = `${showAbove ? above : below}px`;
+      }
       const visibleTop = Math.max(0, top);
       const visibleBottom = Math.min(height, bottom);
       Object.assign(overlay.style, {
@@ -163,7 +173,12 @@
   document.fonts?.addEventListener?.("loadingdone", schedule);
   if (typeof ResizeObserver === "function") {
     const observer = new ResizeObserver(schedule);
-    positioned.forEach(({ blocks }) => blocks.forEach((block) => observer.observe(block)));
+    positioned.forEach(({ blocks, details }) => {
+      blocks.forEach((block) => observer.observe(block));
+      // Profile hints can expand an open card without moving article content.
+      const card = details.querySelector(".attribution-card");
+      if (card) observer.observe(card);
+    });
   }
   schedule();
 })();

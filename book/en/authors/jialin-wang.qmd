@@ -5,15 +5,13 @@ guide-author-id: jialin-wang
 lang: en
 translation-source: authors/jialin-wang.qmd
 translation-status: draft
-translation-source-sha256: 5f332f5ea2e31fb947bff147281cf53ecf55fc2357ee2650cd6b8a1e031227e0
+translation-source-sha256: 3f30bcde4ec42ce0ea963b4c38ebf20eaaaffdd4eb5acff8559cf3d4f02795df
 ---
 
 ::: {#xp-guide-author-jialin-wang}
 :::
 
 :::: {.contribution authors="editorial"}
-
-This page lists the contributions recorded under this author ID and public information supplied or confirmed by the person. To correct a credit or add an affiliation, research interests, ORCID, Google Scholar, or other profile information, use the contribution link below.
 
 ::: {.guide-author-profile data-guide-author-id="jialin-wang"}
 :::

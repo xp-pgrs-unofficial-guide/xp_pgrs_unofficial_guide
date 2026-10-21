@@ -132,6 +132,13 @@ class AuthorProfileTests(unittest.TestCase):
         self.assertIn('id="author-metadata-alice"', html)
         self.assertIn("substantive additions", " ".join(self.convert(identifier="bob").split()))
 
+    def test_credits_include_article_sources_used_as_part_pages(self):
+        self.meta["book"]["chapters"] = [{"part": "index.qmd", "chapters": []}]
+        html = self.convert()
+        self.assertIn('href="../index.qmd"', html)
+        self.assertIn("Example article", html)
+        self.assertIn("原作者", html)
+
     def test_author_directory_summarizes_affiliation_and_links_with_article_counts(self):
         html = self.convert(index=True)
         self.assertIn('href="alice.qmd"', html)
@@ -156,6 +163,26 @@ class AuthorProfileTests(unittest.TestCase):
             self.assertNotIn("尚未提供学术资料", result)
             self.assertNotIn("作者资料", result)
             self.assertIn("参与文章", result)
+
+    def test_shared_profile_template_keeps_only_identity_specific_explanations(self):
+        for language, team_copy, placeholder_copy in [
+            ("zh-CN", "编辑组负责整理与审核投稿", "这是尚未核实原作者的历史内容归属标记"),
+            ("en", "The editorial team organizes and reviews submissions.",
+             "This label identifies historical content whose original author has not been verified"),
+        ]:
+            self.meta["lang"] = language
+            for output_format in ["html5", "gfm", "latex"]:
+                outputs = {identifier: " ".join(self.convert(output_format, identifier=identifier).split())
+                           for identifier in ["alice", "editorial", "unknown"]}
+                self.assertIn(team_copy, outputs["editorial"])
+                self.assertIn(placeholder_copy, outputs["unknown"])
+                for identifier, output in outputs.items():
+                    if identifier != "editorial":
+                        self.assertNotIn(team_copy, output)
+                    if identifier != "unknown":
+                        self.assertNotIn(placeholder_copy, output)
+                    self.assertNotIn("本页展示此作者 ID", output)
+                    self.assertNotIn("This page lists contributions", output)
 
     def test_markdown_and_latex_keep_native_metadata_and_their_credit_targets(self):
         markdown = self.convert("gfm")
@@ -227,6 +254,31 @@ class AuthorProfileTests(unittest.TestCase):
             self.assertTrue(image["src"].startswith("data:image/png;base64,"))
             decoded = base64.b64decode(image["src"].split(",", 1)[1], validate=True)
             self.assertEqual(decoded, (ROOT / "book/assets/icons/google-scholar.png").read_bytes())
+
+    def test_author_page_and_attribution_icons_share_metadata_without_svg_id_collisions(self):
+        source = ('---\n' + json.dumps(self.meta, ensure_ascii=False) + '\n---\n\n'
+                  ':::: {.contribution authors="alice"}\n\n'
+                  '::: {.guide-author-profile data-guide-author-id="alice"}\n:::\n\n::::\n')
+        result = subprocess.run(
+            ([PANDOC] if PANDOC else [QUARTO, "pandoc"]) +
+            ["--from=markdown", "--to=html5", f"--lua-filter={FILTER}",
+             f"--lua-filter={ROOT / 'book/filters/attribution.lua'}"],
+            input=source, text=True, capture_output=True, cwd=ROOT,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        parsed = ProfileMarkup(result.stdout)
+        self.assertEqual(len(parsed.elements("span", "guide-profile-links-profile")), 1)
+        self.assertEqual(len(parsed.elements("span", "guide-profile-links-attribution")), 1)
+        emails = [link for link in parsed.elements("a", "guide-profile-link")
+                  if link["attributes"]["data-profile-kind"] == "email"]
+        self.assertEqual(len(emails), 2)
+        self.assertTrue(all(link["attributes"]["href"] == "mailto:alice@example.edu" for link in emails))
+        identifiers = [node["attributes"]["id"] for node in parsed.nodes if "id" in node["attributes"]]
+        self.assertEqual(len(identifiers), len(set(identifiers)))
+        references = [match for node in parsed.nodes for attribute in node["attributes"].values()
+                      for match in re.findall(r"url\(#([^)]+)\)", attribute or "")]
+        self.assertTrue(references)
+        self.assertTrue(set(references).issubset(identifiers))
 
     def test_repeated_official_svg_icons_keep_unique_clipping_ids(self):
         self.meta["guide-author-profiles"]["bob"]["github"] = "https://github.com/another-example"

@@ -210,6 +210,25 @@ body.quarto-dark .guide-profile-icon > .guide-profile-icon-dark { display: block
 .guide-profile-link:hover > .guide-profile-tooltip,
 .guide-profile-link:focus-visible > .guide-profile-tooltip { visibility: visible; opacity: 1; }
 .guide-profile-print-label { display: none; overflow-wrap: anywhere; }
+
+/* Keep each person's links next to their name inside the attribution card. */
+.attribution-person { display: block; margin-top: .2rem; }
+.attribution-person + .attribution-person { margin-top: .6rem; }
+.attribution-person-name { font-weight: 550; }
+.guide-profile-links-attribution {
+  display: flex; gap: .35rem; margin: .3rem 0 .6rem;
+}
+.guide-profile-links-attribution .guide-profile-link { width: 2.25rem; height: 2.25rem; }
+.guide-profile-links-attribution .guide-profile-icon { width: 1.15rem; height: 1.15rem; }
+.guide-profile-links-attribution > .guide-profile-tooltip {
+  display: none; position: static; order: 1; flex: 0 0 100%;
+  width: auto; max-width: 100%; margin-top: .1rem;
+  box-sizing: border-box; box-shadow: none;
+}
+.guide-profile-links-attribution > .guide-profile-link:hover + .guide-profile-tooltip,
+.guide-profile-links-attribution > .guide-profile-link:focus-visible + .guide-profile-tooltip {
+  display: block; visibility: visible; opacity: 1;
+}
 @media print {
   .guide-profile-links { display: inline; margin: 0; }
   .guide-profile-link {
