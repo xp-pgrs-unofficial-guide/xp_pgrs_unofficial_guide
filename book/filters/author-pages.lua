@@ -69,9 +69,8 @@ return {{Pandoc = function(doc)
       end
     end
     if #entries == 0 and #links == 0 and kind ~= "person" then return pandoc.Blocks({}) end
-    local title = kind == "team" and (english and "Team profile" or "团队资料")
-      or (english and "Author profile" or "作者资料")
-    local blocks = pandoc.Blocks({pandoc.Header(2, title, pandoc.Attr("author-metadata-" .. id))})
+    -- Keep existing deep links without repeating the page's purpose as a heading.
+    local blocks = pandoc.Blocks({pandoc.Div({}, pandoc.Attr("author-metadata-" .. id))})
     if #entries > 0 then blocks:insert(pandoc.DefinitionList(entries)) end
     if html then
       if #links > 0 then blocks:insert(pandoc.Para({icon_links(links, id, false)})) end

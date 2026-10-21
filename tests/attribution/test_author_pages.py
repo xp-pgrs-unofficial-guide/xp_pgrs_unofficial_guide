@@ -106,15 +106,16 @@ class AuthorProfileTests(unittest.TestCase):
 
     def test_chinese_profile_shows_confirmed_metadata_and_real_links_before_credits(self):
         html = self.convert()
-        for text in ["作者资料", "项目角色", "编辑", "机构", "示例大学", "科学系", "方向一；方向二", "本人确认的简介。"]:
+        for text in ["项目角色", "编辑", "机构", "示例大学", "科学系", "方向一；方向二", "本人确认的简介。"]:
             self.assertIn(text, html)
         for address in ["https://orcid.org/0000-0002-1825-0097", "https://scholar.google.com/citations?user=example&amp;hl=en",
                         "https://example.edu/people/alice", "https://alice.example/", "https://github.com/example"]:
             self.assertIn('href="' + address + '"', html)
         self.assertIn("原作者", html)
         self.assertIn('href="../index.qmd"', html)
-        self.assertLess(html.index("作者资料"), html.index("参与文章"))
-        self.assertLess(html.index("Before."), html.index("作者资料"))
+        self.assertNotIn("作者资料", html)
+        self.assertLess(html.index("项目角色"), html.index("参与文章"))
+        self.assertLess(html.index("Before."), html.index("项目角色"))
         self.assertLess(html.index("参与文章"), html.index("After."))
         self.assertNotIn("尚未提供学术资料", html)
 
@@ -122,7 +123,7 @@ class AuthorProfileTests(unittest.TestCase):
         self.meta["lang"] = "en"
         html = self.convert()
         normalized = " ".join(html.split())
-        for text in ["Author profile", "Project roles", "Editor", "Affiliation", "Example University",
+        for text in ["Project roles", "Editor", "Affiliation", "Example University",
                      "Department of Science", "Topic one; Topic two", "A biography confirmed by the author.",
                      "Institutional profile", "Website", "Credited articles"]:
             self.assertIn(text, normalized)
@@ -130,6 +131,7 @@ class AuthorProfileTests(unittest.TestCase):
             self.assertNotIn(text, html)
         self.assertIn("https://orcid.org/0000-0002-1825-0097", html)
         self.assertIn('id="author-metadata-alice"', html)
+        self.assertNotIn("Author profile", html)
         self.assertIn("substantive additions", " ".join(self.convert(identifier="bob").split()))
 
     def test_credits_include_article_sources_used_as_part_pages(self):
