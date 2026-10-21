@@ -1,7 +1,7 @@
 # Display names are intentionally separate from Git commit authors and logins.
 guide-authors:
-  kai-wu: "吴开（Kai Wu）"
-  shiyao-zhang: "张世尧（Shiyao Zhang）"
+  kai-wu: "吴开"
+  shiyao-zhang: "张世尧"
   yue-zhou: "Yue Zhou"
   ziwen-xie: "Ziwen Xie"
   jialin-wang: "Jialin Wang"
@@ -29,6 +29,10 @@ guide-author-profiles:
     type: person
     project-roles: [编辑]
     project-roles-en: [Editor]
+    orcid: 0009-0000-1591-3759
+    google-scholar: https://scholar.google.com/citations?user=OCfMc6oAAAAJ
+    github: https://github.com/BillShiyaoZhang
+    email: shiyao.zhang14@student.xjtlu.edu.cn
   yue-zhou:
     type: person
   ziwen-xie:

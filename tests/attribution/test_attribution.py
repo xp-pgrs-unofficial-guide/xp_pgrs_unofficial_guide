@@ -14,7 +14,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
 FILTER = ROOT / "book/filters/attribution.lua"
-AUTHORS = ROOT / "book/_authors.yml"
+AUTHORS = ROOT / "tests/attribution/authors.yml"
 QUARTO = os.environ.get("QUARTO_BIN", "quarto")
 PANDOC = os.environ.get("PANDOC_BIN")
 

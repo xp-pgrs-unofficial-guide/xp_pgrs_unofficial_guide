@@ -56,7 +56,7 @@ discussion-id: xp-guide-contributing
 
 ## 作者的学术资料 {#author-academic-profile}
 
-[作者与贡献者清单](../../authors/index.qmd#xp-guide-authors)可进入每位作者的主页，查看其参与文章和本人确认的公开资料。可选资料包括项目角色、机构、院系、研究方向、简介、ORCID、Google Scholar、个人主页、机构资料页和 GitHub。未知项留空，不凭姓名推断账号或机构。
+[作者与贡献者清单](../../authors/index.qmd#xp-guide-authors)可进入每位作者的主页，查看其参与文章和本人确认的公开资料。可选资料包括项目角色、机构、院系、研究方向、简介、ORCID、Google Scholar、个人主页、机构资料页、GitHub 和公开邮箱。未知项留空，不凭姓名推断账号或机构。
 
 补充或修改自己的资料时，可从作者页下方“补充内容／纠错”提交希望公开的字段和链接；熟悉 GitHub 的读者也可修改 `book/_authors.yml` 的 `guide-author-profiles` 并提交 PR。文字资料需同时提供中英文，账号链接两种语言共用。字段格式见[作者清单与主页维护说明](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md#作者清单与主页)。
 

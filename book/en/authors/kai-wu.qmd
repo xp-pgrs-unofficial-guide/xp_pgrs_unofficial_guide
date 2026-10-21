@@ -5,7 +5,7 @@ guide-author-id: kai-wu
 lang: en
 translation-source: authors/kai-wu.qmd
 translation-status: draft
-translation-source-sha256: 260a99a537756b84791a9661ce3725949f7c0d1628cd48146615de99ecfd661a
+translation-source-sha256: 14377e231b545c1e791f68e67c4946710819fe4e5fa50d5578d5ed0890a7aa96
 ---
 
 ::: {#xp-guide-author-kai-wu}

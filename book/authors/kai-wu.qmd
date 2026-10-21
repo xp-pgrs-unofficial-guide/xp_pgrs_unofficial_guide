@@ -1,5 +1,5 @@
 ---
-title: 吴开（Kai Wu）
+title: 吴开
 discussion-id: xp-guide-author-kai-wu
 guide-author-id: kai-wu
 ---

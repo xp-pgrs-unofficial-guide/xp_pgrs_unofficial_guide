@@ -40,6 +40,7 @@ class AuthorProfileTests(unittest.TestCase):
                     "google-scholar": "https://scholar.google.com/citations?user=example&hl=en",
                     "institutional-profile": "https://example.edu/people/alice",
                     "website": "https://alice.example/", "github": "https://github.com/example",
+                    "email": "alice@example.edu",
                 },
                 "bob": {"type": "person"}, "editorial": {"type": "team"}, "unknown": {"type": "placeholder"},
             },
@@ -123,6 +124,24 @@ class AuthorProfileTests(unittest.TestCase):
         self.assertIn("xp-guide-authors", latex)
         self.assertNotIn("../index.qmd", latex)
         self.assertNotIn("guide-author-expanded", latex)
+
+    def test_email_is_a_localized_contact_link_in_profiles_directories_and_exports(self):
+        html = self.convert()
+        self.assertIn('href="mailto:alice@example.edu">邮箱：alice@example.edu</a>', html)
+        self.assertIn('<p><a href="mailto:alice@example.edu">邮箱：alice@example.edu</a></p>', " ".join(html.split()))
+        directory = self.convert(index=True)
+        self.assertIn('href="mailto:alice@example.edu">邮箱</a>', directory)
+        for output_format in ["gfm", "latex"]:
+            self.assertIn("mailto:alice@example.edu", self.convert(output_format))
+        self.meta["lang"] = "en"
+        english = " ".join(self.convert().split())
+        self.assertIn('href="mailto:alice@example.edu">Email: alice@example.edu</a>', english)
+        self.assertIn('<p><a href="mailto:alice@example.edu">Email: alice@example.edu</a></p>', english)
+        self.assertIn('href="mailto:alice@example.edu">Email</a>', " ".join(self.convert(index=True).split()))
+        self.meta["guide-author-profiles"]["alice"] = {"type": "person", "email": "alice@example.edu"}
+        contact_only = " ".join(self.convert().split())
+        self.assertIn("Academic profile details have not been provided yet.", contact_only)
+        self.assertIn("mailto:alice@example.edu", contact_only)
 
 
 if __name__ == "__main__":

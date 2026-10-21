@@ -165,7 +165,7 @@ def load_author_metadata():
     localized_text = ("affiliation", "department", "bio")
     localized_lists = ("research-interests", "project-roles")
     links = ("google-scholar", "website", "github", "institutional-profile")
-    fields = {"type", "orcid", *links}
+    fields = {"type", "orcid", "email", *links}
     for field in (*localized_text, *localized_lists):
         fields.update((field, field + "-en"))
     for identifier, profile in profiles.items():
@@ -192,6 +192,13 @@ def load_author_metadata():
                 raise ValueError(f"{prefix}.{field} 中英文列表条目数必须一致")
         if kind != "person" and any(field in profile for field in ("orcid", "google-scholar")):
             raise ValueError(f"{prefix} 团队或占位身份不能填写个人 ORCID／Google Scholar")
+        if "email" in profile:
+            email = profile["email"]
+            domain_label = r"[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?"
+            email_pattern = rf"[A-Za-z0-9_+-]+(?:\.[A-Za-z0-9_+-]+)*@{domain_label}(?:\.{domain_label})+"
+            if (not isinstance(email, str) or len(email) > 254 or
+                    not re.fullmatch(email_pattern, email) or len(email.split("@")[0]) > 64):
+                raise ValueError(f"{prefix}.email 必须是有效的裸邮箱地址，不含 mailto:、空白或查询参数")
         if "orcid" in profile:
             orcid = profile["orcid"]
             if not isinstance(orcid, str) or not re.fullmatch(r"[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]", orcid):

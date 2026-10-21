@@ -35,6 +35,7 @@ class AuthorMetadataTests(unittest.TestCase):
                     "website": "https://example.org/",
                     "github": "https://github.com/example-author",
                     "institutional-profile": "https://example.edu/people/example-author",
+                    "email": "author.name+guide@example.edu.cn",
                 },
                 "editorial": {"type": "team"},
             },
@@ -112,6 +113,20 @@ class AuthorMetadataTests(unittest.TestCase):
             with self.subTest(address=address):
                 self.metadata["guide-author-profiles"]["example-author"]["website"] = address
                 with self.assertRaisesRegex(ValueError, "HTTPS"):
+                    self.validate()
+
+    def test_email_is_a_shared_bare_address_without_headers_or_multiple_recipients(self):
+        for email in ["shiyao.zhang14@student.xjtlu.edu.cn", "Author_Name+guide@Example.EDU"]:
+            self.metadata["guide-author-profiles"]["example-author"]["email"] = email
+            self.assertEqual(self.validate()["guide-author-profiles"]["example-author"]["email"], email)
+        invalid = [None, "", " author@example.edu", "author @example.edu", "author\n@example.edu",
+                   "mailto:author@example.edu", "author@@example.edu", "author@example.edu?subject=hello",
+                   "author@example.edu\r\nBcc:other@example.edu", "author%0d%0a@example.edu",
+                   "author@example.edu,other@example.edu", "author..name@example.edu", "author@-example.edu"]
+        for email in invalid:
+            with self.subTest(email=email):
+                self.metadata["guide-author-profiles"]["example-author"]["email"] = email
+                with self.assertRaisesRegex(ValueError, "裸邮箱"):
                     self.validate()
 
     def test_scholar_and_github_links_point_to_profiles_rather_than_searches_or_repositories(self):

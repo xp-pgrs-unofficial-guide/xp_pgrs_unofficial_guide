@@ -1,0 +1,9 @@
+# Fixed test names: editing public profiles must not change filter assertions.
+guide-authors:
+  kai-wu: "吴开（Kai Wu）"
+  yue-zhou: "Yue Zhou"
+  unknown: "归属待确认"
+guide-authors-en:
+  kai-wu: Kai Wu
+  yue-zhou: Yue Zhou
+  unknown: Attribution awaiting confirmation

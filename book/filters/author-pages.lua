@@ -22,7 +22,7 @@ return {{Pandoc = function(doc)
   local function localized(profile, key)
     return profile[english and (key .. "-en") or key]
   end
-  local function academic_links(id)
+  local function profile_links(id)
     local profile, links = profiles[id] or {}, {}
     local orcid = value(profile.orcid)
     if orcid ~= "" then links[#links + 1] = {label="ORCID", target="https://orcid.org/" .. orcid, identifier=orcid} end
@@ -35,12 +35,17 @@ return {{Pandoc = function(doc)
       local target = value(profile[field[1]])
       if target ~= "" then links[#links + 1] = {label=field[english and 3 or 2], target=target} end
     end
+    local email = value(profile.email)
+    if email ~= "" then
+      links[#links + 1] = {label=english and "Email" or "邮箱", target="mailto:" .. email,
+        identifier=email, separator=english and ": " or "：", contact=true}
+    end
     return links
   end
   local function append_links(inlines, links, identifiers)
     for _, link in ipairs(links) do
       if #inlines > 0 then inlines:insert(pandoc.Str(" · ")) end
-      local label = identifiers and link.identifier and (link.label .. ": " .. link.identifier) or link.label
+      local label = identifiers and link.identifier and (link.label .. (link.separator or ": ") .. link.identifier) or link.label
       inlines:insert(pandoc.Link({pandoc.Str(label)}, link.target))
     end
   end
@@ -68,17 +73,28 @@ return {{Pandoc = function(doc)
           {pandoc.Blocks({pandoc.Para({pandoc.Str(text)})})}}
       end
     end
-    local links = academic_links(id)
+    local links = profile_links(id)
+    local academic, contacts = {}, {}
+    for _, link in ipairs(links) do
+      if link.contact then contacts[#contacts + 1] = link
+      else
+        academic[#academic + 1] = link
+        has_academic_details = true
+      end
+    end
     if #entries == 0 and #links == 0 and kind ~= "person" then return pandoc.Blocks({}) end
     local title = kind == "team" and (english and "Team profile" or "团队资料")
       or (english and "Author profile" or "作者资料")
     local blocks = pandoc.Blocks({pandoc.Header(2, title, pandoc.Attr("author-metadata-" .. id))})
     if #entries > 0 then blocks:insert(pandoc.DefinitionList(entries)) end
-    if #links > 0 then
-      local inlines = pandoc.Inlines({})
-      append_links(inlines, links, true)
-      blocks:insert(pandoc.Para(inlines))
-    elseif kind == "person" and not has_academic_details then
+    for _, group in ipairs({academic, contacts}) do
+      if #group > 0 then
+        local inlines = pandoc.Inlines({})
+        append_links(inlines, group, true)
+        blocks:insert(pandoc.Para(inlines))
+      end
+    end
+    if kind == "person" and not has_academic_details then
       blocks:insert(pandoc.Para({pandoc.Str(english and "Academic profile details have not been provided yet."
         or "尚未提供学术资料。") }))
     end
@@ -135,7 +151,7 @@ return {{Pandoc = function(doc)
         local inlines = pandoc.Inlines({pandoc.Link({pandoc.Str(value(names[person]))}, target), pandoc.Str(" — " .. #(credits[person] or {}) .. (english and " articles" or " 篇文章"))})
         local affiliation = value(localized(profiles[person] or {}, "affiliation"))
         if affiliation ~= "" then inlines:insert(pandoc.Str(" — " .. affiliation)) end
-        append_links(inlines, academic_links(person), false)
+        append_links(inlines, profile_links(person), false)
         items[#items + 1] = {pandoc.Plain(inlines)}
       end
       blocks:insert(pandoc.BulletList(items))

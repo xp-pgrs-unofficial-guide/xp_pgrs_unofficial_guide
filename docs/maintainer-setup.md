@@ -89,7 +89,7 @@ HTML 使用 Quarto 的 `light: cosmo`／`dark: darkly` 双主题，`respect-user
 
 作者中英文显示名集中在 `book/_authors.yml` 的 `guide-authors` 与 `guide-authors-en`，稳定 ID 相同。作者清单与主页在 `book/authors/` 和 `book/en/authors/`；`author-pages.lua` 从 `.contribution` 的原作者与补充者字段自动汇总参与文章。“归属待确认”是归属标记，不代表个人。网页只对连续且作者、补充者、确认状态相同的内容共用一个右侧作者图标。图标随滚动停留在对应范围内；悬停、键盘聚焦或点击时打开署名卡片并高亮范围，手机上可轻点，按 Escape 或点击外部可关闭。源块格式、标题与目录结构不变，PDF／Markdown 仍保留各块作者。
 
-正文中的重复姓名落款和更新者签名已移除；后续统一维护 `.contribution` 属性，保留有用的资料日期、更新依据、引用和致谢。作者详细资料集中于同文件的 `guide-author-profiles`，由作者清单和主页自动渲染到网页、PDF 与 Markdown。支持 ORCID、Google Scholar、个人／机构主页、GitHub、机构、院系、研究方向、简介和项目角色；字段格式见[作者清单与主页](../CONTRIBUTING.md#作者清单与主页)。未知字段省略，只有本人提供或确认后才填写，勿从姓名或旧邮箱推断。构建校验 ID、双语配对、字段类型、ORCID 校验位与链接格式，身份归属仍需人工核实。
+正文中的重复姓名落款和更新者签名已移除；后续统一维护 `.contribution` 属性，保留有用的资料日期、更新依据、引用和致谢。作者详细资料集中于同文件的 `guide-author-profiles`，由作者清单和主页自动渲染到网页、PDF 与 Markdown。支持 ORCID、Google Scholar、个人／机构主页、GitHub、公开邮箱、机构、院系、研究方向、简介和项目角色；字段格式见[作者清单与主页](../CONTRIBUTING.md#作者清单与主页)。`email` 填纯邮箱地址，两种语言共用并生成联系链接。未知字段省略，只有本人提供或确认后才填写，勿从姓名或旧邮箱推断。构建校验 ID、双语配对、字段类型、ORCID 校验位与链接格式，身份归属仍需人工核实。
 
 署名交互由 `attribution.lua` 生成范围标记，`guide.js` 按源块位置定位图标，`guide.css` 设置外观。核验长内容滚动时图标不会越过作者交界、短块卡片仍可操作、连续同署名只出现一个图标，并检查键盘、窄屏及明暗主题下的范围高亮。
 

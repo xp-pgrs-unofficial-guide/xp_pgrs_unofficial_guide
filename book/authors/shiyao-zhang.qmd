@@ -1,5 +1,5 @@
 ---
-title: 张世尧（Shiyao Zhang）
+title: 张世尧
 discussion-id: xp-guide-author-shiyao-zhang
 guide-author-id: shiyao-zhang
 ---

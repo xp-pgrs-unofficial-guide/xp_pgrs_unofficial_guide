@@ -134,6 +134,7 @@ guide-author-profiles:
 | `website` | 个人主页的完整 HTTPS 链接 |
 | `institutional-profile` | 机构个人资料页的完整 HTTPS 链接 |
 | `github` | 本人的完整 `https://github.com/…` 主页链接 |
+| `email` | 希望公开的纯邮箱地址，不加 `mailto:`；两种语言共用，展示为可点击的联系链接 |
 
 机构、研究方向和简介应由本人提供或确认；资料变动后更新相应字段，不依据旧邮箱推断当前任职机构。机构等中英文展示字段一起填写，账号链接两种语言共用。没有学术资料时，作者页只显示简短的待补充提示，不生成空链接；`team` 与 `placeholder` 不填写个人 ORCID 或 Scholar。
 
