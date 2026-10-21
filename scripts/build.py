@@ -631,6 +631,71 @@ class Links(HTMLParser):
             self.giscus_scripts.append(fields)
 
 
+def version_stylesheets():
+    """Keep rendered pages paired with the current local reader stylesheet."""
+    source = BOOK / "assets/guide.css"
+    if not source.is_file():
+        return 0  # Small fixture/legacy projects may not use the reader stylesheet.
+    version = hashlib.sha1(source.read_bytes()).hexdigest()
+    stylesheet = (OUTPUT / "assets/guide.css").resolve()
+
+    class StylesheetLinks(HTMLParser):
+        def __init__(self, text, document):
+            super().__init__()
+            self.document = document
+            self.offsets = [0, *(match.end() for match in re.finditer("\n", text))]
+            self.replacements = []
+            self.feed(text)
+
+        def handle_starttag(self, tag, attrs):
+            fields = dict(attrs)
+            if (tag != "link" or "stylesheet" not in (fields.get("rel") or "").lower().split()
+                    or len([key for key, _ in attrs if key == "href"]) != 1):
+                return
+            href = fields.get("href") or ""
+            try:
+                parts = urlsplit(href)
+            except ValueError:
+                return
+            if parts.scheme or parts.netloc or href.startswith("//"):
+                return
+            path = unquote(parts.path)
+            target = OUTPUT / path.lstrip("/") if path.startswith("/") else self.document.parent / path
+            if target.resolve() != stylesheet:
+                return
+            query = [part for part in parts.query.split("&") if unquote(part.split("=", 1)[0]) != "v"] if parts.query else []
+            address = urlunsplit(("", "", parts.path, "&".join([*query, "v=" + version]), parts.fragment))
+            if address == href:
+                return
+            raw = self.get_starttag_text()
+            # Consume complete attributes so a quoted data/title value containing
+            # the word href cannot be mistaken for the real href attribute.
+            attributes = re.finditer(r'''([^\s"'<>/=]+)(?:\s*=\s*("[^"]*"|'[^']*'|[^\s"'=<>`]+))?''', raw)
+            for attribute in attributes:
+                if attribute[1].lower() == "href" and attribute[2] is not None:
+                    line, column = self.getpos()
+                    offset = self.offsets[line - 1] + column
+                    self.replacements.append((offset + attribute.start(2), offset + attribute.end(2),
+                                              '"' + escape(address, quote=True) + '"'))
+                    break
+
+    updated = 0
+    for source in pages():
+        document = OUTPUT / source.relative_to(BOOK).with_suffix(".html")
+        if not document.is_file():
+            continue
+        text = document.read_text(encoding="utf-8")
+        parser = StylesheetLinks(text, document)
+        for start, end, replacement in reversed(parser.replacements):
+            text = text[:start] + replacement + text[end:]
+        if parser.replacements:
+            document.write_text(text, encoding="utf-8")
+            updated += 1
+    if updated:
+        print(f"网页样式版本已更新：{updated} 页。", flush=True)
+    return updated
+
+
 def validate_output(html_only):
     config = yaml.safe_load((BOOK / "_quarto.yml").read_text(encoding="utf-8"))
     giscus = giscus_settings(config)
@@ -807,6 +872,7 @@ def main():
     run([quarto, "render", BOOK, "--to", "html" if args.html_only else "all"])
     if len(language_roots()) > 1:
         run([quarto, "render", BOOK / "en", "--to", "html" if args.html_only else "all"])
+    version_stylesheets()
     export_markdown(quarto)
     export_redirects()
     validate_output(args.html_only)

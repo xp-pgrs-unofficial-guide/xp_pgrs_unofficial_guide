@@ -175,6 +175,52 @@ figcaption { color: var(--guide-muted); line-height: 1.6; }
 .guide-author-summary { color:var(--guide-muted); }
 @media print { .guide-reading-controls, .guide-translation-note { display:none; } }
 
+/* Keep profile links recognizable and touchable without repeating their labels. */
+.guide-profile-links {
+  position: relative; display: inline-flex; flex-wrap: wrap; align-items: center;
+  gap: .5rem; max-width: 100%; margin: .25rem 0 .75rem; vertical-align: middle;
+}
+.guide-profile-links-compact { gap: .35rem; margin: .2rem 0 .2rem .4rem; }
+.guide-profile-link {
+  display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center;
+  width: 2.75rem; height: 2.75rem; color: var(--guide-ink);
+  background: var(--guide-card); border: 1px solid var(--guide-line);
+  border-radius: 50%; text-decoration: none;
+}
+.guide-profile-link:hover, .guide-profile-link:focus-visible {
+  z-index: 5; color: var(--guide-teal); background: var(--guide-soft);
+  border-color: var(--guide-teal);
+}
+.guide-profile-link:focus-visible { outline: 2px solid var(--guide-teal); outline-offset: 3px; }
+.guide-profile-icon { display: block; flex: none; width: 1.35rem; height: 1.35rem; line-height: 0; }
+.guide-profile-icon > svg, .guide-profile-icon > img {
+  display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 0;
+}
+.guide-profile-icon > .guide-profile-icon-dark { display: none; }
+body.quarto-dark .guide-profile-icon > .guide-profile-icon-light { display: none; }
+body.quarto-dark .guide-profile-icon > .guide-profile-icon-dark { display: block; }
+.guide-profile-tooltip {
+  position: absolute; z-index: 70; left: 0; bottom: calc(100% + .5rem);
+  width: max-content; max-width: min(22rem, 100%); padding: .45rem .65rem;
+  border: 1px solid var(--guide-line); border-radius: .45rem;
+  background: var(--guide-card); color: var(--guide-ink); box-shadow: 0 5px 20px #18364a20;
+  font-size: .78rem; font-weight: normal; line-height: 1.5; text-align: start;
+  overflow-wrap: anywhere; pointer-events: none; visibility: hidden; opacity: 0;
+}
+.guide-profile-link:hover > .guide-profile-tooltip,
+.guide-profile-link:focus-visible > .guide-profile-tooltip { visibility: visible; opacity: 1; }
+.guide-profile-print-label { display: none; overflow-wrap: anywhere; }
+@media print {
+  .guide-profile-links { display: inline; margin: 0; }
+  .guide-profile-link {
+    display: inline; width: auto; height: auto; border: 0; border-radius: 0;
+    background: none; color: inherit; text-decoration: underline;
+  }
+  .guide-profile-link + .guide-profile-link::before { content: " · "; }
+  .guide-profile-icon, .guide-profile-tooltip { display: none !important; }
+  .guide-profile-print-label { display: inline; }
+}
+
 /* Keep the navigation surfaces in the same palette as the reading area. */
 .sidebar.sidebar-navigation, .quarto-secondary-nav {
   background-color: var(--guide-paper);

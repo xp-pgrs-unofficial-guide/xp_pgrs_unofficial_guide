@@ -4,7 +4,7 @@ discussion-id: xp-guide-contributing
 lang: en
 translation-source: content/appendix/contributing.qmd
 translation-status: draft
-translation-source-sha256: 862ab0460a7640cf9f44a183bb620b874406b3a93c9b0ca3386f8cc29042ccee
+translation-source-sha256: 6cbd63e2248534528b7fb8628878211a624168f57c98dab01430f8d8caf5ed17
 ---
 
 ::: {#xp-guide-contributing}
@@ -61,6 +61,8 @@ When a suggestion from the comments is incorporated into the guide, editors will
 ## Academic profiles {#author-academic-profile}
 
 The [authors and contributors directory](../../authors/index.qmd#xp-guide-authors) links to each person's credited articles and public information confirmed by that person. Optional fields include project roles, affiliation, department, research interests, biography, ORCID, Google Scholar, personal website, institutional profile, GitHub, and public email address. Leave unknown details empty; do not infer accounts or affiliations from a name.
+
+Academic and contact links appear as icons on the website. Hover over an icon or focus it with the keyboard to see its name and address; click to visit. PDF, Markdown, and browser printing retain readable text and links.
 
 To add or update your information, use "Contribute / correct" below your author page and provide the fields and links you want to publish. Readers familiar with GitHub can also edit `guide-author-profiles` in `book/_authors.yml` and submit a PR. Provide both Chinese and English display text; account links are shared between languages. See the [author directory and profile maintenance instructions](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md#作者清单与主页) for field formats.
 
