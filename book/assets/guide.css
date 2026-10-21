@@ -65,6 +65,33 @@ figcaption { color: var(--guide-muted); line-height: 1.6; }
 .guide-actions a:hover { background: var(--guide-soft); border-color: var(--guide-teal); }
 .guide-contribution-help { color: var(--guide-muted); font-size: .85rem; line-height: 1.7; }
 
+/* Participation and discussion belong to the page, outside its article body. */
+.guide-afterword {
+  margin-top: 3.5rem;
+  padding: 1.5rem clamp(1rem, 3vw, 1.75rem);
+  background: var(--guide-soft);
+  border: 1px solid var(--guide-line);
+  border-top: 4px solid var(--guide-teal);
+  border-radius: .65rem;
+}
+.guide-afterword-label {
+  margin: 0 0 1.25rem;
+  color: var(--guide-teal);
+  font-size: .8rem;
+  font-weight: 650;
+  letter-spacing: .03em;
+}
+.guide-afterword .guide-participate > h2,
+.guide-afterword .guide-discussion > h2 { margin-top: 0; }
+.guide-afterword .guide-discussion {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--guide-line);
+}
+.guide-afterword .guide-actions { margin-bottom: .85rem; }
+.guide-afterword .guide-contribution-help,
+.guide-afterword .guide-discussion > :last-child { margin-bottom: 0; }
+
 /* Show one compact disclosure per continuous attribution run. */
 .paragraph-attribution {
   position: relative; z-index: 2; width: fit-content;
@@ -114,7 +141,7 @@ figcaption { color: var(--guide-muted); line-height: 1.6; }
 }
 
 @media print {
-  .paragraph-attribution { display: none; }
+  .paragraph-attribution, .guide-afterword { display: none; }
   body { background: white; color: black; }
 }
 

@@ -30,6 +30,9 @@ class Anchors(HTMLParser):
         self.giscus_configs = []
         self.current = None
         self.text = []
+        self.regions = []
+        self.region_stack = []
+        self.region_errors = []
 
     def handle_starttag(self, tag, attributes):
         fields = dict(attributes)
@@ -39,6 +42,11 @@ class Anchors(HTMLParser):
             self.giscus_configs.append(fields)
         if tag == "a":
             self.current = {**fields, "label": ""}
+        if tag in {"section", "footer"}:
+            classes = fields.get("class", "").split()
+            ancestors = [name for _, names in self.region_stack for name in names]
+            self.regions.append((tag, classes, ancestors))
+            self.region_stack.append((tag, classes))
 
     def handle_data(self, data):
         self.text.append(data)
@@ -49,6 +57,11 @@ class Anchors(HTMLParser):
         if tag == "a" and self.current is not None:
             self.anchors.append(self.current)
             self.current = None
+        if tag in {"section", "footer"}:
+            if not self.region_stack or self.region_stack[-1][0] != tag:
+                self.region_errors.append(tag)
+            else:
+                self.region_stack.pop()
 
 
 def convert(input_file="content/apr.qmd", title="APR", branch="main",
@@ -150,14 +163,27 @@ class ContributionLinkTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("repo-branch", result.stderr)
 
-    def test_both_pdf_downloads_use_the_shared_site_root_in_either_language(self):
+    def test_only_home_pages_offer_both_pdf_downloads_and_the_release_archive(self):
         for lang, prefix in [("zh-CN", ""), ("en", "en/")]:
-            for source in ("index.qmd", "content/milestones/apr.qmd", "authors/kai-wu.qmd"):
+            contexts = [
+                ("index.qmd", True), (str(ROOT / "book" / prefix / "index.qmd"), True),
+                ("content/milestones/apr.qmd", False), ("authors/kai-wu.qmd", False),
+                ("authors/index.qmd", False),
+            ]
+            for source, home in contexts:
                 with self.subTest(lang=lang, source=source):
                     parser, _, _ = self.parse(input_file=source, lang=lang,
                                               site=SITE + prefix, source_prefix=prefix)
                     downloads = [link for link in parser.anchors
                                  if "guide-pdf-download" in link.get("class", "").split()]
+                    releases = [link for link in parser.anchors
+                                if link["href"] == REPO + "/releases/latest"]
+                    if not home:
+                        self.assertEqual(downloads, [])
+                        self.assertEqual(releases, [])
+                        self.assertFalse(any("guide-downloads" in classes
+                                             for _, classes, _ in parser.regions))
+                        continue
                     self.assertEqual([(link["hreflang"], link["href"]) for link in downloads], [
                         ("zh-CN", SITE + "xp-pgrs-unofficial-guide.pdf"),
                         ("en", SITE + "en/xp-pgrs-unofficial-guide.pdf"),
@@ -165,8 +191,43 @@ class ContributionLinkTests(unittest.TestCase):
                     self.assertTrue(all("no-external" in link["class"].split() for link in downloads))
                     self.assertEqual(downloads[0]["label"], "Chinese PDF" if lang == "en" else "中文版 PDF")
                     self.assertEqual(downloads[1]["label"], "English PDF")
-                    self.assertEqual(len([link for link in parser.anchors
-                                          if link["href"] == REPO + "/releases/latest"]), 1)
+                    self.assertEqual(len(releases), 1)
+
+    def test_participation_and_discussion_form_a_separate_closed_region_after_the_body(self):
+        for lang in ("zh-CN", "en"):
+            for source in ("index.qmd", "content/life-tools/liverpool-visit.qmd", "authors/index.qmd"):
+                with self.subTest(lang=lang, source=source):
+                    result = convert(input_file=source, lang=lang)
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                    parser = Anchors()
+                    parser.feed(result.stdout)
+                    self.assertEqual(parser.region_errors, [])
+                    self.assertEqual(parser.region_stack, [])
+                    afterword = [region for region in parser.regions if "guide-afterword" in region[1]]
+                    self.assertEqual(afterword, [("footer", ["guide-afterword"], [])])
+                    for name in ("guide-participate", "guide-discussion"):
+                        self.assertEqual([ancestors for _, classes, ancestors in parser.regions
+                                          if name in classes], [["guide-afterword"]])
+                    for _, classes, ancestors in parser.regions:
+                        if "guide-downloads" in classes:
+                            self.assertEqual(ancestors, [])
+                    label = "End of article · Contribute and discuss" if lang == "en" else "正文结束 · 参与与讨论"
+                    self.assertIn(label, "".join(parser.text))
+                    self.assertLess(result.stdout.index("Article text."), result.stdout.index('<footer class="guide-afterword"'))
+                    if source == "index.qmd":
+                        self.assertLess(result.stdout.index('class="guide-downloads"'),
+                                        result.stdout.index('<footer class="guide-afterword"'))
+
+    def test_publication_controls_are_absent_from_pdf_and_plain_markdown(self):
+        for lang in ("zh-CN", "en"):
+            for output_format in ("latex", "gfm"):
+                for source in ("index.qmd", "content/life-tools/liverpool-visit.qmd"):
+                    with self.subTest(lang=lang, output_format=output_format, source=source):
+                        result = convert(input_file=source, lang=lang, output_format=output_format)
+                        self.assertEqual(result.returncode, 0, result.stderr)
+                        self.assertIn("Article text.", result.stdout)
+                        for marker in ("guide-downloads", "guide-afterword", "guide-participate", "guide-discussion"):
+                            self.assertNotIn(marker, result.stdout)
 
     def test_footer_links_resolve_from_each_article_depth(self):
         contexts = [

@@ -62,25 +62,40 @@ python3 -c "import hashlib,pathlib; print(hashlib.sha256(pathlib.Path('book/cont
 
 作者登记在 `book/_authors.yml`，`guide-authors` 和 `guide-authors-en` 分别提供中英文公开显示名，两者使用相同的稳定 ID。首次投稿由编辑登记 ID；不要把邮箱、学号等非必要资料放入作者表。新内容必须填写真实作者或明确约定的匿名署名，不能使用历史内容的待确认作者占位值。
 
-每个正文段落或紧密相关的列表、表格、图片使用 `.contribution` 块。网页会将连续且原作者、补充者、确认状态均一致的内容只显示一次署名，遇到变化重新显示；源文件仍需逐块标记，PDF 与 Markdown 继续保留各块署名。不要为了网页去重而删掉源署名。`authors` 是原作者 ID；`contributors` 是后续实质补充者 ID；多人用英文逗号分隔。以下示例中的 ID 需替换为作者表里实际登记的 ID：
+正文按实际作者划分为相邻的 `.contribution` 块。一个块可以包含同一作者连续撰写的多段文字、标题、列表、表格和图片；作者变化时，先关闭当前块，再另起一块。不要嵌套署名块。网页会将连续且原作者、补充者、确认状态均一致的内容只显示一次署名，遇到变化重新显示；源文件仍需逐块标记，PDF 与 Markdown 继续保留各块署名。不要为了网页去重而删掉源署名。
+
+例如《利物浦访学》目前整篇共用 `authors="shiyao-zhang,yue-zhou" status="unverified"`，表示已知两位作者参与，但具体段落归属仍待确认。核实后可以按作者切成下面这样的相邻块。以下仅演示语法，不代表已确认该文各段的作者：
 
 ```markdown
-::: {#p-your-topic-001 .contribution authors="your-author-id"}
+::: {#p-your-topic-001 .contribution authors="shiyao-zhang"}
 
-这里写一段完整的经验。可以使用 **强调**、[链接](https://example.org/) 和普通 Markdown 列表。
+这里写经确认由张世尧提供的内容。
+
+同一作者接着写的下一段也可以放在这个块里。
 
 :::
 
-::: {#p-your-topic-002 .contribution authors="original-author-id" contributors="your-author-id"}
+::: {#p-your-topic-002 .contribution authors="yue-zhou"}
 
-这里是保留原作者署名、经过另一位作者实质补充的段落。
+这里写经确认由 Yue Zhou 提供的内容。
 
 :::
 ```
 
+`authors` 是原作者 ID；`contributors` 是后续实质补充者 ID；多人用英文逗号分隔。按内容实际形成的过程选择：
+
+| 内容情况 | 块上的署名属性 |
+| --- | --- |
+| 某段由张世尧撰写 | `authors="shiyao-zhang"` |
+| 某段由 Yue Zhou 撰写 | `authors="yue-zhou"` |
+| 同一段确实由两人共同撰写 | `authors="shiyao-zhang,yue-zhou"` |
+| 保留张世尧原文，Yue Zhou 做了实质补充 | `authors="shiyao-zhang" contributors="yue-zhou"` |
+
+若补充者提供的是可以独立成段的新内容，可以另建属于补充者的块。录入、排版或改错字不构成实质补充，不因此改变署名。示例 ID 应替换为实际作者在作者表中登记的 ID。
+
 块 ID（示例中的 `#p-your-topic-001`）可选，需要为某段提供稳定引用时再添加；文章评论使用文章自身的 `discussion-id`。使用块 ID 时需在全书中唯一，修改内容、移动段落时保留原 ID。拆分已带 ID 的段落时，为新增锚点分配新 ID，并保留相应作者。不要用自动编号或当前行号生成 ID。
 
-历史迁移中无法确定作者的段落会明确标记 `status="unverified"`，表示署名待核实；提供证据后由编辑更新作者并移除该标记。不要依据最后一次 Git 提交者直接推断原作者。
+历史迁移中无法确定具体段落归属时保留 `status="unverified"`；连作者身份也无法确认时使用历史占位值 `authors="unknown" status="unverified"`。提供证据后由编辑更新作者，并在归属确认后移除待核实标记。不要依据最后一次 Git 提交者直接推断原作者。
 
 新文章应在对应主题目录中复制附近文章的 frontmatter，设置标题、唯一且长期保留的 `discussion-id`（格式 `xp-guide-主题英文名`），并加入 `book/_quarto.yml` 的章节目录。页首保留与 `discussion-id` 同名的空 Div，作为文章的稳定链接锚点；复制新文章时一起修改。文章标题由 frontmatter 自动生成，正文从二级标题 `##` 开始，不再重复写一级标题。改文章标题或文件路径时保留 `discussion-id` 和页首锚点，以便继续使用原有讨论。
 

@@ -4,7 +4,7 @@ discussion-id: xp-guide-contributing
 lang: en
 translation-source: content/appendix/contributing.qmd
 translation-status: draft
-translation-source-sha256: ff31db7f28e1e09877f64900f63c58aad773fa94c26696f030dc12b0f78c3f26
+translation-source-sha256: 12e1a80db05c00beb74181d6a893f18ad6a8993213de9bc75b9c8786824a208a
 ---
 
 ::: {#xp-guide-contributing}
@@ -31,6 +31,26 @@ Each article needs a title and a `discussion-id` that remains stable when the ar
 ## Attribution {#怎样署名}
 
 Attribution records the people who actually provided the content. When an editor transcribes a contribution, fixes formatting, or corrects a typo, the original author remains credited. Credit later contributors for substantive additions. You may use a name, nickname, or clearly agreed anonymous credit; there is no need to publish an email address.
+
+In an article with several authors, use adjacent `.contribution` blocks. A block can contain consecutive paragraphs, headings, or lists by the same author. Close it and start another when the author changes; do not nest attribution blocks. This example only demonstrates the syntax and does not establish authorship of any passage in “A research visit to Liverpool”:
+
+```markdown
+::: {.contribution authors="shiyao-zhang"}
+
+Put content confirmed as Shiyao Zhang's contribution here.
+
+:::
+
+::: {.contribution authors="yue-zhou"}
+
+Put content confirmed as Yue Zhou's contribution here.
+
+:::
+```
+
+Use `authors="shiyao-zhang,yue-zhou"` when both people actually wrote the same passage together. Use `authors="shiyao-zhang" contributors="yue-zhou"` when the original text is retained and another person adds substantive material. The website shows one attribution entry for consecutive content with identical credits and shows a new entry when they change. See [paragraph attribution and writing format](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md#段落署名与写作格式) for more examples.
+
+[“A research visit to Liverpool”](../life-tools/liverpool-visit.qmd#xp-guide-liverpool-visit) currently uses one block for the whole article, naming both authors with attribution awaiting confirmation. It does not yet identify the author of each passage. Split it according to the actual contributions only after checking original material or obtaining confirmation from the authors. Keep `status="unverified"` on historical content whose attribution remains uncertain, and use `authors="unknown"` if the author's identity is also unknown.
 
 "Attribution unconfirmed" in historical content does not describe a new author. If you know the original source, include the original draft, existing credit, or other verifiable evidence with your submission.
 

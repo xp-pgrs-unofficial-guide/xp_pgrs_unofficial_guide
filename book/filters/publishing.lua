@@ -76,13 +76,20 @@ return {
       controls = controls .. '<p class="guide-translation-note">English translation draft, awaiting human review. Original author credits and historical dates are retained. <a class="guide-language-switch no-external" target="_self" href="' .. html(alternate) .. '">Read the Chinese source</a>.</p>'
     end
     doc.blocks:insert(1, pandoc.RawBlock("html", controls))
-    local parts = {
-      '<section class="guide-downloads" aria-label="' .. text("PDF 下载", "PDF downloads") .. '">',
-      '<h2 class="unnumbered">' .. text("下载整本攻略", "Download the full guide") .. '</h2>',
-      '<nav class="guide-actions" aria-label="' .. text("下载入口", "Download options") .. '">',
-      '<a class="guide-pdf-download no-external" hreflang="zh-CN" href="' .. html(root_site .. 'xp-pgrs-unofficial-guide.pdf') .. '">' .. text("中文版 PDF", "Chinese PDF") .. '</a>',
-      '<a class="guide-pdf-download no-external" hreflang="en" href="' .. html(root_site .. 'en/xp-pgrs-unofficial-guide.pdf') .. '">English PDF</a>',
-      '<a href="' .. html(repo .. '/releases/latest') .. '">' .. text("版本归档（Release）", "Versioned releases") .. '</a></nav></section>',
+    local parts = {}
+    if input == "index.qmd" then
+      parts = {
+        '<section class="guide-downloads" aria-label="' .. text("PDF 下载", "PDF downloads") .. '">',
+        '<h2 class="unnumbered">' .. text("下载整本攻略", "Download the full guide") .. '</h2>',
+        '<nav class="guide-actions" aria-label="' .. text("下载入口", "Download options") .. '">',
+        '<a class="guide-pdf-download no-external" hreflang="zh-CN" href="' .. html(root_site .. 'xp-pgrs-unofficial-guide.pdf') .. '">' .. text("中文版 PDF", "Chinese PDF") .. '</a>',
+        '<a class="guide-pdf-download no-external" hreflang="en" href="' .. html(root_site .. 'en/xp-pgrs-unofficial-guide.pdf') .. '">English PDF</a>',
+        '<a href="' .. html(repo .. '/releases/latest') .. '">' .. text("版本归档（Release）", "Versioned releases") .. '</a></nav></section>'
+      }
+    end
+    local afterword = {
+      '<footer class="guide-afterword" aria-label="' .. text("参与与讨论", "Contribute and discuss") .. '">',
+      '<p class="guide-afterword-label">' .. text("正文结束 · 参与与讨论", "End of article · Contribute and discuss") .. '</p>',
       '<section class="guide-participate" aria-label="' .. text("参与完善本页", "Improve this page") .. '">',
       '<h2 class="unnumbered">' .. text("一起完善这一页", "Help improve this page") .. '</h2>',
       '<p>' .. text("分享变化、补充经验，或帮我们修正一处错误。正文由编辑审核后发布。", "Share an update, add your experience, or correct an error. Editors review changes before publication.") .. '</p>',
@@ -93,6 +100,7 @@ return {
       '<p class="guide-contribution-help">' .. text("“补充内容／纠错”已带上文章信息，填写建议后提交即可。也可选择“提出修改（PR）”在 GitHub 网页编辑；无仓库写权限时，按提示创建 fork 并提交 PR，目标分支选择 ", "The contribution draft includes this page’s details. You can also edit on GitHub; without write access, follow the fork and pull request prompts. Target branch: ") .. '<code>' .. html(branch) .. '</code>' .. text('。', '.') .. '</p>',
       '</section><section class="guide-discussion" aria-label="' .. text("文章讨论", "Article discussion") .. '"><h2 class="unnumbered">' .. text("讨论", "Discussion") .. '</h2>'
     }
+    for _, part in ipairs(afterword) do parts[#parts + 1] = part end
     local repoid, categoryid = os.getenv("GISCUS_REPO_ID") or "", os.getenv("GISCUS_CATEGORY_ID") or ""
     if repoid ~= "" and categoryid ~= "" and discussion ~= "" then
       parts[#parts + 1] = '<p>' .. text("使用 GitHub 账号登录后即可留言；评论保存在本仓库的 Discussions。", "Sign in with GitHub to comment. Comments are stored in this repository’s Discussions.") .. '</p>'
@@ -107,7 +115,7 @@ return {
     else
       parts[#parts + 1] = '<p>' .. text("欢迎到 GitHub Discussions 讨论本页，并附上文章链接。", "Discuss this page on GitHub Discussions and include the article URL.") .. '</p>'
     end
-    parts[#parts + 1] = '<p><a href="' .. html(repo .. "/discussions") .. '">' .. text("在 GitHub 打开讨论", "Open GitHub Discussions") .. '</a></p></section>'
+    parts[#parts + 1] = '<p><a href="' .. html(repo .. "/discussions") .. '">' .. text("在 GitHub 打开讨论", "Open GitHub Discussions") .. '</a></p></section></footer>'
     parts[#parts + 1] = '<script src="' .. html(relative .. (english and "../" or "") .. 'assets/guide.js?v=' .. guide_script_version()) .. '"></script>'
     doc.blocks:insert(pandoc.RawBlock("html", table.concat(parts, "\n")))
     return doc
