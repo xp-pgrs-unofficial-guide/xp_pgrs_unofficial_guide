@@ -4,7 +4,7 @@ discussion-id: xp-guide-home
 lang: en
 translation-source: index.qmd
 translation-status: draft
-translation-source-sha256: 7acac7264ad3df1e13c9b1f1af1bf1a3b132a4798251f1afdd3c3827d5ca6eda
+translation-source-sha256: 10a412978e8c3c437ac8a4065b98bde503df3c11323b3bfae753c52ee51ed63f
 ---
 
 ::: {#xp-guide-home}
@@ -16,7 +16,11 @@ From enrolment, annual reviews, and graduation to teaching assistant work and ev
 
 Students write and maintain this guide together. Advice applies to particular times and circumstances: read it alongside the original dates and the University's latest notices. When things change, please discuss them below the article or submit a correction.
 
+::::
+
 ## Where to start {#从哪里开始}
+
+:::: {.contribution authors="editorial"}
 
 - **New students**: [Useful websites, apps, and resources](content/getting-started/start-here.qmd#xp-guide-start-here).
 - **Preparing for reviews or graduation**: [Annual Progress Review (APR)](content/milestones/apr.qmd#xp-guide-apr) and [Thesis, viva, and graduation](content/research-work/thesis-and-graduation.qmd#xp-guide-thesis-and-graduation).
@@ -25,7 +29,11 @@ Students write and maintain this guide together. Advice applies to particular ti
 
 The left-hand contents preserve the guide's topic structure. You can also search for information. For offline reading, download the complete [Chinese PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/xp-pgrs-unofficial-guide.pdf) or [English PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/en/xp-pgrs-unofficial-guide.pdf). For versioned PDFs, see [versioned releases](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest).
 
+::::
+
 ## Help improve the guide {#一起完善它}
+
+:::: {.contribution authors="editorial"}
 
 On the website, consecutive content with the same credits shares one author icon on the right. The icon follows your reading position within that content's range. Hover over, focus with the keyboard, or click the icon to see the original authors, later contributors, and confirmation status, with the corresponding range highlighted. On a phone, tap the icon. Attribution for historical material is still being checked. "Attribution unconfirmed" means that there is not yet enough evidence to assign that passage accurately to a particular person.
 

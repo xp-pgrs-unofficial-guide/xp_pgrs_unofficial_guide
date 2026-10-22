@@ -6,15 +6,15 @@ legacy-source:
 lang: en
 translation-source: content/research-work/teaching-assistant.qmd
 translation-status: draft
-translation-source-sha256: 1c1a1fd33e08f773a4a27765e25be68c7088c6d7d7dbebf57a011b694cdd1791
+translation-source-sha256: c2b6141217814e0fe129c6b4b86a9693294fda4498b5dc64314eb0cee0613b99
 ---
 
 ::: {#xp-guide-teaching-assistant}
 :::
 
-::: {.contribution authors="kai-wu,yue-zhou" status="unverified"}
-
 ## Do I need to work as a TA? {#我是否需要做ta}
+
+::: {.contribution authors="kai-wu,yue-zhou" status="unverified"}
 
 - If you are a fully funded PhD student, with both a tuition waiver and a stipend, your Financial Offer from the university obliges you to undertake TA duties every semester. In other words, the scholarship comes in exchange for TA work: if you receive the money, you must do the work. You do not receive additional pay for it. Fully funded PhD students who enrolled in 2020 or later must complete 900 TA hours over three years to graduate. Those who enrolled in 2023 or later must complete 300-500 hours of TA or RA work each academic year to graduate.
 
@@ -30,9 +30,9 @@ For fully funded students, 300 compulsory TA hours per academic year, divided ac
 
 :::
 
-::: {.contribution authors="yue-zhou"}
-
 ## How to become a TA {#如何成为一名ta}
+
+::: {.contribution authors="yue-zhou"}
 
 Schools recruit TAs around the first week of each semester. Usually the School Academic Administrator contacts everyone.
 
@@ -46,9 +46,9 @@ If you are keen to take part, or want to secure a place on a particular module o
 
 :::
 
-::: {.contribution authors="unknown" status="unverified"}
-
 ## Types of TA work and how to do them {#ta的工作种类以及分别怎么做}
+
+::: {.contribution authors="unknown" status="unverified"}
 
 TA duties include, but are not limited to:
 
@@ -66,9 +66,9 @@ The Graduate School organizes TA training every semester, announced by emails ti
 
 :::
 
-::: {.contribution authors="kai-wu"}
-
 ### Marking coursework {#批作业}
+
+::: {.contribution authors="kai-wu"}
 
 For traditional paper assignments, generally just ask the teacher what to do. For electronic submissions through Learning Mall, abbreviated below as LMO, here is a tutorial:
 
@@ -132,17 +132,17 @@ Some of my marking experience:
 
 :::
 
-::: {.contribution authors="unknown" status="unverified"}
-
 ### Marking exams {#批改试卷}
+
+::: {.contribution authors="unknown" status="unverified"}
 
 TAs may be required to mark quizzes, midterms, and final exams. Before leaving for the end-of-semester break, ask the teacher so you do not disappear without realizing you need to mark finals. If you genuinely need to leave early, discuss it with them.
 
 :::
 
-::: {.contribution authors="kai-wu"}
-
 ### Leading labs {#带lab实验课}
+
+::: {.contribution authors="kai-wu"}
 
 Modules such as university physics laboratory classes require TAs to lead labs. A typical physics lab starts with explaining the experimental principles, how to record and process data, and precautions on the laboratory whiteboard, followed by a hands-on demonstration. Afterwards, you mark the lab reports.
 
@@ -154,9 +154,9 @@ I find lab teaching very challenging because it really is university teaching. Y
 
 :::
 
-::: {.contribution authors="yue-zhou"}
-
 ### How to teach tutorials well {#如何做好讲tutorial习题课}
+
+::: {.contribution authors="yue-zhou"}
 
 1. Prepare thoroughly before class. The moment you stand at the front, you are a teacher, responsible for everything you say and for your students. Copy the materials you need onto a USB drive beforehand. In the classroom, turn on the computer and log in with your own account. You also need your account for LM, AMS, and other systems. University computers are slow, so arrive ten minutes early. You also need to finish ten minutes before the end of the scheduled slot, or the next class's teacher and students may complain that you overran.
 
@@ -168,9 +168,9 @@ I find lab teaching very challenging because it really is university teaching. Y
 
 :::
 
-::: {.contribution authors="unknown" status="unverified"}
-
 ## TA pay and payment {#ta工资是多少怎么结}
+
+::: {.contribution authors="unknown" status="unverified"}
 
 In 2022, TA pay was RMB 60 per hour, calculated monthly and paid at the end of the following month. For example, January's work is paid at the end of February.
 

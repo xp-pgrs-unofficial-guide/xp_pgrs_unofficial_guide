@@ -8,9 +8,9 @@ legacy-source:
 ::: {#xp-guide-ergonomics}
 :::
 
-::: {.contribution authors="yue-zhou"}
-
 ## 缓解腰的问题：升降桌 {#缓解腰的问题升降桌}
+
+::: {.contribution authors="yue-zhou"}
 
 ![gongzuotai](../../assets/imported/Yue.Zhou/gongzuotai.jpg)
 
@@ -20,11 +20,11 @@ legacy-source:
 
 :::
 
-::: {.contribution authors="jialin-wang"}
-
 ## 来自重度腰椎间盘突出、颈椎病患者的深度建议 {#来自重度腰椎间盘突出颈椎病患者的深度建议}
 
 ### 升降桌：可极大缓解腰椎问题，但不能完全解决 {#升降桌可极大缓解腰椎问题但不能完全解决}
+
+::: {.contribution authors="jialin-wang"}
 
 我十年腰椎间盘突出加五年颈椎病，19年的时候腰就疼到没法坐一整天，就在实验室放了台升降桌，站着用了三年电脑。今年还在卧室里放了同款升降桌。但长期站着和坐着一样对腰不好，最后会变成站着和坐着一样会腰疼。升降桌不是长久之计，站着只是换了角度继续损耗腰椎。
 
@@ -34,7 +34,11 @@ legacy-source:
 
 注意事项：升降桌记得没事调一调高度。我放实验室里的升降桌几年没调好像液压杆生锈了，都调不动了，直接变成了一般桌子。
 
+:::
+
 ### 外接屏：避免和缓解颈椎病 {#外接屏避免和缓解颈椎病}
+
+::: {.contribution authors="jialin-wang"}
 
 颈椎病难受的一点就是，低头时间长就脖子疼，出门在地铁高铁上我都不得不把手机竖起来抬高和眼平行，不然用不了太长时间。
 
@@ -52,7 +56,11 @@ legacy-source:
 
 ![shengjiangzhuo](../../assets/imported/Jialin.Wang/shengjiangzhuo.jpeg)
 
+:::
+
 ### 最好的解决方案：改变生活习惯、加强锻炼 {#最好的解决方案改变生活习惯加强锻炼}
+
+::: {.contribution authors="jialin-wang"}
 
 建议有腰椎间盘突出和颈椎病的人还是多锻炼。但不要盲目去健身房锻炼，最好的锻炼方法还是游泳，因为其他锻炼方式大多会需要腰部用力，加重腰疼。
 

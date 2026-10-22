@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/research-work/how-research-works.qmd
 translation-status: draft
-translation-source-sha256: 9b3047142c4b5853e95d38291d09758efca0f502aae632d4544052c33c53bc1b
+translation-source-sha256: 0c6536cd19c60d4f3604e11e243df0bd683487e6e4b2c90b747c20fc439433e9
 ---
 
 ::: {#xp-guide-how-research-works}
@@ -15,9 +15,9 @@ translation-source-sha256: 9b3047142c4b5853e95d38291d09758efca0f502aae632d454405
 ::: {#section.how-research-works}
 :::
 
-::: {.contribution authors="shiyao-zhang"}
-
 ## Research funding {#学术经费}
+
+::: {.contribution authors="shiyao-zhang"}
 
 Research funding broadly comes from three sources:
 
@@ -31,7 +31,11 @@ Research funding does not go straight into the principal investigator's personal
 
 When a supervisor secures research funding above a certain threshold in a single award, they can receive a corresponding allocation of PhD scholarships (PGRS).
 
+:::
+
 ## Journals and conferences {#期刊及会议}
+
+::: {.contribution authors="shiyao-zhang"}
 
 A journal or conference needs at least one academic organization to take responsibility for running it. Prominent, active researchers carry out work for these organizations, for example as editors or reviewers, which helps attract submissions and participation. Correspondingly, holding such roles reflects a researcher's reputation to some extent.
 
@@ -41,7 +45,11 @@ The influence of journals and conferences depends substantially on how often the
 
 Many research fields have very few researchers. At conferences you can often meet people whose papers you have at least read, and even reviewers or viva examiners.
 
+:::
+
 ## Social benefit {#社会效益}
+
+::: {.contribution authors="shiyao-zhang"}
 
 One way of understanding academic research is that it creates new knowledge at the limits of human understanding. From that perspective, research will ultimately benefit society.
 
@@ -49,7 +57,11 @@ I have also heard that researchers in the humanities and social sciences are par
 
 Still, we live in a commercial society. Social benefit often comes close to meaning how much a result is worth financially, or how much potential it has. That is also the environment in which we physically find ourselves.
 
+:::
+
 ## Supervisors {#导师}
+
+::: {.contribution authors="shiyao-zhang"}
 
 Supervisors differ greatly, but can roughly be divided into those oriented towards applications and those oriented towards the research frontier:
 
@@ -63,7 +75,11 @@ For these reasons, you can probably agree that there is a good chance we will co
 
 For the humanities and social sciences, I have heard that students need their supervisors' guidance almost throughout their training. Again, we can invite someone to write about this when there is an opportunity.
 
+:::
+
 ## Collaboration {#subsection.teamwork}
+
+::: {.contribution authors="shiyao-zhang"}
 
 In research, collaboration with other researchers may be unavoidable, for a variety of reasons including the following:
 

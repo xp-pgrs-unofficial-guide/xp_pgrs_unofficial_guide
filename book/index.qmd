@@ -12,7 +12,11 @@ discussion-id: xp-guide-home
 
 这份攻略由同学们共同撰写和维护。经验有适用时间与条件，请结合原文日期及学校最新通知使用；遇到变化，欢迎在文章下讨论或提交纠错。
 
+::::
+
 ## 从哪里开始 {#从哪里开始}
+
+:::: {.contribution authors="editorial"}
 
 - **刚入学**：[常用网站、应用与资源](content/getting-started/start-here.qmd#xp-guide-start-here)。
 - **准备评审与毕业**：[年度进展评审 APR](content/milestones/apr.qmd#xp-guide-apr)、[论文、答辩与毕业](content/research-work/thesis-and-graduation.qmd#xp-guide-thesis-and-graduation)。
@@ -21,7 +25,11 @@ discussion-id: xp-guide-home
 
 左侧目录保留整本指南的主题结构，也可以使用搜索查找内容。需要离线阅读时，可下载整本 [中文版 PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/xp-pgrs-unofficial-guide.pdf) 或 [English PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/en/xp-pgrs-unofficial-guide.pdf)。按版本归档的 PDF 见 [Release 版本归档](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest)。
 
+::::
+
 ## 一起完善它 {#一起完善它}
+
+:::: {.contribution authors="editorial"}
 
 网页中，连续同署名内容共用一个右侧作者图标，图标随阅读位置滚动，并停留在对应内容范围内。悬停、键盘聚焦或点击图标可查看原作者、补充者和归属确认情况，同时高亮对应范围；手机上轻点即可查看。历史材料的署名正在整理；“归属待确认”表示目前没有足够证据把这一段准确归给某个人。
 

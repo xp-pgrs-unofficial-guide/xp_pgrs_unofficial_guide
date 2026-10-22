@@ -355,10 +355,10 @@ def run(command, **kwargs):
     return subprocess.run(command, check=True, cwd=ROOT, **kwargs)
 
 
-def pandoc_json(quarto, path):
+def pandoc_json(quarto, path, expand_author_pages=True):
     command = [quarto, "pandoc", path, "--from=markdown", "--to=json"]
     meta, _ = frontmatter(path)
-    if meta.get("guide-author-id") or meta.get("guide-author-index"):
+    if expand_author_pages and (meta.get("guide-author-id") or meta.get("guide-author-index")):
         root = source_root(path)
         command.extend([f"--metadata-file={root / '_quarto.yml'}",
                         f"--metadata-file={BOOK / '_authors.yml'}",
@@ -366,6 +366,25 @@ def pandoc_json(quarto, path):
                         f"--lua-filter={BOOK / 'filters/author-pages.lua'}"])
     result = run(command, capture_output=True, text=True)
     return json.loads(result.stdout)
+
+
+def validate_heading_placement(node, path, attributed=False):
+    """Keep source section headings visible to Quarto's page contents."""
+    if isinstance(node, list):
+        for child in node:
+            validate_heading_placement(child, path, attributed)
+        return
+    if not isinstance(node, dict):
+        return
+    kind, content = node.get("t"), node.get("c")
+    if kind == "Div":
+        attr, children = content
+        validate_heading_placement(children, path, attributed or "contribution" in attr[1])
+        return
+    if kind == "Header" and attributed:
+        raise ValueError(f"{path}: 小节标题必须放在署名内容块外，以生成页内目录")
+    for child in node.values():
+        validate_heading_placement(child, path, attributed)
 
 
 def validate_ast(node, path, known_authors, attributed=False):
@@ -494,6 +513,13 @@ def validate_sources(quarto):
             if not body.strip():
                 raise ValueError(f"{path}: 正文为空")
             asts[path] = pandoc_json(quarto, path)
+            # Profile templates create their own section headings after parsing.
+            # Check the authored source separately so the metadata cannot hide
+            # misplaced source headings while generated profiles stay valid.
+            source_ast = (pandoc_json(quarto, path, expand_author_pages=False)
+                          if meta.get("guide-author-id") or meta.get("guide-author-index")
+                          else asts[path])
+            validate_heading_placement(source_ast["blocks"], path)
             validate_ast(asts[path]["blocks"], path, known)
     if len(language_roots()) > 1:
         chinese = {p.relative_to(BOOK).as_posix(): p for p in current if source_root(p) == BOOK}

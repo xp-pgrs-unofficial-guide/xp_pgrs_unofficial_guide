@@ -8,7 +8,7 @@ legacy-source:
 lang: en
 translation-source: content/life-tools/backup.qmd
 translation-status: draft
-translation-source-sha256: 8d78f9aa502c595646a223c61370d155b47c616d184d4c7e1ef83b525f0a9012
+translation-source-sha256: 7e59646f6cef2891cc90e95099fe7d0144a964b86429411269ea4fd29b3e65b4
 ---
 
 ::: {#xp-guide-backup}
@@ -54,7 +54,11 @@ Any one of these events may be rare. Add all the possibilities together over thr
 
 Data with only one copy is very fragile. Think now about the computer, data, and thesis you rely on: do you have only one copy? If so, get out of your chair immediately, wash your face in the bathroom, ask yourself how a grown adult can be so carefree about this, and then read the guide below.
 
+:::
+
 ## Theory: the 3-2-1 rule {#理论321原则}
+
+::: {.contribution authors="kai-wu"}
 
 The 3-2-1 rule is a standard golden rule for corporate data backups:
 
@@ -66,7 +70,11 @@ The 3-2-1 rule is a standard golden rule for corporate data backups:
 
 "Media" means different storage types such as internal drives, external drives, USB sticks, and cloud storage. It may sound troublesome, but our simplest practical setup is to keep the original on the internal drive and the two copies on an external drive and in the cloud. That meets all three requirements at once. Look back at every disaster I listed above: you could handle all of them comfortably, even the cloud storage company suddenly going out of business, without disrupting your research!
 
+:::
+
 ## Practice {#实践}
+
+::: {.contribution authors="kai-wu"}
 
 Time to get things ready. First decide the scope of your backups based on the resources you have. With plenty of money, you could back up the whole computer both locally and to the cloud. Often, however, cloud capacity is small, the external drive is not big enough, or uploading lots of data is too slow. So set your backup scope first.
 
@@ -78,7 +86,11 @@ Time to get things ready. First decide the scope of your backups based on the re
 
 A normal computer's drive is usually no larger than 2 TB. I also assume that buying an external drive of at least 2 TB for under RMB 500 should not be too much pressure. If your supervisor has sufficient funding, simply ask whether they can buy an external drive for your backups; purchases under RMB 2,000 are straightforward to reimburse. So I will cover only the efficient middle option below.
 
+:::
+
 ### Full-computer backup {#sec.pc_backup}
+
+::: {.contribution authors="kai-wu"}
 
 A major advantage of backing up the entire computer is that, if the computer is completely lost, you can buy a replacement and restore your previous working setup within a day, picking up seamlessly without affecting your research.
 
@@ -90,13 +102,21 @@ Both Windows and macOS include system-level full-computer backup tools. There ar
 
 If one video does not make sense, watch a few more, and make good use of Google, Zhihu, and other resources. Beginners may find the learning curve a little steep, but do not wait until your computer breaks before preparing.
 
+:::
+
 ### Cloud backup {#sec.net_drive_backup}
+
+::: {.contribution authors="kai-wu"}
 
 Box (<https://box.xjtlu.edu.cn/>) is the university's self-hosted cloud drive. In 2022 it was upgraded to 100 GB of free space per person, with gigabit upload and download speeds on the internal network and three months of file history, outperforming many commercial services. Drag important folders into the Seafile client without moving the folders themselves, and it will automatically back them up to the university cloud in real time. Instructions: <https://guide.xjtlu.edu.cn/box/student/drive_client/drive_clent_for_windows.html>. The only problem with Box is that we cannot share files via links; staff have sharing permission, but we do not. As a backup drive, though, it is very suitable.
 
 If you do not entirely trust university IT, you can also install a commercial cloud drive as a second cloud backup. Personally, I strongly advise against Baidu Cloud because it sometimes randomly loses files. For a Chinese service I recommend Nutstore, whose free tier has unlimited storage but a monthly transfer limit. For an overseas service, I recommend OneDrive: a personal account gets 5 GB free, and you can search Taobao for a OneDrive storage expansion costing a few yuan to increase it permanently to 15 GB. Everyone also has 1 TB of free OneDrive storage through their Liverpool account, so make use of it. Remember to move your data out before graduation because the account will be withdrawn. See [Benefits included with your Liverpool account](../resources/liverpool-account.qmd#sec.fuli_liverpool).
 
+:::
+
 ## Thesis backups and file version history {#论文备份文件历史版本}
+
+::: {.contribution authors="kai-wu"}
 
 The disaster-prevention methods above address most data-loss scenarios. But your papers, including your thesis and journal articles, are among your most important and vulnerable files. Besides losing them, two more catastrophes are especially worrying:
 

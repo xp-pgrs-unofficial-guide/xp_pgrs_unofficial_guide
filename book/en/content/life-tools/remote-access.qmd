@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/life-tools/remote-access.qmd
 translation-status: draft
-translation-source-sha256: d67122023ecea0e9682b4fdaacb9f0ea253721d411aacab293e6083015344496
+translation-source-sha256: a08fbd33cd77d677d30f3191ed8542e4a6d564357efa47cf8d8c921c782bd136
 ---
 
 ::: {#xp-guide-remote-access}
@@ -16,7 +16,11 @@ translation-source-sha256: d67122023ecea0e9682b4fdaacb9f0ea253721d411aacab293e60
 
 When you are off campus, you often miss your on-campus computer. Whether it is the small desktop the university provides each person or another computer bought with your supervisor's funding, it can be controlled remotely.
 
+:::
+
 ## Preparing a university-provided computer {#学校配的电脑准备工作}
+
+::: {.contribution authors="kai-wu"}
 
 (If you are not trying to access a university-provided computer, skip to the next section.)
 
@@ -26,7 +30,11 @@ University-provided computers are unusual in that we cannot install software by 
 
 2. With the first approach, the university still manages the computer and some restrictions remain, although it is sufficient for ordinary use. Students who ~~are obsessive, like me, and~~ want complete control can wipe the drive and reinstall the operating system, or create another partition and install a second system while retaining the original. Bilibili and Zhihu have many tutorials on reinstalling Windows and setting up a dual-boot system.
 
+:::
+
 ## Recommended remote desktop software {#桌面控制软件推荐}
+
+::: {.contribution authors="kai-wu"}
 
 The software below is available on Windows, Linux, and Mac.
 
@@ -36,7 +44,11 @@ The software below is available on Windows, Linux, and Mac.
 
 - Other options to try include AnyDesk, TeamViewer, and Sunlogin. I do not particularly recommend TeamViewer: although well established, it may detect XJTLU's network environment and require you to buy a commercial licence. The other programs do not have this problem.
 
+:::
+
 ## Remote SSH {#远程ssh}
+
+::: {.contribution authors="kai-wu"}
 
 (If you do not use Linux, skip to the next section on pitfalls.)
 
@@ -56,7 +68,11 @@ The video includes two approaches that can work for on-campus computers:
 
 - Advanced high-volume option, with a steeper learning curve: free plans usually have fairly strict transfer and bandwidth limits, though they are more than sufficient for SSH commands alone. If you want the luxury of copying files with SCP or forwarding VNC over SSH, consider using your supervisor's funding to rent a cloud server and set up FRP manually. Setup is troublesome, but it is very satisfying afterwards: forwarded VNC is faster than the remote desktop options above. You could even use an old computer on your home or dorm broadband as a jump host, obtain a public IP, and combine it with DDNS for unlimited traffic. These approaches take more learning; interested readers can work through online tutorials at their own pace.
 
+:::
+
 ## Pitfalls I have encountered {#踩过的坑}
+
+::: {.contribution authors="kai-wu"}
 
 Here is what I learned from a great many mishaps:
 

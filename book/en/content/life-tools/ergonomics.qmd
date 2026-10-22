@@ -6,15 +6,15 @@ legacy-source:
 lang: en
 translation-source: content/life-tools/ergonomics.qmd
 translation-status: draft
-translation-source-sha256: 15e49631ccd27ef639ff5288f9ce03d3e987e297e4aa1c4d2d4d2f061dc6b672
+translation-source-sha256: f4f638ec3496080f802da05b9013393e66ae9f32a526c0725db0a7520ce8127b
 ---
 
 ::: {#xp-guide-ergonomics}
 :::
 
-::: {.contribution authors="yue-zhou"}
-
 ## Easing lower-back problems: an adjustable desk {#缓解腰的问题升降桌}
+
+::: {.contribution authors="yue-zhou"}
 
 ![Adjustable workstation](../../../assets/imported/Yue.Zhou/gongzuotai.jpg)
 
@@ -24,11 +24,11 @@ Before starting my PhD, I already had severe lower-back muscle strain. How shoul
 
 :::
 
-::: {.contribution authors="jialin-wang"}
-
 ## In-depth advice from someone with a severe herniated lumbar disc and cervical problems {#来自重度腰椎间盘突出颈椎病患者的深度建议}
 
 ### Adjustable desks can greatly relieve lower-back problems, but cannot solve them completely {#升降桌可极大缓解腰椎问题但不能完全解决}
+
+::: {.contribution authors="jialin-wang"}
 
 I have had a herniated lumbar disc for ten years and cervical problems for five. In 2019 my back hurt so much that I could not sit all day, so I put an adjustable desk in the lab and used the computer standing up for three years. This year I put the same desk in my bedroom. But standing for long periods is as bad for the back as sitting, and eventually standing hurts just as much. An adjustable desk is not a long-term solution: standing merely changes the angle at which you continue to wear out your lower back.
 
@@ -38,7 +38,11 @@ In summary, an adjustable desk is useful, but should not be used as a permanent 
 
 A practical point: adjust the height occasionally. I did not adjust the desk in my lab for several years, and apparently the hydraulic strut rusted. It would no longer move, effectively turning it into an ordinary desk.
 
+:::
+
 ### External monitors: preventing and relieving neck problems {#外接屏避免和缓解颈椎病}
+
+::: {.contribution authors="jialin-wang"}
 
 One unpleasant aspect of cervical problems is that looking down for too long makes your neck hurt. Even when out on the metro or high-speed train, I have to hold my phone upright at eye level, or I cannot use it for long.
 
@@ -56,7 +60,11 @@ A laptop stand is another option, and cheaper than a monitor. But if your eyesig
 
 ![Standing desk and laptop stand](../../../assets/imported/Jialin.Wang/shengjiangzhuo.jpeg)
 
+:::
+
 ### The best solution: change your habits and exercise more {#最好的解决方案改变生活习惯加强锻炼}
+
+::: {.contribution authors="jialin-wang"}
 
 I suggest that people with herniated lumbar discs and cervical problems exercise more. But do not blindly head to the gym. Swimming is the best form of exercise, because most other activities require exerting the lower back and can worsen the pain.
 

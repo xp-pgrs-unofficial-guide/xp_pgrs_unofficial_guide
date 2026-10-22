@@ -6,15 +6,15 @@ legacy-source:
 lang: en
 translation-source: content/research-work/invigilation.qmd
 translation-status: draft
-translation-source-sha256: 07fa73abb890d6c6d1b1cdefaca76529c894217fac01752d5d9bc1a9013e5e60
+translation-source-sha256: 650f984e77bd38bf9497201aa1b6bd5b5b82812295ee72a0342b1f0689c66121
 ---
 
 ::: {#xp-guide-invigilation}
 :::
 
-::: {.contribution authors="kai-wu,yue-zhou" status="unverified"}
-
 ## How to take part {#如何参加}
+
+::: {.contribution authors="kai-wu,yue-zhou" status="unverified"}
 
 If fully funded PhD students have not completed their required TA hours, their school will assign them invigilation work. There are only two exam periods per semester: midterms and finals. Because of the pandemic over the past two years, it has been a long time since we had in-person exams.
 
@@ -22,7 +22,11 @@ When there are too many exams for staff and fully funded PhD students to cover, 
 
 In 2022, the invigilation pay rate was RMB 60 per hour. There is little preparation, and during the exam you mostly walk around. It is comparatively easy work and a good way for students without full funding to earn some money.
 
+:::
+
 ## What to do {#具体怎么做}
+
+::: {.contribution authors="kai-wu,yue-zhou" status="unverified"}
 
 First, the university provides invigilation training. Look for the Assessment and invigilation session in the email titled *Teaching Assistant (TA) Training Programme*, or find it on LMO. If you have never attended, consider going once to learn the overall process.
 

@@ -6,7 +6,7 @@ legacy-source:
 lang: en
 translation-source: content/getting-started/start-here.qmd
 translation-status: draft
-translation-source-sha256: 606dd14afedc671d61053296f6662c716437ebd15f6f40faef0cc6e08350c62a
+translation-source-sha256: 04e89f90543f3bbf58b5887ae23f1f35e0edfc65547389eb994e651ec65a4f53
 ---
 
 ::: {#xp-guide-start-here}
@@ -19,7 +19,11 @@ translation-source-sha256: 606dd14afedc671d61053296f6662c716437ebd15f6f40faef0cc
 
 Supposedly bookmarked by 99% of PhD students.
 
+:::
+
 ## Websites {#网站}
+
+::: {.contribution authors="unknown" status="unverified"}
 
 - XJTLU website directory: <https://guide.xjtlu.edu.cn>
 
@@ -27,7 +31,11 @@ Supposedly bookmarked by 99% of PhD students.
 
 - University of Liverpool portal, Liverpool Life: <https://liverpool-life.liverpool.ac.uk>
 
+:::
+
 ## WeChat official accounts {#公众号}
+
+::: {.contribution authors="unknown" status="unverified"}
 
 | University | Library | Student services (One Stop) | IT |
 |:--:|:--:|:--:|:--:|
@@ -35,11 +43,19 @@ Supposedly bookmarked by 99% of PhD students.
 
 Schools may also have official accounts. Search WeChat for "西浦" or "西交利物浦" followed by the school's name.
 
+:::
+
 ## Mobile app {#手机app}
+
+::: {.contribution authors="unknown" status="unverified"}
 
 <https://guide.xjtlu.edu.cn/How-to-install-the-XJTLU-APP.html>
 
+:::
+
 ## Where to find frequently used resources {#常用资源位置}
+
+::: {.contribution authors="unknown" status="unverified"}
 
 - XJTLU PGR Handbook, University policies and regulations: log in to ebridge and find "PGR Policies, Procedures and Forms" in the centre of the page.
 

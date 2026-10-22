@@ -8,9 +8,9 @@ legacy-source:
 ::: {#xp-guide-teaching-assistant}
 :::
 
-::: {.contribution authors="kai-wu,yue-zhou" status="unverified"}
-
 ## 我是否需要做TA？ {#我是否需要做ta}
+
+::: {.contribution authors="kai-wu,yue-zhou" status="unverified"}
 
 - 如果你是全额奖学金的博士生（免学费+有津贴），那根据学校发给你的的Financial offer，你每学期都有TA的义务（换句话说，奖学金是TA工作量换来的，拿了钱必须做事）。做了TA过后，不会另外结算工资。2020年及之后入学的全奖博士，三年需要做满900小时助教方可毕业。2023年及之后入学的全奖博士，每学年需要做300-500小时TA或RA方可毕业。
 
@@ -26,9 +26,9 @@ legacy-source:
 
 :::
 
-::: {.contribution authors="yue-zhou"}
-
 ## 如何成为一名TA {#如何成为一名ta}
+
+::: {.contribution authors="yue-zhou"}
 
 每学期的第一周前后，学院会招募TA，一般由学院的秘书（School Academic Administrator）联系大家。
 
@@ -42,9 +42,9 @@ legacy-source:
 
 :::
 
-::: {.contribution authors="unknown" status="unverified"}
-
 ## TA的工作种类，以及分别怎么做 {#ta的工作种类以及分别怎么做}
+
+::: {.contribution authors="unknown" status="unverified"}
 
 助教的工作包括不局限于
 
@@ -62,9 +62,9 @@ legacy-source:
 
 :::
 
-::: {.contribution authors="kai-wu"}
-
 ### 批作业 {#批作业}
+
+::: {.contribution authors="kai-wu"}
 
 如果是传统的改线下的纸质作业，一般问老师怎么做就行。如果是通过Learning Mall（以下简称LMO）提交的电子版作业，下面是教程：
 
@@ -128,17 +128,17 @@ legacy-source:
 
 :::
 
-::: {.contribution authors="unknown" status="unverified"}
-
 ### 批改试卷 {#批改试卷}
+
+::: {.contribution authors="unknown" status="unverified"}
 
 Quiz，期中，期末考试，助教有可能要参加评卷。所以期末放假跑路之前跟老师问清楚，以免要改期末卷但是不知道。如果确实有事要提前跑路，和老师商量。
 
 :::
 
-::: {.contribution authors="kai-wu"}
-
 ### 带Lab（实验课） {#带lab实验课}
+
+::: {.contribution authors="kai-wu"}
 
 像大学物理实验这种课，会让TA带实验课。物理实验的讲课流程一般是：先在实验室的白板给学生讲一下实验原理、数据如何记录和处理、注意事项，然后要亲手演示如何做实验。课后，要批改实验报告。
 
@@ -150,9 +150,9 @@ Quiz，期中，期末考试，助教有可能要参加评卷。所以期末放�
 
 :::
 
-::: {.contribution authors="yue-zhou"}
-
 ### 如何做好讲Tutorial（习题课） {#如何做好讲tutorial习题课}
+
+::: {.contribution authors="yue-zhou"}
 
 1.  课前做好充分准备工作，当你站上讲台那一刻，你就是一名教师了，要为自己说的所有的话负责，也要对学生负责。课前将课程所需要的材料拷到U盘中，进入教室后打开电脑登录自己的账号即可使用电脑。同时你也需要使用账号登录LM, AMS等乱起八糟的系统。由于学校电脑较卡顿，建议大家提前十分钟到达教室。此外，也需要提前十分钟下课，否则会被后面上课的老师和学生投诉你拖堂。
 
@@ -164,9 +164,9 @@ Quiz，期中，期末考试，助教有可能要参加评卷。所以期末放�
 
 :::
 
-::: {.contribution authors="unknown" status="unverified"}
-
 ## TA工资是多少，怎么结 {#ta工资是多少怎么结}
+
+::: {.contribution authors="unknown" status="unverified"}
 
 2022年TA工资是60元/小时，每月一结，次月月底发钱。例如，2月底发1月工作的工资。
 

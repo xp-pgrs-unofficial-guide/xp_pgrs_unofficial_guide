@@ -16,7 +16,11 @@ legacy-source:
 
 你想毕业吗？你想成为Doctor吗？那就赶快看这里吧！只要一篇一百多页的论文，毕业不是梦！~~（发癫结束）~~
 
+:::
+
 ## 官方流程和时间线 {#sec.official.flowchart}
+
+::: {.contribution authors="kai-wu"}
 
 正如本攻略的宗旨是官方资料的补充，首先请尽量熟读下图的官方毕业流程，里面的时间线、条件和顺序都是万分准确的。
 
@@ -28,7 +32,11 @@ legacy-source:
 
 如果想直到每个步骤大概要花多少时间，跳转章节 [每个步骤要等多久？如何预估时间？](thesis-and-graduation.qmd#sec.graduation.time)。
 
+:::
+
 ## ITS: Intention to submit {#its-intention-to-submit}
+
+::: {.contribution authors="kai-wu"}
 
 Q：ITS重要吗，我着急写论文呢，暂时不管它行不行
 
@@ -46,9 +54,13 @@ Q：我还要问
 
 A：先看看官方文件：<https://www.liverpool.ac.uk/aqsd/academic-codes-of-practice/pgr-code-of-practice/>
 
+:::
+
 ## Thesis: 学位论文/毕业论文 {#thesis-学位论文毕业论文}
 
 ### 格式和排版 {#格式和排版}
+
+::: {.contribution authors="kai-wu"}
 
 官方文件：<https://www.liverpool.ac.uk/media/livacuk/tqsd/code-of-practice-on-assessment/annex-7.1-PGR-CoP.pdf> \<– 一切对格式不确定的请以这个为准。下面是微信群里的一些日经问题。
 
@@ -70,7 +82,11 @@ A：
 
 3.  请使用模板的同学特别注意，never fully trust the template! Word模板是西浦ELC的老师给的，不是利物浦给的；Overleaf更是民间模板。理论上，他们对你的论文和毕业都**不负责**。因此拿到模板过后，第一件事永远还是打开上面的Code of Practice，一条一条的比对看是否达到了要求。
 
+:::
+
 ### 字数 {#字数}
+
+::: {.contribution authors="kai-wu"}
 
 Q：上面的CoD只说了一个字数上限，那最低字数要求呢？
 
@@ -80,11 +96,11 @@ A：另一个日经问题。我曾经在研究生院Thesis Writing Camp课程上
 
 :::
 
-::: {.contribution authors="ziwen-xie"}
-
 ## 论文答辩 {#论文答辩}
 
 ### 答辩前后流程 {#答辩前后流程}
+
+::: {.contribution authors="ziwen-xie"}
 
 1.  在e-bridge上正式提交论文之前至少两个月，由指导老师选定好未来答辩的考察老师名单，交由XJTLU的pgsupport以及利物浦审核确定。
 
@@ -102,7 +118,11 @@ A：另一个日经问题。我曾经在研究生院Thesis Writing Camp课程上
 
 (资料日期：2024年07月05日)
 
+:::
+
 ### 如何准备好一场答辩 {#如何准备好一场答辩}
+
+::: {.contribution authors="ziwen-xie"}
 
 来自理学院的经验：
 
@@ -180,13 +200,17 @@ Tips：感觉老师就是比较好奇聊聊，放松回答就行。**最后来�
 
 :::
 
-::: {.contribution authors="kai-wu"}
-
 ## 我想尽快拿学位证！如何速通毕业流程 {#我想尽快拿学位证如何速通毕业流程}
+
+::: {.contribution authors="kai-wu"}
 
 急急急，你就是急急国王。下面是一个合格的急急国王必须知道的事。
 
+:::
+
 ### 毕业的证明文件 {#毕业的证明文件}
+
+::: {.contribution authors="kai-wu"}
 
 1.  完读证明（Completion of Studies Certificate），由西浦研究生院开具。证明内容：已提交毕业论文，已通过答辩，即将在XXXX年X月的毕业典礼上授予博士学位。我的Example：
 
@@ -200,7 +224,11 @@ Tips：感觉老师就是比较好奇聊聊，放松回答就行。**最后来�
 
 因此，首先确定你要去的公司/单位能接受哪种证明文件。最松的情况，你答辩完收到利物浦确认的Pass (with minor/major modification)邮件就行。也有能接受完读证明的。如果对方比较死板，不见学位证就不行，甚至没有中外合办认证也不行，那就要特别规划好毕业进度，因为每年只发2次证！
 
+:::
+
 ### 学位证：最关键时间节点 {#学位证最关键时间节点}
+
+::: {.contribution authors="kai-wu"}
 
 如果你确定不需要赶时间拿学位证，那本节接下来的都可以忽略，因为完读证明任何时候都可以开。
 
@@ -208,7 +236,11 @@ Q：我能否在7月/12月毕业？硬性要求是什么？
 
 A：最好的方式是直接上利物浦网站查询，或者直接google liverpool phd graduation。过去几年的要求都是：在某个时间点之前，利物浦图书馆确认收到你的~~终极完全不改版的~~最终论文。例如，如果要参加2024年7月15日的利物浦毕业典礼（在这一天颁发学位证，或邮寄），需要在2024年6月25日之前，利物浦图书馆确定收到了最终论文。这份论文是你的内外审都满意、同意的最终版。如何走到这一步？看下一节。
 
+:::
+
 ### 每个步骤要等多久？如何预估时间？ {#sec.graduation.time}
+
+::: {.contribution authors="kai-wu"}
 
 以下完全基于已毕业同学的经验整理。新毕业的同学，请不吝赐教，补充你的真实案例。
 

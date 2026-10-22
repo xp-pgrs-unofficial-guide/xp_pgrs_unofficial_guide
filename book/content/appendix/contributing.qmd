@@ -10,13 +10,21 @@ discussion-id: xp-guide-contributing
 
 你用十几分钟写下的经验，可能会节约后来人几小时甚至几天的时间。无论是新增一篇攻略，还是指出一处过时信息，都欢迎参与。
 
+:::
+
 ## 最简单的方法：提交文字 {#最简单的方法提交文字}
+
+::: {.contribution authors="editorial"}
 
 点击任一文章下方的“补充内容／纠错”，登录 GitHub 后会打开预填的 Issue 草稿，已带上文章标题、链接、源文件、分支和文章标识。补充你的建议、希望公开的姓名或昵称，以及资料来源；图片和文件可以直接拖入正文。检查后再点击提交，打开草稿不会自动发布。
 
 编辑会核对内容、与你确认需要澄清的地方，再通过 PR 纳入正文。你不需要安装软件，也不需要学习 LaTeX。
 
+:::
+
 ## 直接修改文章 {#直接修改文章}
+
+::: {.contribution authors="editorial"}
 
 点击“提出修改（PR）”，在 GitHub 网页中修改 Markdown。普通读者也可以参与：没有本仓库写权限时，按 GitHub 提示创建自己的 fork，再提出 Pull Request，目标分支请选择 `main`。拥有写权限的维护者也应创建修改分支并通过 PR 审核后更新正文。
 
@@ -24,7 +32,11 @@ discussion-id: xp-guide-contributing
 
 每篇文章需要标题和不随改名变化的 `discussion-id`；正文放在带署名的内容块中。连续同作者的段落可共用一个内容块，作者变化时另起一块。完整范例见 [贡献说明](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md)。
 
+:::
+
 ## 怎样署名 {#怎样署名}
+
+::: {.contribution authors="editorial"}
 
 署名记录内容的实际提供者。编辑帮忙录入、整理格式或改正错字时保留原作者；实质补充内容时注明补充者。可以使用姓名、昵称或明确的匿名署名，无需公开邮箱。
 
@@ -54,7 +66,11 @@ discussion-id: xp-guide-contributing
 
 评论里的意见被采纳为正文时，编辑会保留实际贡献者的署名。评论并不会自动变成正文，所有改动都经过审核。
 
+:::
+
 ## 作者的学术资料 {#author-academic-profile}
+
+::: {.contribution authors="editorial"}
 
 在目录的“作者与贡献者”分组中选择姓名，可进入每位作者的主页，查看其参与文章和本人确认的公开资料。可选资料包括项目角色、机构、院系、研究方向、简介、ORCID、Google Scholar、个人主页、机构资料页、GitHub 和公开邮箱。未知项留空，不凭姓名推断账号或机构。
 

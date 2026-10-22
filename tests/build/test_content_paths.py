@@ -156,10 +156,27 @@ Final section text.
 
         parsed = blocks(sections + ending)
         self.assertEqual([block["t"] for block in parsed], ["Header", "Div", "Header", "Div"])
+        build.validate_heading_placement(parsed, self.book / "index.qmd")
         build.validate_ast(parsed, self.book / "index.qmd", {"editorial"})
         with self.assertRaisesRegex(ValueError, "未归入署名内容块的 Para"):
             build.validate_ast(blocks(sections + ending + date), self.book / "index.qmd", {"editorial"})
         build.validate_ast(blocks(sections + date + ending), self.book / "index.qmd", {"editorial"})
+
+    def test_credit_heading_check_uses_parsed_structure_including_nested_divs(self):
+        def blocks(source):
+            result = self.pandoc_run(["test-quarto", "pandoc", "--from=markdown", "--to=json"],
+                                     input=source, capture_output=True, text=True)
+            return json.loads(result.stdout)["blocks"]
+
+        for heading in ("## Section", "### Subsection", "###### Small section"):
+            for body in (heading, "::: {.callout-note}\n\n" + heading + "\n\n:::"):
+                with self.subTest(body=body):
+                    source = ':::: {.contribution authors="editorial"}\n\n' + body + '\n\n::::\n'
+                    with self.assertRaisesRegex(ValueError, "标题必须放在署名内容块外"):
+                        build.validate_heading_placement(blocks(source), self.book / "index.qmd")
+        # Markdown examples are authored code, not actual navigation headings.
+        example = '::: {.contribution authors="editorial"}\n\n```markdown\n## Example\n```\n\n:::\n'
+        build.validate_heading_placement(blocks(example), self.book / "index.qmd")
 
     def test_recursive_discovery_includes_every_article_and_no_generated_file(self):
         self.articles["content/resources/nested/extra.qmd"] = ("Deep article", "xp-guide-extra")

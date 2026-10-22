@@ -6,15 +6,15 @@ legacy-source:
 lang: en
 translation-source: content/milestones/apr.qmd
 translation-status: draft
-translation-source-sha256: 8d53fbb8410483f3b9daa708c058d8df0d16ef276767774a2564c174d8a59ac7
+translation-source-sha256: fe2d6e9493dfec32b8a3f2cc91e285cd2f219c4763a07228e78be29f9e2de14d
 ---
 
 ::: {#xp-guide-apr}
 :::
 
-::: {.contribution authors="kai-wu"}
-
 ## What is the APR? {#apr-是什么}
+
+::: {.contribution authors="kai-wu"}
 
 First, read the official guidance. If you have not read it, please read every word: the APR is as important as a small viva. Failing it can lead to your withdrawal from the programme.
 
@@ -32,9 +32,13 @@ Some students are very nervous about their first APR. In practice, for the progr
 
 Remember that another major function of the APR is to help you solve problems. You should therefore feel able to raise difficulties openly and ask for help (see [IPAP interview](apr.qmd#sec.IPAP)).
 
+:::
+
 ## The APR process {#apr-流程}
 
 ### Preparation {#准备工作}
+
+::: {.contribution authors="kai-wu"}
 
 There is only one prerequisite for the APR: complete your meeting records for **at least one meeting every month**. See [Liverpool Life meeting records](meeting-records.qmd#sec.meeting_record) for instructions.
 
@@ -52,7 +56,11 @@ APR requirements differ slightly between schools, so make sure you check your Li
 
 The APR consists of the following four components.
 
+:::
+
 ### TULIP online form {#tulip-网页表格}
+
+::: {.contribution authors="kai-wu"}
 
 When the Liverpool or XJTLU email says "Your annual progress report has been released", it means you can fill in this very green form. Its main sections are:
 
@@ -72,7 +80,11 @@ When the Liverpool or XJTLU email says "Your annual progress report has been rel
 
 Everyone must complete TULIP, regardless of school. For the following three components, **requirements may vary greatly between schools and also depend partly on which Liverpool school you belong to**. Double-check with senior students if needed.
 
+:::
+
 ### Annual Report (AR) {#annual-report-ar-年度报告}
+
+::: {.contribution authors="kai-wu"}
 
 Simply put, **write a document describing what you have done**. There is usually a word or page limit. If you really do not know what to write, I suggest recording the details chronologically, ~~like a running diary~~: what you read and learned, what code you wrote, or what experiments you conducted. Academic activities are also important: conferences, meetings, and University TA work can all go in. In other words, explain the TULIP information again in a document. It is largely a matter of copying it across and expanding it if you need more words.
 
@@ -80,11 +92,19 @@ Follow any specific requirements instead. For example, if Mathematics only asks 
 
 Note that this description of the AR is based on my experience in Mathematical Sciences. Students elsewhere have told me their requirements are similar, but some schools ask for much more. According to one Chemistry student, their first year required a 30-50-page literature review. That needs one or two months of advance preparation. **New students should ask senior students or their supervisor.**
 
+:::
+
 ### Annual Seminar {#annual-seminar-年度研讨会}
+
+::: {.contribution authors="kai-wu"}
 
 A school or department generally gathers its PhD students to present their work, exchange feedback, and get to know one another. As far as I know, some small departments skip this component or combine it with the interview below, asking you to present to two academics. Whatever the format, **prepare a slide presentation** that explains your research. A useful starting point is 20 minutes of presentation plus 5 minutes of questions, but requirements may differ; ask senior students. If you have many results, select the important ones. Otherwise, a chronological account of what you have done can fill the time and show the academics that you have worked hard.
 
+:::
+
 ### IPAP interview {#sec.IPAP}
+
+::: {.contribution authors="kai-wu"}
 
 Your school will arrange an interview with two academics who are not your supervisors and have no conflict of interest with you. You may need to **prepare slides** in which you can openly describe difficulties. You can discuss all the issues below with the IPAP academics; their role is to do their utmost to help you resolve them.
 

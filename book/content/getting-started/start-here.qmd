@@ -15,7 +15,11 @@ legacy-source:
 
 ——据说99%的博士生都收藏了这些
 
+:::
+
 ## 网站 {#网站}
+
+::: {.contribution authors="unknown" status="unverified"}
 
 - 西浦校内网站导航：<https://guide.xjtlu.edu.cn>
 
@@ -23,7 +27,11 @@ legacy-source:
 
 - 利物浦信息门户Liverpool Life：<https://liverpool-life.liverpool.ac.uk>
 
+:::
+
 ## 公众号 {#公众号}
+
+::: {.contribution authors="unknown" status="unverified"}
 
 | 学校公众号 | 图书馆 | 学生服务（一站式） | IT |
 |:--:|:--:|:--:|:--:|
@@ -31,11 +39,19 @@ legacy-source:
 
 另外，各学院可能有公众号，可在微信搜 “西浦 学院名" "西交利物浦 学院名"
 
+:::
+
 ## 手机APP {#手机app}
+
+::: {.contribution authors="unknown" status="unverified"}
 
 <https://guide.xjtlu.edu.cn/How-to-install-the-XJTLU-APP.html>
 
+:::
+
 ## 常用资源位置 {#常用资源位置}
+
+::: {.contribution authors="unknown" status="unverified"}
 
 - 西浦PGR Handbook电子版、学校政策、校规：登录ebridge，在中间的PGR Policies, Procedures and Forms里
 

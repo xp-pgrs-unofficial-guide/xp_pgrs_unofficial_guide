@@ -78,12 +78,49 @@ class LanguageBuildTests(TemporaryBook):
         self.validate_sources()
 
     def test_translated_headings_need_matching_ids_even_without_explicit_anchor_syntax(self):
-        self.write_source("content/milestones/apr.qmd", "## 新章节\n\nA paragraph.")
+        self.write_source("content/milestones/apr.qmd", "A paragraph.")
+        source = self.book / "content/milestones/apr.qmd"
+        source.write_text(source.read_text().replace('::: {.contribution', '## 新章节\n\n::: {.contribution'))
         self.mirror()
         target = self.book / "en/content/milestones/apr.qmd"
         target.write_text(target.read_text().replace("## 新章节", "## New section"))
         with self.assertRaisesRegex(ValueError, "中英文标题定位不一致"):
             self.validate_sources()
+
+    def test_source_headings_in_credit_blocks_are_rejected_in_both_languages(self):
+        self.mirror()
+        for prefix in ("", "en/"):
+            path = self.book / prefix / "content/milestones/apr.qmd"
+            original = path.read_text()
+            path.write_text(original.replace("CURRENT SOURCE TEXT", "## Misplaced section\n\nArticle text."))
+            with self.subTest(language=prefix or "zh"):
+                with self.assertRaisesRegex(ValueError, "标题必须放在署名内容块外") as error:
+                    self.validate_sources()
+                self.assertIn(str(path), str(error.exception))
+            path.write_text(original)
+        self.validate_sources()
+
+    def test_author_metadata_does_not_hide_source_headings_but_template_headings_are_valid(self):
+        relative = "authors/editorial.qmd"
+        self.articles[relative] = ("Editors", "xp-guide-author-editorial")
+        self.write_source(relative, '::: {.guide-author-profile data-guide-author-id="editorial"}\n:::')
+        source = self.book / relative
+        meta, body = build.frontmatter(source)
+        meta["guide-author-id"] = "editorial"
+        source.write_text("---\n" + yaml.safe_dump(meta) + "---\n" + body)
+        self.config["book"]["chapters"] = list(self.articles)
+        (self.book / "_quarto.yml").write_text(yaml.safe_dump(self.config))
+        self.mirror()
+        self.validate_sources()  # The shared template generates “Credited articles” within the placeholder.
+        for prefix in ("", "en/"):
+            path = self.book / prefix / relative
+            original = path.read_text()
+            path.write_text(original.replace('::: {.guide-author-profile', '## Authored heading\n\n::: {.guide-author-profile'))
+            with self.subTest(language=prefix or "zh"):
+                with self.assertRaisesRegex(ValueError, "标题必须放在署名内容块外") as error:
+                    self.validate_sources()
+                self.assertIn(str(path), str(error.exception))
+            path.write_text(original)
 
     def test_markdown_and_search_stay_in_their_language_with_shared_images(self):
         self.write_source("content/milestones/apr.qmd", "\n\n".join([

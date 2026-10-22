@@ -6,19 +6,23 @@ legacy-source:
 lang: en
 translation-source: content/milestones/research-symposium.qmd
 translation-status: draft
-translation-source-sha256: a2e6cc233f5197f2f1bdfa083dcc227a437de925be9fadd46ebd7e939d381ede
+translation-source-sha256: bbb929181cc83f5f619f7b3786f3095afd5ebf83ae56748ea355bf23b02a8b58
 ---
 
 ::: {#xp-guide-research-symposium}
 :::
 
-::: {.contribution authors="kai-wu"}
-
 ## What is XPGRS? {#xpgrs是什么}
+
+::: {.contribution authors="kai-wu"}
 
 The XJTLU Postgraduate Research Symposium, abbreviated to XPGRS or simply Symposium, is organised by the Graduate School. Its official Chinese name is "博士生论坛". Each December, PhD students from across the University present their research results or progress through posters or oral presentations. The year's XPGRS is announced by email around the National Day holiday.
 
+:::
+
 ## Which activity do I need to take part in? {#我需要参加哪一项}
+
+::: {.contribution authors="kai-wu"}
 
 The official requirements are:
 
@@ -50,7 +54,11 @@ In theory, you can take part in both posters and oral presentations every year i
 
 ![Symposium posters](../../../assets/imported/Kai.Wu/synposium_poster.jpg)
 
+:::
+
 ## What is it useful for? {#有什么用}
+
+::: {.contribution authors="kai-wu"}
 
 1.  Practise presenting and spoken English, and get advice from academics elsewhere in the University.
 
@@ -58,7 +66,11 @@ In theory, you can take part in both posters and oral presentations every year i
 
 ![Poster award](../../../assets/imported/Kai.Wu/poster_award.jpg)
 
+:::
+
 ## "I don't want to go" - please reconsider! {#我不想去尽量不要}
+
+::: {.contribution authors="kai-wu"}
 
 I often hear students say that the prizes are small, the awards carry little weight, even a Best award is of no real use, and nothing happens if they do not attend. Frankly, that is true: with your supervisor's approval you can legitimately opt out, and even if you simply disappear, little is likely to happen. It is unrelated to graduation.
 
@@ -66,7 +78,11 @@ But as someone who has presented both a poster and a talk, chaired three oral se
 
 At the Symposium, you cannot fail: it only awards prizes. The judges are also friendly and will help you find important problems. It is therefore [**an excellent and very safe opportunity to practise**]{.underline}. Do not wait until your viva or a leading conference to get that practice!
 
+:::
+
 ## What to watch for and how to do well {#注意事项如何表现出色}
+
+::: {.contribution authors="kai-wu"}
 
 Below are the oral presentation scoring sheets I saw at the 2022 Symposium; enlarge them to read them. Much the same advice applies to posters. Poster presenters should also prepare a talk of about three minutes for visiting judges. Frankly, these criteria matter in any presentation and are useful for reviewing your poster carefully.
 

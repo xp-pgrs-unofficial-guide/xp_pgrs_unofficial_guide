@@ -7,7 +7,7 @@ legacy-source:
 lang: en
 translation-source: content/research-work/thesis-and-graduation.qmd
 translation-status: draft
-translation-source-sha256: 06729e2ace824a320e15bc1aece6dfedcf6da6c55920c72a61a063e07f4e4137
+translation-source-sha256: 09a71f108a35498b1337fc0b1e0f918b1f31fdb9ea61bdffcaafc836a78cb028
 ---
 
 ::: {#xp-guide-thesis-and-graduation}
@@ -20,7 +20,11 @@ translation-source-sha256: 06729e2ace824a320e15bc1aece6dfedcf6da6c55920c72a61a06
 
 Want to graduate? Want to become a Doctor? Then read on! With just a thesis of a hundred-plus pages, graduation need not be a dream! ~~End of momentary madness.~~
 
+:::
+
 ## Official process and timeline {#sec.official.flowchart}
+
+::: {.contribution authors="kai-wu"}
 
 As this guide is intended to supplement official information, first familiarize yourself thoroughly with the official graduation flowchart below. Its timeline, conditions, and sequence are entirely accurate.
 
@@ -32,7 +36,11 @@ As this guide is intended to supplement official information, first familiarize 
 
 For an idea of how long each step takes, jump to [How long does each step take? Estimating the timeline](thesis-and-graduation.qmd#sec.graduation.time).
 
+:::
+
 ## ITS: Intention to Submit {#its-intention-to-submit}
+
+::: {.contribution authors="kai-wu"}
 
 Q: Is ITS important? I am busy writing my thesis. Can I leave it for now?
 
@@ -50,9 +58,13 @@ Q: I have more questions.
 
 A: First read the official documents: <https://www.liverpool.ac.uk/aqsd/academic-codes-of-practice/pgr-code-of-practice/>.
 
+:::
+
 ## The thesis {#thesis-学位论文毕业论文}
 
 ### Format and typesetting {#格式和排版}
+
+::: {.contribution authors="kai-wu"}
 
 Official document: <https://www.liverpool.ac.uk/media/livacuk/tqsd/code-of-practice-on-assessment/annex-7.1-PGR-CoP.pdf>. Use this as the authority whenever you are unsure about formatting. Below are questions that recur constantly in the WeChat group.
 
@@ -74,7 +86,11 @@ A:
 
 3. Template users, pay special attention: never fully trust the template! The Word template came from an XJTLU ELC teacher, not Liverpool, and the Overleaf template is unofficial. In principle, neither is **responsible** for your thesis or graduation. On obtaining a template, the first step is always to open the Code of Practice above and check every requirement against it.
 
+:::
+
 ### Word count {#字数}
+
+::: {.contribution authors="kai-wu"}
 
 Q: The Code of Practice only states a maximum word count. What is the minimum?
 
@@ -84,11 +100,11 @@ A: Another constantly recurring question. I once asked a teacher at the Graduate
 
 :::
 
-::: {.contribution authors="ziwen-xie"}
-
 ## The viva {#论文答辩}
 
 ### The process before and after the viva {#答辩前后流程}
+
+::: {.contribution authors="ziwen-xie"}
 
 1. At least two months before formally submitting the thesis on e-Bridge, your supervisor selects proposed examiners and submits the list to XJTLU pgsupport and Liverpool for approval.
 
@@ -106,7 +122,11 @@ A: Another constantly recurring question. I once asked a teacher at the Graduate
 
 (Information dated: 5 July 2024)
 
+:::
+
 ### How to prepare for a viva {#如何准备好一场答辩}
+
+::: {.contribution authors="ziwen-xie"}
 
 Experience from the School of Science:
 
@@ -184,13 +204,17 @@ Tip: the examiners often seem simply curious and interested in a conversation, s
 
 :::
 
-::: {.contribution authors="kai-wu"}
-
 ## I want my degree certificate as soon as possible! Getting through graduation quickly {#我想尽快拿学位证如何速通毕业流程}
+
+::: {.contribution authors="kai-wu"}
 
 In a hurry, in a hurry, always in a hurry: you are the king of impatience. Here is what every properly impatient person needs to know.
 
+:::
+
 ### Documents proving completion and graduation {#毕业的证明文件}
+
+::: {.contribution authors="kai-wu"}
 
 1. The Completion of Studies Certificate is issued by the XJTLU Graduate School. It states that you have submitted the thesis, passed the viva, and will be awarded the PhD at the graduation ceremony in month X of year XXXX. My example:
 
@@ -204,7 +228,11 @@ In a hurry, in a hurry, always in a hurry: you are the king of impatience. Here 
 
 First establish which documents your future company or employer accepts. The most flexible may accept Liverpool's confirmation email saying "Pass", with minor or major modifications, after the viva. Some accept the Completion of Studies Certificate. If they insist on the degree certificate, or even on the Chinese-foreign cooperation credential recognition, plan your graduation schedule especially carefully: certificates are issued only twice a year!
 
+:::
+
 ### Degree certificate: the critical deadline {#学位证最关键时间节点}
+
+::: {.contribution authors="kai-wu"}
 
 If you are sure there is no rush to obtain the degree certificate, you can ignore the rest of this section, because the Completion of Studies Certificate can be issued at any time.
 
@@ -212,7 +240,11 @@ Q: Can I graduate in July or December? What is the hard requirement?
 
 A: The best approach is to check Liverpool's website directly or Google "liverpool phd graduation". In recent years, the requirement has been that Liverpool Library confirm receipt of your ~~ultimate absolutely-no-more-changes~~ final thesis before a specified date. For example, to join the Liverpool graduation ceremony on 15 July 2024, when the degree certificate would be awarded or mailed, Liverpool Library needed to confirm receipt by 25 June 2024. This is the final version approved by both your internal and external examiners. How do you get there? See the next section.
 
+:::
+
 ### How long does each step take? Estimating the timeline {#sec.graduation.time}
+
+::: {.contribution authors="kai-wu"}
 
 The following is based entirely on graduates' experiences. New graduates, please contribute your own real examples generously.
 
