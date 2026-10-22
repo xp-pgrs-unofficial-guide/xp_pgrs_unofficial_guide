@@ -1,0 +1,43 @@
+---
+title: Social connections (contributions welcome)
+discussion-id: xp-guide-social-overview
+lang: en
+translation-source: content/social/overview.qmd
+translation-status: draft
+translation-source-sha256: d3b8a6932b0d59866f695c26ffb432aa33e226ed480727cf15ce6ecf23adc9c4
+---
+
+::: {#xp-guide-social-overview}
+:::
+
+## Doctoral student organizations and clubs {#social-organizations}
+
+::: {.contribution authors="editorial"}
+
+Contributions are welcome on doctoral student organizations, interest groups, activity channels, and participation. People familiar with each organization should provide its name, how to join, and the relevant dates.
+
+:::
+
+## Peer connections and mutual support {#social-peer-support}
+
+::: {.contribution authors="editorial"}
+
+This section needs first-hand experience of meeting students across schools, reading groups, and peer support. Share private group links or personal contact details only with permission.
+
+:::
+
+## Cross-cultural exchange {#social-cross-cultural}
+
+::: {.contribution authors="editorial"}
+
+Contributions are welcome on international and local student connections, language exchange, and cross-cultural activities. A verified list of organizations or joining instructions has not yet been compiled.
+
+:::
+
+## Contribute experience {#social-overview-contribute}
+
+::: {.contribution authors="editorial"}
+
+This is a topic outline, not a completed guide. Use “Add or correct content” below or read [Contributions and corrections](../about/contributing.qmd#xp-guide-contributing) to share your experience.
+
+:::

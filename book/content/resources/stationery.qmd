@@ -1,11 +1,17 @@
 ---
-title: "免费办公用品"
+title: 免费办公用品
 discussion-id: xp-guide-stationery
 legacy-source:
-  - author-folder/Kai.Wu/stationary.tex
+- author-folder/Kai.Wu/stationary.tex
 ---
 
 ::: {#xp-guide-stationery}
+:::
+
+::: {.contribution authors="editorial"}
+
+资源来源：西浦校园办公用品领用服务。
+
 :::
 
 ::: {.contribution authors="kai-wu"}

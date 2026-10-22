@@ -1,0 +1,111 @@
+---
+title: Getting started as a Teaching Assistant
+discussion-id: xp-guide-teaching-assistant
+legacy-source:
+- author-folder/Kai.Wu/TA.tex
+lang: en
+translation-source: content/work/teaching-assistant.qmd
+translation-status: draft
+translation-source-sha256: 097839af8b0a82d4cea738c9a5c295b53530eeb69f283b540ff1285360498203
+---
+
+::: {#xp-guide-teaching-assistant}
+:::
+
+## Do I need to work as a TA? {#我是否需要做ta}
+
+::: {.contribution authors="editorial"}
+
+Scholarship conditions and TA/RA duties are covered in [Scholarships and TA/RA obligations](../academic/ta-obligations.qmd#ta-obligations-requirements).
+
+:::
+
+## How to become a TA {#如何成为一名ta}
+
+::: {.contribution authors="yue-zhou"}
+
+Schools recruit TAs around the first week of each semester. Usually the School Academic Administrator contacts everyone.
+
+- Partially funded and self-funded PhD students have more freedom and can contact module teachers directly.
+
+- Fully funded students have two possible arrangements: (a) contact module teachers themselves; or (b) receive a direct assignment from the school by email.
+
+If you are keen to take part, or want to secure a place on a particular module or with a particular teacher, contact the administrator and the relevant teacher early.
+
+(Information dated: 30 December 2022)
+
+:::
+
+## Types of TA work and how to do them {#ta的工作种类以及分别怎么做}
+
+::: {.contribution authors="unknown" status="unverified"}
+
+TA duties include, but are not limited to:
+
+1. Marking coursework and exam papers.
+
+2. Teaching tutorials, especially in business subjects, or labs for undergraduate and master's students.
+
+3. Calculating and entering module marks.
+
+4. Supporting tasks, such as setting up Learning Mall.
+
+5. Invigilating midterm and final exams.
+
+The Graduate School organizes TA training every semester, announced by emails titled *Teaching Assistant (TA) Training Programme*. You can also find it directly on Learning Mall. If you have never attended, it is best to go at least once. Below are some central practical details that the university training does not explain very clearly.
+
+:::
+
+### Marking coursework {#批作业}
+
+::: {.contribution authors="editorial"}
+
+Read the separate [coursework-marking tutorial](marking.qmd#marking-assignments).
+
+:::
+
+### Marking exams {#批改试卷}
+
+::: {.contribution authors="editorial"}
+
+Read [exam-marking guidance](marking.qmd#marking-exams).
+
+:::
+
+### Leading labs {#带lab实验课}
+
+::: {.contribution authors="kai-wu"}
+
+Modules such as university physics laboratory classes require TAs to lead labs. A typical physics lab starts with explaining the experimental principles, how to record and process data, and precautions on the laboratory whiteboard, followed by a hands-on demonstration. Afterwards, you mark the lab reports.
+
+I find lab teaching very challenging because it really is university teaching. You must spend time preparing the class and your notes, organizing your thoughts, and anticipating students' questions. The module teacher trains TAs in the lab beforehand, but you need to understand the experiment thoroughly yourself. You also need to handle unexpected incidents, such as students breaking equipment; ask the teacher promptly. Since there are only a few lab sessions, the total hours, even including report marking, are fewer than the coursework marking for most other modules, yet it is excellent training. Try challenging yourself. If you do not want to do it, tell the teacher and school administrator as early as possible and ask to move to another module.
+
+(Information dated: 22 October 2022)
+
+![Lab teaching](../../../assets/imported/Kai.Wu/lab.jpg)
+
+:::
+
+### How to teach tutorials well {#如何做好讲tutorial习题课}
+
+::: {.contribution authors="yue-zhou"}
+
+1. Prepare thoroughly before class. The moment you stand at the front, you are a teacher, responsible for everything you say and for your students. Copy the materials you need onto a USB drive beforehand. In the classroom, turn on the computer and log in with your own account. You also need your account for LM, AMS, and other systems. University computers are slow, so arrive ten minutes early. You also need to finish ten minutes before the end of the scheduled slot, or the next class's teacher and students may complain that you overran.
+
+2. Answer students' emails and questions patiently afterwards. One piece of advice: do not casually add students on WeChat. Ask them to email with questions instead, or you will become a 24/7 customer-service desk. Email, the official university communication channel, protects teachers' and TAs' personal space and rights. A student once complained simply because a TA had not replied to their WeChat message.
+
+3. Discuss problems promptly with the module leader. Do not make your own decision on difficult issues: consult them. You can also discuss student feedback with co-teachers to improve the learning experience. Better experiences naturally raise Module Questionnaire (MQ) scores. MQ scores are student teaching evaluations, and good results can go on your CV when applying for jobs.
+
+(Information dated: 30 December 2022)
+
+:::
+
+## TA pay and payment {#ta工资是多少怎么结}
+
+::: {.contribution authors="unknown" status="unverified"}
+
+In 2022, TA pay was RMB 60 per hour, calculated monthly and paid at the end of the following month. For example, January's work is paid at the end of February.
+
+Invigilating midterm and final exams is also TA work and counts towards scholarship students' TA hours. For self-funded students, the invigilation hourly rate is generally much higher too. See [How to invigilate](invigilation.qmd#xp-guide-invigilation).
+
+:::

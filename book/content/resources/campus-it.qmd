@@ -1,0 +1,39 @@
+---
+title: 校园 IT 服务与虚拟机
+discussion-id: xp-guide-other-benefits
+legacy-source:
+- chapters/fuli.tex
+- chapters/others.tex
+---
+
+::: {#xp-guide-other-benefits}
+:::
+
+::: {.contribution authors="editorial"}
+
+资源来源：西浦校园 IT 服务。下面按一般服务入口与校外临时访问分组。
+
+:::
+
+## 校园 IT 服务入口 {#campus-it-services}
+
+::: {.contribution authors="unknown" status="unverified"}
+
+下面的内容，如果你完全没见过，可以花几分钟探索一下，留个印象，可能对以后很有帮助
+
+1.  学校提供的IT服务：<https://guide.xjtlu.edu.cn/it-guide-for-student.html>，包括了免费的Office 365
+
+2.  (欢迎读者补充哦)
+
+:::
+
+## 西浦虚拟机 {#campus-it-virtual-desktop}
+
+::: {#xp-guide-campus-vm}
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+<https://vdi.xjtlu.edu.cn/portal/webclient/index.html> 如果在学校外面，想临时快速访问学校内的资源、软件，可以使用学校的在线虚拟机。虚拟机相当于放在校内的一台电脑
+
+:::

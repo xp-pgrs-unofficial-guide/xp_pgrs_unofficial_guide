@@ -220,6 +220,47 @@ class LanguageBuildTests(TemporaryBook):
         self.assertEqual(english["book"]["chapters"][1]["part"], "content/milestones/apr.qmd")
         self.validate_sources()
 
+    def test_nested_topic_names_are_translated_without_changing_file_valued_groups(self):
+        self.mirror()
+        config = deepcopy(self.config)
+        config.update({"project": {"type": "book", "output-dir": "_book"},
+                       "format": {"html": {}, "pdf": {}}})
+        config["book"]["chapters"] = ["index.qmd", {"part": "学业", "contents": [
+            {"section": "培养考核", "contents": ["content/milestones/apr.qmd"]},
+            {"section": "content/resources/funding.qmd", "contents": [
+                {"href": "content/appendix/contributing.qmd"}]}]}]
+        (self.book / "_quarto.yml").write_text(yaml.safe_dump(config))
+        (self.book / "_languages.yml").write_text(yaml.safe_dump({"lang": "en", "parts": {
+            "学业": "Academic", "培养考核": "Requirements and reviews",
+            "content/resources/funding.qmd": "Not a group title"}}))
+        build.prepare_english_config()
+        english = yaml.safe_load((self.book / "en/_quarto.yml").read_text())
+        group = english["book"]["chapters"][1]
+        self.assertEqual(group["part"], "Academic")
+        self.assertEqual(group["contents"][0]["section"], "Requirements and reviews")
+        self.assertEqual(group["contents"][1]["section"], "content/resources/funding.qmd")
+        self.assertEqual(list(build.chapters(english["book"]["chapters"])), list(self.articles))
+        self.validate_sources()
+
+    def test_english_pdf_snapshot_preserves_shared_paths_and_author_article_links(self):
+        self.mirror()
+        english = self.book / "en"
+        config = yaml.safe_load((english / "_quarto.yml").read_text())
+        config["book"]["chapters"] = ["index.qmd", {"part": "Academic", "contents": [
+            {"section": "Reviews", "contents": list(self.articles)[1:]}]}]
+        config["metadata-files"] = ["../_authors.yml"]
+        config["filters"] = ["../filters/author-pages.lua"]
+        (english / "_quarto.yml").write_text(yaml.safe_dump(config))
+        with build.pdf_project(english) as project:
+            snapshot = yaml.safe_load((project / "_quarto.yml").read_text())
+            self.assertEqual(snapshot["project"]["output-dir"], str(self.output / "en"))
+            self.assertEqual(list(build.chapters(snapshot["book"]["chapters"])), list(self.articles))
+            self.assertTrue((project / "../_authors.yml").resolve().exists())
+            self.assertTrue((project / "../filters/author-pages.lua").resolve().exists())
+            self.assertEqual((project / "../assets/figure.png").read_bytes(), b"fixture asset")
+            self.assertEqual((project / "content/milestones/apr.qmd").read_bytes(),
+                             (english / "content/milestones/apr.qmd").read_bytes())
+
     def test_output_validator_rejects_a_search_index_with_another_language_prefix(self):
         self.mirror()
         self.write_html()

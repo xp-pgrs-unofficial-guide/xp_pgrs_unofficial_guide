@@ -1,0 +1,76 @@
+---
+title: Useful websites and apps
+discussion-id: xp-guide-start-here
+legacy-source:
+- chapters/necessary_resources.tex
+lang: en
+translation-source: content/resources/start-here.qmd
+translation-status: draft
+translation-source-sha256: 77cea38b4492eea21ed203e14a03e5b500ff245e08af8c38c274cbad974e5160
+---
+
+::: {#xp-guide-start-here}
+:::
+
+::: {#necessary_resources}
+:::
+
+::: {.contribution authors="editorial"}
+
+Resource source: Official XJTLU and University of Liverpool systems and campus-service links.
+
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+Supposedly bookmarked by 99% of PhD students.
+
+:::
+
+## Websites {#网站}
+
+::: {.contribution authors="unknown" status="unverified"}
+
+- XJTLU website directory: <https://guide.xjtlu.edu.cn>
+
+- Personal information portal, ebridge: <https://ebridge.xjtlu.edu.cn>
+
+- University of Liverpool portal, Liverpool Life: <https://liverpool-life.liverpool.ac.uk>
+
+:::
+
+## WeChat official accounts {#公众号}
+
+::: {.contribution authors="unknown" status="unverified"}
+
+| University | Library | Student services (One Stop) | IT |
+|:--:|:--:|:--:|:--:|
+| ![University WeChat account QR code](../../../assets/imported/Kai.Wu/qrcode_XJTLU-China_1.jpg){width=110px} | ![Library WeChat account QR code](../../../assets/imported/Kai.Wu/qrcode_XJTLU_library_1.jpg){width=110px} | ![Student services QR code](../../../assets/imported/Kai.Wu/qrcode_student_service.jpg){width=110px} | ![IT QR code](../../../assets/imported/Kai.Wu/qrcode_IT.jpg){width=110px} |
+
+Schools may also have official accounts. Search WeChat for "西浦" or "西交利物浦" followed by the school's name.
+
+:::
+
+## Mobile app {#手机app}
+
+::: {.contribution authors="unknown" status="unverified"}
+
+<https://guide.xjtlu.edu.cn/How-to-install-the-XJTLU-APP.html>
+
+:::
+
+## Where to find frequently used resources {#常用资源位置}
+
+::: {.contribution authors="unknown" status="unverified"}
+
+- XJTLU PGR Handbook, University policies and regulations: log in to ebridge and find "PGR Policies, Procedures and Forms" in the centre of the page.
+
+- University of Liverpool PGR Handbook: <https://www.liverpool.ac.uk/student-administration/research-students/pgr-handbook/>
+
+- Campus map: see [Campus map](campus-map.qmd#xp-guide-campus-map) in the appendix, or search WeChat for the "西浦地图" mini program.
+
+- Academic calendar: after logging in to ebridge, select "Academic Calendar" on the left.
+
+- Useful phone numbers: see [University contacts](contacts.qmd#xp-guide-contacts) in the appendix.
+
+:::

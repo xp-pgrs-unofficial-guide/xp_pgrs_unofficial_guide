@@ -1,0 +1,35 @@
+---
+title: Research methods and publishing (contributions welcome)
+discussion-id: xp-guide-methods-and-publishing
+lang: en
+translation-source: content/research/methods-and-publishing.qmd
+translation-status: draft
+translation-source-sha256: f7cce2f8781f899443c337ee43d0c9c4e3c9685e26750ed4cfa71662b4239efc
+---
+
+::: {#xp-guide-methods-and-publishing}
+:::
+
+## Literature and research methods {#research-reading-methods}
+
+::: {.contribution authors="editorial"}
+
+This topic needs practical experience in reading literature, designing research, and choosing methods. Contributions should identify the discipline, problem, and circumstances.
+
+:::
+
+## Publishing and academic practice {#research-publishing-practice}
+
+::: {.contribution authors="editorial"}
+
+Contributions are welcome on journal selection, submission, reviewer responses, authorship, and academic practice. Start with [How academic research happens](how-research-works.qmd#xp-guide-how-research-works) and [Library literature databases](../resources/library-databases.qmd#xp-guide-library-databases).
+
+:::
+
+## Contribute experience {#methods-and-publishing-contribute}
+
+::: {.contribution authors="editorial"}
+
+This is a topic outline, not a completed guide. Use “Add or correct content” below or read [Contributions and corrections](../about/contributing.qmd#xp-guide-contributing) to share your experience.
+
+:::

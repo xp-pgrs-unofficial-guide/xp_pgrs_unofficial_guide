@@ -1,0 +1,37 @@
+---
+title: Scholarships and TA/RA obligations
+discussion-id: xp-guide-ta-obligations
+legacy-source:
+- author-folder/Kai.Wu/TA.tex
+lang: en
+translation-source: content/academic/ta-obligations.qmd
+translation-status: draft
+translation-source-sha256: a1dd3abbd11e5f47169d803dacef0993030b2a850b2e60842abba5936954d13f
+---
+
+::: {#xp-guide-ta-obligations}
+:::
+
+## Do I need to work as a TA? {#ta-obligations-requirements}
+
+::: {.contribution authors="kai-wu,yue-zhou" status="unverified"}
+
+- If you are a fully funded PhD student, with both a tuition waiver and a stipend, your Financial Offer from the university obliges you to undertake TA duties every semester. In other words, the scholarship comes in exchange for TA work: if you receive the money, you must do the work. You do not receive additional pay for it. Fully funded PhD students who enrolled in 2020 or later must complete 900 TA hours over three years to graduate. Those who enrolled in 2023 or later must complete 300-500 hours of TA or RA work each academic year to graduate.
+
+- If you enrolled in 2020 or later with a partial scholarship, meaning a tuition waiver only, or are self-funded, you have no obligation to work as a TA. If you do, the university pays you by the hour. Depending on your career plans, TA experience on your CV may also be useful.
+
+For fully funded students, 300 compulsory TA hours per academic year, divided across 40 teaching weeks, means 7.5 hours of duties every week: effectively one day a week gone. You may well ask whether this is really enforced so strictly. In practice, schools vary greatly. Some have even built a digital system specifically to track your hours and require you to complete them all; others are more relaxed. Ask senior students in your own programme how it is implemented.
+
+(Information dated: 21 October 2022)
+
+(Major update: 30 December 2022: TA hours corrected according to the latest official handbook.)
+
+(Update: 15 January 2024: TA hours corrected according to the latest official handbook.)
+
+:::
+
+::: {.contribution authors="editorial"}
+
+For recruitment, training, teaching duties, and pay, return to [Getting started as a Teaching Assistant](../work/teaching-assistant.qmd#xp-guide-teaching-assistant).
+
+:::

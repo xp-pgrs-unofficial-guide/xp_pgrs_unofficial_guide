@@ -1,0 +1,31 @@
+---
+title: 运动与娱乐（待补）
+discussion-id: xp-guide-sports-and-leisure
+---
+
+::: {#xp-guide-sports-and-leisure}
+:::
+
+## 运动资源与身体健康 {#sports-existing-resources}
+
+::: {.contribution authors="editorial"}
+
+已有[体育馆代金券与预约](../resources/sports-vouchers.qmd#xp-guide-sports-vouchers)介绍；关于久坐和锻炼的经验见[颈椎与腰椎健康](ergonomics.qmd#xp-guide-ergonomics)。具体权益和使用条件请结合文章日期及学校通知查看。
+
+:::
+
+## 运动体验与休闲娱乐 {#sports-leisure-topics}
+
+::: {.contribution authors="editorial"}
+
+本专题待补充场馆体验、运动入门、文化活动与休闲娱乐等内容。组织社团与结伴参与的信息归入[社交](../social/overview.qmd#xp-guide-social-overview)，这里侧重活动本身的体验。
+
+:::
+
+## 补充你的经验 {#sports-and-leisure-contribute}
+
+::: {.contribution authors="editorial"}
+
+本页是待补选题导览，尚不是完整攻略。欢迎使用文章下方“补充内容／纠错”，或参照[供稿与纠错](../about/contributing.qmd#xp-guide-contributing)分享你的经验。
+
+:::

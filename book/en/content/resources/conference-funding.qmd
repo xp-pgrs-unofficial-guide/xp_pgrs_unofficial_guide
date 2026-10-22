@@ -6,13 +6,19 @@ legacy-source:
 lang: en
 translation-source: content/resources/conference-funding.qmd
 translation-status: draft
-translation-source-sha256: 4882bc669a066030167bda22d299494476ef23ebe8293cfea93c4161c48d3221
+translation-source-sha256: 30802bdb9b8da8fa0c81818588317cf3702666fa26426569b5460cecf9a2240b
 ---
 
 ::: {#xp-guide-conference-funding}
 :::
 
 ::: {#sec.fund}
+:::
+
+::: {.contribution authors="editorial"}
+
+Resource source: XJTLU doctoral conference funding and related application links.
+
 :::
 
 ::: {.contribution authors="kai-wu"}

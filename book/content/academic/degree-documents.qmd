@@ -1,0 +1,54 @@
+---
+title: 毕业证明与学位认证
+discussion-id: xp-guide-degree-documents
+legacy-source:
+- author-folder/Kai.Wu/thesis_viva_graduation.tex
+- author-folder/Ziwen.Xie/viva.tex
+---
+
+::: {#xp-guide-degree-documents}
+:::
+
+## 我想尽快拿学位证！如何速通毕业流程 {#degree-documents-overview}
+
+::: {.contribution authors="kai-wu"}
+
+急急急，你就是急急国王。下面是一个合格的急急国王必须知道的事。
+
+:::
+
+### 毕业的证明文件 {#degree-documents-evidence}
+
+::: {.contribution authors="kai-wu"}
+
+1.  完读证明（Completion of Studies Certificate），由西浦研究生院开具。证明内容：已提交毕业论文，已通过答辩，即将在XXXX年X月的毕业典礼上授予博士学位。我的Example：
+
+    ![Completion of Studies Certificate EXAMPLE](../../assets/imported/Kai.Wu/Completion_of_Studies_Certificate_EXAMPLE.jpg)
+
+    *仅供参考，因此加上了巨大的example防止非法盗用*
+
+2.  学位证（aka PhD degree, degree certificate）。注意！利物浦规定，学位只会在**利物浦**毕业典礼上颁发，而利物浦毕业典礼一年只有两次，一般是7月某天和12月某天。如果你不去利物浦毕业典礼，会在毕业典礼前后先给学位证的电子版（有法律效力，可办中外合办认证），然后原件慢悠悠的邮寄到西浦。
+
+3.  中外合办学位认证。拿到电子学位证即可办理 <https://zwfw.cscse.edu.cn/>。持有该认证，你的利物浦学位就在中国境内被教育部承认。
+
+因此，首先确定你要去的公司/单位能接受哪种证明文件。最松的情况，你答辩完收到利物浦确认的Pass (with minor/major modification)邮件就行。也有能接受完读证明的。如果对方比较死板，不见学位证就不行，甚至没有中外合办认证也不行，那就要特别规划好毕业进度，因为每年只发2次证！
+
+:::
+
+### 学位证：最关键时间节点 {#degree-documents-deadline}
+
+::: {.contribution authors="kai-wu"}
+
+如果你确定不需要赶时间拿学位证，那本节接下来的都可以忽略，因为完读证明任何时候都可以开。
+
+Q：我能否在7月/12月毕业？硬性要求是什么？
+
+A：最好的方式是直接上利物浦网站查询，或者直接google liverpool phd graduation。过去几年的要求都是：在某个时间点之前，利物浦图书馆确认收到你的~~终极完全不改版的~~最终论文。例如，如果要参加2024年7月15日的利物浦毕业典礼（在这一天颁发学位证，或邮寄），需要在2024年6月25日之前，利物浦图书馆确定收到了最终论文。这份论文是你的内外审都满意、同意的最终版。如何走到这一步？
+
+:::
+
+::: {.contribution authors="editorial"}
+
+最终论文提交前的步骤与耗时，请见[毕业流程与时间规划](graduation.qmd#sec.graduation.time)。
+
+:::

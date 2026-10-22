@@ -1,0 +1,118 @@
+---
+title: Viva process and preparation
+discussion-id: xp-guide-viva
+legacy-source:
+- author-folder/Kai.Wu/thesis_viva_graduation.tex
+- author-folder/Ziwen.Xie/viva.tex
+lang: en
+translation-source: content/academic/viva.qmd
+translation-status: draft
+translation-source-sha256: 6db32a10a04f3ea106f06c9080b8691bc0b0792f7cefb6a327e38b8bfba9d951
+---
+
+::: {#xp-guide-viva}
+:::
+
+## The viva {#viva-overview}
+
+### The process before and after the viva {#viva-process}
+
+::: {.contribution authors="ziwen-xie"}
+
+1. At least two months before formally submitting the thesis on e-Bridge, your supervisor selects proposed examiners and submits the list to XJTLU pgsupport and Liverpool for approval.
+
+2. After the thesis is formally submitted on e-Bridge, the university contacts the examiners and then the PhD candidate to agree on the viva date and format. The viva is generally one to three months after submission. It can be online or in person; discuss and confirm arrangements with pgsupport.
+
+3. There is usually a rehearsal beforehand to test the network and slide presentation. You can also request another time slot to practise presenting in the relevant meeting room.
+
+4. Before the viva, the examiners meet privately, usually on the same day, though sometimes earlier. They then invite you into the meeting room to begin. Besides the two examiners, or three under special rules, there is an observer who manages the overall process and breaks and answers procedural questions. They generally do not speak during the examination itself. You can ask them if you have any questions.
+
+5. Questions follow your presentation. Depending on the circumstances, one and a half to three and a half hours is common, although seven-hour vivas have occurred. Afterwards, you leave the meeting room while the examiners discuss the result. About 10-15 minutes later they invite you back and tell you the result in person.
+
+6. You receive the examiners' written corrections report within ten working days. Depending on the outcome, make the required corrections within the specified period and submit them for confirmation by the examiner responsible.
+
+7. Once the corrections are confirmed, upload the final thesis, completing the process.
+
+(Information dated: 5 July 2024)
+
+:::
+
+### How to prepare for a viva {#viva-preparation}
+
+::: {.contribution authors="ziwen-xie"}
+
+Experience from the School of Science:
+
+*Try not to squeeze all of this into two or three days. Spread it out so you can stay in good condition each day. Going into the viva in a good state is very important.*
+
+**1. Read your entire thesis at least once, word for word, imagining you are a new reader and considering the following:**
+
+1. Are any passages unclear?
+
+2. Do you fully understand the concepts and can you explain them independently?
+
+3. Do you understand the connections and differences between chapters, and the logic behind the overall order?
+
+4. What is the logic behind the smaller sections within chapters and the sequence of experimental designs?
+
+5. What does each experiment, or group of experiments, show separately or together? What conclusion can be drawn from each main chapter?
+
+6. Do you fully understand why algorithms, models, and basic concepts in the cited literature work as they do? How do they relate to one another in the thesis and to your core experimental goals?
+
+7. Are there errors in wording, figures, or tables that you had not noticed before and will need to correct later?
+
+8. What is the purpose of the research? Why did you choose a particular method, and what advantages does it have over alternatives?
+
+**2. After organizing those questions, break the thesis down chapter by chapter, including the abstract, for detailed analysis:**
+
+1. Can you summarize all the background material in your own words?
+
+2. What does each subheading communicate, and how coherent are the subheadings within the chapter?
+
+3. What are the highlights or core logic of a particular experiment or experimental design?
+
+4. How do the experimental results build on, run in parallel with, differ from, or otherwise relate to one another? For example, if experiment A shows a, experiment B shows b, and a provides the logical basis for B, the relationship is sequential. If a and b address the same direction or subject matter, A and B are parallel.
+
+5. Why did you choose the experimental subjects and models? This includes why you did not use other related or similar subjects and models.
+
+6. Based on the results, what could be attempted in future? This can involve many related questions: why you did not perform certain experiments, why particular future experiments would be useful, what they might show, their underlying hypotheses, and their practical difficulty. In other words, explain why you did not do them at this stage but did consider them.
+
+7. The abstract should include the key results and novel contributions.
+
+**3. Key points for preparing slides and taking the viva:**
+
+1. You have twenty minutes in total, which can be divided into four parts: background, experimental setup, results, and conclusions. Allow roughly five minutes each, especially for the conclusion. The first three can be somewhat shorter because the examiners have already read the thesis.
+
+2. Bring a printed copy of your thesis and take notes during questions. Taking notes also gives you a little breathing space.
+
+3. Show the key figures, tables, and results in the slides, with brief statements of the conclusions.
+
+4. You do not need to spend much time on problems encountered or emphasize future experiments and designs. Examiners may ask about them, or you may mention them in answers. Depending on the circumstances, omit them from the slides to save time.
+
+5. Check that the slides work and that text and images are clear. During the advance test, rehearse as realistically as possible.
+
+6. Remember to drink water during the viva, slowly and in small amounts. Beforehand, eat something energy-rich and easy to digest. If you cannot eat, have some chocolate or a refreshing drink. Arrive well in advance: getting familiar with the room helps you settle down. Remember to use the toilet beforehand too.
+
+7. Your answers can draw on the whole thesis. A point in one chapter may connect to a later chapter, or future plans may relate to the final conclusions. If an examiner raises something you genuinely had not considered or done, say that you do not know. Ask them to specify in their feedback how to handle the issue or where to find the relevant information, so you know where to look when making corrections.
+
+8. Usually each question and answer lasts at most three to five minutes. With two examiners, twenty questions from each is already quite a lot. The usual total is therefore two to two and a half hours, with a break in the middle, although once it starts you probably will not pay much attention to time.
+
+**4. Questions beyond the thesis itself:**
+
+1. How could artificial intelligence and ChatGPT inspire your research?
+
+2. Could your research apply to other types of data, diseases, or fields? Why?
+
+3. What shortcomings do you think your discipline has?
+
+4. What is the biggest thing you have gained during your PhD?
+
+5. If you could start again, would you still choose to do a PhD and this project?
+
+Tip: the examiners often seem simply curious and interested in a conversation, so answer in a relaxed way. **Finally, according to figures shared by a pgsupport staff member, there has never been a failed viva since the university was founded. Do not worry too much: perform as you normally would, and good luck.**
+
+**5. Ask your supervisor whether they can suggest possible questions and, if there is enough time, arrange a mock viva; this is optional. Also ask senior students about their vivas soon after they finish, since arrangements may change somewhat each year.**
+
+(Information dated: 5 July 2024)
+
+:::

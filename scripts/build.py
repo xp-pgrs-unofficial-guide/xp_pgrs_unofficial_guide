@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+from contextlib import contextmanager
 from copy import deepcopy
 import hashlib
 from html import escape
@@ -15,6 +16,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 from urllib.parse import parse_qs, quote, unquote, urlsplit, urlunsplit
 
 import yaml
@@ -78,9 +80,11 @@ def prepare_english_config():
             for item in node:
                 translate_parts(item)
         elif isinstance(node, dict):
-            if "part" in node:
-                node["part"] = translations.get("parts", {}).get(node["part"], node["part"])
-            translate_parts(node.get("chapters", []))
+            for key in ("part", "section"):
+                if key in node and not node[key].endswith(".qmd"):
+                    node[key] = translations.get("parts", {}).get(node[key], node[key])
+            for key in ("chapters", "contents"):
+                translate_parts(node.get(key, []))
     translate_parts(config["book"]["chapters"])
     config["lang"] = translations.get("lang", "en")
     config["metadata-files"] = ["../_authors.yml"]
@@ -315,10 +319,103 @@ def chapters(node):
         for item in node:
             yield from chapters(item)
     elif isinstance(node, dict):
-        # A part may itself be a source page. It appears once as the clickable
-        # parent in Quarto's sidebar, rather than again as its own child chapter.
-        yield from chapters(node.get("part"))
-        yield from chapters(node.get("chapters", []))
+        # File-valued groups are clickable parents, never duplicate children.
+        for key in ("part", "section", "href"):
+            yield from chapters(node.get(key))
+        for key in ("chapters", "contents"):
+            yield from chapters(node.get(key, []))
+
+
+def validate_navigation(node, *, top=True, location="book.chapters"):
+    """Check the recursive sidebar shape that Quarto's open part schema permits."""
+    if not isinstance(node, list):
+        raise ValueError(f"{location}: 目录必须是列表")
+    for number, item in enumerate(node):
+        label = f"{location}[{number}]"
+        if isinstance(item, str):
+            try:
+                safe_article_path(item)
+            except ValueError as exc:
+                raise ValueError(f"{label}: 目录文章路径不合法：{item!r}") from exc
+            continue
+        if not isinstance(item, dict):
+            raise ValueError(f"{label}: 目录条目必须是文章路径或分组")
+        references = set(item) & {"part", "section", "href"}
+        if len(references) != 1:
+            raise ValueError(f"{label}: 目录条目必须且只能有一个 part、section 或 href")
+        key = next(iter(references))
+        value = item[key]
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError(f"{label}.{key}: 目录标题或文章路径必须是非空字符串")
+        if "text" in item and (not isinstance(item["text"], str) or not item["text"].strip()):
+            raise ValueError(f"{label}.text: 目录显示名必须是非空字符串")
+        if key == "href":
+            if set(item) - {"href", "text"}:
+                raise ValueError(f"{label}: 文章目录条目仅支持 href、text")
+            try:
+                safe_article_path(value)
+            except ValueError as exc:
+                raise ValueError(f"{label}.href: 目录文章路径不合法：{value!r}") from exc
+            continue
+        if (key == "part") != top:
+            raise ValueError(f"{label}: 顶层目录使用 part，内层专题使用 section")
+        children = set(item) & {"chapters", "contents"}
+        if len(children) != 1 or set(item) - {key, "text", *children}:
+            raise ValueError(f"{label}: 目录分组须包含唯一的 chapters 或 contents，不允许未知字段")
+        child_key = next(iter(children))
+        if key == "section" and child_key != "contents":
+            raise ValueError(f"{label}: 内层目录 section 必须使用 contents")
+        if not isinstance(item[child_key], list):
+            raise ValueError(f"{label}.{child_key}: 目录必须是列表")
+        if value.endswith(".qmd"):
+            try:
+                safe_article_path(value)
+            except ValueError as exc:
+                raise ValueError(f"{label}.{key}: 目录文章路径不合法：{value!r}") from exc
+        if (key == "part" and child_key == "chapters"
+                and any(isinstance(child, dict) and "section" in child for child in item[child_key])):
+            raise ValueError(f"{label}: 三级目录须使用 part/contents 和 section/contents")
+        validate_navigation(item[child_key], top=False, location=f"{label}.{child_key}")
+
+
+def pdf_chapters(node):
+    """Keep top-level parts while flattening web-only topic groups for the PDF."""
+    result = []
+    for item in node:
+        if isinstance(item, dict) and "part" in item:
+            children = item.get("chapters", item.get("contents", []))
+            result.append({"part": item["part"], "chapters": list(chapters(children))})
+        else:
+            result.extend(chapters(item))
+    return result
+
+
+@contextmanager
+def pdf_project(root):
+    """Render a source-only snapshot with flat PDF parts, leaving web config intact.
+
+    Quarto concatenates arrays when merging profiles, so a profile would append
+    flattened chapters to the original tree. A complete temporary project also
+    keeps English's ../assets, ../filters and ../pdf paths unchanged.
+    """
+    config = yaml.safe_load((root / "_quarto.yml").read_text(encoding="utf-8"))
+    config["book"]["chapters"] = pdf_chapters(config["book"]["chapters"])
+    config.setdefault("project", {})["output-dir"] = str(locale_output(root).resolve())
+    with tempfile.TemporaryDirectory(prefix="xp-guide-pdf-") as temporary:
+        base = Path(temporary) / "book"
+        staged = base / "en" if root == BOOK / "en" else base
+        staged.mkdir(parents=True)
+        shutil.copy2(root / "index.qmd", staged / "index.qmd")
+        for name in ("content", "authors"):
+            if (root / name).exists():
+                shutil.copytree(root / name, staged / name)
+        for name in ("assets", "filters", "pdf"):
+            if (BOOK / name).exists():
+                shutil.copytree(BOOK / name, base / name)
+        shutil.copy2(BOOK / "_authors.yml", base / "_authors.yml")
+        (staged / "_quarto.yml").write_text(
+            yaml.safe_dump(config, allow_unicode=True, sort_keys=False), encoding="utf-8")
+        yield staged
 
 
 def giscus_settings(config):
@@ -461,6 +558,25 @@ def header_signatures(ast):
     return result
 
 
+def document_identifiers(ast):
+    """Read real AST identifiers, excluding apparent anchors in code examples."""
+    result = []
+    attributed_nodes = {"CodeBlock", "Div", "Span", "Link", "Image", "Table", "Figure"}
+    def visit(node):
+        if isinstance(node, list):
+            for child in node:
+                visit(child)
+        elif isinstance(node, dict):
+            kind, content = node.get("t"), node.get("c")
+            attributes = content[1] if kind == "Header" else content[0] if kind in attributed_nodes else None
+            if attributes and attributes[0]:
+                result.append(attributes[0])
+            for child in node.values():
+                visit(child)
+    visit(ast["blocks"])
+    return result
+
+
 def validate_translation(source, translation, source_ast, translated_ast):
     original, body = frontmatter(source)
     meta, translated_body = frontmatter(translation)
@@ -493,11 +609,13 @@ def validate_sources(quarto):
     asts = {}
     for root in language_roots():
         local_config = yaml.safe_load((root / "_quarto.yml").read_text(encoding="utf-8"))
+        validate_navigation(local_config["book"]["chapters"])
         listed = list(chapters(local_config["book"]["chapters"]))
         actual = [str(p.relative_to(root)) for p in current if source_root(p) == root]
         if len(listed) != len(set(listed)) or set(listed) != set(actual):
             raise ValueError(f"{root}: 目录与正文不一致：未列入 {set(actual)-set(listed)}，缺失 {set(listed)-set(actual)}")
         discussion_ids = set()
+        identifiers = {}
         for path in (p for p in current if source_root(p) == root):
             if not path.is_file():
                 raise ValueError(f"{path}: 缺少正文源文件")
@@ -521,6 +639,10 @@ def validate_sources(quarto):
                           else asts[path])
             validate_heading_placement(source_ast["blocks"], path)
             validate_ast(asts[path]["blocks"], path, known)
+            for anchor in document_identifiers(asts[path]):
+                if anchor in identifiers:
+                    raise ValueError(f"{path}: 全书锚点重复 {anchor!r}，首次出现于 {identifiers[anchor]}")
+                identifiers[anchor] = path
     if len(language_roots()) > 1:
         chinese = {p.relative_to(BOOK).as_posix(): p for p in current if source_root(p) == BOOK}
         english = {p.relative_to(BOOK / "en").as_posix(): p for p in current if source_root(p) != BOOK}
@@ -962,9 +1084,14 @@ def main():
     # Clean generated output only; never edit the authored qmd or the LaTeX archive.
     if OUTPUT.exists():
         shutil.rmtree(OUTPUT)
-    run([quarto, "render", BOOK, "--to", "html" if args.html_only else "all"])
-    if len(language_roots()) > 1:
-        run([quarto, "render", BOOK / "en", "--to", "html" if args.html_only else "all"])
+    for root in language_roots():
+        # Every locale shares one output tree. Preserve earlier language/format
+        # outputs; this entry point already cleaned the tree once above.
+        run([quarto, "render", root, "--to", "html", "--no-clean"])
+    if not args.html_only:
+        for root in language_roots():
+            with pdf_project(root) as project:
+                run([quarto, "render", project, "--to", "pdf", "--no-clean"])
     normalize_author_breadcrumbs()
     version_stylesheets()
     export_markdown(quarto)

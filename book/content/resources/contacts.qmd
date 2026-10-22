@@ -1,0 +1,35 @@
+---
+title: 学校电话
+discussion-id: xp-guide-contacts
+legacy-source:
+- chapters/appendix.tex
+---
+
+::: {#xp-guide-contacts}
+:::
+
+::: {.contribution authors="editorial"}
+
+资源来源：西浦学校部门联系信息。
+
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+| 部门 | 电话 | 邮箱 |
+|:---|:--:|:--:|
+| Academic Services Office 学术服务 | 8188 4754 | aso@xjtlu.edu.cn |
+| Alumni Service 校友服务 | 8816 1869 | alumni@xjtlu.edu.cn |
+| Campus Management Office 校园管理办公室 | 8816 1071 | cmo@xjtlu.edu.cn |
+| Career Service 就业服务 | 8188 8308 | careers@xjtlu.edu.cn |
+| IT Service Centre IT服务中心 | 8816 1250 | it@xjtlu.edu.cn |
+| Library 图书馆 | 8816 1290 | askalibrarian@xjtlu.edu.cn |
+| Media Service 新闻线索与媒体服务 | 8816 1351/1032 | news@xjtlu.edu.cn |
+| Postgraduate Recruitment 研究生招生 | 8816 1889/7111 | pgenquiries@xjtlu.edu.cn |
+| President’s Office 校长办公室 | 8816 1004 | president.office@xjtlu.edu.cn |
+| Registry 教务办公室 | 8816 1230 | registry@xjtlu.edu.cn |
+| Research Management Office 科研管理办公室 | 8816 1139 |  |
+| Student Onestop Centre 学生一站式 | 8816 1854 | onestop@xjtlu.edu.cn |
+| XJTLU Global (Support) 西浦国际 | 8897 3094/3093 | global@xjtlu.edu.cn |
+
+:::

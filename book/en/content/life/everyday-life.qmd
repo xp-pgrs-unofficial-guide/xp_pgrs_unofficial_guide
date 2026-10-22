@@ -1,0 +1,35 @@
+---
+title: Everyday life (contributions welcome)
+discussion-id: xp-guide-everyday-life
+lang: en
+translation-source: content/life/everyday-life.qmd
+translation-status: draft
+translation-source-sha256: 5585ca6614324a150ec9ea9d122567bf0069d65c40aabbcd31163da8570c2f16
+---
+
+::: {#xp-guide-everyday-life}
+:::
+
+## Housing, food, and transport {#everyday-life-topics}
+
+::: {.contribution authors="editorial"}
+
+This topic needs experience of housing, food, commuting, and everyday life in Suzhou. Include the location, date, circumstances, and your own experience so readers can judge its relevance.
+
+:::
+
+## Related guides {#everyday-life-existing-guides}
+
+::: {.contribution authors="editorial"}
+
+Find campus locations and contacts in the [Campus map](../resources/campus-map.qmd#xp-guide-campus-map) and [University contacts](../resources/contacts.qmd#xp-guide-contacts). See [Life and campus access in Liverpool](../research/liverpool-life.qmd#xp-guide-liverpool-life) for research-visit experience.
+
+:::
+
+## Contribute experience {#everyday-life-contribute}
+
+::: {.contribution authors="editorial"}
+
+This is a topic outline, not a completed guide. Use “Add or correct content” below or read [Contributions and corrections](../about/contributing.qmd#xp-guide-contributing) to share your experience.
+
+:::

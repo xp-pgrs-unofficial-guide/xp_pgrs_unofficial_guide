@@ -1,10 +1,10 @@
 ---
-title: Welcome
+title: Start here
 discussion-id: xp-guide-home
 lang: en
 translation-source: index.qmd
 translation-status: draft
-translation-source-sha256: 10a412978e8c3c437ac8a4065b98bde503df3c11323b3bfae753c52ee51ed63f
+translation-source-sha256: 377ed19159037ff3c38d4d2277031d479c1dc997051c7cfdb58ef338754a8342
 ---
 
 ::: {#xp-guide-home}
@@ -22,12 +22,14 @@ Students write and maintain this guide together. Advice applies to particular ti
 
 :::: {.contribution authors="editorial"}
 
-- **New students**: [Useful websites, apps, and resources](content/getting-started/start-here.qmd#xp-guide-start-here).
-- **Preparing for reviews or graduation**: [Annual Progress Review (APR)](content/milestones/apr.qmd#xp-guide-apr) and [Thesis, viva, and graduation](content/research-work/thesis-and-graduation.qmd#xp-guide-thesis-and-graduation).
-- **Understanding research and work**: [How academic research happens](content/research-work/how-research-works.qmd#xp-guide-how-research-works) and [Working as a teaching assistant](content/research-work/teaching-assistant.qmd#xp-guide-teaching-assistant).
-- **Planning a visit to Liverpool**: [Visiting Liverpool](content/life-tools/liverpool-visit.qmd#xp-guide-liverpool-visit).
+- **New students**: [Useful websites and apps](content/resources/start-here.qmd#xp-guide-start-here); [Compulsory courses](content/academic/compulsory-courses.qmd#xp-guide-compulsory-courses).
+- **Preparing for APR**: [Meeting records](content/academic/meeting-records.qmd#xp-guide-meeting-records); [Annual Progress Review](content/academic/apr.qmd#xp-guide-apr).
+- **Starting TA work**: [Scholarship TA/RA obligations](content/academic/ta-obligations.qmd#xp-guide-ta-obligations); [Getting started as a TA](content/work/teaching-assistant.qmd#xp-guide-teaching-assistant).
+- **Getting started with research**: [How academic research happens](content/research/how-research-works.qmd#xp-guide-how-research-works); [Backups and version history](content/research/backup.qmd#xp-guide-backup).
+- **Planning a Liverpool visit**: [Research-visit arrangements](content/research/liverpool-visit.qmd#xp-guide-liverpool-visit); [Preparing to travel](content/research/liverpool-preparation.qmd#xp-guide-liverpool-preparation).
+- **Preparing to graduate**: [Graduation planning](content/academic/graduation.qmd#xp-guide-thesis-and-graduation); [Viva preparation](content/academic/viva.qmd#xp-guide-viva); [Graduation documents](content/academic/degree-documents.qmd#xp-guide-degree-documents).
 
-The left-hand contents preserve the guide's topic structure. You can also search for information. For offline reading, download the complete [Chinese PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/xp-pgrs-unofficial-guide.pdf) or [English PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/en/xp-pgrs-unofficial-guide.pdf). For versioned PDFs, see [versioned releases](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest).
+The left-hand contents group articles under Academic requirements, Resources, Research, Work, Life, and Social connections. Expand a topic to find its articles; pages marked “contributions welcome” identify areas still to be written. You can also search for information. For offline reading, download the complete [Chinese PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/xp-pgrs-unofficial-guide.pdf) or [English PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/en/xp-pgrs-unofficial-guide.pdf). For versioned PDFs, see [versioned releases](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest).
 
 ::::
 
@@ -37,7 +39,7 @@ The left-hand contents preserve the guide's topic structure. You can also search
 
 On the website, consecutive content with the same credits shares one author icon on the right. The icon follows your reading position within that content's range. Hover over, focus with the keyboard, or click the icon to see the original authors, later contributors, and confirmation status, with the corresponding range highlighted. On a phone, tap the icon. Attribution for historical material is still being checked. "Attribution unconfirmed" means that there is not yet enough evidence to assign that passage accurately to a particular person.
 
-You can discuss each article below it, or use "Add or correct content" to submit text and attachments. Readers familiar with Markdown can edit a page and submit a pull request. Editors review all changes before publication. [How to contribute](content/appendix/contributing.qmd#xp-guide-contributing).
+You can discuss each article below it, or use "Add or correct content" to submit text and attachments. Readers familiar with Markdown can edit a page and submit a pull request. Editors review all changes before publication. [How to contribute](content/about/contributing.qmd#xp-guide-contributing).
 
 ::: {#xp-guide-authors}
 :::

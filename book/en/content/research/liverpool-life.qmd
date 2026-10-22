@@ -1,0 +1,99 @@
+---
+title: Everyday life and campus access in Liverpool
+discussion-id: xp-guide-liverpool-life
+legacy-source:
+- author-folder/Shiyao.Zhang14/UoL_visit.tex
+lang: en
+translation-source: content/research/liverpool-life.qmd
+translation-status: draft
+translation-source-sha256: a7d0f4109b8f540dd1bbe7dd05cff5176f12843d5981430e063870198839f738
+---
+
+::: {#xp-guide-liverpool-life}
+:::
+
+::: {.contribution authors="editorial"}
+
+This article is part of the [Liverpool visit topic](liverpool-visit.qmd#xp-guide-liverpool-visit). Before travelling, see [Pre-departure preparation](liverpool-preparation.qmd#xp-guide-liverpool-preparation); for other UK university libraries, see the [resource guide](../resources/uk-library-access.qmd#xp-guide-uk-library-access).
+
+:::
+
+## Everyday life {#liverpool-life-overview}
+
+::: {.contribution authors="shiyao-zhang"}
+
+[Halls Life](https://hallslife.liverpool.ac.uk) is the University of Liverpool student accommodation community hub. It offers advice on everyday living. I strongly recommend browsing it before leaving for the UK, as it can help you decide what to pack.
+
+:::
+
+## Transport {#liverpool-life-transport}
+
+::: {.contribution authors="yue-zhou"}
+
+Trip.com, Ctrip's overseas service, can book trains, underground travel, flights, and hotels across the UK. There are also many commonly used dedicated apps: Trainline for trains, Skyscanner for flights, Booking for hotels, and Uber for taxis.
+
+If you expect to travel by train frequently, consider a Railcard, which saves one third on each ticket.
+
+:::
+
+## Accommodation {#liverpool-life-accommodation}
+
+::: {.contribution authors="shiyao-zhang"}
+
+You should receive an email two weeks before arriving in Liverpool. Liverpool allocates accommodation centrally. Locations differ between groups, so the distance from campus is not certain, but the halls are all reasonably close, around a twenty-minute walk. You cannot choose which students you live with; simply wait patiently for the allocation. If the move-in date is approaching and no email has arrived, which has happened, contact Liverpool's accommodation team at <hallsres@liverpool.ac.uk> to ask.
+
+:::
+
+## Office and ID card {#liverpool-life-office-id}
+
+::: {.contribution authors="yue-zhou"}
+
+After arrival, the relevant staff tell you where your office is, and you can go there yourself. The office has monitors and desktop computers.
+
+Take your passport to IT to change your campus code and obtain a student card. The card provides access to offices and the library, printing, and book borrowing.
+
+:::
+
+## Good food in Liverpool {#liverpool-life-food}
+
+::: {.contribution authors="yue-zhou"}
+
+- Zhangji (张记).
+
+- Meiweixuan (美味轩).
+
+- Laoshuren (老蜀人).
+
+- Jianbing at Ejoy.
+
+- Taixijia (泰熙家), Korean food.
+
+- Turtle Bay, Caribbean food.
+
+- Cowshed, excellent steak!
+
+- Bamboo, Western-style food and a place with atmosphere, good for photographs and checking in.
+
+- Hardware, good for brunch and afternoon tea!
+
+- Johnny's fish and chips: try a little; ordinary and very greasy.
+
+- Zizzi - Liverpool One, Italian food.
+
+- Haute Dolci Liverpool, a nice setting, tasty food, and good photo opportunities.
+
+- Chaiiwala: definitely try the Indian milk tea.
+
+- Sweet Time Bakery: buy here when you want Chinese-style bread.
+
+- TSUJIRI Matcha House, a delight for matcha fans.
+
+- Gong Cha: whenever I feel down, I reward myself with a brown-sugar pearl milk tea with milk foam!
+
+:::
+
+::: {.contribution authors="editorial"}
+
+The original visit topic gives an information date of 21 October 2022 and a major update of 6 March 2025, adding funding, visa, and everyday-life information. This article reorganizes that material.
+
+:::

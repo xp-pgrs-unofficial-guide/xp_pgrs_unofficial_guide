@@ -1,18 +1,24 @@
 ---
-title: Benefits of your Liverpool account
+title: Liverpool account benefits
 discussion-id: xp-guide-liverpool-account
 legacy-source:
 - author-folder/Kai.Wu/liverpool-account-fuli.tex
 lang: en
 translation-source: content/resources/liverpool-account.qmd
 translation-status: draft
-translation-source-sha256: 3eb7114e99fd89f4f81e6dfea82f6496dc98a9588ef6cf9dea324be0a3db1192
+translation-source-sha256: 2a8d5732790f0debddbfce277466292e64dadd6c900fbf3f2a785e342b5919b1
 ---
 
 ::: {#xp-guide-liverpool-account}
 :::
 
 ::: {#sec.fuli_liverpool}
+:::
+
+::: {.contribution authors="editorial"}
+
+Resource source: Digital services provided through a University of Liverpool account.
+
 :::
 
 ::: {.contribution authors="kai-wu"}

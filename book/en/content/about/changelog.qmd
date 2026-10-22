@@ -1,0 +1,31 @@
+---
+title: Changelog
+discussion-id: xp-guide-changelog
+legacy-source:
+- chapters/update_log.tex
+lang: en
+translation-source: content/about/changelog.qmd
+translation-status: draft
+translation-source-sha256: 549555b9aed8c554ab93ec174b71f50b721eae093c6fb05af7e7971c93354e8e
+---
+
+::: {#xp-guide-changelog}
+:::
+
+::: {.contribution authors="editorial"}
+
+Project maintainers update this page, which records major releases only. For smaller changes, see the [GitHub commit history](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/commits/main).
+
+- v0.1 on 2022/8/9: created the project, chose the template, and set up GitHub Actions for automatic online compilation and publication.
+
+- v0.2 on 2022/10/12: completed the \[Must do\] and \[Benefits\] chapters, covering compulsory courses, meeting records, APR, conference funding, office supplies, printing, and sports facilities.
+
+- v0.3 on 2022/11/18: completed most of the \[Good to know\] chapter: marking, invigilation, and lab work as a TA, plus the Symposium, which was moved to the \[Must do\] chapter.
+
+- v0.4 on 2023/03/01: added guides to computer backups, lower back and neck care, student cards, and a directory of useful information.
+
+- v1.0 on 2024/08/12: completed the graduation chapter.
+
+- v1.1 on 2024/10/21: added [How academic research happens](../research/how-research-works.qmd#section.how-research-works) and [Visiting Liverpool](../research/liverpool-visit.qmd#section.UoL_visit).
+
+:::

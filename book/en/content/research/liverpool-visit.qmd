@@ -1,0 +1,124 @@
+---
+title: Arranging a research visit to Liverpool
+discussion-id: xp-guide-liverpool-visit
+legacy-source:
+- author-folder/Shiyao.Zhang14/UoL_visit.tex
+lang: en
+translation-source: content/research/liverpool-visit.qmd
+translation-status: draft
+translation-source-sha256: b9596949694799a3a693093ad87d046fd9bd49f671cae5c02baf8359d011c40a
+---
+
+::: {#xp-guide-liverpool-visit}
+:::
+
+::: {#section.UoL_visit}
+:::
+
+::: {.contribution authors="editorial"}
+
+The Liverpool visit topic covers [visit arrangements](#xp-guide-liverpool-visit), [pre-departure preparation](liverpool-preparation.qmd#xp-guide-liverpool-preparation), and [everyday life and campus access](liverpool-life.qmd#xp-guide-liverpool-life). For other university libraries, see [Access to other UK university libraries](../resources/uk-library-access.qmd#xp-guide-uk-library-access). This page retains the visit-length, supervisor, and funding experience; its former section links lead to the relevant articles.
+
+:::
+
+## Length of the visit {#交流时长}
+
+::: {.contribution authors="yue-zhou"}
+
+Usually three to six months. A visit shorter than three months is also possible. In principle, visits should not exceed six months. A longer visit needs sufficient reasons and approval from both supervisors and the Head of Department. However, the Liverpool school administrator told me they had no budget for any period beyond six months, which could be a problem. A visit longer than six months may also raise visa issues, so ask about these in advance.
+
+:::
+
+## The host supervisor {#关于-host-supervisor}
+
+::: {.contribution authors="yue-zhou"}
+
+If your supervisory team includes a Liverpool supervisor, that person is the default host. If not, but you are particularly keen to visit Liverpool, contact a potential host there yourself and obtain their permission and signature.
+
+Although most students have a Liverpool supervisor on their team, every project may be different, and you may not have interacted with them much before the visit. There can be various reasons for this, not necessarily that your research fields differ. If you think collaborating with them in Liverpool would be interesting, prepare beforehand.
+
+If you have had little interaction, establish some familiarity first to make the collaboration smoother. This could mean sharing research progress and plans over video calls or email, writing a paper together, or thinking through possible collaborative research in advance.
+
+Collaboration can have different motivations, as discussed under [Collaboration](how-research-works.qmd#subsection.teamwork). Whatever the reason, agree at least broadly with your Liverpool supervisor about the visit's activities beforehand, including what needs their involvement, the timetable, what you need to prepare, and what you plan to do.
+
+:::
+
+## Funding {#关于-funding}
+
+::: {.contribution authors="yue-zhou"}
+
+XJTLU: the university provides RMB 12,000, covering high-speed rail between Suzhou and Shanghai for the visa application, the visa fee, return flights to the UK, UK train fares to and from Liverpool, and accommodation necessary for the flights. For example, if you land in Manchester and take a train to Liverpool, that journey is reimbursable, as is the train or coach from Liverpool to the airport on your return. Nothing else is reimbursed! The total cannot exceed RMB 12,000, and the university is not responsible for any excess.
+
+Liverpool: free accommodation with bills included, meaning water, electricity, and gas, plus GBP 100 per week for living expenses.
+
+:::
+
+## Visa application process {#签证流程}
+
+::: {.contribution authors="editorial"}
+
+This section is now in [Preparing for a Liverpool visit](liverpool-preparation.qmd#liverpool-preparation-visa).
+
+:::
+
+## Everyday life {#衣食住行}
+
+::: {.contribution authors="editorial"}
+
+This section is now in [Everyday life and campus access in Liverpool](liverpool-life.qmd#liverpool-life-overview).
+
+:::
+
+### What to bring to the UK, especially for autumn and winter visits {#赴英物品供秋冬季去的那批参考}
+
+::: {.contribution authors="editorial"}
+
+This section is now in [Preparing for a Liverpool visit](liverpool-preparation.qmd#liverpool-preparation-packing).
+
+:::
+
+### Transport {#交通}
+
+::: {.contribution authors="editorial"}
+
+This section is now in [Everyday life and campus access in Liverpool](liverpool-life.qmd#liverpool-life-transport).
+
+:::
+
+### Accommodation {#住宿}
+
+::: {.contribution authors="editorial"}
+
+This section is now in [Everyday life and campus access in Liverpool](liverpool-life.qmd#liverpool-life-accommodation).
+
+:::
+
+### Office and ID card {#办公室和id卡}
+
+::: {.contribution authors="editorial"}
+
+This section is now in [Everyday life and campus access in Liverpool](liverpool-life.qmd#liverpool-life-office-id).
+
+:::
+
+### Good food in Liverpool {#利物浦好吃的}
+
+::: {.contribution authors="editorial"}
+
+This section is now in [Everyday life and campus access in Liverpool](liverpool-life.qmd#liverpool-life-food).
+
+:::
+
+### Visiting other university libraries {#访问其他学校图书馆}
+
+::: {.contribution authors="editorial"}
+
+This section is now in [Access to other UK university libraries](../resources/uk-library-access.qmd#uk-library-access-application).
+
+:::
+
+::: {.contribution authors="editorial"}
+
+The original visit topic gives an information date of 21 October 2022 and a major update of 6 March 2025, adding funding, visa, and everyday-life information. This article reorganizes that material.
+
+:::

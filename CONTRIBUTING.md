@@ -18,32 +18,52 @@
 
 ## 文章目录与文件移动
 
-`book/index.qmd` 保留为首页，其余文章放在 `book/content/` 下的六个主题目录中：
+`book/index.qmd` 保留为首页和新手导航，其余文章放在 `book/content/` 下的六个主题目录与一个辅助目录中：
 
-| 英文文件夹 | 中文目录主题 |
+| 英文文件夹 | 中文目录主题与边界 |
 | --- | --- |
-| `getting-started/` | 开始之前，含前言与常用网站、应用和资源 |
-| `milestones/` | 毕业必经之路 |
-| `resources/` | 资源与福利 |
-| `research-work/` | 研究与工作 |
-| `life-tools/` | 生活与工具 |
-| `appendix/` | 附录与参与，含 `contributing.qmd` 供稿说明 |
+| `academic/` | 学业：博士项目制度、培养要求、考核、学位取得与证明材料 |
+| `resources/` | 资源：可以申请或使用的服务、设施、经费、软件和文献入口 |
+| `research/` | 研究：科研方法、过程、资料管理与学术交流、访学 |
+| `work/` | 工作：助教、监考等岗位经验，以及职业发展 |
+| `life/` | 生活：日常事务、身心健康、运动与娱乐 |
+| `social/` | 社交：组织社团、同伴互助和人际交流 |
+| `about/` | 关于本指南：前言、供稿与纠错、项目建设、致谢和更新日志 |
 
-新增文章应放入对应主题目录，例如 `book/content/milestones/`。网站和 PDF 的阅读顺序仍由 `book/_quarto.yml` 的章节目录显式决定；文件夹或文件名的排序不会改变导航顺序。构建会递归发现正文和 `book/authors/` 下的 `.qmd`，检查每种语言的首页、文章和作者页是否被章节目录完整覆盖、是否有重复条目。英文目录从共享配置生成。
+每篇文章只有一个主要归属，相关栏目通过链接提供入口。资源按用途分类，西浦、利物浦或校外等来源在正文中注明。访学文章集中在研究专题，生活和资源目录可提供相关链接。待补导览应明确说明缺少哪些实质内容，并提供征稿入口，不能让规划选题看起来像已有完整攻略。
 
-移动已有文章时，同步移动 `book/en/` 中的对应译文，保留文章的 `discussion-id`、页首稳定锚点、段落锚点以及作者和补充者 ID。同步更新 `book/_quarto.yml`、正文中的相对引用和 `book/redirects.yml`。别名表记录“旧 `.qmd` 路径 → 当前 `.qmd` 路径”；历史别名应直接指向文件现在的位置，避免多次跳转。移动文件后也要核对图片和附件的相对路径。
+新增文章放入相应主题目录，例如 `book/content/academic/`。网站阅读顺序由 `book/_quarto.yml` 的显式目录决定，采用“一级主题 → 二级专题 → 具体文章”三级结构；文件夹和文件名的排序不改变导航顺序。顶层使用 `part/contents`，内部专题使用 `section/contents`，例如：
 
-构建根据别名表生成旧 HTML 地址的跳转页，保留访问时的查询参数和锚点；旧 Markdown 地址生成迁移提示并指向当前文章。这些是生成物，旧位置不保留第二份 `.qmd` 正文。按下文运行检查和预览后，再提交 PR。
+```yaml
+book:
+  chapters:
+  - index.qmd
+  - part: 学业
+    contents:
+    - section: 培养要求与考核
+      contents:
+      - content/academic/apr.qmd
+```
+
+构建递归发现正文和 `book/authors/` 下的 `.qmd`，检查每种语言的首页、文章和作者页是否被目录完整覆盖，以及是否有重复条目。英文目录从共享配置生成；PDF 专用配置按相同顺序展开子文章，仅保留一级主题及辅助分组，不把网页的二级专题再生成为分卷。生成的英文配置和 PDF 专用配置不手工维护或提交。
+
+移动或改名时，同步移动 `book/en/` 中的对应译文，保留文章的 `discussion-id`、页首稳定锚点、段落锚点以及作者和补充者 ID。同步更新共享目录、正文相对引用、译文来源路径与哈希，以及 `book/redirects.yml`。别名表记录“旧 `.qmd` 路径 → 当前 `.qmd` 路径”；历史别名应直接指向文件现在的位置，避免多次跳转。移动后核对图片和附件的相对路径；`legacy-source` 指向的历史原稿路径保持不变。
+
+拆分文章时，原页保留流程或入门正文，继续使用原讨论标识，并在旧小节锚点处链接到新文章。新文章分配新的 `discussion-id` 和页首锚点；移出的标题使用带主题前缀的新锚点，避免旧页和新页在整本 PDF 中出现重复定位标识。实际正文、作者块、段落锚点和资料日期随内容移动，不在导览页复制；新增衔接说明按实际整理者署名。中英文同时拆分，并核对内容和附件没有遗漏。
+
+合并文章时，目标页保留选定主文章的讨论标识，以及被合并页面的旧页首锚点，并为各旧地址登记跳转。评论保存在 GitHub Discussions 中，不会因正文合并而自动迁移或合并；若旧页已有独立讨论，应在目标页保留其入口。
+
+构建根据别名表生成旧 HTML 地址的跳转页，保留访问时的查询参数和锚点；旧 Markdown 地址生成迁移提示并指向当前文章。这些是生成物，旧位置不保留第二份 `.qmd` 正文。按下文运行检查和预览，确认旧地址及小节入口可用后，再提交 PR。
 
 ## 双语正文与翻译维护
 
-中英文文章按相同相对路径对应，例如 `book/content/milestones/apr.qmd` 与 `book/en/content/milestones/apr.qmd`。两边使用相同的 `discussion-id`、显式锚点和署名块，网页切换语言后仍对应同一篇文章与讨论。译文需完整保留原内容的条件、日期、链接和作者，不因翻译改写历史事实。
+中英文文章按相同相对路径对应，例如 `book/content/academic/apr.qmd` 与 `book/en/content/academic/apr.qmd`。两边使用相同的 `discussion-id`、显式锚点和署名块，网页切换语言后仍对应同一篇文章与讨论。译文需完整保留原内容的条件、日期、链接和作者，不因翻译改写历史事实。
 
 英文 frontmatter 除标题、讨论标识和历史来源外，还包含：
 
 ```yaml
 lang: en
-translation-source: content/milestones/apr.qmd
+translation-source: content/academic/apr.qmd
 translation-source-sha256: 中文源文件原始字节的SHA256
 translation-status: draft
 ```
@@ -51,12 +71,12 @@ translation-status: draft
 `draft` 表示英文初稿待人工复核，`reviewed` 表示已复核。中文修改后，先核对差异并同步译文，再更新来源哈希；已复核译文发生实质变化时，先改回 `draft`，复核后再恢复。构建会拒绝缺少对应页面、来源哈希过期、署名或显式锚点不一致的译文。不能只更新哈希来掩盖未翻译的修改。计算来源哈希可用：
 
 ```sh
-python3 -c "import hashlib,pathlib; print(hashlib.sha256(pathlib.Path('book/content/milestones/apr.qmd').read_bytes()).hexdigest())"
+python3 -c "import hashlib,pathlib; print(hashlib.sha256(pathlib.Path('book/content/academic/apr.qmd').read_bytes()).hexdigest())"
 ```
 
 本地图片仍共用 `book/assets/`；英文文件引用时须按自身位置调整相对路径。标题层级和段落应与中文对应；为两边的小节标题显式填写相同的 `{#稳定标识}`，构建会检查标题定位一致。新增文章需同时补充对应译文；若需帮助，可先提交 Issue，由编辑协助整理。
 
-共享目录和输出设置维护于 `book/_quarto.yml`，英文书名和目录主题译名维护于 `book/_languages.yml`。`book/en/_quarto.yml` 是构建生成物，不手工编辑或提交。
+共享目录和输出设置维护于 `book/_quarto.yml`，英文书名和目录主题译名维护于 `book/_languages.yml`。`book/en/_quarto.yml` 与 PDF 专用扁平章节配置是构建生成物，不手工编辑或提交。
 
 ## 段落署名与写作格式
 
@@ -172,6 +192,6 @@ python3 -m unittest discover -s tests/build
 node --test tests/ui/guide.test.js
 ```
 
-预览时核对系统默认主题、手动切换、同篇语言切换、作者链接，以及连续署名的显示。署名图标需检查长内容滚动、作者交界、键盘操作和窄屏轻点，确认高亮范围与源块一致。PDF 样式修改需完整构建并检查封面、目录和正文页。
+预览时核对三级目录的展开折叠与当前文章标示、待补导览的明确提示、旧文章和旧小节入口，以及系统默认主题、手动切换、同篇语言切换、作者链接和连续署名的显示。署名图标需检查长内容滚动、作者交界、键盘操作和窄屏轻点，确认高亮范围与源块一致。需要 PDF 时运行 `python3 scripts/build.py`，使构建生成的扁平章节配置生效；网页预览继续使用上述 `quarto preview` 命令。PDF 样式修改需完整构建并检查封面、目录和正文页。
 
 Pull Request 请说明改动主题、资料来源及作者归属。CI 会验证源文件并构建网页、PDF 和纯 Markdown，输出可从 Actions 的 `guide-build` artifact 下载。不要把 `book/_book/` 或缓存文件提交到仓库。

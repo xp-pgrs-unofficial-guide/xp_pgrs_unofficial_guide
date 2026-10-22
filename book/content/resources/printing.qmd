@@ -1,11 +1,17 @@
 ---
-title: "免费打印"
+title: 免费打印
 discussion-id: xp-guide-printing
 legacy-source:
-  - author-folder/Kai.Wu/print.tex
+- author-folder/Kai.Wu/print.tex
 ---
 
 ::: {#xp-guide-printing}
+:::
+
+::: {.contribution authors="editorial"}
+
+资源来源：西浦校园打印服务。
+
 :::
 
 ::: {.contribution authors="kai-wu"}

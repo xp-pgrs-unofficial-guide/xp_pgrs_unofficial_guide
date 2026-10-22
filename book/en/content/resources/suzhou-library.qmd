@@ -1,0 +1,25 @@
+---
+title: Borrowing books and free delivery from Suzhou Library
+discussion-id: xp-guide-suzhou-library
+legacy-source:
+- chapters/others.tex
+lang: en
+translation-source: content/resources/suzhou-library.qmd
+translation-status: draft
+translation-source-sha256: a82f0d2a1ac7b8b87d20077df66d6a1b01d447b4f22b49b2e61b9d9bda36cdfd
+---
+
+::: {#xp-guide-suzhou-library}
+:::
+
+::: {.contribution authors="editorial"}
+
+Resource source: Suzhou Library services outside the University.
+
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+Want to read books from Dushu Lake Library or borrow from Suzhou Library, but they are too far away? Borrow through the mini-program! Suzhou Library books can be delivered to Dushu Lake Library for collection **free of charge**, while Dushu Lake Library books can be delivered right to the entrance of the university library. Search WeChat for the mini-program "苏图借书". Your medical insurance card is also a citizen card and can be used to borrow books. If you already have one, link it directly and avoid the card-opening fee, then follow the instructions in the mini-program.
+
+:::

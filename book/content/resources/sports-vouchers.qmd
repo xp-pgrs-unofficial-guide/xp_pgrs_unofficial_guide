@@ -1,11 +1,17 @@
 ---
-title: "体育馆代金券"
+title: 体育馆代金券
 discussion-id: xp-guide-sports-vouchers
 legacy-source:
-  - author-folder/Kai.Wu/gym.tex
+- author-folder/Kai.Wu/gym.tex
 ---
 
 ::: {#xp-guide-sports-vouchers}
+:::
+
+::: {.contribution authors="editorial"}
+
+资源来源：西浦体育中心的代金券与预约服务。
+
 :::
 
 ::: {.contribution authors="kai-wu"}

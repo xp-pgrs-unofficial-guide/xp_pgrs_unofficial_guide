@@ -1,0 +1,91 @@
+---
+title: Preparing for a Liverpool visit
+discussion-id: xp-guide-liverpool-preparation
+legacy-source:
+- author-folder/Shiyao.Zhang14/UoL_visit.tex
+lang: en
+translation-source: content/research/liverpool-preparation.qmd
+translation-status: draft
+translation-source-sha256: a65e433433827ada02ee4c35a5593f41fd2fb4da0873aa37604a46d4bcb44111
+---
+
+::: {#xp-guide-liverpool-preparation}
+:::
+
+::: {.contribution authors="editorial"}
+
+This article is part of the [Liverpool visit topic](liverpool-visit.qmd#xp-guide-liverpool-visit).
+
+:::
+
+## Visa application process {#liverpool-preparation-visa}
+
+::: {.contribution authors="yue-zhou"}
+
+- Fill in the relevant information on the official website.
+
+- After completing it, choose the location and date for submitting your application.
+
+- You are redirected to another website to select optional services, such as priority processing or delivery. Be sure to remember your application number, "GWF" followed by digits.
+
+- Prepare the required documents, checking the checklist for the specific requirements. All documents must be in English. Translations need a translation stamp, or you can ask someone you know with a TEM-8 certificate to sign them.\
+  \
+  A passport is essential. Other documents include, but are not limited to:
+
+  - Bank statements or a deposit certificate. I submitted a deposit certificate because I had stated my savings amount in the application, and reportedly a deposit certificate contains less information and can speed up review. Proof of fixed assets can also be submitted here.
+
+  - Marriage certificate, if married.
+
+  - A university student-status letter and financial support letter, because I am a student. Employed applicants can provide proof of employment.
+
+- Submitting the application: arrive at the visa application centre half an hour early. Staff will direct you into the queue. Inside, give the checklist to a staff member, receive a number, and wait to be called. The first call is a preliminary enquiry about delivery, SMS, and priority services. SMS is unnecessary because email notifications arrive promptly too. If you selected no services in step 3 but now want to buy one, staff issue a slip and direct you to pay. If you buy delivery, you receive an EMS waybill to fill in your recipient details; Chinese is fine. Queue again for a small room where you hand over your passport, provide fingerprints, and have a photograph taken.
+
+- On the day of submission, an email confirms that the application has been sent for review.
+
+- You receive an email when the visa is returned, and the courier phones to arrange collection. P.S. I recommend delivery if you live some distance from the visa centre or do not want to queue to collect it.
+
+:::
+
+## What to bring to the UK, especially for autumn and winter visits {#liverpool-preparation-packing}
+
+::: {.contribution authors="yue-zhou"}
+
+- Two plug adapters and one extension lead.
+
+- One small cooking pot, two bowls, and two pairs of chopsticks.
+
+- An insulated flask and an electric travel mug or kettle cup.
+
+- A waterproof outdoor jacket, long down coat, cashmere sweater, one scarf, one hat, essential for surviving Liverpool, and waterproof trainers.
+
+- Plastic slippers. They are available there too, but a little expensive.
+
+- Several sets of underwear, two sets of thermal underwear, genuinely necessary, and two sets of pyjamas. Pyjamas are available there, but the quality is rather ordinary.
+
+- Two small towels and one hair-drying towel.
+
+- Folding clothes hangers.
+
+- Toothbrush and toothpaste.
+
+- Laundry soap and a laundry bag.
+
+- Headphones. Wireless earphones are essential; bring over-ear headphones too if you regularly work in the office or library.
+
+- Eye drops.
+
+- Cash. GBP 50 is enough; you hardly need it.
+
+- A sturdy umbrella, essential!
+
+- Sheets, pillowcases, duvet cover, duvet, and pillow. Bedding can also be bought after arrival. I did not have much other luggage and am particular about my pillow, so I brought my own.
+
+There are many SIM options. You can pick up a CMLink SIM while applying for the visa, but beware of scams! Once activated, it attracts all sorts of scam calls; simply ignore them. After arriving in the UK, you can get an EE, Vodafone, O2, or other SIM. Some companies offer benefits such as free coffee vouchers.
+
+:::
+
+::: {.contribution authors="editorial"}
+
+The original visit topic gives an information date of 21 October 2022 and a major update of 6 March 2025, adding funding, visa, and everyday-life information. This article reorganizes that material.
+
+:::

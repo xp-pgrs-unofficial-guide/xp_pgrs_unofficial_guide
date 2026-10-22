@@ -100,9 +100,15 @@ return {{Pandoc = function(doc)
       local text = value(node)
       if text:match("%.qmd$") then paths[#paths + 1] = text end
     elseif type(node) == "table" then
-      if node.part then chapters(node.part) end
-      if node.chapters then chapters(node.chapters)
-      else for _, child in ipairs(node) do chapters(child) end end
+      if node.part or node.section or node.href or node.chapters or node.contents then
+        chapters(node.part)
+        chapters(node.section)
+        chapters(node.href)
+        chapters(node.chapters)
+        chapters(node.contents)
+      else
+        for _, child in ipairs(node) do chapters(child) end
+      end
     end
   end
   chapters(doc.meta.book and doc.meta.book.chapters)

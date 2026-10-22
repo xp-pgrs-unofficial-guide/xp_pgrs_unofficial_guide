@@ -1,0 +1,93 @@
+---
+title: Marking coursework and exams
+discussion-id: xp-guide-marking
+legacy-source:
+- author-folder/Kai.Wu/TA.tex
+lang: en
+translation-source: content/work/marking.qmd
+translation-status: draft
+translation-source-sha256: 8362900e0e2cee350fc5e97a7446fa845d60518e7bfac3eecfd4455356286125
+---
+
+::: {#xp-guide-marking}
+:::
+
+## Marking coursework {#marking-assignments}
+
+::: {.contribution authors="kai-wu"}
+
+For traditional paper assignments, generally just ask the teacher what to do. For electronic submissions through Learning Mall, abbreviated below as LMO, here is a tutorial:
+
+1. Log in to LMO and find the module you are assisting with. If you cannot find it anywhere, email your school administrator or the module teacher to request access.
+
+   ![LMO course](../../../assets/imported/Kai.Wu/LMO_course.jpg)
+
+2. Open the module and scroll down to the assignment submission area, or use Ctrl+F, Command+F on Mac, to search for "submission".
+
+   ![LMO submission links](../../../assets/imported/Kai.Wu/LMO_submission_links.jpg)
+
+3. Large compulsory modules have many classes. First select the class you have been assigned to mark, under "Seperate group". If you want to start marking online immediately, click "Grade". To look through submissions or mark offline, for example after downloading them to an iPad, click "view all submission".
+
+   ![LMO submission page](../../../assets/imported/Kai.Wu/LMO_inside_submission.jpg)
+
+4. I loathe the online marking system: it is slow, and its PDF annotation tools are very awkward, making marking inefficient. Unless the teacher has created a marking rubric, online marking is not particularly useful. My supervisor once showed me a rubric where the right-hand panel let you select a mark and a reason for errors for every sub-question, which was very efficient, but none of the modules I marked used one. So I will cover only the relatively efficient offline method I worked out. After opening "view all submission", use "grade action" at the top to download the grading worksheet and all submissions separately.
+
+   ![LMO download options](../../../assets/imported/Kai.Wu/LMO_download.jpg)
+
+5. You will receive a CSV file and a very large ZIP. Extract the ZIP to find all submissions already named with each student's name, ID, and some other text. Mark the files locally on your computer or transfer them to a tablet. If the teacher does not require marked work to be returned as a feedback file, which you must ask about, you can even print everything and mark on paper. Enter the marks in the worksheet afterwards. Excel can open the CSV, and you may save it as XLSX. The final column, "Feedback comments", can contain messages such as "incorrect file format" or "please take a clearer photo next time".
+
+   ![Downloaded LMO submissions](../../../assets/imported/Kai.Wu/LMO_Downloaded.jpg)
+
+6. Once marking is complete according to the teacher's requirements, uploading the worksheet and marked files, if required, is straightforward. Return to the page after "view all submission", click "upload grading worksheet", and upload the marks.
+
+   ![LMO upload options](../../../assets/imported/Kai.Wu/LMO_upload.jpg)
+
+7. If you saved the worksheet as XLSX in Excel, first save it again as a UTF-8 CSV before uploading. Tick the "allow" option below to let the worksheet overwrite anything already marked online. After clicking "upload", you will see a long page, and every student's mark and your feedback comments will be uploaded.
+
+   ![Uploading the LMO grading worksheet](../../../assets/imported/Kai.Wu/LMO_upload_sheet.jpg)
+
+8. Return to the previous page and click "upload multiple feedback files in a zip" to upload the marked assignments. ZIP the files first. LMO limits uploads to 100 MB, so if the total is larger, manually divide them into several ZIPs smaller than 100 MB. This is extremely annoying: why can downloads exceed 100 MB? If you know Python, you can use the quick script I wrote, [GitHub link](https://github.com/kaiwu-astro/xp_pgrs_unofficial_guide/tree/main/fileshare/zip_in_100M.py) or [alternative if you cannot access GitHub](https://gitee.com/kaiwu-astro/xp_pgrs_unofficial_guide/tree/main/fileshare), to package files automatically into archives no larger than 100 MB. If you do not know Python, doing it manually will of course be quicker. Once the upload is finished, you are done.
+
+9. Finally, email the teacher to report (1) common problems, such as a question many students got wrong, could not answer, or misunderstood in a particular way; (2) individual issues, such as a student submitting the wrong file, apparently copying the model answers, usually obtained from a student in a higher year, or submitting work very similar to another student's; and (3) anything else you want to discuss. The Department of Mathematics has the dedicated feedback form shown below. Fill that in if available; otherwise an email is fine. Usually it need not be very detailed. Do not copy my example unless you love this work, because it takes a great deal of time.
+
+   ![LMO feedback to the teacher](../../../assets/imported/Kai.Wu/LMO_feedback_to_teacher.jpg)
+
+Some of my marking experience:
+
+1. My toolkit is an iPad, Apple Pencil, and the PDF Expert app. This is much faster than marking either online or offline on a computer. A magnetic paper-like screen protector, around RMB 20, and a replacement Pencil nib, around RMB 10, also greatly improve the writing experience.
+
+   ![Marking tools](../../../assets/imported/Kai.Wu/marking_tools.jpg)
+
+2. Use a production-line approach for efficiency. When there are many questions, do not finish all of one student's work before moving to the next: that is particularly slow. Divide the work into parts. First mark everyone's part 1, for example the first three questions, then go back and mark everyone's part 2, for example questions 4-6. Opening and closing files may take some time, but you will remember the answers and marking points for those few questions and work quickly. Avoid repeatedly checking the answers for every assignment.
+
+3. Similarly, do not enter the mark immediately after finishing each assignment. I write the total as a huge number in the top-left corner. When all the work is marked, I move it to the computer and use the largest thumbnails: on Mac, display as icons and repeatedly press Command-plus; on Windows, choose extra-large icons. The top-left mark is then visible without opening each file. Sort Excel by name and the folder by filename, and entering marks is very fast.
+
+   ![Reading marks from thumbnails](../../../assets/imported/Kai.Wu/tongchengji.jpg)
+
+4. Submitted files can have all kinds of problems: Word or even PowerPoint instead of PDF, images in the wrong order or orientation, or students using their own notebook instead of the standard question booklet, making answers hard to match. TAs can require a submission format. Warn students in the feedback comments and ask the teacher to remind the class, as these problems seriously reduce marking efficiency. If students keep submitting the wrong format after a warning, you can deduct format marks according to your own standard. Mine is a warning for the first offence, a 20% deduction for the next, 50% for the third, and all marks for the fourth.
+
+5. Sometimes a file is enormous or contains so many handwritten annotations that opening the PDF takes a minute or several minutes and it easily crashes. Students can be asked to compress large PDFs, but excessive handwriting is harder to address. I wrote a Python program [\[GitHub link\]](https://github.com/kaiwu-astro/xp_pgrs_unofficial_guide/tree/main/fileshare/pdf_to_png_to_pdf.py) for this situation. After downloading all assignments, it converts every PDF to images and back to PDF, resolving the opening problem and reducing files to under 5 MB. Help yourself if needed. It is somewhat awkward to use, but I really could not find a better method.
+
+6. A quiet tip: when unsure how many marks to award, give a little more. If you give too few, students may argue with you, which takes time. A little generosity can save your own time.
+
+7. Mistakes when entering marks, such as typing the wrong score or shifting scores between students, are inevitable. The first few times are especially error-prone, so consider double-checking everything. Writing the mark at the top-left of the PDF also helps: if the LMO mark differs, the student can notice and contact you immediately.
+
+8. After marking, students may contact you through LMO or email. Try not to reply directly, because the teacher is responsible if your reply is wrong. Forward student messages to the teacher and let them reply, unless they have agreed that you should respond yourself.
+
+(Information dated: 21 October 2022)
+
+:::
+
+## Marking exams {#marking-exams}
+
+::: {.contribution authors="unknown" status="unverified"}
+
+TAs may be required to mark quizzes, midterms, and final exams. Before leaving for the end-of-semester break, ask the teacher so you do not disappear without realizing you need to mark finals. If you genuinely need to leave early, discuss it with them.
+
+:::
+
+::: {.contribution authors="editorial"}
+
+For recruitment, training, teaching duties, and pay, see [Getting started as a Teaching Assistant](teaching-assistant.qmd#xp-guide-teaching-assistant).
+
+:::

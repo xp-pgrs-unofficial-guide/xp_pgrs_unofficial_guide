@@ -1,0 +1,43 @@
+---
+title: Campus IT services and virtual desktop
+discussion-id: xp-guide-other-benefits
+legacy-source:
+- chapters/fuli.tex
+- chapters/others.tex
+lang: en
+translation-source: content/resources/campus-it.qmd
+translation-status: draft
+translation-source-sha256: e1efd2e97556ef8665a1e19eab8d46d3f83931d0640be449fa950f162aa8e2f4
+---
+
+::: {#xp-guide-other-benefits}
+:::
+
+::: {.contribution authors="editorial"}
+
+Resource source: XJTLU campus IT services. The sections below distinguish the general service portal from temporary off-campus access.
+
+:::
+
+## Campus IT service portal {#campus-it-services}
+
+::: {.contribution authors="unknown" status="unverified"}
+
+If these resources are entirely new to you, spend a few minutes exploring them. Simply knowing what is available may be helpful later.
+
+1.  University IT services: <https://guide.xjtlu.edu.cn/it-guide-for-student.html>, including free Office 365.
+
+2.  Readers are welcome to add more!
+
+:::
+
+## XJTLU virtual desktop {#campus-it-virtual-desktop}
+
+::: {#xp-guide-campus-vm}
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+<https://vdi.xjtlu.edu.cn/portal/webclient/index.html> If you are off campus and need quick, temporary access to university resources or software, you can use the university's online virtual desktop. It is effectively a computer located on campus.
+
+:::

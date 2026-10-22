@@ -1,0 +1,33 @@
+---
+title: 奖学金与 TA/RA 义务
+discussion-id: xp-guide-ta-obligations
+legacy-source:
+- author-folder/Kai.Wu/TA.tex
+---
+
+::: {#xp-guide-ta-obligations}
+:::
+
+## 我是否需要做TA？ {#ta-obligations-requirements}
+
+::: {.contribution authors="kai-wu,yue-zhou" status="unverified"}
+
+- 如果你是全额奖学金的博士生（免学费+有津贴），那根据学校发给你的的Financial offer，你每学期都有TA的义务（换句话说，奖学金是TA工作量换来的，拿了钱必须做事）。做了TA过后，不会另外结算工资。2020年及之后入学的全奖博士，三年需要做满900小时助教方可毕业。2023年及之后入学的全奖博士，每学年需要做300-500小时TA或RA方可毕业。
+
+- 如果你是2020年及之后入学的半奖博士生（仅免学费）或者自费生，则没有做TA的义务。做TA过后，学校会按照工时给你发工资，而且TA的经历写到你简历上，（视你未来的职业规划）可能有一些作用。
+
+全奖每学年强制300小时TA，按一年40个教学周计算，每周都有7.5小时的duty，相当于每周费掉一天。肯定有同学要问，真的会这么严格吗？从具体执行的情况来看，不同学院之间有很大区别。有的学院甚至专门为此建立了一个数字化系统来统计你的工时，然后必须作满；有的学院就比较佛。因此具体执行情况，请问你同专业的学长学姐。
+
+(资料日期：2022年10月21日)
+
+(重要更新：2022年12月30日：根据最新官方handbook修正TA时间)
+
+(更新：2024年1月15日：根据最新官方handbook修正TA时间)
+
+:::
+
+::: {.contribution authors="editorial"}
+
+招募、培训、教学工作与报酬，请回到[助教工作入门](../work/teaching-assistant.qmd#xp-guide-teaching-assistant)。
+
+:::

@@ -1,0 +1,54 @@
+---
+title: Thesis format and templates
+discussion-id: xp-guide-thesis-format
+legacy-source:
+- author-folder/Kai.Wu/thesis_viva_graduation.tex
+- author-folder/Ziwen.Xie/viva.tex
+lang: en
+translation-source: content/academic/thesis.qmd
+translation-status: draft
+translation-source-sha256: a444af85513bfcb2dc0f85b8a0ff00e7ee202f8001ab887ceaf19d53b1ab1470
+---
+
+::: {#xp-guide-thesis-format}
+:::
+
+## The thesis {#thesis-overview}
+
+### Format and typesetting {#thesis-format}
+
+::: {.contribution authors="kai-wu"}
+
+Official document: <https://www.liverpool.ac.uk/media/livacuk/tqsd/code-of-practice-on-assessment/annex-7.1-PGR-CoP.pdf>. Use this as the authority whenever you are unsure about formatting. Below are questions that recur constantly in the WeChat group.
+
+Q: What software can I use to write the thesis?
+
+A: According to the rules above, Liverpool does not prescribe software, so you can use whatever you prefer. Common choices are Microsoft Word and LaTeX.
+
+Q: What do you recommend?
+
+A: LaTeX has several advantages: (1) entering equations is very convenient; (2) references and citations are easy to manage without external software such as EndNote; (3) the formatting is attractive and consistent, making ugly typesetting difficult; and (4) files are small and can be split up for convenient backups. Its disadvantage is the relatively steep learning curve. If your field uses Word rather than LaTeX for journal and conference papers, switching will take some time to learn.
+
+Q: The formatting document has so many detailed requirements. Please, please give me a thesis template!
+
+A:
+
+1. There really is an official Word template, available from this project's fileshare: <https://gitee.com/kaiwu-astro/xp_pgrs_unofficial_guide/tree/main/fileshare>. Source: a teacher on the ELC Thesis Writing Camp.
+
+2. There is no official LaTeX template, but most School of Mathematics and Physics (SMP) graduates have written their theses in LaTeX. Search Overleaf's template gallery for "Liverpool Thesis". There should be just one result, which you can use.
+
+3. Template users, pay special attention: never fully trust the template! The Word template came from an XJTLU ELC teacher, not Liverpool, and the Overleaf template is unofficial. In principle, neither is **responsible** for your thesis or graduation. On obtaining a template, the first step is always to open the Code of Practice above and check every requirement against it.
+
+:::
+
+### Word count {#thesis-word-count}
+
+::: {.contribution authors="kai-wu"}
+
+Q: The Code of Practice only states a maximum word count. What is the minimum?
+
+A: Another constantly recurring question. I once asked a teacher at the Graduate School's Thesis Writing Camp. His view was that, since XJTLU master's theses have a maximum of 30,000 words, a PhD thesis should preferably exceed that. But I later found this was not really the case. I have seen theses shorter than 100 pages and others close to 200 pages, all of whose authors graduated. Across the university, there truly is no fixed requirement. If you still want a rough minimum for peace of mind, download theses from the Liverpool and XJTLU libraries. Focus on your school, department, and subject, ideally theses by graduates from your own research group, and see their word and page counts. **Remember: more words do not guarantee an easy graduation.** A senior student's thesis was close to 200 pages and received major corrections; the external examiner said it was too long and read like a textbook.
+
+(Information dated: 12 August 2024)
+
+:::

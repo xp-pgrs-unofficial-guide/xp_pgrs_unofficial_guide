@@ -1,0 +1,44 @@
+---
+title: Access to other UK university libraries
+discussion-id: xp-guide-uk-library-access
+legacy-source:
+- author-folder/Shiyao.Zhang14/UoL_visit.tex
+lang: en
+translation-source: content/resources/uk-library-access.qmd
+translation-status: draft
+translation-source-sha256: 9fe29ad921f036385ca0fe00f27334b24b1d261c143e8198e111be3153ac9976
+---
+
+::: {#xp-guide-uk-library-access}
+:::
+
+::: {.contribution authors="editorial"}
+
+Resource source: SCONUL Access and UK university library services.
+
+:::
+
+::: {.contribution authors="editorial"}
+
+This article is part of the [Liverpool visit topic](../research/liverpool-visit.qmd#xp-guide-liverpool-visit).
+
+:::
+
+## Visiting other university libraries {#uk-library-access-application}
+
+::: {.contribution authors="shiyao-zhang"}
+
+While travelling and visiting places around the UK, if you happen to pass a university library when you are tired, you can go in and sit down, provided you have applied for [SCONUL Access](https://access.sconul.ac.uk/sconul-access) in advance.
+
+Policies differ, but successful applicants can at least enter most participating libraries. Some also provide computer access or borrowing rights.
+
+> Q. Do I need to complete an online application for each institution I would like to visit?
+>
+> A. No, although you do need to indicate a library you are interested in visiting as part of your application, your approval email allows you to visit any of those libraries on the list. You do not need to reapply. 21 Oct, 2024 from [Access FAQ \| SCONUL](https://access.sconul.ac.uk/page/access-faq#Multiple%20applications)
+
+Liverpool Library processes the application after submission. Once approved, take the email to the reception desk of a participating university library to obtain a visitor card.
+
+Information dated: 21 October 2022\
+Major update: 6 March 2025: added funding, visa, and everyday-life information.
+
+:::

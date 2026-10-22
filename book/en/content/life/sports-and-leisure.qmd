@@ -1,0 +1,35 @@
+---
+title: Sports and leisure (contributions welcome)
+discussion-id: xp-guide-sports-and-leisure
+lang: en
+translation-source: content/life/sports-and-leisure.qmd
+translation-status: draft
+translation-source-sha256: 3bbc3c3ab5519cfd6eb41f35e362893489366fd49c6b91620c1920ce5cc6d2f0
+---
+
+::: {#xp-guide-sports-and-leisure}
+:::
+
+## Sports resources and physical health {#sports-existing-resources}
+
+::: {.contribution authors="editorial"}
+
+See [Sports-centre vouchers and booking](../resources/sports-vouchers.qmd#xp-guide-sports-vouchers) and [Neck and back health](ergonomics.qmd#xp-guide-ergonomics). Read benefit details and conditions alongside the article dates and University notices.
+
+:::
+
+## Sports experiences and leisure {#sports-leisure-topics}
+
+::: {.contribution authors="editorial"}
+
+Contributions are welcome on facilities, getting started with sports, cultural activities, and leisure. Information about clubs and meeting people belongs under [Social connections](../social/overview.qmd#xp-guide-social-overview); this topic focuses on the activities themselves.
+
+:::
+
+## Contribute experience {#sports-and-leisure-contribute}
+
+::: {.contribution authors="editorial"}
+
+This is a topic outline, not a completed guide. Use “Add or correct content” below or read [Contributions and corrections](../about/contributing.qmd#xp-guide-contributing) to share your experience.
+
+:::

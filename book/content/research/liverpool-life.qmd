@@ -1,0 +1,95 @@
+---
+title: 利物浦生活与校园使用
+discussion-id: xp-guide-liverpool-life
+legacy-source:
+- author-folder/Shiyao.Zhang14/UoL_visit.tex
+---
+
+::: {#xp-guide-liverpool-life}
+:::
+
+::: {.contribution authors="editorial"}
+
+本篇属于[利物浦访学专题](liverpool-visit.qmd#xp-guide-liverpool-visit)。 出发前请先查看[行前准备](liverpool-preparation.qmd#xp-guide-liverpool-preparation)；英国其它大学的图书馆访问方式见[资源指南](../resources/uk-library-access.qmd#xp-guide-uk-library-access)。
+
+:::
+
+## 衣食住行 {#liverpool-life-overview}
+
+::: {.contribution authors="shiyao-zhang"}
+
+[Halls Life](https://hallslife.liverpool.ac.uk) 是利物浦大学学生宿舍的 community hub，提供了对衣食住行的若干建议，强烈建议在出发前往英国之前浏览，可帮助决定是否携带某些行李。
+
+:::
+
+## 交通 {#liverpool-life-transport}
+
+::: {.contribution authors="yue-zhou"}
+
+trip.com （携程海外版）可订全英火车、地铁、飞机、酒店。 或者这边常用的单独 app 也很多：trainline 订火车票；skyscanner 买飞机票；booking 订酒店；Uber 打车。
+
+如果有经常坐火车的需求，可以考虑办个 railcard，每张火车票可以省 1/3 的钱。
+
+:::
+
+## 住宿 {#liverpool-life-accommodation}
+
+::: {.contribution authors="shiyao-zhang"}
+
+抵达利物浦前两星期会有邮件通知，利物浦会统一安排，每批学生住宿的地点不一样，所以离学校的远近也就无法确定。但几个宿舍区离学校都不算远，步行20分钟左右能到。无法自主选定一起住的同学，耐心等待安排即可。但如果临近入住时间还没有收到邮件（发生过），可以主动联系利物浦的学生宿舍部门 <hallsres@liverpool.ac.uk> 询问。
+
+:::
+
+## 办公室和ID卡 {#liverpool-life-office-id}
+
+::: {.contribution authors="yue-zhou"}
+
+到达之后相应的staff会告知你办公室所在位置，自行前往即可。办公室有显示器和主机。
+
+带上护照去IT那边可以改campus code和办理学生卡。ID卡可用于进出办公室，图书馆，打印，借书。
+
+:::
+
+## 利物浦好吃的 {#liverpool-life-food}
+
+::: {.contribution authors="yue-zhou"}
+
+- 张记
+
+- 美味轩
+
+- 老蜀人
+
+- ejoy里面的煎饼
+
+- 泰熙家（韩餐）
+
+- turtle bay（加勒比菜）
+
+- Cowshed（牛排好吃！）
+
+- Bamboo（白人饭，氛围感店，适合拍照打卡）
+
+- Hardware （brunch，下午茶都不错！）
+
+- Johnny炸鱼薯条 （浅尝一下就行，一般，很油腻）
+
+- Zizzi - Liverpool One（意大利餐）
+
+- Haute Dolci Liverpool（环境好，好吃好拍）
+
+- chaiiwala（一定要试试印度奶茶）
+
+- sweet time bakery(想吃中式面包就买它)
+
+- TSUJIRI Matcha House （抹茶党狂喜）
+
+- 贡茶（每每emo就奖励自己一杯黑糖啵啵奶盖！）
+
+:::
+
+::: {.contribution authors="editorial"}
+
+原访学专题标注的资料日期为 2022年10月21日，重要更新为 2025年3月6日（补充 funding、签证、衣食住行等内容）。本文仅作结构整理。
+
+:::

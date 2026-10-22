@@ -1,5 +1,5 @@
 ---
-title: 欢迎阅读
+title: 首页与新手导航
 discussion-id: xp-guide-home
 ---
 
@@ -18,12 +18,14 @@ discussion-id: xp-guide-home
 
 :::: {.contribution authors="editorial"}
 
-- **刚入学**：[常用网站、应用与资源](content/getting-started/start-here.qmd#xp-guide-start-here)。
-- **准备评审与毕业**：[年度进展评审 APR](content/milestones/apr.qmd#xp-guide-apr)、[论文、答辩与毕业](content/research-work/thesis-and-graduation.qmd#xp-guide-thesis-and-graduation)。
-- **了解研究与工作**：[学术研究是怎么发生的](content/research-work/how-research-works.qmd#xp-guide-how-research-works)、[助教怎么做](content/research-work/teaching-assistant.qmd#xp-guide-teaching-assistant)。
-- **准备赴利物浦**：[访学经验](content/life-tools/liverpool-visit.qmd#xp-guide-liverpool-visit)。
+- **刚入学**：[常用网站与应用](content/resources/start-here.qmd#xp-guide-start-here)、[必修课程](content/academic/compulsory-courses.qmd#xp-guide-compulsory-courses)。
+- **准备 APR**：[会议记录](content/academic/meeting-records.qmd#xp-guide-meeting-records)、[年度进展评审 APR](content/academic/apr.qmd#xp-guide-apr)。
+- **开始做 TA**：[奖学金与 TA/RA 义务](content/academic/ta-obligations.qmd#xp-guide-ta-obligations)、[助教工作入门](content/work/teaching-assistant.qmd#xp-guide-teaching-assistant)。
+- **开始研究**：[学术研究是怎么发生的](content/research/how-research-works.qmd#xp-guide-how-research-works)、[资料备份与论文版本管理](content/research/backup.qmd#xp-guide-backup)。
+- **准备赴利物浦**：[访学安排](content/research/liverpool-visit.qmd#xp-guide-liverpool-visit)、[行前准备](content/research/liverpool-preparation.qmd#xp-guide-liverpool-preparation)。
+- **准备毕业**：[毕业流程与时间规划](content/academic/graduation.qmd#xp-guide-thesis-and-graduation)、[Viva 答辩流程与准备](content/academic/viva.qmd#xp-guide-viva)、[毕业证明与学位认证](content/academic/degree-documents.qmd#xp-guide-degree-documents)。
 
-左侧目录保留整本指南的主题结构，也可以使用搜索查找内容。需要离线阅读时，可下载整本 [中文版 PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/xp-pgrs-unofficial-guide.pdf) 或 [English PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/en/xp-pgrs-unofficial-guide.pdf)。按版本归档的 PDF 见 [Release 版本归档](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest)。
+左侧目录按学业、资源、研究、工作、生活、社交六个主题组织，展开专题可查看具体文章；“待补”页面列出尚待完善的方向。也可以使用搜索查找内容。需要离线阅读时，可下载整本 [中文版 PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/xp-pgrs-unofficial-guide.pdf) 或 [English PDF](https://xp-pgrs-unofficial-guide.github.io/xp_pgrs_unofficial_guide/en/xp-pgrs-unofficial-guide.pdf)。按版本归档的 PDF 见 [Release 版本归档](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases/latest)。
 
 ::::
 
@@ -33,7 +35,7 @@ discussion-id: xp-guide-home
 
 网页中，连续同署名内容共用一个右侧作者图标，图标随阅读位置滚动，并停留在对应内容范围内。悬停、键盘聚焦或点击图标可查看原作者、补充者和归属确认情况，同时高亮对应范围；手机上轻点即可查看。历史材料的署名正在整理；“归属待确认”表示目前没有足够证据把这一段准确归给某个人。
 
-每篇文章下方可以讨论，也可以通过“补充内容／纠错”提交文字与附件。熟悉 Markdown 的读者可以直接编辑本页并提交 PR，所有正文修改经编辑审核后发布。[查看供稿方法](content/appendix/contributing.qmd#xp-guide-contributing)。
+每篇文章下方可以讨论，也可以通过“补充内容／纠错”提交文字与附件。熟悉 Markdown 的读者可以直接编辑本页并提交 PR，所有正文修改经编辑审核后发布。[查看供稿方法](content/about/contributing.qmd#xp-guide-contributing)。
 
 ::: {#xp-guide-authors}
 :::

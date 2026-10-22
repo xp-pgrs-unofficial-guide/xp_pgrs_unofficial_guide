@@ -24,51 +24,98 @@ book:
     collapse-level: 1
   chapters:
   - index.qmd
-  - content/getting-started/preface.qmd
-  - content/getting-started/start-here.qmd
-  - part: 毕业必经之路
-    chapters:
-    - content/milestones/compulsory-courses.qmd
-    - content/milestones/meeting-records.qmd
-    - content/milestones/apr.qmd
-    - content/milestones/research-symposium.qmd
-  - part: 资源与福利
-    chapters:
-    - content/resources/conference-funding.qmd
-    - content/resources/stationery.qmd
-    - content/resources/printing.qmd
-    - content/resources/sports-vouchers.qmd
-    - content/resources/liverpool-account.qmd
-    - content/resources/other-benefits.qmd
-  - part: 研究与工作
-    chapters:
-    - content/research-work/how-research-works.qmd
-    - content/research-work/teaching-assistant.qmd
-    - content/research-work/invigilation.qmd
-    - content/research-work/thesis-and-graduation.qmd
-    - content/research-work/career.qmd
-  - part: 生活与工具
-    chapters:
-    - content/life-tools/backup.qmd
-    - content/life-tools/remote-access.qmd
-    - content/life-tools/ergonomics.qmd
-    - content/life-tools/liverpool-visit.qmd
-    - content/life-tools/campus-vm.qmd
-    - content/life-tools/library-databases.qmd
-    - content/life-tools/suzhou-library.qmd
-    - content/life-tools/mental-health.qmd
-    - content/life-tools/recommended-software.qmd
-    - content/life-tools/pitfalls.qmd
-  - part: 附录与参与
-    chapters:
-    - content/appendix/campus-map.qmd
-    - content/appendix/contacts.qmd
-    - content/appendix/join-us.qmd
-    - content/appendix/contributing.qmd
-    - content/appendix/acknowledgements.qmd
-    - content/appendix/changelog.qmd
+  - part: 学业
+    contents:
+    - section: 培养要求与考核
+      contents:
+      - content/academic/compulsory-courses.qmd
+      - content/academic/meeting-records.qmd
+      - content/academic/apr.qmd
+      - content/academic/research-symposium.qmd
+      - content/academic/ta-obligations.qmd
+    - section: 学位论文与毕业
+      contents:
+      - content/academic/graduation.qmd
+      - content/academic/thesis.qmd
+      - content/academic/viva.qmd
+      - content/academic/degree-documents.qmd
+    - section: 学籍与证明
+      contents:
+      - content/academic/student-status.qmd
+  - part: 资源
+    contents:
+    - section: 常用入口与校园办事
+      contents:
+      - content/resources/start-here.qmd
+      - content/resources/campus-map.qmd
+      - content/resources/contacts.qmd
+    - section: 账号与数字服务
+      contents:
+      - content/resources/campus-it.qmd
+      - content/resources/liverpool-account.qmd
+      - content/resources/remote-access.qmd
+      - content/resources/recommended-software.qmd
+    - section: 图书馆与文献
+      contents:
+      - content/resources/library-databases.qmd
+      - content/resources/suzhou-library.qmd
+      - content/resources/uk-library-access.qmd
+    - section: 经费与校园福利
+      contents:
+      - content/resources/conference-funding.qmd
+      - content/resources/stationery.qmd
+      - content/resources/printing.qmd
+      - content/resources/sports-vouchers.qmd
+  - part: 研究
+    contents:
+    - section: 科研入门
+      contents:
+      - content/research/how-research-works.qmd
+    - section: 资料与数据管理
+      contents:
+      - content/research/backup.qmd
+    - section: 学术交流与访学
+      contents:
+      - content/research/liverpool-visit.qmd
+      - content/research/liverpool-preparation.qmd
+      - content/research/liverpool-life.qmd
+    - section: 研究方法与论文发表
+      contents:
+      - content/research/methods-and-publishing.qmd
+  - part: 工作
+    contents:
+    - section: 助教与教学支持
+      contents:
+      - content/work/teaching-assistant.qmd
+      - content/work/marking.qmd
+      - content/work/invigilation.qmd
+    - section: 职业发展
+      contents:
+      - content/work/career-development.qmd
+  - part: 生活
+    contents:
+    - section: 身心健康
+      contents:
+      - content/life/ergonomics.qmd
+      - content/life/mental-health.qmd
+    - section: 日常生活
+      contents:
+      - content/life/everyday-life.qmd
+    - section: 运动与娱乐
+      contents:
+      - content/life/sports-and-leisure.qmd
+  - part: 社交
+    contents:
+    - content/social/overview.qmd
+  - part: 关于本指南
+    contents:
+    - content/about/preface.qmd
+    - content/about/contributing.qmd
+    - content/about/join-us.qmd
+    - content/about/acknowledgements.qmd
+    - content/about/changelog.qmd
   - part: 作者与贡献者
-    chapters:
+    contents:
     - authors/kai-wu.qmd
     - authors/shiyao-zhang.qmd
     - authors/yue-zhou.qmd

@@ -6,10 +6,16 @@ legacy-source:
 lang: en
 translation-source: content/resources/sports-vouchers.qmd
 translation-status: draft
-translation-source-sha256: 78dd2b441768e2cbaf9d44e9193aef430c9a3295b2c41eb57cdddbeff5fa3d8f
+translation-source-sha256: 5d6a6f51888b5845a89c9394e29dd7798d16a2e89d2114af4d59ae327d728150
 ---
 
 ::: {#xp-guide-sports-vouchers}
+:::
+
+::: {.contribution authors="editorial"}
+
+Resource source: XJTLU Sports Centre vouchers and booking services.
+
 :::
 
 ::: {.contribution authors="kai-wu"}

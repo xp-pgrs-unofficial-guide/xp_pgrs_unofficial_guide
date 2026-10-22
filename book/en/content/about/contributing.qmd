@@ -1,0 +1,106 @@
+---
+title: Contributions and corrections
+discussion-id: xp-guide-contributing
+lang: en
+translation-source: content/about/contributing.qmd
+translation-status: draft
+translation-source-sha256: b9c80ba611695e2e3c0d79139486438e211664be5554e06e937fb3e4ac0c0e46
+legacy-source:
+- chapters/bikeng.tex
+---
+
+::: {#xp-guide-contributing}
+:::
+
+::: {.contribution authors="editorial"}
+
+The experience you write down in a few minutes could save future students hours or even days. Whether you want to add a new guide or point out outdated information, your contribution is welcome.
+
+:::
+
+## The easiest method: submit text {#最简单的方法提交文字}
+
+::: {.contribution authors="editorial"}
+
+Click "Add or correct content" below any article. After you log in to GitHub, an Issue draft opens with the article title, URL, source file, branch, and article identifier already filled in. Add your suggestion, the name or nickname you would like displayed publicly, and your sources. You can drag images and files directly into the text area. Review the draft before submitting it: opening a draft does not publish it automatically.
+
+Editors will check the content, clarify anything necessary with you, and incorporate it into the guide through a pull request. You do not need to install software or learn LaTeX.
+
+:::
+
+## Edit an article directly {#直接修改文章}
+
+::: {.contribution authors="editorial"}
+
+Click "Propose an edit (PR)" to edit Markdown on GitHub. Ordinary readers can also contribute: if you do not have write access to this repository, follow GitHub's prompts to create your own fork, then open a pull request targeting `main`. Maintainers with write access should also create a working branch and have changes reviewed through a pull request before updating the guide.
+
+Put new articles under the appropriate theme in `book/content/`: `academic/`, `resources/`, `research/`, `work/`, `life/`, or `social/`; guide-related pages belong in `about/`. Add the article to its topic in `book/_quarto.yml` and provide a matching English page. Pages marked “contributions welcome” describe topics awaiting content.
+
+Each article needs a title and a `discussion-id` that remains stable when the article is renamed. Put the body in attributed contribution blocks. Consecutive paragraphs by the same author can share a block; start a new block when the author changes. See the [contribution guide](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md) for a complete example.
+
+:::
+
+## Attribution {#怎样署名}
+
+::: {.contribution authors="editorial"}
+
+Attribution records the people who actually provided the content. When an editor transcribes a contribution, fixes formatting, or corrects a typo, the original author remains credited. Credit later contributors for substantive additions. You may use a name, nickname, or clearly agreed anonymous credit; there is no need to publish an email address.
+
+Credits are generated from contribution-block attributes. Do not repeat author bylines, `by …` signatures, or updater names in the body. Keep useful source dates and reasons for updates; source citations and the people being thanked remain part of the content.
+
+In an article with several authors, use adjacent `.contribution` blocks. Put section headings (`##`, `###`, and so on) outside the blocks so that the on-page contents can be generated correctly; headings do not need separate credits. Consecutive paragraphs, lists, tables, and images by the same author can share a block. Keep information dates, update notes, and similar text inside the actual provider's block too. Close the current block before the next heading or a change of author, then start a new one; do not nest attribution blocks. This example uses registered author IDs to demonstrate the syntax. Replace the text and IDs according to the actual content and authors:
+
+```markdown
+::: {.contribution authors="shiyao-zhang"}
+
+Put content confirmed as Shiyao Zhang's contribution here.
+
+:::
+
+::: {.contribution authors="yue-zhou"}
+
+Put content confirmed as Yue Zhou's contribution here.
+
+:::
+```
+
+Use `authors="shiyao-zhang,yue-zhou"` when both people actually wrote the same passage together. Use `authors="shiyao-zhang" contributors="yue-zhou"` when the original text is retained and another person adds substantive material. Consecutive content with the same authors, contributors, and confirmation status shares one author icon on the right; a change starts a new icon. The icon follows the scroll position within its content's range. Hover over, focus with the keyboard, or click it to see the credits and highlight that range; tap it on a phone. Press Escape or click outside to close it. Source files and Markdown keep each block's credits according to its actual authorship. Within each PDF chapter, consecutive content with the same authors, contributors, and confirmation status shares one credit, including across section headings. Any change starts a new credit, including a return to an earlier credit; every new chapter starts afresh. See [paragraph attribution and writing format](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md#段落署名与写作格式) for more examples.
+
+When organizing a historical article with several authors, check the original material or obtain confirmation from the authors, then divide it into blocks according to the actual contributions. Keep `status="unverified"` on historical content whose attribution remains uncertain, and use `authors="unknown"` if the author's identity is also unknown.
+
+"Attribution unconfirmed" in historical content does not describe a new author. If you know the original source, include the original draft, existing credit, or other verifiable evidence with your submission.
+
+When a suggestion from the comments is incorporated into the guide, editors will retain the actual contributor's credit. Comments do not become part of the guide automatically: all changes are reviewed.
+
+:::
+
+## Academic profiles {#author-academic-profile}
+
+::: {.contribution authors="editorial"}
+
+Choose a name under the "Authors and contributors" navigation group to view that person's credited articles and public information confirmed by them. Optional fields include project roles, affiliation, department, research interests, biography, ORCID, Google Scholar, personal website, institutional profile, GitHub, and public email address. Leave unknown details empty; do not infer accounts or affiliations from a name.
+
+Academic and contact links appear as icons on the website. Hover over an icon or focus it with the keyboard to see its name and address; click to visit. PDF, Markdown, and browser printing retain readable text and links.
+
+To add or update your information, use "Contribute / correct" below your author page and provide the fields and links you want to publish. Readers familiar with GitHub can also edit `guide-author-profiles` in `book/_authors.yml` and submit a PR. Provide both Chinese and English display text; account links are shared between languages. See the [author directory and profile maintenance instructions](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md#作者清单与主页) for field formats.
+
+Thank you for leaving some experience for those who come after you.
+
+:::
+
+::: {#xp-guide-pitfalls}
+:::
+
+## Share lessons learned {#一个坑}
+
+::: {.contribution authors="unknown" status="unverified"}
+
+If you have run into a pitfall, take two minutes to tell me about it so we can note it here and spare everyone else the same experience, ~~rather than all falling into it together for everyone's amusement~~.
+
+:::
+
+::: {.contribution authors="editorial"}
+
+Put each concrete lesson in the relevant topic, such as reviews, teaching, research, or everyday life. Include what happened, the circumstances, the date, and what helped; this page collects contribution ideas rather than maintaining a separate catch-all pitfalls article.
+
+:::

@@ -1,0 +1,27 @@
+---
+title: Career development (contributions welcome)
+discussion-id: xp-guide-career-development
+lang: en
+translation-source: content/work/career-development.qmd
+translation-status: draft
+translation-source-sha256: 2d31d8892689297fc1a7aa4d79ff36e241a779862359803fcb48a2c3e040b35c
+---
+
+::: {#xp-guide-career-development}
+:::
+
+## Jobs, postdoctoral positions, and other career paths {#career-options}
+
+::: {.contribution authors="editorial"}
+
+A job-search guide has not yet been written. Contributions are welcome on career choices, CVs, applications, and interviews. For supporting documents, see [Student status and transcripts](../academic/student-status.qmd#xp-guide-career) and [Graduation documents and degree recognition](../academic/degree-documents.qmd#xp-guide-degree-documents).
+
+:::
+
+## Contribute experience {#career-development-contribute}
+
+::: {.contribution authors="editorial"}
+
+This is a topic outline, not a completed guide. Use “Add or correct content” below or read [Contributions and corrections](../about/contributing.qmd#xp-guide-contributing) to share your experience.
+
+:::

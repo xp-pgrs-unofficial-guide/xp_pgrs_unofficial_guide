@@ -1,0 +1,39 @@
+---
+title: Student status and transcript information
+discussion-id: xp-guide-career
+legacy-source:
+- author-folder/Kai.Wu/career.tex
+lang: en
+translation-source: content/academic/student-status.qmd
+translation-status: draft
+translation-source-sha256: 94324887056197240db5dc8fc8c9ddd5e6e0afbdaec925b9f124667190f90db8
+---
+
+::: {#xp-guide-career}
+:::
+
+::: {.contribution authors="kai-wu"}
+
+For questions about student registration, qualifications, and employment documents, I first recommend reading the FAQ on the university Careers Centre website: <https://careers.xjtlu.edu.cn/Dispatch/Home/Master>
+
+:::
+
+## Student registration and CHSI {#学籍学信网}
+
+::: {.contribution authors="kai-wu"}
+
+While we are studying, our student registration cannot be found on CHSI (学信网). It can, however, be checked on the Ministry of Education's website for Chinese-foreign cooperation in running schools: <http://rzzccx.crs.jsj.edu.cn/>. So forget about offers such as Haidilao's university student discount that require CHSI verification: we are not eligible. You may be able to get an Apple Store student discount. The policy changes each year, so I suggest calling the physical Apple Store directly to ask.
+
+After graduation, your Liverpool degree needs Ministry of Education credential recognition to be recognized by the Ministry. See [Thesis, viva, and graduation](graduation.qmd#sec.thesis_viva_graduation).
+
+:::
+
+## Transcripts {#成绩单}
+
+::: {.contribution authors="kai-wu"}
+
+Unlike domestic Chinese PhD programmes, we do not receive a transcript when we graduate. Liverpool's equivalent of a transcript is the HEAR report, but a student who asked Liverpool directly was explicitly told that PhD students do not receive one. If an employer insists on a transcript, email Liverpool to ask.
+
+(Information dated: 12 August 2024)
+
+:::

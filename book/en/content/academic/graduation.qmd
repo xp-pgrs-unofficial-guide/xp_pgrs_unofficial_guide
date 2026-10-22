@@ -1,0 +1,147 @@
+---
+title: Graduation process and timeline
+discussion-id: xp-guide-thesis-and-graduation
+legacy-source:
+- author-folder/Kai.Wu/thesis_viva_graduation.tex
+- author-folder/Ziwen.Xie/viva.tex
+lang: en
+translation-source: content/academic/graduation.qmd
+translation-status: draft
+translation-source-sha256: 039ee6e8ed64afc2a9630cebd2e42cb8774536e69ba46f9077e8317fdcac23a6
+---
+
+::: {#xp-guide-thesis-and-graduation}
+:::
+
+::: {#sec.thesis_viva_graduation}
+:::
+
+::: {.contribution authors="kai-wu"}
+
+Want to graduate? Want to become a Doctor? Then read on! With just a thesis of a hundred-plus pages, graduation need not be a dream! ~~End of momentary madness.~~
+
+:::
+
+## Official process and timeline {#sec.official.flowchart}
+
+::: {.contribution authors="kai-wu"}
+
+As this guide is intended to supplement official information, first familiarize yourself thoroughly with the official graduation flowchart below. Its timeline, conditions, and sequence are entirely accurate.
+
+![XJTLU VIVA Examination Arrangement Flowchart 2023](../../../assets/imported/shared/XJTLU%20VIVA%20Examination%20Arrangement%20Flowchart_2023.png)
+
+[Download the original PDF](../../../assets/imported/shared/XJTLU%20VIVA%20Examination%20Arrangement%20Flowchart_2023.pdf)
+
+*The official graduation flowchart. The separate file is available in fileshare: <https://gitee.com/kaiwu-astro/xp_pgrs_unofficial_guide/tree/main/fileshare>. Note: I honestly do not know where this file can be downloaded; my supervisor sent it to me. Look on e-Bridge if you want the latest version.*
+
+For an idea of how long each step takes, jump to [How long does each step take? Estimating the timeline](#sec.graduation.time).
+
+:::
+
+## ITS: Intention to Submit {#its-intention-to-submit}
+
+::: {.contribution authors="kai-wu"}
+
+Q: Is ITS important? I am busy writing my thesis. Can I leave it for now?
+
+A: If the timing of graduation matters to you, be sure to submit the ITS form early! ITS starts the entire thesis and viva process. Under the current rules, you may submit your thesis only **at least two months after submitting ITS**. Later is allowed; earlier is not. After submitting ITS, you must submit the thesis within one year. This operates alongside your own thesis deadline, with the earlier deadline applying.
+
+Q: What goes into ITS?
+
+A: Your thesis title, abstract, and basic personal information. The title and abstract do not need to be final; they can be changed later.
+
+Q: Can I just make up a title and abstract to get the form out of the way?
+
+A: Your supervisor and the Graduate School use the title and abstract to choose your internal and external examiners, who will also receive them. They can differ from the final version, but should still reflect your research over the past few years as accurately as possible.
+
+Q: I have more questions.
+
+A: First read the official documents: <https://www.liverpool.ac.uk/aqsd/academic-codes-of-practice/pgr-code-of-practice/>.
+
+:::
+
+## Thesis format and templates {#thesis-学位论文毕业论文}
+
+::: {#格式和排版}
+:::
+
+::: {.contribution authors="editorial"}
+
+Read [formatting and templates](thesis.qmd#thesis-format).
+
+:::
+
+::: {#字数}
+:::
+
+::: {.contribution authors="editorial"}
+
+Read [word-count guidance](thesis.qmd#thesis-word-count).
+
+:::
+
+## Viva process and preparation {#论文答辩}
+
+::: {#答辩前后流程}
+:::
+
+::: {.contribution authors="editorial"}
+
+Read [the process before and after the viva](viva.qmd#viva-process).
+
+:::
+
+::: {#如何准备好一场答辩}
+:::
+
+::: {.contribution authors="editorial"}
+
+Read [viva preparation](viva.qmd#viva-preparation).
+
+:::
+
+## Completion documents and degree certificates {#我想尽快拿学位证如何速通毕业流程}
+
+::: {#毕业的证明文件}
+:::
+
+::: {.contribution authors="editorial"}
+
+Read [completion documents and credential recognition](degree-documents.qmd#degree-documents-evidence).
+
+:::
+
+::: {#学位证最关键时间节点}
+:::
+
+::: {.contribution authors="editorial"}
+
+Read [the degree-certificate deadline](degree-documents.qmd#degree-documents-deadline).
+
+:::
+
+## How long does each step take? Estimating the timeline {#sec.graduation.time}
+
+::: {.contribution authors="kai-wu"}
+
+The following is based entirely on graduates' experiences. New graduates, please contribute your own real examples generously.
+
+Following the flowchart in [Official process and timeline](#sec.official.flowchart):
+
+1. ITS: once you submit it, focus on writing your thesis; the remaining work is for your supervisor and the Graduate School. Behind the scenes, (i) your supervisor proposes an internal and an external examiner; (ii) the Graduate School reviews them and may reject someone, for example because of a perceived conflict of interest. Your supervisor proposes replacements until the Graduate School is satisfied and one internal and one external examiner are agreed. Strictly speaking, you are not meant to know who they are until the thesis is submitted, and your supervisor must keep this confidential, so do not make things **too** difficult by pressing for names.
+
+2. First thesis submission to viva: around 30 days, plus or minus 30. After submission, the XJTLU Graduate School (XGS) and Liverpool's Research Degree Administration (RDA) spend two or three working days processing the thesis and sending it to the examiners. Once the **internal examiner** receives it, they arrange the viva date. The date depends entirely on finding a normally two- to three-hour slot when you, the internal examiner, external examiner, and independent chair are all available. Thus the earliest possible date is three or four working days after submission. There is no prescribed latest date: it depends on finding a time for all four. If you are in a hurry: (1) contact your internal examiner soon after submitting and prompt them to arrange a date; (2) keep your schedule as free as possible for the next month or two so your own commitments do not delay it; (3) the internal and external examiners are difficult to change once appointed, but the chair is easier to replace. Sometimes a chair becomes unavailable a week before the viva and another teacher stands in. If the chair's availability is pushing the date far back, ask your supervisor early about a replacement. Normally, a viva 60 days after submission counts as very slow, although it has happened, reportedly when submission coincided with Liverpool strike action. Around 30 days is more usual.
+
+3. Viva to final approval of the thesis: 0-180 days, typically three to four weeks. This varies greatly by viva outcome. (1) An unconditional pass means zero days: the submitted thesis is already final. (2) A pass with minor modifications is the outcome for the vast majority of students. (3) A pass with major modifications is another possibility; other, less fortunate outcomes are rare, ~~and perhaps your supervisor should fight the examiner they recommended~~. For outcomes 2 or 3, the examiners issue a written corrections report within ten working days, or two weeks. Personally, I suggest not hurrying them, because they have several forms and reports to complete. It then depends on how quickly you make the corrections. Follow Liverpool's emailed instructions for sending the revised thesis to the examiners. The next wait depends entirely on how quickly they respond and whether they are satisfied. Under the procedure, they can require further revisions until they are satisfied. To avoid repeated rounds, discuss the revised text carefully with your supervisor and aim to get it right in one go. This revision does not automatically become the final deposited version, so you can use colour or bold to highlight changes for the examiners.
+
+4. Final approval to Liverpool Library confirming receipt: about seven days. This is purely administrative. RDA emails instructions to upload the final thesis after approval. In my case, the internal examiner told me they had informed XGS and RDA that the corrections were approved, and the upload instructions arrived four days later. Send the final thesis to Liverpool. A few days later, two in my case, Liverpool Library sends formal confirmation that it has been uploaded successfully.
+
+5. There are some additional procedures, such as uploading a copy to XJTLU Library. I do not know whether this affects graduation, but it is best to complete it promptly once notified.
+
+6. Electronic degree: the legally valid electronic certificate is issued within a few days either side of your ceremony date. Follow Liverpool's email instructions to view it at verify.liverpool.ac.uk.
+
+7. Paper degree: if you attend the Liverpool ceremony, you collect it there. If not, it is officially posted to XJTLU after the ceremony, so you simply wait. In my case, I did not attend the 15 July Liverpool ceremony, and the paper certificate reached the Graduate School on 30 July. If you have already left campus, you can ask the Graduate School to post it to you, which I do not recommend: a lost original cannot be replaced, and you bear the risk.
+
+(Information dated: 12 August 2024)
+
+:::

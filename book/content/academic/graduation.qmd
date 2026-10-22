@@ -1,0 +1,143 @@
+---
+title: 毕业流程与时间规划
+discussion-id: xp-guide-thesis-and-graduation
+legacy-source:
+- author-folder/Kai.Wu/thesis_viva_graduation.tex
+- author-folder/Ziwen.Xie/viva.tex
+---
+
+::: {#xp-guide-thesis-and-graduation}
+:::
+
+::: {#sec.thesis_viva_graduation}
+:::
+
+::: {.contribution authors="kai-wu"}
+
+你想毕业吗？你想成为Doctor吗？那就赶快看这里吧！只要一篇一百多页的论文，毕业不是梦！~~（发癫结束）~~
+
+:::
+
+## 官方流程和时间线 {#sec.official.flowchart}
+
+::: {.contribution authors="kai-wu"}
+
+正如本攻略的宗旨是官方资料的补充，首先请尽量熟读下图的官方毕业流程，里面的时间线、条件和顺序都是万分准确的。
+
+![XJTLU VIVA Examination Arrangement Flowchart 2023](../../assets/imported/shared/XJTLU%20VIVA%20Examination%20Arrangement%20Flowchart_2023.png)
+
+[下载原始 PDF](../../assets/imported/shared/XJTLU%20VIVA%20Examination%20Arrangement%20Flowchart_2023.pdf)
+
+*官方的毕业流程图。单独的文件可在fileshare里找到<https://gitee.com/kaiwu-astro/xp_pgrs_unofficial_guide/tree/main/fileshare>。注：我还真不知道这个文件在哪里下载的，这是我导发我的，想要最新版的可以在ebridge里找一下*
+
+如果想直到每个步骤大概要花多少时间，跳转章节 [每个步骤要等多久？如何预估时间？](#sec.graduation.time)。
+
+:::
+
+## ITS: Intention to submit {#its-intention-to-submit}
+
+::: {.contribution authors="kai-wu"}
+
+Q：ITS重要吗，我着急写论文呢，暂时不管它行不行
+
+A：如果你对毕业时间有要求，请务必谨记尽早提交ITS表！ITS是你的论文和答辩一切程序的开始。现有规定，你的论文只能在**提交ITS之日起+2个月之后**才允许提交，可以延后，但不允许提前。（ITS提交后，一年内必须交论文；和你本身的论文deadline共同作用，以早的那个为准）
+
+Q：ITS里面会填什么
+
+A：毕业论文的题目、毕业论文的摘要、基本个人信息。题目和摘要不需要是最终决定的版本，也就是后面可以改。
+
+Q：那我随便起个题目和摘要，走个过场行不行啊
+
+A：这个表的作用是：导师和研究生院会拿着这个标题和摘要去决定你的内审、外审。这个题目和摘要也会发给他们。因此，和最终版可以有修改，但是也要尽量准确的反映你这几年的研究。
+
+Q：我还要问
+
+A：先看看官方文件：<https://www.liverpool.ac.uk/aqsd/academic-codes-of-practice/pgr-code-of-practice/>
+
+:::
+
+## 学位论文格式与模板 {#thesis-学位论文毕业论文}
+
+::: {#格式和排版}
+:::
+
+::: {.contribution authors="editorial"}
+
+阅读[格式、排版与模板](thesis.qmd#thesis-format)。
+
+:::
+
+::: {#字数}
+:::
+
+::: {.contribution authors="editorial"}
+
+阅读[论文字数说明](thesis.qmd#thesis-word-count)。
+
+:::
+
+## Viva 答辩流程与准备 {#论文答辩}
+
+::: {#答辩前后流程}
+:::
+
+::: {.contribution authors="editorial"}
+
+阅读[答辩前后流程](viva.qmd#viva-process)。
+
+:::
+
+::: {#如何准备好一场答辩}
+:::
+
+::: {.contribution authors="editorial"}
+
+阅读[答辩准备经验](viva.qmd#viva-preparation)。
+
+:::
+
+## 毕业证明与学位认证 {#我想尽快拿学位证如何速通毕业流程}
+
+::: {#毕业的证明文件}
+:::
+
+::: {.contribution authors="editorial"}
+
+阅读[完读证明、学位证与认证](degree-documents.qmd#degree-documents-evidence)。
+
+:::
+
+::: {#学位证最关键时间节点}
+:::
+
+::: {.contribution authors="editorial"}
+
+阅读[学位证颁发的关键时间节点](degree-documents.qmd#degree-documents-deadline)。
+
+:::
+
+## 每个步骤要等多久？如何预估时间？ {#sec.graduation.time}
+
+::: {.contribution authors="kai-wu"}
+
+以下完全基于已毕业同学的经验整理。新毕业的同学，请不吝赐教，补充你的真实案例。
+
+以 [官方流程和时间线](#sec.official.flowchart) 中提到的流程图来梳理：
+
+1.  ITS：你提交过后其实就不用管了，专心写论文吧，剩下的都是导师和研究生院的活。背后的流程：i. 导师propose内审老师、外审老师; ii.研究生院审核，可能因为觉得这个老师和你利益相关等原因驳回其中的某人，然后你导师重新propose，直到研究生院满意为止，定下来内审外审人选各一个。在这个阶段，严格来说你直到论文提交都不能直到内外审老师是谁，导师需要保密，所以也不要**太**为难你导师去问是谁。
+
+2.  首次论文提交 到 论文答辩：（30天±30天）提交后，西浦研究生院（XGS）和利物浦学位办（RDA）会花两三个工作日简单处理下论文，发给内外审。**内审**一旦收到论文，就负责安排答辩时间。也就是说，你的答辩日期完全取决于你+内审+外审+独立主席（independent chair）都有空的某个时候（正常2-3小时）。因此，最早答辩日 = 论文交了过后三四个工作日；最晚答辩日则没有规定，找到四个人有空的时间为止。如果你赶时间，你能做的：(1)论文提交过后，尽早找你的内审，催ta安排日期；(2)把你论文提交过后一两个月的日程尽量腾空，不要因为自己的日程耽误答辩；(3)内外审一旦决定就不好更换，但独立主席容易换（有时会出现答辩一周前主席没空，找人另一老师顶上的事情），如果你们四个人里面是主席时间不合适导致拖很晚，尽早找你导师看能不能换主席。正常来说：交论文+60天=答辩 算非常慢的（但也有例子，据说是交论文前后不巧遇到了利物浦搞罢工）。一般会在+30天左右。
+
+3.  答辩完成 到 最终论文通过：（0 - 180天，典型为3-4周）。根据答辩结果不同这一步会有很大区别。(1) Pass (无条件) = 0天，论文初版即为最终版。(2) Pass with minor modification （小改），绝大部分同学都是这个结果。（3）Pass with major mofication（大改）（其他比较惨的情况很少，~~建议让导师和他举荐的examiner打一架~~）。如果是2或3，内外审会在10工作日（=2周）内出具书面的修改报告。这个过程个人建议不要催，他们要交的表和报告不少。之后就取决于你能多快改完论文。改完过后，按利物浦邮件指示，把改好的论文用指定的方式发给老师。这一步完全取决于你的内外审老师多久能respond，以及他们对你的修改是否满意。因为按照流程，如果不满意，他们有权让你改到他们满意为止。为了避免反复迭代，建议和导师反复斟酌新文本，争取一次搞定。这个版本的论文不会自动作为最终版，你可以在里面用颜色或者加粗标注修改过的地方，方便两位老师查阅。
+
+4.  最终论文通过 到 利物浦图书馆确认收到：（7天）这一步只是行政手续。在通过后，RDA会发邮件通知你上传最终论文（我的情况：内审老师告诉我\[他们已告诉XGS和RDA修改版通过\]，过了4天收到上传通知），然后你将最终论文发送给利物浦，过几天（我的情况：2天）就收到利物浦图书馆正式通知邮件，论文成功上传。
+
+5.  实际还有一些手续，比如西浦会也让你上传一份到西浦图书馆，不知道是否会影响毕业，收到通知过后也最好尽早完成。
+
+6.  电子degree：具有法律效力的电子版degree会在你毕业典礼日期的前后几天内颁发。按照利物浦给你的邮件，在verify.liverpool.ac.uk里查询。
+
+7.  纸质degree：如果你人去利物浦参加毕业典礼，那就是现场领取。如果你不去，会在你毕业典礼日期后官方邮寄到西浦，等就完事了。我的情况：7月15日利物浦毕业典礼（人没去），纸质版7月30日寄到了研究生院。如果到时候人已经不在学校，可以委托研究生院邮寄（不推荐，丢件没法补，风险自担）。
+
+(资料日期：2024年08月12日)
+
+:::

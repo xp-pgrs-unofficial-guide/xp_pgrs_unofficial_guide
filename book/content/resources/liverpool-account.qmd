@@ -1,14 +1,20 @@
 ---
-title: "利物浦账号自带福利"
+title: 利物浦账号福利
 discussion-id: xp-guide-liverpool-account
 legacy-source:
-  - author-folder/Kai.Wu/liverpool-account-fuli.tex
+- author-folder/Kai.Wu/liverpool-account-fuli.tex
 ---
 
 ::: {#xp-guide-liverpool-account}
 :::
 
 ::: {#sec.fuli_liverpool}
+:::
+
+::: {.contribution authors="editorial"}
+
+资源来源：利物浦大学账号提供的数字服务。
+
 :::
 
 ::: {.contribution authors="kai-wu"}

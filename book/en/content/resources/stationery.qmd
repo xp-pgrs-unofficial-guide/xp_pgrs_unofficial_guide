@@ -6,10 +6,16 @@ legacy-source:
 lang: en
 translation-source: content/resources/stationery.qmd
 translation-status: draft
-translation-source-sha256: 0a0c45ee6482b723eb68d1ef5b16f3acbc51a591c8c6a6a201941a0f12faf58f
+translation-source-sha256: 2e17bd4089be4b991a87de72ad4bffb745b4ef01a79e4ab7c7378c911320d44e
 ---
 
 ::: {#xp-guide-stationery}
+:::
+
+::: {.contribution authors="editorial"}
+
+Resource source: XJTLU campus stationery services.
+
 :::
 
 ::: {.contribution authors="kai-wu"}

@@ -1,13 +1,30 @@
-# English project settings are derived from _quarto.yml during scripts/build.py.
 lang: en
 book:
   title: Unofficial Guide for XJTLU PhD Students
   subtitle: Experience shared from enrolment to graduation
   author: Guide editors and contributors
 parts:
-  毕业必经之路: Required milestones
-  资源与福利: Resources and benefits
-  研究与工作: Research and work
-  生活与工具: Life and tools
-  附录与参与: Appendix and participation
+  学业: Academic requirements
+  培养要求与考核: Training requirements and reviews
+  学位论文与毕业: Thesis and graduation
+  学籍与证明: Student status and documents
+  资源: Resources
+  常用入口与校园办事: Useful links and campus services
+  账号与数字服务: Accounts and digital services
+  图书馆与文献: Libraries and literature
+  经费与校园福利: Funding and campus benefits
+  研究: Research
+  科研入门: Understanding research
+  资料与数据管理: Files and data management
+  学术交流与访学: Academic exchange and research visits
+  研究方法与论文发表: Research methods and publishing
+  工作: Work
+  助教与教学支持: Teaching and assessment support
+  职业发展: Career development
+  生活: Life
+  身心健康: Physical and mental health
+  日常生活: Everyday life
+  运动与娱乐: Sports and leisure
+  社交: Social connections
+  关于本指南: About this guide
   作者与贡献者: Authors and contributors

@@ -1,0 +1,40 @@
+---
+title: 英国高校图书馆访问
+discussion-id: xp-guide-uk-library-access
+legacy-source:
+- author-folder/Shiyao.Zhang14/UoL_visit.tex
+---
+
+::: {#xp-guide-uk-library-access}
+:::
+
+::: {.contribution authors="editorial"}
+
+资源来源：SCONUL Access 与英国高校图书馆服务。
+
+:::
+
+::: {.contribution authors="editorial"}
+
+相关访学经验见[利物浦访学专题](../research/liverpool-visit.qmd#xp-guide-liverpool-visit)。
+
+:::
+
+## 访问其他学校图书馆 {#uk-library-access-application}
+
+::: {.contribution authors="shiyao-zhang"}
+
+当你在英国四处游学访问，如果恰好在疲惫时经过一所大学的图书馆，你其实可以进去坐坐，只要你提前申请了 [SCONUL Access](https://access.sconul.ac.uk/sconul-access)。
+
+虽然不同图书馆政策不同，但大多数情况下你至少可以在成功申请后进入图书馆，有的图书馆还会提供计算机访问或图书借阅等权限。
+
+> Q. Do I need to complete an online application for each institution I would like to visit?
+>
+> A. No, although you do need to indicate a library you are interested in visiting as part of your application, your approval email allows you to visit any of those libraries on the list. You do not need to reapply. 21 Oct, 2024 from [Access FAQ \| SCONUL](https://access.sconul.ac.uk/page/access-faq#Multiple%20applications)
+
+申请提交后会由利物浦大学图书馆处理，批准后就可以凭邮件去各大学图书馆前台办理访问卡啦～
+
+资料日期：2022年10月21日\
+重要更新：2025年3月6日：补充 funding、签证、衣食住行等内容
+
+:::

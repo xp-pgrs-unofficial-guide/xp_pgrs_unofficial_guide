@@ -1,0 +1,39 @@
+---
+title: 社交导览（待补）
+discussion-id: xp-guide-social-overview
+---
+
+::: {#xp-guide-social-overview}
+:::
+
+## 博士生组织与社团 {#social-organizations}
+
+::: {.contribution authors="editorial"}
+
+本专题待补充博士生组织、兴趣社团、活动渠道及参与经验。组织名称、加入方式和适用时间应由熟悉情况的同学提供。
+
+:::
+
+## 同伴交流与互助 {#social-peer-support}
+
+::: {.contribution authors="editorial"}
+
+待补充跨学院认识同学、读书小组、同伴互助等亲历经验。请勿未经同意公开私人群聊或个人联系方式。
+
+:::
+
+## 跨文化交流 {#social-cross-cultural}
+
+::: {.contribution authors="editorial"}
+
+待补充国际生与本地生交流、语言互助和跨文化活动的参与经验。当前没有已核实的组织清单或加入指南。
+
+:::
+
+## 补充你的经验 {#social-overview-contribute}
+
+::: {.contribution authors="editorial"}
+
+本页是待补选题导览，尚不是完整攻略。欢迎使用文章下方“补充内容／纠错”，或参照[供稿与纠错](../about/contributing.qmd#xp-guide-contributing)分享你的经验。
+
+:::

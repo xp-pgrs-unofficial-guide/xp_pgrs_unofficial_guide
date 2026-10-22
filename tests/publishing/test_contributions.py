@@ -12,7 +12,7 @@ from pathlib import Path
 import subprocess
 import tempfile
 import unittest
-from urllib.parse import parse_qs, unquote, urlsplit
+from urllib.parse import parse_qs, unquote, urljoin, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -330,22 +330,31 @@ class ContributionLinkTests(unittest.TestCase):
                 self.assertEqual(edit["label"], "Propose an edit (PR)")
 
     def test_language_switches_point_to_the_same_article_in_the_other_language(self):
-        contexts = [
-            ("index.qmd", "zh-CN", SITE, "", SITE + "en/index.html", "en"),
-            ("content/milestones/apr.qmd", "zh-CN", SITE, "", SITE + "en/content/milestones/apr.html", "en"),
-            ("content/milestones/apr.qmd", "en", SITE + "en/", "en/", SITE + "content/milestones/apr.html", "zh-CN"),
-        ]
-        for source, lang, site, prefix, target, alternate_lang in contexts:
-            with self.subTest(source=source, lang=lang):
-                parser, _, _ = self.parse(input_file=source, lang=lang, site=site, source_prefix=prefix)
-                switches = [link for link in parser.anchors if "guide-language-switch" in link.get("class", "").split()]
-                self.assertEqual(len(switches), 1)
-                self.assertEqual(switches[0]["href"], target)
-                self.assertEqual(switches[0]["hreflang"], alternate_lang)
-                self.assertEqual(switches[0]["target"], "_self")
-                # Quarto treats the Chinese root as external to its English subsite.
-                # Its browser script otherwise replaces even explicit _self targets.
-                self.assertIn("no-external", switches[0].get("class", "").split())
+        sources = ["index.qmd", "content/academic/apr.qmd", "content/research/visits/liverpool.qmd",
+                   "authors/kai-wu.qmd"]
+        deployments = [SITE, "https://preview.example.org/projects/feature/",
+                       "http://127.0.0.1:8765/", "http://localhost:8080/review/guide/"]
+        for source in sources:
+            for lang, prefix, alternate_prefix, alternate_lang in [("zh-CN", "", "en/", "en"),
+                                                                   ("en", "en/", "", "zh-CN")]:
+                with self.subTest(source=source, lang=lang):
+                    parser, _, _ = self.parse(input_file=source, lang=lang, site=SITE + prefix,
+                                              source_prefix=prefix)
+                    switches = [link for link in parser.anchors
+                                if "guide-language-switch" in link.get("class", "").split()]
+                    self.assertEqual(len(switches), 1)
+                    switch = switches[0]
+                    page = source.replace(".qmd", ".html")
+                    relative = "../" * source.count("/")
+                    self.assertEqual(switch["href"], relative + ("../" if lang == "en" else "en/") + page)
+                    self.assertEqual(switch["hreflang"], alternate_lang)
+                    self.assertEqual(switch["target"], "_self")
+                    self.assertIn("no-external", switch.get("class", "").split())
+                    self.assertIn("data-noresolveinput", switch)
+                    for deployment in deployments:
+                        current = urljoin(deployment, prefix + page)
+                        self.assertEqual(urljoin(current, switch["href"]),
+                                         urljoin(deployment, alternate_prefix + page))
 
     def test_english_footer_links_keep_markdown_local_and_javascript_shared(self):
         contexts = [
@@ -380,9 +389,10 @@ class ContributionLinkTests(unittest.TestCase):
         self.assertIn("awaiting human review", "".join(parser.text))
         source = [link for link in parser.anchors if link["label"] == "Read the Chinese source"]
         self.assertEqual(len(source), 1)
-        self.assertEqual(source[0]["href"], SITE + "content/milestones/apr.html")
+        self.assertEqual(source[0]["href"], "../../../content/milestones/apr.html")
         self.assertEqual(source[0]["target"], "_self")
         self.assertIn("no-external", source[0].get("class", "").split())
+        self.assertIn("data-noresolveinput", source[0])
 
 
 if __name__ == "__main__":

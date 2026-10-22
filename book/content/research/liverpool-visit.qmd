@@ -1,0 +1,120 @@
+---
+title: 利物浦访学安排
+discussion-id: xp-guide-liverpool-visit
+legacy-source:
+- author-folder/Shiyao.Zhang14/UoL_visit.tex
+---
+
+::: {#xp-guide-liverpool-visit}
+:::
+
+::: {#section.UoL_visit}
+:::
+
+::: {.contribution authors="editorial"}
+
+利物浦访学专题分为[访学安排](#xp-guide-liverpool-visit)、[行前准备](liverpool-preparation.qmd#xp-guide-liverpool-preparation)和[当地生活与校园使用](liverpool-life.qmd#xp-guide-liverpool-life)。访问其它大学图书馆的方法见[英国高校图书馆访问](../resources/uk-library-access.qmd#xp-guide-uk-library-access)。本页保留访学时长、导师合作与经费经验；旧小节链接仍可从本页进入对应文章。
+
+:::
+
+## 交流时长 {#交流时长}
+
+::: {.contribution authors="yue-zhou"}
+
+一般是3-6个月，短于3个月也行，原则上来说不允许超过6个月，如有超过六个月的，需要写明充足的理由，并获得两方导师以及 HoD 的批准。不过，利物浦那边学院的行政告诉我他们没有预算给超过六个月的部分，这个可能会是一个问题；另外，超过六个月的访学时间可能会涉及签证问题，需要提前咨询。
+
+:::
+
+## 关于 host supervisor {#关于-host-supervisor}
+
+::: {.contribution authors="yue-zhou"}
+
+如果导师团队中有利物浦导师，那默认就是那个老师。如果没有但又特别想去利物浦，可以自行联系利物浦那边的意向老师，要获得他/她的许可和签字。
+
+尽管大多数同学的导师团队中会有一个来自利物浦的导师，但每个项目可能都不一样，也许你在去利物浦之前和他的互动并不频繁。这种不频繁可能是不同原因带来的，不一定是因为你工作的领域和他不同。所以如果你认为在利物浦与他合作会很有趣，那么请提前做些准备。
+
+如果你之前和 ta 没什么互动，请务必通过某种方式建立一定程度上的熟悉感，这会使后面的合作更加顺畅。这可以是通过视频会议或邮件分享你的研究进展及计划、一起合作撰写 paper、或提前构思潜在的合作研究内容等。
+
+我们知道团队合作有可能出于不同的原因（详见 [团队合作](how-research-works.qmd#subsection.teamwork)），但无论如何，请务必提前与你在利物浦的导师至少在大方向上确认你访问期间的活动，包括但不限于：需要他参与的事情、时间安排、需要你准备的事情、以及你准备做的事情。
+
+:::
+
+## 关于 funding {#关于-funding}
+
+::: {.contribution authors="yue-zhou"}
+
+西浦：学校提供1万2的经费，包含苏州往返上海办理签证的高铁票，签证费用，来回英国机票，英国当地往返利物浦的火车票（比如你落地曼城，坐火车去利物浦，就报销那一趟车票钱！以及回国时从利物浦前往机场的火车票or大巴车票），由于登机所必要的住宿。除了这些，其他的一概不报销！！而且总额不超过1.2w，超出的部分学校一概不负责。
+
+利物浦：提供免费住宿（包bills，水电燃气随便用）+每周100磅的生活费
+
+:::
+
+## 签证流程 {#签证流程}
+
+::: {.contribution authors="editorial"}
+
+本节内容已整理至[赴利物浦行前准备](liverpool-preparation.qmd#liverpool-preparation-visa)。
+
+:::
+
+## 衣食住行 {#衣食住行}
+
+::: {.contribution authors="editorial"}
+
+本节内容已整理至[利物浦生活与校园使用](liverpool-life.qmd#liverpool-life-overview)。
+
+:::
+
+### 赴英物品（供秋冬季去的那批参考） {#赴英物品供秋冬季去的那批参考}
+
+::: {.contribution authors="editorial"}
+
+本节内容已整理至[赴利物浦行前准备](liverpool-preparation.qmd#liverpool-preparation-packing)。
+
+:::
+
+### 交通 {#交通}
+
+::: {.contribution authors="editorial"}
+
+本节内容已整理至[利物浦生活与校园使用](liverpool-life.qmd#liverpool-life-transport)。
+
+:::
+
+### 住宿 {#住宿}
+
+::: {.contribution authors="editorial"}
+
+本节内容已整理至[利物浦生活与校园使用](liverpool-life.qmd#liverpool-life-accommodation)。
+
+:::
+
+### 办公室和ID卡 {#办公室和id卡}
+
+::: {.contribution authors="editorial"}
+
+本节内容已整理至[利物浦生活与校园使用](liverpool-life.qmd#liverpool-life-office-id)。
+
+:::
+
+### 利物浦好吃的 {#利物浦好吃的}
+
+::: {.contribution authors="editorial"}
+
+本节内容已整理至[利物浦生活与校园使用](liverpool-life.qmd#liverpool-life-food)。
+
+:::
+
+### 访问其他学校图书馆 {#访问其他学校图书馆}
+
+::: {.contribution authors="editorial"}
+
+本节内容已整理至[英国高校图书馆访问](../resources/uk-library-access.qmd#uk-library-access-application)。
+
+:::
+
+::: {.contribution authors="editorial"}
+
+原访学专题标注的资料日期为 2022年10月21日，重要更新为 2025年3月6日（补充 funding、签证、衣食住行等内容）。本文仅作结构整理。
+
+:::

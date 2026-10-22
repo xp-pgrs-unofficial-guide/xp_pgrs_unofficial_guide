@@ -1,0 +1,33 @@
+---
+title: 致谢
+discussion-id: xp-guide-acknowledgements
+legacy-source:
+- chapters/acknowledgement.tex
+---
+
+::: {#xp-guide-acknowledgements}
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+本手册使用了ElegantBook模板 <https://github.com/ElegantLaTeX/ElegantBook>
+
+:::
+
+::: {.contribution authors="kai-wu"}
+
+感谢 MB321 的 Chengyu Wang, Francesco Flammini Dotti, Xiuming Xu, Yu Wang（按字母排序）等学长在 PhD 前两年期间的大力帮助，特别是在体育馆设施介绍、拿办公用品、supervisory meeting records、APR方面的帮助。感谢22-AoFE-Tian、2023-InD-Rolf等同学的纠错, 22-ARC-Yang信息补充。感谢其他作者的辛勤付出。
+
+:::
+
+::: {.contribution authors="shiyao-zhang"}
+
+感谢 [Kai Wu](mailto:kaiwu.astro@gmail.com) 学长于 2022 年 8 月创立本项目并在两年的时间里编辑了本手册的大量内容。
+
+:::
+
+::: {.contribution authors="unknown" status="unverified"}
+
+(其他作者，请在这里添加你的致谢信息)
+
+:::

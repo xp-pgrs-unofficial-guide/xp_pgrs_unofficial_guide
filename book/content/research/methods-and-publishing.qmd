@@ -1,0 +1,31 @@
+---
+title: 研究方法与论文发表（待补）
+discussion-id: xp-guide-methods-and-publishing
+---
+
+::: {#xp-guide-methods-and-publishing}
+:::
+
+## 文献阅读与研究方法 {#research-reading-methods}
+
+::: {.contribution authors="editorial"}
+
+本专题待补充文献阅读、研究设计与方法选择的实践经验。欢迎提供具体学科、问题背景和适用条件。
+
+:::
+
+## 论文发表与学术规范 {#research-publishing-practice}
+
+::: {.contribution authors="editorial"}
+
+待补充选刊、投稿、审稿回复、合作署名及学术规范等经验。研究运作概览可先阅读[学术研究是怎么发生的](how-research-works.qmd#xp-guide-how-research-works)，文献入口见[学校文献数据库](../resources/library-databases.qmd#xp-guide-library-databases)。
+
+:::
+
+## 补充你的经验 {#methods-and-publishing-contribute}
+
+::: {.contribution authors="editorial"}
+
+本页是待补选题导览，尚不是完整攻略。欢迎使用文章下方“补充内容／纠错”，或参照[供稿与纠错](../about/contributing.qmd#xp-guide-contributing)分享你的经验。
+
+:::

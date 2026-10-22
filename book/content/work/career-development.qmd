@@ -1,0 +1,23 @@
+---
+title: 职业发展（待补）
+discussion-id: xp-guide-career-development
+---
+
+::: {#xp-guide-career-development}
+:::
+
+## 求职、博士后与其它职业去向 {#career-options}
+
+::: {.contribution authors="editorial"}
+
+本专题尚未形成求职指南，待补充职业选择、简历、申请与面试等亲历经验。涉及证明材料的问题请先阅读[学籍与成绩单说明](../academic/student-status.qmd#xp-guide-career)和[毕业证明与学位认证](../academic/degree-documents.qmd#xp-guide-degree-documents)。
+
+:::
+
+## 补充你的经验 {#career-development-contribute}
+
+::: {.contribution authors="editorial"}
+
+本页是待补选题导览，尚不是完整攻略。欢迎使用文章下方“补充内容／纠错”，或参照[供稿与纠错](../about/contributing.qmd#xp-guide-contributing)分享你的经验。
+
+:::

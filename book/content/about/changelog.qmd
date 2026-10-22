@@ -1,0 +1,27 @@
+---
+title: 更新日志
+discussion-id: xp-guide-changelog
+legacy-source:
+- chapters/update_log.tex
+---
+
+::: {#xp-guide-changelog}
+:::
+
+::: {.contribution authors="editorial"}
+
+本页面由项目管理员维护，只记录大版本更新。小版本更新内容，可到 [GitHub commit 页](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/commits/main)查询。
+
+- v0.1 on 2022/8/9：完成项目创建，确定模板，构建GitHub Actions自动在线编译并发布
+
+- v0.2 on 2022/10/12：完成\[必做\]、\[福利\]两大章节的攻略内容，包括必修课程、会议记录、APR、会议经费、办公用品、打印、体育馆
+
+- v0.3 on 2022/11/18：完成\[最好要知道\]章节的绝大部分内容：TA的改作业、监考、lab，Symposium（移动到\[必做\]章）
+
+- v0.4 on 2023/03/01：新增电脑备份攻略、腰椎颈椎攻略、学生证相关攻略、常用信息导航
+
+- v1.0 on 2024/08/12：补完毕业章节
+
+- v1.1 on 2024/10/21：新增 [学术研究是怎么发生的](../research/how-research-works.qmd#section.how-research-works)、 [利物浦访学](../research/liverpool-visit.qmd#section.UoL_visit)
+
+:::

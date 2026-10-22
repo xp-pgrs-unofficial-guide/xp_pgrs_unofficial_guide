@@ -6,10 +6,16 @@ legacy-source:
 lang: en
 translation-source: content/resources/printing.qmd
 translation-status: draft
-translation-source-sha256: bc2ca6b8f521ae213b399745db87442575fe424ef6adc7060a13b641c1f6bcfb
+translation-source-sha256: 16ff3f9193acd57481ea10b541e65d18df9daa42ebe127bb8244d363f8f19af7
 ---
 
 ::: {#xp-guide-printing}
+:::
+
+::: {.contribution authors="editorial"}
+
+Resource source: XJTLU campus printing services.
+
 :::
 
 ::: {.contribution authors="kai-wu"}

@@ -76,12 +76,13 @@ return {
     local markdown = relative .. "markdown/" .. input:gsub("%.qmd$", ".md")
     local root_site = value(meta["guide-site-root"])
     if root_site == "" then root_site = site end
-    local alternate = root_site .. (english and "" or "en/") .. uri_path(page)
+    -- Stay on the current deployment, including local and branch previews.
+    local alternate = relative .. (english and "../" or "en/") .. uri_path(page)
     local controls = '<nav class="guide-reading-controls" aria-label="' .. text("阅读语言", "Reading language") .. '">'
       .. '<span aria-current="true" lang="' .. (english and 'en' or 'zh-CN') .. '">' .. (english and 'English' or '中文') .. '</span>'
       .. '<a class="guide-language-switch no-external" data-noresolveinput target="_self" hreflang="' .. (english and 'zh-CN' or 'en') .. '" href="' .. html(alternate) .. '">' .. (english and '中文' or 'English') .. '</a></nav>'
     if english and value(meta["translation-status"]) == "draft" then
-      controls = controls .. '<p class="guide-translation-note">English translation draft, awaiting human review. Original author credits and historical dates are retained. <a class="guide-language-switch no-external" target="_self" href="' .. html(alternate) .. '">Read the Chinese source</a>.</p>'
+      controls = controls .. '<p class="guide-translation-note">English translation draft, awaiting human review. Original author credits and historical dates are retained. <a class="guide-language-switch no-external" data-noresolveinput target="_self" href="' .. html(alternate) .. '">Read the Chinese source</a>.</p>'
     end
     doc.blocks:insert(1, pandoc.RawBlock("html", controls))
     local parts = {}
