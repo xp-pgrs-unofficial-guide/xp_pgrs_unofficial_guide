@@ -96,6 +96,7 @@ format:
       dark: darkly
     css: assets/guide.css
     toc-title: 本页内容
+    toc-expand: true
     anchor-sections: true
     smooth-scroll: true
     code-copy: true
