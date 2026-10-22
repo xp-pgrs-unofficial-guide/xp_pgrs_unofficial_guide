@@ -21,6 +21,11 @@ from urllib.parse import parse_qs, quote, unquote, urlsplit, urlunsplit
 
 import yaml
 
+if __package__:
+    from .updates import GENERATED_NAME, load_updates
+else:
+    from updates import GENERATED_NAME, load_updates
+
 ROOT = Path(__file__).resolve().parents[1]
 BOOK = ROOT / "book"
 OUTPUT = BOOK / "_book"
@@ -63,6 +68,16 @@ def markdown_output(path):
     return locale_output(root) / "markdown" / path.relative_to(root).with_suffix(".md")
 
 
+def prepare_updates():
+    """Generate shared metadata without changing either language's page source."""
+    records = load_updates(BOOK, pages(), frontmatter)
+    target = BOOK / GENERATED_NAME
+    serialized = yaml.safe_dump({"guide-updates": records}, allow_unicode=True, sort_keys=False)
+    if not target.exists() or target.read_text(encoding="utf-8") != serialized:
+        target.write_text(serialized, encoding="utf-8")
+    return records
+
+
 def prepare_english_config():
     """Derive the English project from shared settings instead of maintaining two copies."""
     if len(language_roots()) == 1:
@@ -87,7 +102,7 @@ def prepare_english_config():
                 translate_parts(node.get(key, []))
     translate_parts(config["book"]["chapters"])
     config["lang"] = translations.get("lang", "en")
-    config["metadata-files"] = ["../_authors.yml"]
+    config["metadata-files"] = ["../" + path for path in base.get("metadata-files", ["_authors.yml"])]
     config["filters"] = ["../" + path for path in base.get("filters", [])]
     config["guide-language"] = "en"
     config["guide-source-prefix"] = "en/"
@@ -398,6 +413,7 @@ def pdf_project(root):
     flattened chapters to the original tree. A complete temporary project also
     keeps English's ../assets, ../filters and ../pdf paths unchanged.
     """
+    prepare_updates()
     config = yaml.safe_load((root / "_quarto.yml").read_text(encoding="utf-8"))
     config["book"]["chapters"] = pdf_chapters(config["book"]["chapters"])
     config.setdefault("project", {})["output-dir"] = str(locale_output(root).resolve())
@@ -413,6 +429,7 @@ def pdf_project(root):
             if (BOOK / name).exists():
                 shutil.copytree(BOOK / name, base / name)
         shutil.copy2(BOOK / "_authors.yml", base / "_authors.yml")
+        shutil.copy2(BOOK / GENERATED_NAME, base / GENERATED_NAME)
         (staged / "_quarto.yml").write_text(
             yaml.safe_dump(config, allow_unicode=True, sort_keys=False), encoding="utf-8")
         yield staged
@@ -455,12 +472,20 @@ def run(command, **kwargs):
 def pandoc_json(quarto, path, expand_author_pages=True):
     command = [quarto, "pandoc", path, "--from=markdown", "--to=json"]
     meta, _ = frontmatter(path)
-    if expand_author_pages and (meta.get("guide-author-id") or meta.get("guide-author-index")):
+    author_page = meta.get("guide-author-id") or meta.get("guide-author-index")
+    updates_page = meta.get("guide-updates-page") is True
+    if expand_author_pages and (author_page or updates_page):
         root = source_root(path)
         command.extend([f"--metadata-file={root / '_quarto.yml'}",
                         f"--metadata-file={BOOK / '_authors.yml'}",
-                        f"--metadata=guide-source-root:{root}",
-                        f"--lua-filter={BOOK / 'filters/author-pages.lua'}"])
+                        f"--metadata=guide-source-root:{root}"])
+        if author_page:
+            command.append(f"--lua-filter={BOOK / 'filters/author-pages.lua'}")
+        if updates_page:
+            prepare_updates()
+            command.extend([f"--metadata-file={BOOK / GENERATED_NAME}",
+                            f"--metadata=guide-page-path:{path.relative_to(root).as_posix()}",
+                            f"--lua-filter={BOOK / 'filters/updates.lua'}"])
     result = run(command, capture_output=True, text=True)
     return json.loads(result.stdout)
 
@@ -601,6 +626,7 @@ def validate_translation(source, translation, source_ast, translated_ast):
 
 
 def validate_sources(quarto):
+    prepare_updates()
     config = yaml.safe_load((BOOK / "_quarto.yml").read_text(encoding="utf-8"))
     giscus_settings(config)  # Reject incomplete service configuration before rendering.
     known = load_author_metadata()["guide-authors"]
@@ -631,11 +657,11 @@ def validate_sources(quarto):
             if not body.strip():
                 raise ValueError(f"{path}: 正文为空")
             asts[path] = pandoc_json(quarto, path)
-            # Profile templates create their own section headings after parsing.
+            # Shared page templates create their own section headings after parsing.
             # Check the authored source separately so the metadata cannot hide
             # misplaced source headings while generated profiles stay valid.
             source_ast = (pandoc_json(quarto, path, expand_author_pages=False)
-                          if meta.get("guide-author-id") or meta.get("guide-author-index")
+                          if meta.get("guide-author-id") or meta.get("guide-author-index") or meta.get("guide-updates-page")
                           else asts[path])
             validate_heading_placement(source_ast["blocks"], path)
             validate_ast(asts[path]["blocks"], path, known)
@@ -654,6 +680,7 @@ def validate_sources(quarto):
 
 
 def export_markdown(quarto):
+    prepare_updates()
     entries = {root: [] for root in language_roots()}
     records = {root: [] for root in language_roots()}
     for path in pages():

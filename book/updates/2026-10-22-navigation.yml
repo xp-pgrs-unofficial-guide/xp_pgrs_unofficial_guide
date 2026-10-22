@@ -1,0 +1,10 @@
+# Historical backfill: 52dc858.
+date: 2026-10-22
+type: site
+summary:
+  zh-CN: 按六类主题重整三级目录，拆分毕业、助教与利物浦访学长文，并保留旧链接。
+  en: Reorganized the guide into six themes with three-level navigation, split the graduation, teaching assistant and Liverpool visit guides, and preserved old links.
+articles:
+  - xp-guide-thesis-and-graduation
+  - xp-guide-teaching-assistant
+  - xp-guide-liverpool-visit

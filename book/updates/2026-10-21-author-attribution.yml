@@ -1,0 +1,8 @@
+# Historical backfill: 71f5c29, 8eae412, 1dbc886 and a34b975.
+date: 2026-10-21
+type: site
+summary:
+  zh-CN: 正文按段落展示作者和补充者，并提供作者主页与参与文章列表。
+  en: Articles now show paragraph-level author and contributor credits, with profiles and lists of credited articles.
+articles:
+  - xp-guide-contributing

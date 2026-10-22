@@ -1,12 +1,14 @@
 ---
 title: Changelog
 discussion-id: xp-guide-changelog
+guide-updates-page: true
+toc-depth: 3
 legacy-source:
 - chapters/update_log.tex
 lang: en
 translation-source: content/about/changelog.qmd
 translation-status: draft
-translation-source-sha256: 549555b9aed8c554ab93ec174b71f50b721eae093c6fb05af7e7971c93354e8e
+translation-source-sha256: 808b49c37e36bec164a61208bf8ff9a75de0a3cd006f9905d325f92361734e00
 ---
 
 ::: {#xp-guide-changelog}
@@ -14,7 +16,22 @@ translation-source-sha256: 549555b9aed8c554ab93ec174b71f50b721eae093c6fb05af7e79
 
 ::: {.contribution authors="editorial"}
 
-Project maintainers update this page, which records major releases only. For smaller changes, see the [GitHub commit history](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/commits/main).
+This page groups substantive guide changes and reader-facing site improvements by month. Each short record describes one change and links to related content; routine updates do not need a new version number.
+
+A record's date is the date of the change, not a verification date for policies, amounts, or procedures in an article. Early site records were added retrospectively from repository commits; the timeline does not reproduce every commit.
+
+:::
+
+## Recent updates {#recent-updates}
+
+::: {.guide-updates}
+:::
+
+## Historical milestones (legacy records) {#historical-milestones}
+
+::: {.contribution authors="editorial"}
+
+The wording and dates of the original manual records are preserved below.
 
 - v0.1 on 2022/8/9: created the project, chose the template, and set up GitHub Actions for automatic online compilation and publication.
 
@@ -27,5 +44,13 @@ Project maintainers update this page, which records major releases only. For sma
 - v1.0 on 2024/08/12: completed the graduation chapter.
 
 - v1.1 on 2024/10/21: added [How academic research happens](../research/how-research-works.qmd#section.how-research-works) and [Visiting Liverpool](../research/liverpool-visit.qmd#section.UoL_visit).
+
+:::
+
+## Further history {#changelog-more-links}
+
+::: {.contribution authors="editorial"}
+
+See the [GitHub commit history](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/commits/main) for individual changes and [GitHub Releases](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases) for past PDF releases.
 
 :::

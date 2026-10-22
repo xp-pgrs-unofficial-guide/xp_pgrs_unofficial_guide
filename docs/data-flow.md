@@ -1,6 +1,6 @@
 # 项目数据流
 
-项目以 Quarto Markdown（`.qmd`）维护中文正文和逐篇对应的英文译文，每种语言生成网页、整本 PDF 和供读者、LLM agent 阅读的纯 Markdown。历史 LaTeX 只参与一次性迁移；日常发布从当前 `.qmd` 源文件开始。评论在读者访问网页时单独加载。
+项目以 Quarto Markdown（`.qmd`）维护中文正文和逐篇对应的英文译文，以共享 YAML 维护更新记录，每种语言生成网页、整本 PDF 和供读者、LLM agent 阅读的纯 Markdown。历史 LaTeX 只参与一次性迁移；日常发布从当前维护源开始。评论在读者访问网页时单独加载。
 
 日常改稿、审核和发布的人工／自动步骤，以及维护者需要关注的入口，见[更新与维护流程](maintenance-workflow.md)。
 
@@ -18,9 +18,12 @@ flowchart TD
     SRC --> CHECK["scripts/build.py 源检查<br/>署名、目录、链接、讨论标识<br/>中英对应、来源哈希及翻译状态"]
     EN --> CHECK
     META --> CHECK
+    UPDATES["共享更新记录 book/updates/*.yml<br/>日期、类型、中英摘要、文章稳定标识"] --> CHECK
 
     CHECK --> NAV["生成导航配置<br/>网页三级主题目录<br/>PDF 按网页顺序展开，仅保留一级分组"]
-    NAV --> RENDER["Quarto + Lua 过滤器<br/>汇总作者参与文章<br/>处理连续署名、双语导航与评论入口"]
+    CHECK --> UPDATE_META["暂态更新数据<br/>book/_updates.generated.yml"]
+    NAV --> RENDER["Quarto + Lua 过滤器<br/>汇总作者参与文章与集中更新页<br/>处理连续署名、双语导航与评论入口"]
+    UPDATE_META --> RENDER
     VARS["Actions Variables<br/>公开的 Giscus 仓库与分类 ID"] --> RENDER
 
     RENDER --> HTML["HTML、CSS、JavaScript、附件"]
@@ -28,6 +31,7 @@ flowchart TD
     TEX --> PDF["中、英文整本 PDF<br/>book/pdf/ 封面与排版样式"]
 
     CHECK --> AST["中间产物：Pandoc JSON AST<br/>临时保存在内存中"]
+    UPDATE_META --> AST
     AST --> MD["每种语言的纯 Markdown 与 llms.txt"]
     AST --> SEARCH["分语言正文搜索索引 search.json"]
 
@@ -47,13 +51,16 @@ flowchart TD
 | 历史原稿 | `archive/latex/` 保留旧 LaTeX 入口、章节、作者资料、图片及附件的原有相对目录，用于核对原文与迁移来源；旧工作流和导入工具同在 `archive/`，见[归档说明](../archive/README.md)。 |
 | 当前正文 | 首页与新手导航为 `book/index.qmd`；其余文章在 `book/content/` 下的 `academic/`、`resources/`、`research/`、`work/`、`life/`、`social/` 六个主题目录，以及 `about/` 辅助目录中，供稿说明为 `book/content/about/contributing.qmd`。frontmatter 保存标题和稳定的 `discussion-id`，正文块保存原作者与补充者 ID。 |
 | 英文译文 | `book/en/` 镜像中文正文和作者页。frontmatter 的 `translation-source` 和 `translation-source-sha256` 记录中文来源；`draft` 初稿在网页和导出中提示待人工复核。 |
+| 更新记录 | `book/updates/` 中每个小 YAML 文件记录一次实质变化，包含编辑填写的日期、类型、中英文一句话摘要和相关文章稳定标识列表。同一变化共用一条双语记录，不从 Git 提交自动生成。 |
 | 作者、目录与样式 | `book/_authors.yml` 提供同一作者 ID 的中英文显示名；`book/authors/` 与 `book/en/authors/` 保存作者页，参与文章由署名块自动汇总。`book/_quarto.yml` 和 `book/_languages.yml` 维护共享目录和语言译名，构建生成英文项目配置及两种语言的 PDF 专用扁平章节配置；`book/filters/`、`book/assets/` 和 `book/pdf/` 提供处理、资源与 PDF 样式。 |
 | 迁移记录 | `book/migration.json` 记录原始材料及迁移情况，用于追溯；迁移脚本不在日常构建中执行。 |
 | 旧地址别名 | `book/redirects.yml` 记录旧 `.qmd` 路径到当前文件的映射，用于生成兼容旧链接的 HTML 跳转页和 Markdown 迁移提示。 |
-| 暂态中间数据 | Pandoc JSON AST 由程序读取到内存，供校验、Markdown 导出和搜索索引使用；英文项目配置和 PDF 专用章节配置由共享目录生成，Quarto 为 PDF 排版生成临时 TeX。它们不是持续维护的正文副本。 |
+| 暂态中间数据 | Pandoc JSON AST 由程序读取到内存，供校验、Markdown 导出和搜索索引使用；`book/_updates.generated.yml` 保存校验并解析后的更新数据；英文项目配置和 PDF 专用章节配置由共享目录生成，Quarto 为 PDF 排版生成临时 TeX。这些文件不手工维护或提交。 |
 | 生成结果 | `book/_book/` 包含中文网页、网站资源、`xp-pgrs-unofficial-guide.pdf`、`markdown/`、`llms.txt` 和 `search.json`；其 `en/` 子目录包含英文对应产物，由同一构建命令生成。 |
 
 图中的 AST 节点概括了解析后的文档结构；源检查、导出和 Quarto 渲染会按各自需要解析正文，程序不维护一份长期保存的 AST 文件。搜索索引按语言取自正文，避免把重复署名提示、供稿按钮等界面文本混入检索结果。英文项目的 `_quarto.yml` 和 PDF 专用扁平章节配置是从共享配置生成的中间配置，维护时不编辑或提交。
+
+更新记录在构建时校验日期、类型、双语摘要和文章标识，再经占位块展开机制生成集中更新页，供网页、PDF 和 Markdown 使用，不回写 `.qmd`。相关文章按稳定标识解析到当前标题和位置；移动或改名保留标识，合并后通过承接页保留的旧页首锚点定位。更新页保留原网址、讨论标识和六条手工历史里程碑，首页和文章页不增加更新组件。构建只依赖仓库中的记录与正文，不需要 Git 历史、GitHub API 或额外服务。记录日期表示内容变化的时间，不代表正文事实已于当天核验。
 
 构建核对中英文页面、标题锚点及署名块的对应关系，并拒绝缺失或来源哈希过期的译文。网页将连续相同原作者、补充者与确认状态的内容合并显示一次署名；PDF 在每章内也按这三项合并连续署名，跨小节适用，任一项变化、切回先前署名或进入新章时重新显示。源块和 Markdown 仍逐块保留作者归属。作者主页从这些署名字段汇总，不依据 Git 提交者或未确认的个人信息推断。
 
@@ -61,7 +68,7 @@ flowchart TD
 
 文件夹按主题组织维护源，阅读顺序由 `book/_quarto.yml` 的显式章节目录决定。网站使用 `part/contents` 与 `section/contents` 组织“一级主题 → 二级专题 → 具体文章”；PDF 从同一目录树按顺序展开文章，只保留一级主题及辅助分组。构建递归发现各层 `.qmd`，并校验每种语言的章节目录是否完整覆盖全部正文与作者页，以及是否重复。每篇文章有一个主要归属，其它栏目用链接关联；待补导览明确区分已有攻略和规划选题。旧 HTML 地址通过生成的跳转页保留查询参数和锚点，旧 Markdown 地址提供迁移提示；这些兼容文件由当前正文和别名表生成，旧位置不保存重复正文源。新增和移动文章的步骤见[文章目录与文件移动](../CONTRIBUTING.md#文章目录与文件移动)。
 
-`scripts/build.py` 先检查源文件，再渲染、导出并校验生成结果。修改应写回 `.qmd`、作者表或配置；`book/_book/` 是生成目录。Actions 为分支构建保留附件；只有 `main` 的推送或手动运行会发布 Pages。其他分支用于修改与审核，PR 合并到 `main` 后自动更新网站。具体操作见[维护者设置与发布](maintainer-setup.md)。
+`scripts/build.py` 先检查源文件，再渲染、导出并校验生成结果。修改应写回 `.qmd`、更新记录、作者表或配置；`book/_book/` 是生成目录。Actions 为分支构建保留附件；只有 `main` 的推送或手动运行会发布 Pages。其他分支用于修改与审核，PR 合并到 `main` 后自动更新网站。具体操作见[维护者设置与发布](maintainer-setup.md)。
 
 ## 读者评论、供稿与编辑采纳
 

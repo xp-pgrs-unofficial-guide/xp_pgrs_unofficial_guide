@@ -175,6 +175,27 @@ figcaption { color: var(--guide-muted); line-height: 1.6; }
 .guide-author-summary { color:var(--guide-muted); }
 @media print { .guide-reading-controls, .guide-translation-note { display:none; } }
 
+/* Short changelog records share the article's typography and attribution rail. */
+.guide-update {
+  margin-block: .35rem 1rem;
+  padding-block: .55rem .85rem;
+  border-bottom: 1px solid var(--guide-line);
+}
+.guide-update > p { margin-bottom: .4rem; }
+.guide-update > p:first-of-type {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .7rem;
+  line-height: 1.6;
+}
+.guide-update-date { color: var(--guide-muted); font-size: .85rem; font-variant-numeric: tabular-nums; }
+.guide-update-kind {
+  display: inline-block; border: 1px solid var(--guide-line); border-radius: 99px;
+  padding: .05rem .55rem; color: var(--guide-muted); font-size: .75rem;
+}
+.guide-update-kind.content { color: var(--guide-teal); background: var(--guide-soft); }
+.guide-update-links { color: var(--guide-muted); font-size: .86rem; line-height: 1.65; overflow-wrap: anywhere; }
+.guide-update-links p { margin: 0; }
+.guide-update > :last-child { margin-bottom: 0; }
+
 /* Keep profile links recognizable and touchable without repeating their labels. */
 .guide-profile-links {
   position: relative; display: inline-flex; flex-wrap: wrap; align-items: center;

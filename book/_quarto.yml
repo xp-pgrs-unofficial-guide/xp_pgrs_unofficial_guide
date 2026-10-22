@@ -126,8 +126,10 @@ book:
 lang: zh-CN
 metadata-files:
 - _authors.yml
+- _updates.generated.yml
 filters:
 - filters/author-pages.lua
+- filters/updates.lua
 - filters/attribution.lua
 - filters/publishing.lua
 guide-repo: https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide

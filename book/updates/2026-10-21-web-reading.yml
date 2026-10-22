@@ -1,0 +1,9 @@
+# Historical backfill: 0a13263, b8eaeb8, b177061; merged to main in fffd3df.
+date: 2026-10-21
+type: site
+summary:
+  zh-CN: 指南改为可搜索的文章网站，支持按篇评论、供稿与纠错。
+  en: The guide became a searchable article-based website, with per-article discussions and contribution and correction links.
+articles:
+  - xp-guide-home
+  - xp-guide-contributing

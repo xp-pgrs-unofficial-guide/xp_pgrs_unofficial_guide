@@ -76,7 +76,27 @@ python3 -c "import hashlib,pathlib; print(hashlib.sha256(pathlib.Path('book/cont
 
 本地图片仍共用 `book/assets/`；英文文件引用时须按自身位置调整相对路径。标题层级和段落应与中文对应；为两边的小节标题显式填写相同的 `{#稳定标识}`，构建会检查标题定位一致。新增文章需同时补充对应译文；若需帮助，可先提交 Issue，由编辑协助整理。
 
-共享目录和输出设置维护于 `book/_quarto.yml`，英文书名和目录主题译名维护于 `book/_languages.yml`。`book/en/_quarto.yml` 与 PDF 专用扁平章节配置是构建生成物，不手工编辑或提交。
+共享目录和输出设置维护于 `book/_quarto.yml`，英文书名和目录主题译名维护于 `book/_languages.yml`。`book/en/_quarto.yml`、PDF 专用扁平章节配置和 `book/_updates.generated.yml` 是构建生成物，不手工编辑或提交。
+
+## 更新记录
+
+新文章、重要经验补充、实质纠错，以及目录、搜索、评论等读者可感知的网站改进，应在 `book/updates/` 新增一个小 YAML 文件。每次逻辑上独立的变化写一条记录，可关联多篇文章；中文修改与对应英文同步共用一条。错字、排版、常规翻译同步、来源哈希和内部构建调整通常省略，无需每次提交都新增记录，也无需为日常更新升级版本号。
+
+文件名采用日期和简短主题，例如 `2026-10-22-apr-advice.yml`；以下内容可复制后按实际变化修改：
+
+```yaml
+date: 2026-10-22
+type: content
+summary:
+  zh-CN: 补充年度进展评审的准备经验。
+  en: Add practical preparation advice for the annual progress review.
+articles:
+  - xp-guide-apr
+```
+
+`date` 由编辑填写，格式为 `YYYY-MM-DD`，表示这次变化的日期，不是文中事实的核验日期。`type` 只使用 `content`（内容更新）或 `site`（网站改进）；摘要各用中英文一句话说明读者能看到的变化。`articles` 填文章页首的稳定标识，通常与 `discussion-id` 相同；内容更新至少关联一篇文章，全站性网站改进可写 `articles: []`。文章移动或改名时保留稳定标识，合并时在承接页保留旧页首锚点，已有记录便能继续定位；显示标题和链接由构建按当前文章自动解析。
+
+同一份记录自动汇总到集中更新页的中英文版本，并进入 PDF 和 Markdown；首页和文章页不增加更新组件。原有六条手工版本记录保留为历史里程碑。不要直接编辑生成的近期更新列表或 `book/_updates.generated.yml`，构建不会把生成内容写回正文源文件，也不依赖 Git 历史或外部服务。CI 会校验已有记录的日期、类型、双语摘要和文章标识；是否需要为一次修改新增记录，由编辑和审稿人判断。
 
 ## 段落署名与写作格式
 
@@ -177,7 +197,7 @@ python3 scripts/build.py --html-only
 quarto preview book
 ```
 
-运行构建后，也可用 `quarto preview book/en` 预览英文。完整构建同时生成两种语言的 PDF、Markdown 和检索索引，还需要包含 ctex、Fandol 字体的 XeLaTeX 环境：
+运行构建后，也可用 `quarto preview book/en` 预览英文。修改 `book/updates/` 的记录后，需重新运行 `python3 scripts/build.py --html-only` 再预览，以刷新生成的更新数据。完整构建同时生成两种语言的 PDF、Markdown 和检索索引，还需要包含 ctex、Fandol 字体的 XeLaTeX 环境：
 
 ```sh
 python3 scripts/build.py
@@ -194,4 +214,4 @@ node --test tests/ui/guide.test.js
 
 预览时核对三级目录的展开折叠与当前文章标示、待补导览的明确提示、旧文章和旧小节入口，以及系统默认主题、手动切换、同篇语言切换、作者链接和连续署名的显示。署名图标需检查长内容滚动、作者交界、键盘操作和窄屏轻点，确认高亮范围与源块一致。需要 PDF 时运行 `python3 scripts/build.py`，使构建生成的扁平章节配置生效；网页预览继续使用上述 `quarto preview` 命令。PDF 样式修改需完整构建并检查封面、目录和正文页。
 
-Pull Request 请说明改动主题、资料来源及作者归属。CI 会验证源文件并构建网页、PDF 和纯 Markdown，输出可从 Actions 的 `guide-build` artifact 下载。不要把 `book/_book/` 或缓存文件提交到仓库。
+Pull Request 请说明改动主题、资料来源及作者归属，并检查本次变化是否需要[更新记录](#更新记录)。有记录时，预览集中更新页的中英文摘要、相关文章和窄屏换行。CI 会验证源文件和已有更新记录，并构建网页、PDF 和纯 Markdown，输出可从 Actions 的 `guide-build` artifact 下载。不要把 `book/_book/`、生成配置或缓存文件提交到仓库。

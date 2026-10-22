@@ -8,6 +8,7 @@ book/.quarto/
 book/.quarto-*/
 book/*.tex
 book/*.pdf
+book/_updates.generated.yml
 __pycache__/
 output/
 tmp/

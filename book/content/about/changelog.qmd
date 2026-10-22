@@ -1,6 +1,8 @@
 ---
 title: 更新日志
 discussion-id: xp-guide-changelog
+guide-updates-page: true
+toc-depth: 3
 legacy-source:
 - chapters/update_log.tex
 ---
@@ -10,7 +12,22 @@ legacy-source:
 
 ::: {.contribution authors="editorial"}
 
-本页面由项目管理员维护，只记录大版本更新。小版本更新内容，可到 [GitHub commit 页](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/commits/main)查询。
+这里按月份汇总攻略的实质内容变化和读者可感知的网站改进。每条记录简述一次变化，并链接到相关内容；日常更新无需升级版本号。
+
+记录日期表示该次变化的日期，不代表文章中政策、金额或流程的核验日期。早期网站更新依据仓库提交补录，未将全部提交转换为读者日志。
+
+:::
+
+## 近期更新 {#recent-updates}
+
+::: {.guide-updates}
+:::
+
+## 历史里程碑（旧版记录） {#historical-milestones}
+
+::: {.contribution authors="editorial"}
+
+以下完整保留旧版手工记录中的文字和日期。
 
 - v0.1 on 2022/8/9：完成项目创建，确定模板，构建GitHub Actions自动在线编译并发布
 
@@ -23,5 +40,13 @@ legacy-source:
 - v1.0 on 2024/08/12：补完毕业章节
 
 - v1.1 on 2024/10/21：新增 [学术研究是怎么发生的](../research/how-research-works.qmd#section.how-research-works)、 [利物浦访学](../research/liverpool-visit.qmd#section.UoL_visit)
+
+:::
+
+## 进一步追溯 {#changelog-more-links}
+
+::: {.contribution authors="editorial"}
+
+具体修改可查阅 [GitHub 提交历史](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/commits/main)；历次 PDF 发布可查阅 [GitHub Releases](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/releases)。
 
 :::
