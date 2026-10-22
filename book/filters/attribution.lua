@@ -155,14 +155,31 @@ local function contribution(div)
     div.attributes.status = nil
     return div
   end
-  local result = pandoc.Blocks({pandoc.Para({
-    pandoc.Strong({pandoc.Str(english and "Attribution: " or "署名：")}),
-    pandoc.Str(label_text(names, contributors, uncertain))
-  })})
+  local result = pandoc.Blocks({})
+  local key = signature(ids, contributor_ids, uncertain)
+  -- A print credit applies until the authorship changes, including across
+  -- section headings. Plain Markdown keeps each source block self-contained.
+  if not FORMAT:match("latex") or key ~= previous_signature then
+    result:insert(pandoc.Para({
+      pandoc.Strong({pandoc.Str(english and "Attribution: " or "署名：")}),
+      pandoc.Str(label_text(names, contributors, uncertain))
+    }))
+  end
+  if FORMAT:match("latex") then previous_signature = key end
   result:extend(div.content)
   -- Unwrap to ordinary blocks in GFM/PDF: no widget markup or custom source
   -- syntax should be required to read the exported text.
   return result
 end
 
-return {{Meta = read_registry}, {Div = contribution}}
+local blocks = {Div = contribution}
+if FORMAT:match("latex") then
+  -- Quarto combines chapters into one PDF document. Visit headings and credit
+  -- blocks in source order so every chapter starts with an explicit credit.
+  blocks.traverse = "topdown"
+  blocks.Header = function(header)
+    if header.level == 1 then previous_signature = nil end
+  end
+end
+
+return {{Meta = read_registry}, blocks}

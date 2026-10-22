@@ -4,7 +4,7 @@ discussion-id: xp-guide-contributing
 lang: en
 translation-source: content/appendix/contributing.qmd
 translation-status: draft
-translation-source-sha256: 6a273ee5e66b051c923034f32f49273620f7e65465cfa83dd3b533a576ca14eb
+translation-source-sha256: b6c3f9d82e186204f47e4d54fba0bc99435b80cbfb72216f02fa50967dd5cedb
 ---
 
 ::: {#xp-guide-contributing}
@@ -62,7 +62,7 @@ Put content confirmed as Yue Zhou's contribution here.
 :::
 ```
 
-Use `authors="shiyao-zhang,yue-zhou"` when both people actually wrote the same passage together. Use `authors="shiyao-zhang" contributors="yue-zhou"` when the original text is retained and another person adds substantive material. Consecutive content with the same authors, contributors, and confirmation status shares one author icon on the right; a change starts a new icon. The icon follows the scroll position within its content's range. Hover over, focus with the keyboard, or click it to see the credits and highlight that range; tap it on a phone. Press Escape or click outside to close it. Keep each source block attributed according to its actual authorship; PDF and Markdown retain each block's credits. See [paragraph attribution and writing format](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md#段落署名与写作格式) for more examples.
+Use `authors="shiyao-zhang,yue-zhou"` when both people actually wrote the same passage together. Use `authors="shiyao-zhang" contributors="yue-zhou"` when the original text is retained and another person adds substantive material. Consecutive content with the same authors, contributors, and confirmation status shares one author icon on the right; a change starts a new icon. The icon follows the scroll position within its content's range. Hover over, focus with the keyboard, or click it to see the credits and highlight that range; tap it on a phone. Press Escape or click outside to close it. Source files and Markdown keep each block's credits according to its actual authorship. Within each PDF chapter, consecutive content with the same authors, contributors, and confirmation status shares one credit, including across section headings. Any change starts a new credit, including a return to an earlier credit; every new chapter starts afresh. See [paragraph attribution and writing format](https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/blob/main/CONTRIBUTING.md#段落署名与写作格式) for more examples.
 
 When organizing a historical article with several authors, check the original material or obtain confirmation from the authors, then divide it into blocks according to the actual contributions. Keep `status="unverified"` on historical content whose attribution remains uncertain, and use `authors="unknown"` if the author's identity is also unknown.
 

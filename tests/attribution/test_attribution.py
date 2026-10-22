@@ -244,6 +244,118 @@ class AttributionFilterTests(unittest.TestCase):
         for marker in ["data-attribution-run", 'role="group"', "attribution-scope", "<svg"]:
             self.assertNotIn(marker, result.stdout)
 
+    def test_latex_coalesces_same_credits_across_section_headings(self):
+        body = '''## First section {#first-section}
+
+::: {.contribution authors="kai-wu,yue-zhou" status="unverified"}
+First body.
+:::
+
+### Next subsection {#next-subsection}
+
+::: {.contribution authors="yue-zhou,kai-wu" status="unverified"}
+Second body.
+:::
+
+## Last section {#last-section}
+
+::: {.contribution authors="kai-wu,yue-zhou" status="unverified"}
+Third body.
+:::
+'''
+        for lang, label, author in [("zh-CN", r"\textbf{署名：}", "原作者：吴开（Kai Wu）、Yue Zhou"),
+                                     ("en", r"\textbf{Attribution: }", "Original author: Kai Wu、Yue Zhou")]:
+            with self.subTest(language=lang):
+                result = convert('---\nlang: ' + lang + '\n---\n\n' + body, "latex")
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(result.stdout.count(label), 1)
+                self.assertIn(author, result.stdout)
+                self.assertLess(result.stdout.index(label), result.stdout.index("First body."))
+                for text in ["First body.", "Second body.", "Third body."]:
+                    self.assertEqual(result.stdout.count(text), 1)
+                for identifier in ["first-section", "next-subsection", "last-section"]:
+                    self.assertEqual(result.stdout.count(r"\label{" + identifier + "}"), 1)
+                self.assertLess(result.stdout.index("First body."), result.stdout.index("Next subsection"))
+                self.assertLess(result.stdout.index("Second body."), result.stdout.index("Last section"))
+
+    def test_latex_credit_changes_and_returning_authors_restart_attribution(self):
+        attributes = ['authors="kai-wu"', 'authors="kai-wu" contributors="yue-zhou"',
+                      'authors="kai-wu" contributors="yue-zhou" status="unverified"',
+                      'authors="yue-zhou"', 'authors="kai-wu"', 'authors="kai-wu"']
+        body = "\n\n".join(
+            f'## Section {index}\n\n::: {{.contribution {attrs}}}\nBODY-{index}.\n:::'
+            for index, attrs in enumerate(attributes, 1))
+        for lang, label, original, addition, uncertain in [
+                ("zh-CN", r"\textbf{署名：}", "原作者：", "实质补充：", "具体段落归属待确认"),
+                ("en", r"\textbf{Attribution: }", "Original author: ", "Substantive additions: ",
+                 "Paragraph attribution awaiting confirmation")]:
+            with self.subTest(language=lang):
+                result = convert('---\nlang: ' + lang + '\n---\n\n' + body, "latex")
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(result.stdout.count(label), 5)
+                start = 0
+                for index in range(1, 7):
+                    end = result.stdout.index(f"BODY-{index}.")
+                    region = result.stdout[start:end]
+                    self.assertEqual(region.count(label), int(index != 6), (lang, index, region))
+                    if index != 6:
+                        name = "Yue Zhou" if index == 4 else ("Kai Wu" if lang == "en" else "吴开（Kai Wu）")
+                        self.assertIn(original + name, region)
+                    self.assertEqual(addition in region, index in [2, 3])
+                    self.assertEqual(uncertain in region, index == 3)
+                    start = end + len(f"BODY-{index}.")
+
+    def test_latex_starts_each_chapter_with_its_own_credit(self):
+        chapters = ['''# First chapter {#first-chapter}
+
+::: {.contribution authors="kai-wu"}
+First body.
+:::
+
+## Same author subsection
+
+::: {.contribution authors="kai-wu"}
+Second body.
+:::
+''', '''# Second chapter {#second-chapter}
+
+::: {.contribution authors="kai-wu"}
+Third body.
+:::
+''']
+        for wrapped in [False, True]:
+            body = "\n\n".join(':::: {.chapter}\n\n' + chapter + '\n::::' if wrapped else chapter
+                                 for chapter in chapters)
+            for lang, label in [("zh-CN", r"\textbf{署名：}"), ("en", r"\textbf{Attribution: }")]:
+                with self.subTest(language=lang, chapter_wrappers=wrapped):
+                    result = convert('---\nlang: ' + lang + '\n---\n\n' + body, "latex")
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                    self.assertEqual(result.stdout.count(label), 2)
+                    split = result.stdout.index("Second chapter")
+                    self.assertEqual(result.stdout[:split].count(label), 1)
+                    self.assertEqual(result.stdout[split:].count(label), 1)
+                    for text in ["First body.", "Second body.", "Third body."]:
+                        self.assertEqual(result.stdout.count(text), 1)
+                    self.assertIn(r"\label{second-chapter}", result.stdout)
+
+    def test_markdown_keeps_each_source_credit_when_pdf_coalesces_sections(self):
+        body = "\n\n".join(
+            f'## Section {index} {{#section-{index}}}\n\n'
+            f'::: {{.contribution authors="kai-wu"}}\nBODY-{index}.\n:::'
+            for index in range(1, 4))
+        for lang, pdf_label, markdown_label in [("zh-CN", r"\textbf{署名：}", "**署名：**"),
+                                               ("en", r"\textbf{Attribution: }", "**Attribution: **")]:
+            with self.subTest(language=lang):
+                source = '---\nlang: ' + lang + '\n---\n\n' + body
+                latex, markdown = convert(source, "latex"), convert(source, "gfm")
+                self.assertEqual(latex.returncode, 0, latex.stderr)
+                self.assertEqual(markdown.returncode, 0, markdown.stderr)
+                self.assertEqual(latex.stdout.count(pdf_label), 1)
+                self.assertEqual(markdown.stdout.count(markdown_label), 3)
+                for index in range(1, 4):
+                    self.assertEqual(markdown.stdout.count(f"BODY-{index}."), 1)
+                    self.assertIn(f"Section {index}", markdown.stdout)
+
     def test_unknown_author_fails_instead_of_silently_misattributing(self):
         result = convert('::: {.contribution authors="typo-author"}\nText.\n:::\n', "html5")
         self.assertNotEqual(result.returncode, 0)
